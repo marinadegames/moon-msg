@@ -40,38 +40,12 @@
 
 /* ================ CUSTOM  ================*/
 
-
 body{
   background-color: #282c34;
   color: azure;
   padding: 1.5em;
 }
 
-a{
-  text-decoration: none;
-  cursor: pointer;
-  transition: 0.2s;
-}
 
-a:hover{
-  color: wheat;
-}
-
-li{
-  text-align: left;
-}
-
-.headerLinks a{
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.headerLinks a:hover{
-  color: wheat;
-}
-
-.header{
-  align-items: center;
-}
 
 
