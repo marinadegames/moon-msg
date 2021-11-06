@@ -1,4 +1,5 @@
 import './App.css';
+import OpenAllMaps from './jsFiles/openAllMaps.js';
 
 const App = () => {
   return (
@@ -7,6 +8,7 @@ const App = () => {
       <Header />
       <Technologies />
       <MySolvesTasks />
+      <OpenAllMaps />
     </div>
     
   );
