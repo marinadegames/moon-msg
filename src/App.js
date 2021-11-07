@@ -1,14 +1,14 @@
 import React from 'react';
 import './App.css';
-import Header from './components/Header';
-import Navbar from './components/Nav';
-import Profile from './components/Profile';
-import Footer from './components/Footer';
+import Header from './components/Header/Header.jsx';
+import Navbar from './components/Navbar/Nav';
+import Profile from './components/Profile/Profile';
+import Footer from './components/Footer/Footer';
 
 const App = () => {
   return (
     <div className='appWrapper'>
-      <Header />
+      <Header /> 
       <div className='main'>
         <Navbar />
         <main className='content'>
@@ -23,8 +23,5 @@ const App = () => {
     </div>
   );
 }
-
-
-
 
 export default App;

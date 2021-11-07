@@ -1,0 +1,31 @@
+.nav{
+    width: 20%;
+    margin: 10px;
+    padding: 20px;
+    background-color: var(--block-color);
+    border-radius: 10px;
+  }
+  
+  .navLink{
+    margin-bottom: 10px;
+    padding: 10px 0 10px 10px;
+    background-color: #30333a;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: 0.1s ;  
+  }
+  .navLink:hover{
+    transform: scale( 1.03);
+  }
+  
+  .nav a:hover{
+    color: #ffc0e0;
+  }
+
+  .delimiter{
+    margin-bottom: 10px;
+    padding: 10px 0 10px 10px;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: 0.1s ;  
+  }

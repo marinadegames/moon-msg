@@ -1,0 +1,6 @@
+.header{
+    margin: 10px;
+    padding: 20px;
+    background-color: var(--block-color);
+    border-radius: 10px;
+  }

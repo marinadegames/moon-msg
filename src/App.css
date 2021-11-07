@@ -57,38 +57,9 @@ body{
   padding: 1.5em;
 }
 
-.header{
-  /* border: 2px solid #61dafb; */
-  margin: 10px;
-  padding: 20px;
-  background-color: var(--block-color);
-  border-radius: 10px;
-}
 
-.nav{
-  
-  width: 20%;
-  margin: 10px;
-  padding: 20px;
-  background-color: var(--block-color);
-  border-radius: 10px;
-}
 
-.navLink{
-  margin-bottom: 10px;
-  padding: 10px 0 10px 10px;
-  background-color: #30333a;
-  font-weight: 600;
-  border-radius: 10px;
-  transition: 0.1s ;  
-}
-.navLink:hover{
-  transform: scale( 1.08);
-}
 
-.nav a:hover{
-  color: #bebebe;
-}
 
 a{
   text-decoration: none;
@@ -121,91 +92,3 @@ a:hover{
   background-color: var(--block-color);
   border-radius: 10px;
 }
-
-.delimiter{
-  margin-bottom: 10px;
-  padding: 10px 0 10px 10px;
-  font-weight: 600;
-  border-radius: 10px;
-  transition: 0.1s ;  
-}
-
-.backImg{
-  width: 100%;
-  height: 10em;
-  background-image: url(https://images.pexels.com/photos/844297/pexels-photo-844297.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260);
-  background-size: cover;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
-.mainProfile{
-  display: flex;
-  justify-content: start;
-}
-
-.avatar{
-  background-image: url(https://cdn-icons-png.flaticon.com/512/147/147144.png);
-  width: 100px;
-  height: 100px;
-  background-size: cover;
-  margin: 0 40px 20px 0;
-}
-.profileData{
-  width: 80%;
-}
-
-.postsTitle {
-  margin-bottom: 10px;
-}
-
-.sendPostDiv{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.sendPostDiv textarea{
-  background-color: #282c34;
-  border-radius: 10px;
-  margin: 0 0 15px 10px;
-  padding: 10px;
-  height: 100px;
-  width: 96%;
-  color: aliceblue;
-  font-size: 20px;
-  outline: none;
-  resize: none;
-}
-
-.btnSend{
-  margin-bottom: 10px;
-  padding: 10px 0 10px 10px;
-  background-color: #30333a;
-  font-weight: 600;
-  border-radius: 10px;
-  width: 10%; 
-  text-align: center;
-  padding-right: 10px;
-  cursor: pointer;
-  transition: 0.1s ;
-
-}
-
-.btnSend:hover{
-  background-color: seagreen;
-}
-
-.postDiv{
-  margin-bottom: 10px;
-  background-color: #30333a;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.textMyPost{
-  padding-top: 10px;
-  font-size: 25px;
-}
-
