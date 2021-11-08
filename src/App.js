@@ -8,7 +8,7 @@ import Footer from './components/Footer/Footer';
 const App = () => {
   return (
     <div className='appWrapper'>
-      <Header /> 
+      <Header name='Eugene' age='25' /> 
       <div className='main'>
         <Navbar />
         <main className='content'>

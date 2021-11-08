@@ -8,7 +8,7 @@ const MyPosts = () => {
       <div className={s.sendPost}>
         <div className={s.postsTitle}><h2>Send post:</h2><small>Max symbols: 200</small></div>
         <div className={s.sendPostDiv}>
-          <textarea maxlength='200' className={s.textArea}></textarea>
+          <textarea className={s.textArea}></textarea>
           <div className={s.btnSend}>SEND</div>
         </div>
       </div>
@@ -17,13 +17,13 @@ const MyPosts = () => {
 
         <div>
 
-          <Post />
-          <Post />
-
+          <Post message='I really want to know JS and React!' likesCount='21'/>
+          <Post message="Hi! My name is Eugene! I really want to become a programmer!" likesCount='1021'/>
+          <Post message='Hi! It is goooooooo day!!!!' likesCount='34389'/>
         </div>
 
       </div>
-    </div>
+    </div> 
   )
 }
 
