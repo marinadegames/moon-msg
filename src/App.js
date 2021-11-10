@@ -4,6 +4,7 @@ import Header from './components/Header/Header.jsx';
 import Navbar from './components/Navbar/Nav';
 import Profile from './components/Profile/Profile';
 import Footer from './components/Footer/Footer';
+import Dialogs from './components/Dialogs/Dialogs';
 
 const App = () => {
   return (
@@ -12,7 +13,14 @@ const App = () => {
       <div className='main'>
         <Navbar />
         <main className='content'>
-          <Profile />
+
+          <div className='appWrapperContent'>
+
+            <Profile />
+            {/* <Dialogs /> */}
+
+          </div>
+
         </main>
       </div>
 

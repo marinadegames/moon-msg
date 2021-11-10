@@ -15,7 +15,9 @@
     transition: 0.1s ;  
   }
   .navLink:hover{
-    transform: scale( 1.03);
+    color: white;
+    background-color: #5e6c80;
+    transform: scale( 1.05);
   }
   
   .nav a:hover{
