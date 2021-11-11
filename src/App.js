@@ -5,19 +5,28 @@ import Navbar from './components/Navbar/Nav';
 import Profile from './components/Profile/Profile';
 import Footer from './components/Footer/Footer';
 import Dialogs from './components/Dialogs/Dialogs';
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 const App = () => {
   return (
+
     <div className='appWrapper'>
-      <Header name='Eugene' age='25' /> 
+      <Header name='Eugene' age='25' />
       <div className='main'>
         <Navbar />
         <main className='content'>
 
           <div className='appWrapperContent'>
 
-            <Profile />
-            {/* <Dialogs /> */}
+            <BrowserRouter>
+              <Routes>
+
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/dialogs" element={<Dialogs />} />
+
+
+              </Routes>
+            </BrowserRouter>
 
           </div>
 
@@ -29,6 +38,7 @@ const App = () => {
       </footer>
 
     </div>
+
   );
 }
 

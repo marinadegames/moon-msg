@@ -14,6 +14,10 @@
     border-radius: 10px;
     transition: 0.1s ;  
   }
+  .navLink:active {
+    color: #ffc0e0;
+    background-color: #5e6c80;
+  }
   .navLink:hover{
     color: white;
     background-color: #5e6c80;
