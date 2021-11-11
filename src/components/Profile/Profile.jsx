@@ -2,7 +2,7 @@ import React from "react";
 import MyPosts from "./MyPosts/MyPosts";
 import s from "./Profile.module.css"
 
-const Profile = () =>{
+const Profile = (props) =>{
     return (
         <div>
         <div className={s.backImg}></div>
