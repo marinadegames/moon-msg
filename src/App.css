@@ -1,38 +1,164 @@
-.App {
-  text-align: center;
+/* CUSTOM COLORS */
+:root {
+    --light-blue: #085BFD;
+    --dark-blue: #0F1E7E;
+    --light-red: #e72f11;
+    --gray: #676D7C;
+    --back-white: #acd5f5;
+    --back-black: #111518;
+    --back-box-white: #f0f5ff;
+    --link: #dd9316;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+/* ========= ALL APP ========= */
+
+body {
+    background-color: var(--back-white);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a{
+    color: var(--link);
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+/* ========= HEADER =========*/
+
+.header {
+    /*border: 1px solid black;*/
+    border-radius: 10px;
+    margin: 2rem 2rem 0.5rem 2rem;
+    padding: 2rem 2rem 2rem 2rem;
+    background-color: var(--back-box-white);
+
+}
+.divHeader{
+    font-size: 3rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* ========= Page =========*/
+
+.page {
+
+
+    display: flex;
+    justify-content: start;
 }
 
-.App-link {
-  color: #61dafb;
+/* ========= Nav =========*/
+.nav {
+    /*border: 1px solid black;*/
+    border-radius: 10px;
+    margin: 0.5rem 0.5rem 0.5rem 2rem;
+    padding: 2rem 3rem 2rem 2rem;
+    background-color: var(--back-box-white);
+}
+.navLink{
+    font-size: 1.5rem;
+    padding: 0 0 1rem 0;
+    cursor: pointer;
+    transition: all 0.2s;
+    display:flex;
+}
+.navLink img{
+    padding: 0 1rem 0 0;
+}
+.navLink active{
+    color: var(--dark-blue);
+}
+.navLink:hover{
+    color: var(--light-blue);
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* ========= Main =========*/
+
+.main {
+    /*border: 1px solid black;*/
+    border-radius: 10px;
+    margin: 0.5rem 2rem 0.5rem 0.5rem;
+    padding: 2rem 2rem 2rem 2rem;
+    background-color: var(--back-box-white);
+    width: 100%;
+}
+.divMain{
+}
+
+/*PROFILE*/
+#avatarLogo{
+    width: 10rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+#avatarLogo:hover{
+    transform: scale(1.05);
+}
+.profile{
+    display: flex;
+}
+.nameUser{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.profileData{
+    margin: 0 0 0 2rem;
+}
+
+/* POSTS */
+.myPosts{
+    /*border: 1px solid black;*/
+    margin: 2rem 0 0 0;
+}
+.headerPosts{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.textAreaSendPost{
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 80px;
+    resize: none;
+    margin: 1rem 0 1rem 0;
+    border: none;
+    outline: none !important;
+    border-radius: 10px;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+
+}
+::-webkit-input-placeholder {color: #a5a5a5;}
+::-moz-placeholder          {color:#a5a5a5;}/* Firefox 19+ */
+:-moz-placeholder           {color:#a5a5a5;}/* Firefox 18- */
+:-ms-input-placeholder      {color:#a5a5a5;}
+
+.btnSendPost{
+    border: 2px solid var(--back-white);
+    color: #242424;
+    border-radius: 7px;
+    width: 6rem;
+    height: 2.2rem;
+    cursor: pointer;
+    background-color: white;
+    font-weight: 300;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+.btnSendPost:hover{
+    background-color: #63ae75;
+    border: 2px solid #63ae75;
+    color: white;
+}
+/* ========= FOOTER =========*/
+
+.footer {
+    /*border: 1px solid black;*/
+    border-radius: 10px;
+    margin: 0.5rem 2rem 2rem 2rem;
+    padding: 2rem 2rem 2rem 2rem;
+    background-color: var(--back-box-white);
 }
