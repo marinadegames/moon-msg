@@ -66,7 +66,7 @@ a:hover{
     padding: 0 1rem 0 0;
 }
 .navLink active{
-    color: var(--dark-blue);
+    color: var(--light-blue);
 }
 .navLink:hover{
     color: var(--light-blue);
