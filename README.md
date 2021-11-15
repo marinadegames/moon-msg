@@ -1,12 +1,12 @@
-🤖 # Social Network \ Way of the samurai 1.0 
+# 🤖 Social Network \ Way of the samurai 1.0 #
 
-♻️ 'RELOAD PROJECT | TypeScript'
+## ♻️ RELOAD PROJECT | TypeScript ##
  
-❓ ## What's this app?
+### ❓ What's this app? ###
 This reposititory for my social network
 
-Update:
-🔘 v0.01 - RESTARTING the network to the 'TypeScript' | New README file
+#### Update: ####
+🔘 `v0.01` - RESTARTING the network to the `TypeScript` | New README file
 
 
-🙃 ### Good luck for me!
+### 🙃 Good luck for me! ###
