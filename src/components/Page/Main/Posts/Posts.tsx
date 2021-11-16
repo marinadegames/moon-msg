@@ -1,13 +1,13 @@
 import React from "react";
-import './Posts.css'
+import s from './Posts.module.css'
 
 const Posts = () => {
     return (
-        <div className='myPosts'>
-            <div className='headerPosts'>My Posts:</div>
+        <div className={s.myPosts}>
+            <div className={s.headerPosts}>My Posts:</div>
             <textarea maxLength={100} placeholder='Напишите что-нибудь...'
-                      className='textAreaSendPost'/>
-            <button className='btnSendPost'>Send</button>
+                      className={s.textAreaSendPost}/>
+            <button className={s.btnSendPost}>Send</button>
         </div>
     )
 }
