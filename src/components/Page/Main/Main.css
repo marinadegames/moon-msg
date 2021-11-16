@@ -1,0 +1,12 @@
+/* ========= Main =========*/
+
+.main {
+    /*border: 1px solid black;*/
+    border-radius: 10px;
+    margin: 0.5rem 2rem 0.5rem 0.5rem;
+    padding: 2rem 2rem 2rem 2rem;
+    background-color: var(--back-box-white);
+    width: 100%;
+}
+.divMain{
+}

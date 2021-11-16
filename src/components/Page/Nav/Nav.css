@@ -1,0 +1,27 @@
+
+
+/* ========= Nav =========*/
+.nav {
+    /*border: 1px solid black;*/
+    border-radius: 10px;
+    margin: 0.5rem 0.5rem 0.5rem 2rem;
+    padding: 2rem 3rem 2rem 2rem;
+    background-color: var(--back-box-white);
+}
+.navLink{
+    font-size: 1.5rem;
+    padding: 0 0 1rem 0;
+    cursor: pointer;
+    transition: all 0.2s;
+    display:flex;
+}
+.navLink img{
+    padding: 0 1rem 0 0;
+}
+.navLink active{
+    color: var(--link);
+}
+.navLink:hover{
+    color: var(--link);
+
+}

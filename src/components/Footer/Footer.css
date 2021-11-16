@@ -1,0 +1,9 @@
+/* ========= FOOTER =========*/
+
+.footer {
+    /*border: 1px solid black;*/
+    border-radius: 10px;
+    margin: 0.5rem 2rem 2rem 2rem;
+    padding: 2rem 2rem 2rem 2rem;
+    background-color: var(--back-box-white);
+}
