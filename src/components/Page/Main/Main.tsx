@@ -1,20 +1,26 @@
 import React from "react";
-import Posts from "./Posts/Posts";
+import Posts from "./Profile/Posts/Posts";
 import Profile from "./Profile/Profile";
+import Dialogs from "./Dialogs/Dialogs";
 import s from './Main.module.css'
-
+import {BrowserRouter, Route} from "react-router-dom";
 
 
 const Main = () => {
     return (
-        <main className={s.main}>
-            <div className={s.divMain}>
+        <BrowserRouter>
+            <main className={s.main}>
+                <div className={s.divMain}>
 
-                <Profile />
-                <Posts />
+                    <Route path='/profile' component={Profile}/>
+                    <Route path='/dialogs' component={Dialogs}/>
 
-            </div>
-        </main>
+                    {/*<Profile/>*/}
+                    {/*<Dialogs />*/}
+
+                </div>
+            </main>
+        </BrowserRouter>
     )
 }
 

@@ -30,10 +30,15 @@
     margin: 0.4rem 0 0 0.5rem;
     border-radius: 8px;
     transition: all 0.2s;
+    display: flex;
+    flex-direction: row;
 }
 .btnLike:hover{
     background-color: #d53c23;
     color: white;
+}
+.btnLike div{
+    margin-left: 0.3rem;
 }
 .btnShare{
     cursor: pointer;

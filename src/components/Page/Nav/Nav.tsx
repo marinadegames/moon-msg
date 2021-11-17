@@ -16,12 +16,12 @@ const Nav = () => {
 
                 <div className={s.navLink}>
                     <img src={linkIconProfile}/>
-                    <a className={s.active} href='#'>Profile</a>
+                    <a className={s.active} href='/profile'>Profile</a>
                 </div>
 
                 <div className={s.navLink}>
                     <img src={linkIconMessages}/>
-                    <a href='#'>Messages</a>
+                    <a href='/dialogs'>Messages</a>
                 </div>
 
 
