@@ -1,26 +1,24 @@
 import React from "react";
-import Posts from "./Profile/Posts/Posts";
+import {Route} from "react-router-dom";
+import s from './Main.module.css'
+
 import Profile from "./Profile/Profile";
 import Dialogs from "./Dialogs/Dialogs";
-import s from './Main.module.css'
-import {BrowserRouter, Route} from "react-router-dom";
-
+import Music from "./Music/Music";
+import Settings from "./Settings/Settings";
+import News from "./News/News";
 
 const Main = () => {
     return (
-        <BrowserRouter>
-            <main className={s.main}>
-                <div className={s.divMain}>
-
-                    <Route path='/profile' component={Profile}/>
-                    <Route path='/dialogs' component={Dialogs}/>
-
-                    {/*<Profile/>*/}
-                    {/*<Dialogs />*/}
-
-                </div>
-            </main>
-        </BrowserRouter>
+        <main className={s.main}>
+            <div className={s.divMain}>
+                <Route path='/profile' component={Profile}/>
+                <Route path='/dialogs' component={Dialogs}/>
+                <Route path='/news' component={News}/>
+                <Route path='/music' component={Music}/>
+                <Route path='/settings' component={Settings}/>
+            </div>
+        </main>
     )
 }
 

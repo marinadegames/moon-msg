@@ -1,6 +1,6 @@
 import React from "react";
-
 import s from './Nav.module.css'
+import {NavLink} from "react-router-dom";
 
 let linkIconProfile = 'https://img.icons8.com/external-flatart-icons-outline-flatarticons/32/000000/external-profile-whatsapp-flatart-icons-outline-flatarticons.png'
 let linkIconMessages = 'https://img.icons8.com/external-flatart-icons-outline-flatarticons/32/000000/external-message-chat-flatart-icons-outline-flatarticons-5.png'
@@ -15,29 +15,29 @@ const Nav = () => {
             <div className={s.divNav}>
 
                 <div className={s.navLink}>
-                    <img src={linkIconProfile}/>
-                    <a className={s.active} href='/profile'>Profile</a>
+                    <img src={linkIconProfile} alt='profile'/>
+                    <NavLink to='/profile' activeClassName={s.active}>Profile</NavLink>
                 </div>
 
                 <div className={s.navLink}>
-                    <img src={linkIconMessages}/>
-                    <a href='/dialogs'>Messages</a>
+                    <img src={linkIconMessages} alt='dialogs'/>
+                    <NavLink to='/dialogs' activeClassName={s.active}>Messages</NavLink>
                 </div>
 
 
                 <div className={s.navLink}>
-                    <img src={linkIconNews}/>
-                    <a href='#'>News</a>
+                    <img src={linkIconNews} alt='news'/>
+                    <NavLink to='/news' activeClassName={s.active}>News</NavLink>
                 </div>
 
                 <div className={s.navLink}>
-                    <img src={linkIconMusic}/>
-                    <a href='#'>Music</a>
+                    <img src={linkIconMusic} alt='music'/>
+                    <NavLink to='/music' activeClassName={s.active}>Music</NavLink>
                 </div>
 
                 <div className={s.navLink}>
-                    <img src={linkIconSettings}/>
-                    <a href='#'>Settings</a>
+                    <img src={linkIconSettings} alt='settings'/>
+                    <NavLink to='/settings' activeClassName={s.active}>Settings</NavLink>
                 </div>
 
             </div>

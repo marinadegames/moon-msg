@@ -29,8 +29,8 @@
     transition: all 0.1s;
 }
 
-.active{
-    color: red;
+.navLink .active{
+    color: var(--link);
 }
 
 
