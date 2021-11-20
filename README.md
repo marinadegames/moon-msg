@@ -8,6 +8,7 @@ This repository for my social network
 🟣 `v0.02` - FIRST layout | add `React-router` v.5.3.0 | fix package.json  
 🟡 `v0.03` - React-router-dom v4.3.1 | Use Router  
 🟠 `v0.04` - Add NavLink | add other pages  
+🟨 `v0.05` - Add Dialogs | other fix
 
 
 ### 🙃 Good luck for me! ###
