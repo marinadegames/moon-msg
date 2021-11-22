@@ -6,7 +6,7 @@ import Footer from "./components/Footer/Footer";
 import s from './App.module.css'
 import {BrowserRouter} from "react-router-dom";
 
-function App() {
+function App(props:any) {
     return (
         <BrowserRouter>
             <div className={s.App}>

@@ -8,12 +8,13 @@ import Music from "./Music/Music";
 import Settings from "./Settings/Settings";
 import News from "./News/News";
 
-const Main = () => {
+const Main = (props:any) => {
+
     return (
         <main className={s.main}>
             <div className={s.divMain}>
-                <Route path='/profile' component={Profile}/>
-                <Route path='/dialogs' component={Dialogs}/>
+                <Route path='/profile' render={ () => <Profile />}/>
+                <Route path='/dialogs' render={ () => <Dialogs />} />
                 <Route path='/news' component={News}/>
                 <Route path='/music' component={Music}/>
                 <Route path='/settings' component={Settings}/>

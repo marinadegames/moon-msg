@@ -2,13 +2,14 @@ import React from "react";
 import s from './Post.module.css'
 import Note from "./Note/Note";
 
-const Post = () => {
+const Post = (props:any) => {
 
     let postsData = [
         { id: 1, text: 'Hi! How are you?', likes: 10},
         { id: 2, text: "this is my first post", likes: 123 },
         { id: 3, text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.", likes: 356},
     ]
+
 
     return (
         <div className={s.postDiv}>

@@ -16,7 +16,7 @@ const Message = (props: any) => {
   return <div className={s.message}>{props.text}</div>
 }
 
-const Dialogs = () => {
+const Dialogs = (props:any) => {
 
     let dialogsData = [
         { id: 1, name: 'Eugene' },

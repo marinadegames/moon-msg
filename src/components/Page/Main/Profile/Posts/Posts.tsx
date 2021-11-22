@@ -12,7 +12,6 @@ const Posts = () => {
                 <button className={s.btnSendPost}>Send</button>
             </div>
 
-
             <Post/>
         </div>
     )
