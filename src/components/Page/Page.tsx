@@ -5,10 +5,16 @@ import './Page.module.css'
 import s from './Page.module.css'
 
 const Page = (props:any) => {
+
+
+
     return (
         <div className={s.page}>
             <Nav />
-            <Main />
+            <Main notesData={props.notesData}
+                  messagesData={props.messagesData}
+                  dialogsData={props.dialogsData}
+            />
         </div>
     )
 }

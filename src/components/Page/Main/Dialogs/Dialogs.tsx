@@ -16,27 +16,10 @@ const Message = (props: any) => {
   return <div className={s.message}>{props.text}</div>
 }
 
-const Dialogs = (props:any) => {
+const Dialogs = (props: any) => {
 
-    let dialogsData = [
-        { id: 1, name: 'Eugene' },
-        { id: 2, name: "Elina" },
-        { id: 3, name: "Jack" },
-        { id: 4, name: "Vlad" },
-        { id: 5, name: "Mamka" },
-    ]
-
-    let dialogsElements= dialogsData.map( dialog => <Dialog id={dialog.id} userName={dialog.name}/> )
-
-    let messagesData = [
-        { id: 1, text: 'Hi, how are you?' },
-        { id: 2, text: "Hello, i'm fine, thanks" },
-        { id: 3, text: "you ok?" },
-        { id: 4, text: "Yes, i'm right" },
-        { id: 5, text: "Good!" },
-    ]
-
-    let messagesElement = messagesData.map( message => <Message text={message.text}/>)
+    let dialogsElements = props.dialogsData.map( (d:any) => <Dialog id={d.id} userName={d.name}/> )
+    let messagesElements = props.messagesData.map( (m:any) => <Message id={m.id} text={m.text} />)
 
 
     return (
@@ -47,15 +30,11 @@ const Dialogs = (props:any) => {
             </div>
 
             <div className={s.messages}>
-                {messagesElement}
+                {messagesElements}
             </div>
 
         </div>
     )
 }
-
-
-
-
 
 export default Dialogs;

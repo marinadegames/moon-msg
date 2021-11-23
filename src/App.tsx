@@ -12,7 +12,11 @@ function App(props:any) {
             <div className={s.App}>
 
                 <Header/>
-                <Page/>
+                <Page
+                    notesData={props.notesData}
+                    messagesData={props.messagesData}
+                    dialogsData={props.dialogsData}
+                />
                 <Footer/>
 
             </div>

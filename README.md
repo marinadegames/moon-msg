@@ -9,6 +9,7 @@ This repository for my social network
 🟡 `v0.03` - React-router-dom v4.3.1 | Use Router  
 🟠 `v0.04` - Add NavLink | add other pages  
 🟨 `v0.05` - Add Dialogs | other fix  
-🗺️ `v0.06` - Add MAP
+🗺️ `v0.06` - Add MAP  
+🚚  `v0.07` - Transfer Data to index.js  
 
 ### 🙃 Good luck for me! ###
