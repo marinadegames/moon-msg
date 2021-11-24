@@ -13,9 +13,9 @@ function App(props:any) {
 
                 <Header/>
                 <Page
-                    notesData={props.notesData}
-                    messagesData={props.messagesData}
-                    dialogsData={props.dialogsData}
+                    notesData={props.state.profilePage.notesData}
+                    messagesData={props.state.dialogsPage.messagesData}
+                    dialogsData={props.state.dialogsPage.dialogsData}
                 />
                 <Footer/>
 
