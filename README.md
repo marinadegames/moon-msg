@@ -11,5 +11,8 @@ This repository for my social network
 🟨 `v0.05` - Add Dialogs | other fix  
 🗺️ `v0.06` - Add MAP  
 🚚  `v0.07` - Transfer Data to index.js  
+☑️ `v0.08` - LAYOUT | add box "friends" in Nav | Transfer data to state.ts | refactor code  
+
 
 ### 🙃 Good luck for me! ###
+### `🚀 vjuuuuuuhhhhhhhhh 🚀` ###

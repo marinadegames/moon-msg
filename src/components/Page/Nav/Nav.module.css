@@ -5,8 +5,11 @@
     /*border: 1px solid black;*/
     border-radius: 10px;
     margin: 0.5rem 0.5rem 0.5rem 2rem;
-    padding: 2rem 3rem 2rem 2rem;
+
     background-color: var(--back-box-white);
+}
+.divNav{
+    padding: 2rem 8rem 1rem 2rem;
 }
 .navLink{
     display: flex;
@@ -38,3 +41,61 @@
     color: var(--link);
 
 }
+
+hr{
+    margin: 0 2rem 0 2rem
+}
+
+/*==================== BOX FRIENDS ====================*/
+
+.blockFriends{
+    padding: 2rem 2rem 2rem 2rem;
+}
+.headerBlockFriends{
+    display: flex;
+    width: 100%;
+    font-size: 2rem;
+    margin: 0 0 1rem 0;
+}
+.boxFriends{
+
+}
+.boxFr{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    word-wrap: break-word;
+    text-align: center;
+    height: content-box;
+    margin: 0 1rem 0 0;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.boxFr:hover{
+    transform: scale(1.05);
+    color: var(--link);
+}
+.boxFr img{
+    height: 4rem;
+    width: 4rem;
+}
+
+.twoElements{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    margin: 0 0 1rem 0;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
