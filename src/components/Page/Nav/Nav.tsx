@@ -41,8 +41,6 @@ const Nav = () => {
                     <NavLink to='/settings' activeClassName={s.active}>Settings</NavLink>
                 </div>
 
-
-
             </div>
 
             <hr/>

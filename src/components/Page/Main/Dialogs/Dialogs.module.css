@@ -15,7 +15,7 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     border-radius: 10px;
-    width: 70%;
+    width: 100%;
     height: 100%;
     background-color: white;
     margin: 0 0 0 1rem;
@@ -46,4 +46,58 @@ Dialog .active {
 }
 .message{
     font-weight: 300;
+}
+
+.rightBox{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+}
+
+.textAreaSendMessage{
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 80px;
+    resize: none;
+    margin: 0.5rem 0 0.5rem 1rem;
+    border: none;
+    outline: none !important;
+    border-radius: 10px;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+
+}
+::-webkit-input-placeholder {color: #a5a5a5;}
+::-moz-placeholder          {color:#a5a5a5;}/* Firefox 19+ */
+:-moz-placeholder           {color:#a5a5a5;}/* Firefox 18- */
+:-ms-input-placeholder      {color:#a5a5a5;}
+
+
+.btnSendMessage{
+    border: 2px solid var(--back-white);
+    color: #242424;
+    border-radius: 7px;
+    width: 6rem;
+    height: 2.2rem;
+    cursor: pointer;
+    background-color: white;
+    font-weight: 300;
+    font-size: 1rem;
+    transition: all 0.2s;
+    margin: 0 -1rem 0 1rem;
+}
+.btnSendMessage:hover{
+    background-color: #63ae75;
+    border: 2px solid #63ae75;
+    color: white;
+}
+.rightFlex{
+    padding: 0 0 0 1rem;
+    margin: 0 0 0 1rem;
+    display: flex;
+    justify-content: end;
 }

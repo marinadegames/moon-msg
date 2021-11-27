@@ -12,6 +12,8 @@ This repository for my social network
 🗺️ `v0.06` - Add MAP  
 🚚  `v0.07` - Transfer Data to index.js  
 ☑️ `v0.08` - LAYOUT | add box "friends" in Nav | Transfer data to state.ts | refactor code  
+🌴    `v0.09` - add ref + onclick Post and Message
+
 
 
 ### 🙃 Good luck for me! ###
