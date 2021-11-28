@@ -24,4 +24,16 @@ let state = {
     },
 }
 
+
+export let addNote = (postMessage:any) => {
+    let newNote = {
+        id: 5,
+        text: postMessage,
+        likes: 0
+    }
+
+    state.profilePage.notesData.push(newNote);
+
+}
+
 export default state;

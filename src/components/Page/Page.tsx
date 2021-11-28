@@ -14,6 +14,7 @@ const Page = (props:any) => {
             <Main notesData={props.notesData}
                   messagesData={props.messagesData}
                   dialogsData={props.dialogsData}
+                  addNote={props.addNote}
             />
         </div>
     )

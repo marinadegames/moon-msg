@@ -1,16 +1,19 @@
 import React from "react";
 import s from './Posts.module.css'
 import Post from "./Post/Post";
+import {renderEntireTree} from "../../../../../render";
+
+
+let newPostElement:any = React.createRef()
 
 
 
 const Posts = (props:any) => {
 
-    let newPostElement:any = React.createRef()
-
-    let addPost = () => {
+    let addNote = () => {
         let text = newPostElement.current.value;
-        alert(text);
+        props.addNote(text);
+        renderEntireTree()
     }
 
     return (
@@ -18,10 +21,10 @@ const Posts = (props:any) => {
             <div className={s.headerPosts}>Send post:</div>
             <textarea ref={newPostElement} maxLength={500} placeholder='Напишите что-нибудь...' className={s.textAreaSendPost}/>
             <div className={s.rightFlex}>
-                <button className={s.btnSendPost} onClick={ addPost }>Send</button>
+                <button className={s.btnSendPost} onClick={addNote }>Send</button>
             </div>
 
-            <Post notesData={props.notesData}/>
+            <Post notesData={props.notesData} />
         </div>
     )
 }

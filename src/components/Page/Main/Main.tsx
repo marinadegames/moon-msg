@@ -13,9 +13,11 @@ import News from "./News/News";
 const Main = (props:any) => {
 
     let DialogComponent = () => <Dialogs messagesData={props.messagesData}
-                                         dialogsData={props.dialogsData}/>
+                                         dialogsData={props.dialogsData}
+                                         />
     let ProfileComponent = () => <Profile
-                                    notesData={props.notesData} />
+                                    notesData={props.notesData}
+                                    addNote={props.addNote}/>
 
     return (
         <main className={s.main}>
