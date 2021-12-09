@@ -1,7 +1,6 @@
 import React from "react";
 import s from './Posts.module.css'
 import Post from "./Post/Post";
-import {renderEntireTree} from "../../../../../render";
 
 
 let newPostElement:any = React.createRef()
@@ -13,7 +12,7 @@ const Posts = (props:any) => {
     let addNote = () => {
         let text = newPostElement.current.value;
         props.addNote(text);
-        renderEntireTree()
+
     }
 
     return (

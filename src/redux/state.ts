@@ -1,9 +1,36 @@
-let state = {
+//types ==============================================================
+type NotesDataType = {
+    id: number,
+    text: string,
+    likes: number,
+}
+type MessagesDataType = {
+    id: number,
+    text: string,
+}
+type DialogsDataType = {
+    id: number,
+    name: string,
+}
+type ProfilePageType = {
+    notesData: Array<NotesDataType>
+}
+type DialogsPageType = {
+    messagesData: Array<MessagesDataType>,
+    dialogsData: Array<DialogsDataType>,
+}
+type RootStateType = {
+    profilePage: ProfilePageType,
+    dialogsPage: DialogsPageType,
+}
+
+//DATA ==============================================================
+let state:RootStateType = {
     profilePage: {
         notesData: [
             { id: 1, text: 'Hi! How are you?', likes: 10},
             { id: 2, text: "this is my first post", likes: 123 },
-            { id: 3, text: "Lor. Lorem Ipsum has beesio make a type specimen book.", likes: 356},
+            { id: 3, text: "Lor. Lorem Ipsum has best make a type specimen book.", likes: 356},
         ],
     },
     dialogsPage: {
@@ -24,16 +51,13 @@ let state = {
     },
 }
 
-
 export let addNote = (postMessage:any) => {
     let newNote = {
         id: 5,
         text: postMessage,
         likes: 0
     }
-
     state.profilePage.notesData.push(newNote);
-
 }
 
 export default state;

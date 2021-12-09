@@ -14,4 +14,3 @@ export let renderEntireTree = () => {
         document.getElementById('root')
     );
 }
-

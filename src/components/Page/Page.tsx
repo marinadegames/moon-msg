@@ -5,9 +5,6 @@ import './Page.module.css'
 import s from './Page.module.css'
 
 const Page = (props:any) => {
-
-
-
     return (
         <div className={s.page}>
             <Nav />
@@ -19,5 +16,6 @@ const Page = (props:any) => {
         </div>
     )
 }
+
 
 export default Page;

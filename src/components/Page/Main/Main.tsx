@@ -1,15 +1,19 @@
+//imports
 import React from "react";
 import {Route} from "react-router-dom";
 import s from './Main.module.css'
-
 import Profile from "./Profile/Profile";
 import Dialogs from "./Dialogs/Dialogs";
 import Music from "./Music/Music";
 import Settings from "./Settings/Settings";
 import News from "./News/News";
 
+//assets
+
+//types
 
 
+//components
 const Main = (props:any) => {
 
     let DialogComponent = () => <Dialogs messagesData={props.messagesData}
