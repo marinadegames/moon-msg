@@ -13,7 +13,7 @@ This repository for my social network
 🚚  `v0.0.7` - Transfer Data to index.js  
 ☑️ `v0.0.8` - LAYOUT | add box "friends" in Nav | Transfer data to state.ts | refactor code  
 🌴    `v0.0.9` - add ref + onclick Post and Message  
-🔧 `0.1.0` - added typing to state file
+🔧 `v0.1.0` - added typing to state file
 
 
 ### 🙃 Good luck for me! ###
