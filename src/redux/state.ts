@@ -1,4 +1,6 @@
 //types ==============================================================
+import {rerenderEntireTree} from "../render";
+
 type NotesDataType = {
     id: number,
     text: string,
@@ -19,7 +21,7 @@ type DialogsPageType = {
     messagesData: Array<MessagesDataType>,
     dialogsData: Array<DialogsDataType>,
 }
-type RootStateType = {
+export type RootStateType = {
     profilePage: ProfilePageType,
     dialogsPage: DialogsPageType,
 }
@@ -28,9 +30,9 @@ type RootStateType = {
 let state:RootStateType = {
     profilePage: {
         notesData: [
-            { id: 1, text: 'Hi! How are you?', likes: 10},
-            { id: 2, text: "this is my first post", likes: 123 },
             { id: 3, text: "Lor. Lorem Ipsum has best make a type specimen book.", likes: 356},
+            { id: 2, text: "this is my first post", likes: 123 },
+            { id: 1, text: 'Hi! How are you?', likes: 10},
         ],
     },
     dialogsPage: {
@@ -51,13 +53,13 @@ let state:RootStateType = {
     },
 }
 
-export let addNote = (postMessage:any) => {
+export let addNote = (notesDataText:string) => {
     let newNote = {
         id: 5,
-        text: postMessage,
-        likes: 0
+        text: notesDataText,
+        likes: 0,
     }
-    state.profilePage.notesData.push(newNote);
+    state.profilePage.notesData.unshift(newNote)
+    rerenderEntireTree(state);
 }
-
 export default state;

@@ -2,13 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import state, {addNote} from './redux/state'
+import {addNote, RootStateType} from "./redux/state";
 
-export let renderEntireTree = () => {
+
+
+export let rerenderEntireTree = (state:RootStateType) => {
     ReactDOM.render(
         <React.StrictMode>
             <
-                App state={state}   addNote={addNote}
+                App
+                state={state}
+                addNote={addNote}
             />
         </React.StrictMode>,
         document.getElementById('root')

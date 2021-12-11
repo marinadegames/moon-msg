@@ -1,13 +1,10 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React from 'react';
+// Imports
 import reportWebVitals from './reportWebVitals';
-import {renderEntireTree} from "./render";
+import {rerenderEntireTree} from "./render";
+import state from "./redux/state";
 
 
-
-renderEntireTree();
-
-
+rerenderEntireTree(state);
 
 
 // If you want to start measuring performance in your app, pass a function

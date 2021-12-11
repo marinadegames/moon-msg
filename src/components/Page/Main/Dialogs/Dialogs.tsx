@@ -18,18 +18,26 @@ const Message = (props: any) => {
 
 const SendMessageTextArea = (props: any) => {
 
-    let newMessage: any = React.createRef()
+    let SenMessageElement:any = React.createRef()
 
     let sendMessage = () => {
-        let text = newMessage.current.value;
-        alert(text);
+        let text = SenMessageElement.current.value
+        alert(text)
     }
 
     return (
         <div>
-        <textarea ref={newMessage} maxLength={500} placeholder='Отправьте сообщение...' className={s.textAreaSendMessage}/>
+        <textarea
+            maxLength={500}
+            placeholder='Отправьте сообщение...'
+            className={s.textAreaSendMessage}
+            ref={SenMessageElement}/>
             <div className={s.rightFlex}>
-                <button className={s.btnSendMessage} onClick={sendMessage}>Send</button>
+                <button
+                    className={s.btnSendMessage}
+                    onClick={sendMessage}>
+                    Send
+                </button>
             </div>
         </div>
     )
