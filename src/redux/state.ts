@@ -1,5 +1,9 @@
+let rerenderEntireTree = (state: RootStateType) => {
+    console.log('state change!')
+}
+
 //types ==============================================================
-import {rerenderEntireTree} from "../render";
+
 
 type NotesDataType = {
     id: number,
@@ -15,7 +19,8 @@ type DialogsDataType = {
     name: string,
 }
 type ProfilePageType = {
-    notesData: Array<NotesDataType>
+    notesData: Array<NotesDataType>,
+    newNoteText: string
 }
 type DialogsPageType = {
     messagesData: Array<MessagesDataType>,
@@ -34,6 +39,7 @@ let state:RootStateType = {
             { id: 2, text: "this is my first post", likes: 123 },
             { id: 1, text: 'Hi! How are you?', likes: 10},
         ],
+        newNoteText: '',
     },
     dialogsPage: {
         messagesData: [
@@ -53,13 +59,23 @@ let state:RootStateType = {
     },
 }
 
-export let addNote = (notesDataText:string) => {
+export const addNote = () => {
     let newNote = {
         id: 5,
-        text: notesDataText,
+        text: state.profilePage.newNoteText,
         likes: 0,
     }
     state.profilePage.notesData.unshift(newNote)
     rerenderEntireTree(state);
 }
+
+export const updateNewPostText = (newText:string) => {
+    state.profilePage.newNoteText = newText
+    rerenderEntireTree(state);
+}
+
+export const subscribe = (observer:any) => {
+    rerenderEntireTree = observer
+}
+
 export default state;

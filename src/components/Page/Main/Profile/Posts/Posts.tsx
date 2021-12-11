@@ -12,7 +12,12 @@ const Posts = (props:any) => {
     let addNoteText = () => {
         let text = newPostElement.current.value
         props.addNote(text)
-        newPostElement.current.value = ''
+        props.updateNewPostText('')
+    }
+
+    let onPostChange = () => {
+        let text = newPostElement.current.value
+        props.updateNewPostText(text)
     }
 
     return (
@@ -21,6 +26,8 @@ const Posts = (props:any) => {
 
             <textarea
                 ref={newPostElement}
+                value={props.newNoteText}
+                onChange={onPostChange}
                 maxLength={500}
                 placeholder='Напишите что-нибудь...'
                 className={s.textAreaSendPost}/>

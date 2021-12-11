@@ -12,7 +12,6 @@ import News from "./News/News";
 
 //types
 
-
 //components
 const Main = (props:any) => {
 
@@ -21,7 +20,9 @@ const Main = (props:any) => {
                                          />
     let ProfileComponent = () => <Profile
                                     notesData={props.notesData}
-                                    addNote={props.addNote}/>
+                                    addNote={props.addNote}
+                                    newNoteText={props.newNoteText}
+                                    updateNewPostText={props.updateNewPostText}/>
 
     return (
         <main className={s.main}>

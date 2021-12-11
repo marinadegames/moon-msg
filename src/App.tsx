@@ -18,6 +18,8 @@ function App(props:any) {
                     messagesData={props.state.dialogsPage.messagesData}
                     dialogsData={props.state.dialogsPage.dialogsData}
                     addNote={props.addNote}
+                    updateNewPostText={props.updateNewPostText}
+                    newNoteText={props.newNoteText}
                 />
                 <Footer/>
 
