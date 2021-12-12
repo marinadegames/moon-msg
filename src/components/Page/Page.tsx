@@ -11,9 +11,7 @@ const Page = (props:any) => {
             <Main notesData={props.notesData}
                   messagesData={props.messagesData}
                   dialogsData={props.dialogsData}
-                  addNote={props.addNote}
-                  updateNewPostText={props.updateNewPostText}
-                  newNoteText={props.newNoteText}
+                  dispatch={props.dispatch}
             />
         </div>
     )

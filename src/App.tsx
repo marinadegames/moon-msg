@@ -17,9 +17,7 @@ function App(props:any) {
                     notesData={props.state.profilePage.notesData}
                     messagesData={props.state.dialogsPage.messagesData}
                     dialogsData={props.state.dialogsPage.dialogsData}
-                    addNote={props.addNote}
-                    updateNewPostText={props.updateNewPostText}
-                    newNoteText={props.newNoteText}
+                    dispatch={props.dispatch}
                 />
                 <Footer/>
 

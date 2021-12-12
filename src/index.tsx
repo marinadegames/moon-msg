@@ -1,15 +1,10 @@
 // Imports
 import reportWebVitals from './reportWebVitals';
-import state, {addNote, RootStateType, subscribe, updateNewPostText} from "./redux/state";
+import store, {RootStateType} from "./redux/state";
 import ReactDOM from "react-dom";
 import React from "react";
 import App from "./App";
 import './index.css';
-import {stat} from "fs";
-
-
-
-
 
 export let rerenderEntireTree = (state:RootStateType) => {
     ReactDOM.render(
@@ -17,16 +12,16 @@ export let rerenderEntireTree = (state:RootStateType) => {
             <
                 App
                 state={state}
-                addNote={addNote}
+                dispatch={store.dispatch.bind(store)}
                 newNoteText={state.profilePage.newNoteText}
-                updateNewPostText={updateNewPostText}
+                updateNewPostText={store.dispatch.bind(store)}
             />
         </React.StrictMode>,
         document.getElementById('root')
     );
 }
-rerenderEntireTree(state)
-subscribe(rerenderEntireTree)
+rerenderEntireTree(store.getState())
+store.subscribe(rerenderEntireTree)
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

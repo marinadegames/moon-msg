@@ -1,10 +1,14 @@
-let rerenderEntireTree = (state: RootStateType) => {
-    console.log('state change!')
-}
-
 //types ==============================================================
 
-
+type storeType = {
+    _state: RootStateType,
+    getState: Function,
+    _rerenderEntireTree: Function,
+    addNote: Function,
+    updateNewPostText: Function,
+    subscribe: Function,
+    dispatch: Function,
+}
 type NotesDataType = {
     id: number,
     text: string,
@@ -32,50 +36,70 @@ export type RootStateType = {
 }
 
 //DATA ==============================================================
-let state:RootStateType = {
-    profilePage: {
-        notesData: [
-            { id: 3, text: "Lor. Lorem Ipsum has best make a type specimen book.", likes: 356},
-            { id: 2, text: "this is my first post", likes: 123 },
-            { id: 1, text: 'Hi! How are you?', likes: 10},
-        ],
-        newNoteText: '',
-    },
-    dialogsPage: {
-        messagesData: [
-            { id: 1, text: 'Hi, how are you?' },
-            { id: 2, text: "Hello, i'm fine, thanks" },
-            { id: 3, text: "you ok?" },
-            { id: 4, text: "Yes, i'm right" },
-            { id: 5, text: "Good!" },
-        ],
-        dialogsData: [
-            { id: 1, name: 'Eugene' },
-            { id: 2, name: "Elina" },
-            { id: 3, name: "Jack" },
-            { id: 4, name: "Vlad" },
-            { id: 5, name: "Mamka" },
-        ],
-    },
-}
 
-export const addNote = () => {
-    let newNote = {
-        id: 5,
-        text: state.profilePage.newNoteText,
-        likes: 0,
+let store: storeType = {
+    _state: {
+        profilePage: {
+            notesData: [
+                {id: 3, text: "Lor. Lorem Ipsum has best make a type specimen book.", likes: 356},
+                {id: 2, text: "this is my first post", likes: 123},
+                {id: 1, text: 'Hi! How are you?', likes: 10},
+            ],
+            newNoteText: '',
+        },
+        dialogsPage: {
+            messagesData: [
+                {id: 1, text: 'Hi, how are you?'},
+                {id: 2, text: "Hello, i'm fine, thanks"},
+                {id: 3, text: "you ok?"},
+                {id: 4, text: "Yes, i'm right"},
+                {id: 5, text: "Good!"},
+            ],
+            dialogsData: [
+                {id: 1, name: 'Eugene'},
+                {id: 2, name: "Elina"},
+                {id: 3, name: "Jack"},
+                {id: 4, name: "Vlad"},
+                {id: 5, name: "Mamka"},
+            ],
+        },
+    },
+    _rerenderEntireTree(state: RootStateType) {
+        console.log('state change!')
+    },
+
+    getState() {
+        return this._state
+    },
+    addNote() {
+
+    },
+    updateNewPostText(newText: any) {
+
+
+    },
+    subscribe(observer: any) {
+        this._rerenderEntireTree = observer
+    },
+
+    dispatch(action: any) {  // { type: 'ADD-NOTE' }
+        if (action.type === 'ADD-NOTE') {
+            let newNote = {
+                id: 5,
+                text: this._state.profilePage.newNoteText,
+                likes: 0,
+            }
+            this._state.profilePage.notesData.unshift(newNote)
+            this._rerenderEntireTree(this._state);
+        }
+        else if (action.type === 'UPDATE-NEW-POST-TEXT'){
+            this._state.profilePage.newNoteText = action.newText
+            this._rerenderEntireTree(this._state);
+        }else if (action.type === 'SUBSCRIBE') {
+
+        }
     }
-    state.profilePage.notesData.unshift(newNote)
-    rerenderEntireTree(state);
 }
 
-export const updateNewPostText = (newText:string) => {
-    state.profilePage.newNoteText = newText
-    rerenderEntireTree(state);
-}
 
-export const subscribe = (observer:any) => {
-    rerenderEntireTree = observer
-}
-
-export default state;
+export default store;

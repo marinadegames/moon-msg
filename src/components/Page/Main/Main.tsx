@@ -20,9 +20,7 @@ const Main = (props:any) => {
                                          />
     let ProfileComponent = () => <Profile
                                     notesData={props.notesData}
-                                    addNote={props.addNote}
-                                    newNoteText={props.newNoteText}
-                                    updateNewPostText={props.updateNewPostText}/>
+                                    dispatch={props.dispatch}/>
 
     return (
         <main className={s.main}>
