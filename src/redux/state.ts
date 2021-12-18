@@ -1,5 +1,6 @@
+const ADD_NOTE = 'ADD_NOTE'
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 //types ==============================================================
-
 type storeType = {
     _state: RootStateType,
     getState: Function,
@@ -83,7 +84,7 @@ let store: storeType = {
     },
 
     dispatch(action: any) {  // { type: 'ADD-NOTE' }
-        if (action.type === 'ADD-NOTE') {
+        if (action.type === ADD_NOTE) {
             let newNote = {
                 id: 5,
                 text: this._state.profilePage.newNoteText,
@@ -92,7 +93,7 @@ let store: storeType = {
             this._state.profilePage.notesData.unshift(newNote)
             this._rerenderEntireTree(this._state);
         }
-        else if (action.type === 'UPDATE-NEW-POST-TEXT'){
+        else if (action.type === UPDATE_NEW_POST_TEXT){
             this._state.profilePage.newNoteText = action.newText
             this._rerenderEntireTree(this._state);
         }else if (action.type === 'SUBSCRIBE') {
@@ -101,5 +102,13 @@ let store: storeType = {
     }
 }
 
+export const addNoteActionCreator = () => {
+    return {
+        type: ADD_NOTE
+    }
+}
+export const updateNewPostTextActionCreator = (text:any) => {
+    return {type: UPDATE_NEW_POST_TEXT, newText: text}
+}
 
 export default store;
