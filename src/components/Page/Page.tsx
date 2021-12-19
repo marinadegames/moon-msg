@@ -12,6 +12,7 @@ const Page = (props:any) => {
                   messagesData={props.messagesData}
                   dialogsData={props.dialogsData}
                   dispatch={props.dispatch}
+                  store={props.store}
             />
         </div>
     )

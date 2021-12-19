@@ -1,13 +1,14 @@
 /* CUSTOM COLORS */
 :root {
-    --light-blue: #085BFD;
+    --light-blue: #dfe2ff;
     --dark-blue: #0F1E7E;
     --light-red: #e72f11;
     --gray: #676D7C;
     --back-white: #74b6e4;
     --back-black: #111518;
-    --back-box-white: #ebf3fc;
+    --back-box-white: #f0f5ff;
     --link: #cc3e53;
+    --message: #bfe3ff
 }
 
 

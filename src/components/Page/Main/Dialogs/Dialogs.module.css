@@ -101,3 +101,31 @@ Dialog .active {
     display: flex;
     justify-content: end;
 }
+
+/* Message */
+.msgBox{
+    display: flex;
+    flex-direction: row;
+    margin: 0 0 0.7rem 0;
+}
+.message{
+    border-radius: 7px 7px 7px 0;
+    margin: 0 0 0 0;
+    padding: 0.5rem 1rem;
+    max-width: 60%;
+    text-align: start;
+    text-overflow: clip;
+    background-color: var(--message);
+
+}
+.triangleMsgBox{
+    display: flex;
+    align-items: flex-end;
+}
+.triangleMsg{
+    border-radius: 10px 0 0 0;
+    width: 8px;
+    height: 8px;
+    background-color: var(--message);
+
+}

@@ -1,5 +1,7 @@
 const ADD_NOTE = 'ADD_NOTE'
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
+const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY'
+const SEND_MESSAGE = 'SEND_MESSAGE'
 //types ==============================================================
 type storeType = {
     _state: RootStateType,
@@ -30,6 +32,7 @@ type ProfilePageType = {
 type DialogsPageType = {
     messagesData: Array<MessagesDataType>,
     dialogsData: Array<DialogsDataType>,
+    newMessageBody: string
 }
 export type RootStateType = {
     profilePage: ProfilePageType,
@@ -63,12 +66,13 @@ let store: storeType = {
                 {id: 4, name: "Vlad"},
                 {id: 5, name: "Mamka"},
             ],
+            newMessageBody: "",
         },
     },
+
     _rerenderEntireTree(state: RootStateType) {
         console.log('state change!')
     },
-
     getState() {
         return this._state
     },
@@ -98,6 +102,14 @@ let store: storeType = {
             this._rerenderEntireTree(this._state);
         }else if (action.type === 'SUBSCRIBE') {
 
+        }else if (action.type === UPDATE_NEW_MESSAGE_BODY){
+            this._state.dialogsPage.newMessageBody = action.body
+            this._rerenderEntireTree(this._state)
+        }else if (action.type === SEND_MESSAGE){
+            let body = this._state.dialogsPage.newMessageBody;
+            this._state.dialogsPage.newMessageBody = '';
+            this._state.dialogsPage.messagesData.push({id: 6, text: body})
+            this._rerenderEntireTree(this._state)
         }
     }
 }
@@ -107,8 +119,17 @@ export const addNoteActionCreator = () => {
         type: ADD_NOTE
     }
 }
-export const updateNewPostTextActionCreator = (text:any) => {
+export const updateNewPostTextActionCreator = (text:string) => {
     return {type: UPDATE_NEW_POST_TEXT, newText: text}
+}
+
+export const sendMessageCreator = () => {
+    return {
+        type: SEND_MESSAGE
+    }
+}
+export const updateNewMessageBodyCreator = (body:any) => {
+    return {type: UPDATE_NEW_MESSAGE_BODY, body: body}
 }
 
 export default store;

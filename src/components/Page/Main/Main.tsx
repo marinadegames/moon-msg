@@ -17,6 +17,7 @@ const Main = (props:any) => {
 
     let DialogComponent = () => <Dialogs messagesData={props.messagesData}
                                          dialogsData={props.dialogsData}
+                                         store={props.store}
                                          />
     let ProfileComponent = () => <Profile
                                     notesData={props.notesData}

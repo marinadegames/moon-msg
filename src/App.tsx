@@ -18,6 +18,7 @@ function App(props:any) {
                     messagesData={props.state.dialogsPage.messagesData}
                     dialogsData={props.state.dialogsPage.dialogsData}
                     dispatch={props.dispatch}
+                    store={props.store}
                 />
                 <Footer/>
 

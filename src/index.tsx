@@ -15,6 +15,7 @@ export let rerenderEntireTree = (state:RootStateType) => {
                 dispatch={store.dispatch.bind(store)}
                 newNoteText={state.profilePage.newNoteText}
                 updateNewPostText={store.dispatch.bind(store)}
+                store={store}
             />
         </React.StrictMode>,
         document.getElementById('root')

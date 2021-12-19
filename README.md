@@ -16,7 +16,8 @@ This repository for my social network
 🔧 `v0.1.0` - add typing to state file  
 📝 `v0.1.1` - add the ability to make posts  
 📨 `v0.1.1` - add `Store` and `Dispatch(action)`  
-🎊 `v0.1.2` - add `action`
+🎊 `v0.1.2` - add `action`  
+🎞️ `v0.1.3` - add the ability to `send message` in dialog  
 
 ### 🙃 Good luck for me! ###
 ### `🚀 vjuuuuuuhhhhhhhhh 🚀` ###
