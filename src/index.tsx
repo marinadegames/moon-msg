@@ -6,6 +6,7 @@ import React from "react";
 import App from "./App";
 import './index.css';
 
+
 export let rerenderEntireTree = (state:RootStateType) => {
     ReactDOM.render(
         <React.StrictMode>

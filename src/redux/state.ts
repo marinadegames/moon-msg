@@ -3,7 +3,7 @@ const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY'
 const SEND_MESSAGE = 'SEND_MESSAGE'
 //types ==============================================================
-type storeType = {
+export type storeType = {
     _state: RootStateType,
     getState: Function,
     _rerenderEntireTree: Function,
@@ -12,24 +12,24 @@ type storeType = {
     subscribe: Function,
     dispatch: Function,
 }
-type NotesDataType = {
+export type NotesDataType = {
     id: number,
     text: string,
     likes: number,
 }
-type MessagesDataType = {
+export type MessagesDataType = {
     id: number,
     text: string,
 }
-type DialogsDataType = {
+export type DialogsDataType = {
     id: number,
     name: string,
 }
-type ProfilePageType = {
+export type ProfilePageType = {
     notesData: Array<NotesDataType>,
     newNoteText: string
 }
-type DialogsPageType = {
+export type DialogsPageType = {
     messagesData: Array<MessagesDataType>,
     dialogsData: Array<DialogsDataType>,
     newMessageBody: string

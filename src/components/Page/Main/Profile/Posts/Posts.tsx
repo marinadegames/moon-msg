@@ -5,11 +5,10 @@ import Post from "./Post/Post";
 import {addNoteActionCreator, updateNewPostTextActionCreator} from "../../../../../redux/state";
 
 
-
 //component:
-const Posts = (props:any) => {
+const Posts = (props: any) => {
 
-    let newPostElement:any = React.createRef()
+    let newPostElement: any = React.createRef()
 
     let addNoteText = () => {
         props.dispatch(addNoteActionCreator())
@@ -17,10 +16,14 @@ const Posts = (props:any) => {
     }
 
     let onPostChange = () => {
-        let text = newPostElement.current.value
-        let action = updateNewPostTextActionCreator(text)
+        let action = updateNewPostTextActionCreator(newPostElement.current.value)
         props.dispatch(action)
-
+    }
+    const onKeyEnterHandler = (e: string) => {
+        if (e === 'Enter') {
+            props.dispatch(addNoteActionCreator())
+            newPostElement.current.value = ''
+        }
     }
 
     return (
@@ -31,6 +34,7 @@ const Posts = (props:any) => {
                 ref={newPostElement}
                 value={props.newNoteText}
                 onChange={onPostChange}
+                onKeyPress={(e) => onKeyEnterHandler(e.key)}
                 maxLength={500}
                 placeholder='Напишите что-нибудь...'
                 className={s.textAreaSendPost}/>
@@ -38,13 +42,13 @@ const Posts = (props:any) => {
             <div className={s.rightFlex}>
 
                 <button className={s.btnSendPost}
-                        onClick={addNoteText} >
+                        onClick={addNoteText}>
                     Send
                 </button>
 
             </div>
 
-            <Post notesData={props.notesData} />
+            <Post notesData={props.notesData}/>
         </div>
     )
 }
