@@ -19,7 +19,7 @@ This repository for my social network
 🎊 `v0.1.2` - added `action`  
 🎞️ `v0.1.3` - added the ability to `send message` in dialog    
 `========================================================`  
-🚫 `v0.2.0` - `RESTART PROJECT!!!` Delete all components
+🚫 `v0.2.0` - `RESTART PROJECT!!!` Delete all components  
 
 ### 🙃 Good luck for me! ###
 ### `🚀 vjuuuuuuhhhhhhhhh 🚀` ###
