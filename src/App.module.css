@@ -1,27 +1,11 @@
 /* CUSTOM COLORS */
 :root {
-    --light-blue: #dfe2ff;
-    --dark-blue: #0F1E7E;
-    --light-red: #e72f11;
-    --gray: #676D7C;
-    --back-white: #74b6e4;
-    --back-black: #111518;
-    --back-box-white: #f0f5ff;
-    --link: #cc3e53;
-    --message: #bfe3ff
+
 }
 
 
 /* ========= ALL APP ========= */
 
 body {
-    background-color: var(--back-white);
-}
-
-a{
-    color: var(--link);
-    text-decoration: none;
-}
-a:hover{
-    text-decoration: underline;
+    padding: 1rem;
 }
