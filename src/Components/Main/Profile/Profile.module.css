@@ -1,0 +1,15 @@
+.Profile{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 100%;
+}
+.titlePageProfile{
+    padding: 2rem 2rem;
+    margin: 0 0 1rem 0;
+    background-color: var(--backgroundCard);
+    border-radius: var(--borderRadiusCustom);
+    box-shadow: var(--boxShadowCustom);
+    font-size: 2rem;
+    font-weight: bold;
+}

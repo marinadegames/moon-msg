@@ -1,0 +1,91 @@
+.boxProfile{
+    padding: 1rem;
+    background-color: var(--backgroundCard);
+    border-radius: var(--borderRadiusCustom);
+    box-shadow: var(--boxShadowCustom);
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+.avatar{
+    width: 300px;
+    transition: ease-in 0.2s;
+    cursor: pointer;
+}
+.avatar:hover{
+    transform: scale(1.05);
+}
+.profileUserInformation{
+    margin: 0 0 0 1rem;
+    font-size: 1.5rem;
+}
+
+.nameProfile{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* === Birthday Profile === */
+
+.birthdayProfile{
+    display: flex;
+}
+.birthdayProfile div{
+    margin: 0 0 0 1rem;
+}
+
+/* === City Profile === */
+
+.cityProfile{
+    display: flex;
+}
+.cityProfile div{
+    margin: 0 0 0 1rem;
+}
+
+/* === Sex Profile === */
+
+.sexProfile{
+    display: flex;
+}
+.sexProfile div{
+    margin: 0 0 0 1rem;
+}
+.buttonsProfile{
+    display: flex;
+    margin: 1rem 1rem 0 0;
+}
+.btnShare{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.1rem 1.5rem;
+    margin: 0 1rem 0 0 ;
+    cursor: pointer;
+    border: none;
+    background-color: var(--generalColor);
+    box-shadow: var(--boxShadowCustom);
+    border-radius: 1rem;
+    color: white;
+    font-size: 1.2rem;
+}
+.btnShare img {
+    margin: 0 0 0 0.5rem;
+}
+.btnEdit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.3rem 1.5rem;
+    margin: 0 1rem 0 0 ;
+    cursor: pointer;
+    border: none;
+    background-color: var(--backgroundColor);
+    box-shadow: var(--boxShadowCustom);
+    border-radius: 1rem;
+    color: black;
+    font-size: 1.2rem;
+}
+.btnEdit img {
+    margin: 0 0 0 0.5rem;
+}
