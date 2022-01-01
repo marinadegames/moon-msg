@@ -23,6 +23,7 @@ This repository for my social network
 🤯 `v0.2.1` - added new `header` | added `Big Heads`  
 😶‍🌫️ `v0.2.2` - added `logotype site` | header completed!  
 🧑‍🏫 `v0.2.3` - added `profile information`  
+📓 `v0.2.4` - added `add note` card | added `max length` in textarea add note 
 
 
 

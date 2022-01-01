@@ -1,0 +1,55 @@
+.addNoteBox {
+    margin: 1rem 0 0 0 ;
+    padding: 2rem;
+    background-color: var(--backgroundCard);
+    border-radius: var(--borderRadiusCustom);
+    box-shadow: var(--boxShadowCustom);
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    font-size: 2rem;
+    font-weight: bold;
+}
+.titleAddNote{
+    margin: 0 0 1rem 0;
+}
+.titleAddNote small{
+    margin: 0 1rem;
+    font-weight: lighter;
+}
+.textareaAddNote{
+    border: none;
+    background-color: var(--backgroundBox);
+    box-shadow: var(--boxShadowCustom);
+    border-radius: var(--borderRadiusCustom);
+    padding: 1rem;
+    font-size: 2rem;
+    height: 250px;
+    outline: none;
+    resize: none;
+}
+.buttonsAddNoteBox{
+    display: flex;
+    justify-content: flex-end;
+}
+.btnAddNote{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.9rem 0.5rem;
+    margin: 1rem 0 0 0 ;
+    cursor: pointer;
+    border: none;
+    background-color: var(--generalColor);
+    box-shadow: var(--boxShadowCustom);
+    border-radius: 1rem;
+    color: white;
+    width: 10rem;
+    font-size: 1.5rem;
+}
+.textDanger{
+    color: #f20707;
+}
+.textWarning{
+    color: #f1c120;
+}

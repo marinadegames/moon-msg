@@ -2,6 +2,7 @@
 import React from "react";
 import s from './Profile.module.css'
 import {ProfileInformation} from "./ProfileInformation/ProfileInformation";
+import {NotesProfile} from "./NotesProfile/NotesProfile";
 
 //types
 
@@ -18,6 +19,7 @@ export const Profile = function () {
 
             <div className={s.titlePageProfile}>Your profile:</div>
             <ProfileInformation/>
+            <NotesProfile />
         </div>
     )
 }
