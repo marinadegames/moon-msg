@@ -1,11 +1,30 @@
 /* CUSTOM COLORS */
 :root {
-
+    --borderRadiusCustom: 0.7rem;
+    --backgroundColor: #E0E1EC;
+    --backgroundBox: white;
+    --generalColor: #0010F7;
+    --colorText: black;
 }
 
-
+/* ====== @media ======*/
+/*@media (max-width: 1199px) {*/
+/*    .App {*/
+/*        width: 70%;*/
+/*        margin: auto;*/
+/*    }*/
+/*}*/
 /* ========= ALL APP ========= */
 
 body {
-    padding: 1rem;
+    /*border: 1px solid red;*/
+    padding: 2rem;
+    background-color: var(--backgroundColor);
+}
+
+.App {
+    /*width: 90%;*/
+    margin: auto;
+    /*border: 1px solid green;*/
+
 }
