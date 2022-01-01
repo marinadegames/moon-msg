@@ -11,6 +11,8 @@ import s from './Main.module.css'
 
 export const Main = function () {
     return (
-        <header>Main</header>
+        <main className={s.main}>
+            main
+        </main>
     )
 }

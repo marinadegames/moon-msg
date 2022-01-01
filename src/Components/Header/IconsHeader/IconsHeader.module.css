@@ -14,10 +14,9 @@
 
 }
 .iconsHeaderItem:hover{
-    border: 1px solid var(--generalColor);
+    border: 1px solid var(--backgroundColor);
 }
 .verticalLine{
-
     border-right: 3px solid rgba(128, 128, 128, 0.2);
     width: 1rem;
     height: 3rem;
@@ -30,5 +29,5 @@
     width: 3rem;
     border-radius: 5rem;
     cursor: pointer;
-    background-color: var(--generalColor);
+    background-color: var(--backgroundColor);
 }

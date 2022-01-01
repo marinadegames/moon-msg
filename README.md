@@ -20,7 +20,10 @@ This repository for my social network
 🎞️ `v0.1.3` - added the ability to `send message` in dialog    
 `========================================================`  
 🚫 `v0.2.0` - `RESTART PROJECT!!!` Delete all components  
-🤯 `v0.2.1` - added new `header` | add `Big Heads`  
+🤯 `v0.2.1` - added new `header` | added `Big Heads`  
+😶‍🌫️ `v0.2.2` - added `logotype site` | header completed!  
+
+
 
 ### 🙃 Good luck for me! ###
 ### `🚀 vjuuuuuuhhhhhhhhh 🚀` ###

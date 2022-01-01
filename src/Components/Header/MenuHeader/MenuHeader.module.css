@@ -6,8 +6,9 @@
     font-size: larger;
     font-weight: 600;
     cursor: pointer;
-    transition: ease-in 0.2s;
+    transition: 0.2s;
 }
 .menuItem:hover{
     color: var(--generalColor);
+    text-decoration: 3px underline;
 }
