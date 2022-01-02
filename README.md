@@ -25,7 +25,5 @@ This repository for my social network
 🧑‍🏫 `v0.2.3` - added `profile information`  
 📓 `v0.2.4` - added `add note` card | added `max length` in textarea add note 
 
-
-
 ### 🙃 Good luck for me! ###
 ### `🚀 vjuuuuuuhhhhhhhhh 🚀` ###
