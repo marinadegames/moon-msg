@@ -1,9 +1,9 @@
-# 🌑 Social Network \ Moon!msg #
+# 🌑 Social Network \ Moon!msg
 ## ♻️ RELOAD PROJECT | TypeScript | New name | New layout v3.0 ##
-### ❓ What's this app? ###
+### ❓ What's this app?
 This repository for my social network `Moon!msg`!
 
-### Updates: ###
+### Updates:
 🔘 `v0.0.1` - RESTARTING the network to the `TypeScript` | New README file  
 🟣 `v0.0.2` - FIRST layout | added `React-router` v.5.3.0 | fix package.json  
 🟡 `v0.0.3` - `React-router-dom` v4.3.1 | Use `Router`  
@@ -27,7 +27,5 @@ This repository for my social network `Moon!msg`!
 ====  
 🌑 `v0.3.0` - RENAME PROJECT: `Moon!msg` 🌑 | Create `new layout concept v3.0` in Figma | Start create layout  
 
-
-
-### 🙃 Good luck for me! ###
-## `🚀 vjuuuuuuhhhhhhhhh 🚀` ##
+### 🙃 Good luck for me!  
+## `🚀 vjuuuuuuhhhhhhhhh 🚀`  
