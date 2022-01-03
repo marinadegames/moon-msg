@@ -1,6 +1,6 @@
 # 🌑 Social Network \ Moon!msg
 ## ♻️ RELOAD PROJECT | TypeScript | New name | New layout v3.0 ##
-### ❓ What's this app?
+### ❓ What's this app? ###
 This repository for my social network `Moon!msg`!
 
 ### Updates:
@@ -17,14 +17,14 @@ This repository for my social network `Moon!msg`!
 📝 `v0.1.1` - added the ability to make posts  
 📨 `v0.1.1` - added `Store` and `Dispatch(action)`  
 🎊 `v0.1.2` - added `action`  
-🎞️ `v0.1.3` - added the ability to `send message` in dialog    
-====  
-🚫 `v0.2.0` - `RELOAD PROJECT!!!` Delete all components and `new layout concept v2.0`
+🎞️ `v0.1.3` - added the ability to `send message` in dialog     
+##### ================================================ #####  
+🚫 `v0.2.0` - `RELOAD PROJECT!!!` Delete all components and `new layout concept v2.0`  
 🤯 `v0.2.1` - added new `header` | added `Big Heads`  
 😶‍🌫️ `v0.2.2` - added `logotype site` | header completed!  
 🧑‍🏫 `v0.2.3` - added `profile information`  
-📓 `v0.2.4` - added `add note` card | added `max length` in textarea add note  
-====  
+📓 `v0.2.4` - added `add note` card | added `max length` in textarea add note     
+##### ================================================ #####
 🌑 `v0.3.0` - RENAME PROJECT: `Moon!msg` 🌑 | Create `new layout concept v3.0` in Figma | Start create layout  
 
 ### 🙃 Good luck for me!  
