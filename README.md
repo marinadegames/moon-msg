@@ -3,7 +3,7 @@
 ### ❓ What's this app? ###
 This repository for my social network `Moon!msg`!
 
-#### Updates: ####
+### Updates: ###
 🔘 `v0.0.1` - RESTARTING the network to the `TypeScript` | New README file  
 🟣 `v0.0.2` - FIRST layout | added `React-router` v.5.3.0 | fix package.json  
 🟡 `v0.0.3` - `React-router-dom` v4.3.1 | Use `Router`  
