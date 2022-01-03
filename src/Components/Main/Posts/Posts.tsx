@@ -24,6 +24,10 @@ export const Posts = function () {
                 </div>
                 <div className={s.myPosts}>
                     <Post/>
+                    <Post/>
+                    <Post/>
+                    <Post/>
+                    <Post/>
                 </div>
             </div>
         </div>

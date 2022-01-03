@@ -1,7 +1,10 @@
 .post {
-    border: 4px solid var(--generalColor);
+    /*border: 4px solid var(--generalColor);*/
+    box-shadow: var(--shadow);
+    background-color: white;
     border-radius: var(--borderRadiusCustom);
-    padding: 1rem;
+    padding: 1.5rem;
+    margin: 0 0 2rem 0;
     font-family: Roboto, serif;
     font-style: normal;
     font-weight: normal;
