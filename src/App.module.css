@@ -1,12 +1,16 @@
 /* CUSTOM COLORS */
 :root {
-    --borderRadiusCustom: 1.2rem;
-    --backgroundColor: #DBDEE6;
-    --backgroundBox: #F3F5F7;
-    --backgroundCard: white;
     --generalColor: #63A4DC;
-    --colorText: black;
-    --boxShadowCustom: 2px 2px 10px 1px rgba(213, 213, 213, 0.7);
+    --secondColor: #1C4F7B;
+
+    --backgroundColor: #E0E1EC;
+    --backgroundBox: #FFFFFF;
+
+    --gray: #F1F1F1;
+
+    --shadow: 2px 2px 9px rgba(0, 0, 0, 0.25);
+    --borderRadiusCustom: 15px;
+
 }
 
 /* ====== @media ======*/
@@ -17,20 +21,26 @@
 /*    }*/
 /*}*/
 /* ========= ALL APP ========= */
+
 h1,h2,h3,h4,h5,h6, p {
     margin: 0;
     padding: 0;
 }
 
 body {
-
-    padding: 2rem;
+    padding: 60px 60px 0 60px;
     background-color: var(--backgroundColor);
 }
 
 .App {
-    /*width: 90%;*/
+    background-color: var(--backgroundBox);
+    border-radius: var(--borderRadiusCustom);
+
     margin: auto;
     /*border: 1px solid green;*/
 
+}
+.flexMain{
+    display: flex;
+    flex-direction: row;
 }
