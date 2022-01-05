@@ -28,6 +28,8 @@ This repository for my social network `Moon!msg`!
 📓 `v0.2.4` - added `add note` card | added `max length` in textarea add note     
 ##### ================================================ #####
 🌑 `v0.3.0` - RENAME PROJECT: `Moon!msg` 🌑 | Create `new layout concept v3.0` in Figma | Start create layout  
+📙 `0.3.1` - added layout `Profile` page
+
 
 ### 🙃 Good luck for me!  
 ## `🚀 vjuuuuuuhhhhhhhhh 🚀`    
