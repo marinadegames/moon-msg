@@ -8,12 +8,13 @@ import {PostType} from "../../../Redux/tempStore";
 // types
 type ProfilePropsType = {
     postsUser: Array<PostType>
+    addPost: (text:string) => void
 }
 // assets
 
 // components
 
-export const Profile = function ({postsUser,...props} : ProfilePropsType) {
+export const Profile = function ({postsUser, addPost,...props} : ProfilePropsType) {
 
     const userLogo = () => (
         <BigHead
@@ -56,7 +57,8 @@ export const Profile = function ({postsUser,...props} : ProfilePropsType) {
                 </div>
             </div>
 
-            <Posts postsUser={postsUser}/>
+            <Posts postsUser={postsUser}
+                   addPost={addPost}/>
 
         </div>
     )

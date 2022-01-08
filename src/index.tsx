@@ -5,10 +5,14 @@ import React from "react";
 import App from "./App";
 import './index.css';
 
-ReactDOM.render(
-    <App />,
-    document.getElementById('root')
-);
+export let rerenderEntireTree = () => {
+    ReactDOM.render(
+        <App />,
+        document.getElementById('root')
+    );
+}
+
+rerenderEntireTree()
 
 
 // If you want to start measuring performance in your app, pass a function

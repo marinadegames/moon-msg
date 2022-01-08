@@ -1,5 +1,5 @@
 // import
-import React from "react";
+import React, {useState, KeyboardEvent} from "react";
 import s from "./Posts.module.css";
 import {Post} from "./Post/Post";
 import {PostType} from "../../../../Redux/tempStore";
@@ -7,12 +7,29 @@ import {PostType} from "../../../../Redux/tempStore";
 // types
 type PostsPropsType = {
     postsUser: Array<PostType>
+    addPost: (text:string) => void
 }
 // assets
 
 // components
 
-export const Posts = function ({postsUser, ...props}: PostsPropsType) {
+export const Posts = function ({postsUser, addPost, ...props}: PostsPropsType) {
+
+    const [textarea, setTexArea] = useState<string>('')
+
+    const changeTextArea = (text: string) => {
+        setTexArea(text)
+    }
+    const onClickAddPostCallback = () => {
+        if (textarea !== '') addPost(textarea);
+        setTexArea('')
+    }
+    const enterHandler = (event: KeyboardEvent) => {
+        if (event.charCode === 13 && textarea !== ''){
+            addPost(textarea)
+            setTexArea('')
+        }
+    }
 
     return (
         <div className={s.boxPosts}>
@@ -22,8 +39,15 @@ export const Posts = function ({postsUser, ...props}: PostsPropsType) {
                 <div className={s.createPostBox}>
                     <div className={s.createPostTitle}>Create post:</div>
                     <div className={s.createPost}>
-                        <textarea placeholder={`What's news?`} className={s.textareaAddPost} maxLength={150}/>
-                        <button className={s.addPostButton}> Publish</button>
+                        <textarea placeholder={`What's news?`}
+                                  value={textarea}
+                                  onKeyPress={ (event) => enterHandler(event)}
+                                  onChange={(event => changeTextArea(event.currentTarget.value))}
+                                  className={s.textareaAddPost} maxLength={150}/>
+                        <button className={s.addPostButton}
+                                onClick={onClickAddPostCallback}>
+                            Publish
+                        </button>
                     </div>
                 </div>
 

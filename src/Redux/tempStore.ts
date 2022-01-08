@@ -1,6 +1,6 @@
 // imports
-import React from "react"
 import {v1} from "uuid"
+import {rerenderEntireTree} from "../index";
 
 //types
 export type AllPostsUserType = Array<PostType>
@@ -15,7 +15,13 @@ export type PostType = {
 }
 
 // state
-export const postsUser: AllPostsUserType = [
+
+let state = {
+    postsUser: {},
+
+}
+
+export const postsUser = [
     {
         id: v1(),
         userName: 'Eugene Pashkevich',
@@ -49,5 +55,18 @@ export const postsUser: AllPostsUserType = [
 // functional
 
 export const addPost = (text: string) => {
+    let newPost =
+        {
+            id: v1(),
+            userName: 'Eugene Pashkevich',
+            date: '08.01.2022 in 22:00',
+            likes: 0,
+            comments: 0,
+            shares: 0,
+            text: text,
+        }
 
+    postsUser.unshift(newPost)
+    rerenderEntireTree()
 }
+
