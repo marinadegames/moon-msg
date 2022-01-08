@@ -30,6 +30,8 @@ This repository for my social network `Moon!msg`!
 🌑 `v0.3.0` - RENAME PROJECT: `Moon!msg` 🌑 | Create `new layout concept v3.0` in Figma | Start create layout  
 📙 `v0.3.1` - added layout `Profile` page    
 🛠️ `v0.3.2` - fix layout `Profile` page  
+🆔 `v0.3.3` - added `UUID`  
+📝 `v0.3.4` - added `temp Store` | added `props` in Posts
 
 
 ### 🙃 Good luck for me!  

@@ -6,6 +6,7 @@ import {BrowserRouter} from "react-router-dom";
 import {Header} from "./Components/Header/Header";
 import {LeftSideBar} from "./Components/LeftSideBar/LeftSideBar";
 import {Main} from "./Components/Main/Main";
+import {postsUser} from './Redux/tempStore'
 
 //types
 
@@ -19,7 +20,7 @@ function App() {
                 <Header />
                 <div className={s.flexMain}>
                     <LeftSideBar />
-                    <Main />
+                    <Main postsUser={postsUser}/>
                 </div>
 
 
