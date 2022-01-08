@@ -35,7 +35,6 @@ export const Posts = function ({postsUser, addPost, ...props}: PostsPropsType) {
         <div className={s.boxPosts}>
             <div className={s.boxPostsTitle}>
 
-
                 <div className={s.createPostBox}>
                     <div className={s.createPostTitle}>Create post:</div>
                     <div className={s.createPost}>
@@ -50,7 +49,6 @@ export const Posts = function ({postsUser, addPost, ...props}: PostsPropsType) {
                         </button>
                     </div>
                 </div>
-
 
                 <div className={s.myPostsBox}>
                     <div className={s.myPostsTitle}>My posts:</div>

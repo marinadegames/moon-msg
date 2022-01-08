@@ -2,7 +2,6 @@
     font-style: normal;
     font-weight: bold;
     font-size: 36px;
-    line-height: 46px;
     display: flex;
     align-items: center;
     /*border: 1px solid black;*/
@@ -11,24 +10,33 @@
 }
 .profileInform{
     display: flex;
-    justify-content: flex-start;
+    align-items: center;
     flex-direction: row;
-    padding: 1rem;
     border-radius: var(--borderRadiusCustom);
-    height: 280px;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6) ), url("../../../Assets/walp.jpg");
-
-    top: 1000px;
+    height: 180px;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("../../../Assets/walp.jpg");
     background-size: cover;
-
+    padding: 1rem;
 }
 .profileInform:after{
     background: rgba(0,0,0,1.2);
 }
+
+.profileInfoLeft{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 50%;
+}
+.profileInfoRight{
+    width: 50%;
+}
+
 .userLogo{
+
     cursor: pointer;
-    height: 220px;
-    width: 220px;
+    height: 150px;
+    width: 150px;
     padding: 0 0 1rem 0;
     transition: ease-in-out 0.2s;
 }
@@ -39,7 +47,7 @@
     color: white;
     font-style: normal;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 25px;
     line-height: 38px;
     margin: 1rem 0 0 0 ;
 }
@@ -47,22 +55,19 @@
     color: white;
     font-style: normal;
     font-weight: normal;
-    font-size: 25px;
-    line-height: 32px;
+    font-size: 20px;
 }
 .userLocation{
     color: white;
     font-style: normal;
     font-weight: normal;
-    font-size: 25px;
-    line-height: 32px;
+    font-size: 20px;
 }
 .userEmail{
     color: white;
     font-style: normal;
     font-weight: normal;
-    font-size: 25px;
-    line-height: 32px;
+    font-size: 20px;
 }
 .userEmail a {
     text-decoration: none;
@@ -73,10 +78,11 @@
     color: var(--generalColor);
 }
 .userSlogan{
-    margin: 2rem 0 0 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     color: white;
     font-style: normal;
-    font-size: 40px;
+    font-size: 25px;
     font-weight: 700;
-    line-height: 32px;
 }

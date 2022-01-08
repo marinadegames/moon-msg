@@ -88,9 +88,6 @@ export const Header = function () {
             </div>
 
             <div className={s.flexBoxHeaderUserLogo}>
-                <div>
-                    <img className={s.wiggle} src={notificationIcon} alt={'notificationIcon'} height='50px' width='50px'/>
-                </div>
                 <div className={s.logoUser}>
                     {userLogo()}
                 </div>

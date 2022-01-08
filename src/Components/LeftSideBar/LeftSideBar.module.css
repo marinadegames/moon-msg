@@ -10,13 +10,12 @@
 
     border-radius: var(--borderRadiusCustom);
     padding: 1rem 0 1rem 1.5rem;
-    margin: 0 0 1rem 0;
+    margin: 0 0 0.3rem 0;
 
     color: var(--secondColor);
     font-style: normal;
-    font-weight: 500;
-    font-size: 30px;
-    line-height: 38px;
+    font-weight: 600;
+    font-size: 25px;
     transition: ease-in-out 0.1s;
 }
 .menuItem img {
@@ -38,13 +37,13 @@
     box-shadow: var(--shadow);
     border-radius: var(--borderRadiusCustom);
     padding: 1rem 0 1rem 1.5rem;
-    margin: 0 0 1rem 0;
+    margin: 0 0 0.3rem 0;
 
     color: white;
     font-style: normal;
     font-weight: 500;
-    font-size: 30px;
-    line-height: 38px;
+    font-size: 25px;
+    line-height: 30px;
 }
 .menuItemACTIVE img {
     margin: 0 1rem 0 0;

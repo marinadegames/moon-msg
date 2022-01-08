@@ -15,8 +15,7 @@ export const NotFound404 = function () {
             <div className={s.pageName}>Page not found :(</div>
             <div className={s.main404}>
                 <div>404</div>
-                <div>not</div>
-                <div>found</div>
+                <div>not found</div>
                 <div className={s.backGif}>
 
                 </div>
