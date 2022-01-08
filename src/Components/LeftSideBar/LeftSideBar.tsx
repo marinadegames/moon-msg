@@ -19,7 +19,6 @@ export const LeftSideBar = function () {
 
     return (
         <div className={s.LeftSideBar}>
-
             <div className={s.menuItemACTIVE}>
                 <img src={profileIcon} height='50px' width='50px' alt={'profileIcon'}/>
                 Profile

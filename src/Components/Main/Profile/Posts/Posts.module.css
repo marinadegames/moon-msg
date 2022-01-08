@@ -10,9 +10,8 @@
     display: flex;
     justify-content: center;
     flex-direction: row;
-    width: 100%;
 }
-.createPostTitle{
+.createPostBox{
     width: 40%;
     color: var(--secondColor);
     font-style: normal;
@@ -20,8 +19,9 @@
     font-size: 30px;
     line-height: 38px;
 }
-.myPostsTitle{
+.myPostsBox{
     width: 60%;
+    padding: 0 0 0 1rem;
     color: var(--secondColor);
     font-style: normal;
     font-weight: bold;
@@ -44,7 +44,6 @@
     border: 4px solid var(--generalColor);
     color: black;
     padding: 1rem;
-    width: 450px;
     height: 300px;
     font-weight: 500;
     font-size: 30px;
@@ -76,6 +75,5 @@
 }
 
 .myPosts{
-    width: 60%;
-    margin: 0 0 0 1.2rem;
+    margin: 0 ;
 }
