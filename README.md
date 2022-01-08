@@ -34,7 +34,8 @@ This repository for my social network `Moon!msg`!
 📝 `v0.3.4` - added `temp Store` | added `props` in Posts  
 ⌨️ `v0.3.5` - enter key => `add new post`    
 🔗️ `v0.3.6` - added `react-router-dom` and changed pages | added 404 not found page    
-🐈 `v0.3.7` - added page `404 not found` with cat 😁 
+🐈 `v0.3.7` - added page `404 not found` with cat 😁   
+🐈 `v0.3.8` - added `GitPage` ===> <b>[GO TO MY GIT PAGE](https://marinadegames.github.io/moon-msg) </b>
 
 
 ### 🙃 Good luck for me!  
