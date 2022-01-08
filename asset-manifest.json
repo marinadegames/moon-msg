@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/moon-msg/static/css/main.5aed8993.chunk.css",
-    "main.js": "/moon-msg/static/js/main.82f5d761.chunk.js",
-    "main.js.map": "/moon-msg/static/js/main.82f5d761.chunk.js.map",
+    "main.css": "/moon-msg/static/css/main.9cf9330e.chunk.css",
+    "main.js": "/moon-msg/static/js/main.058378f2.chunk.js",
+    "main.js.map": "/moon-msg/static/js/main.058378f2.chunk.js.map",
     "runtime-main.js": "/moon-msg/static/js/runtime-main.bd35e333.js",
     "runtime-main.js.map": "/moon-msg/static/js/runtime-main.bd35e333.js.map",
     "static/js/2.d5079ac8.chunk.js": "/moon-msg/static/js/2.d5079ac8.chunk.js",
@@ -10,14 +10,14 @@
     "static/js/3.2ec1e794.chunk.js": "/moon-msg/static/js/3.2ec1e794.chunk.js",
     "static/js/3.2ec1e794.chunk.js.map": "/moon-msg/static/js/3.2ec1e794.chunk.js.map",
     "index.html": "/moon-msg/index.html",
-    "static/css/main.5aed8993.chunk.css.map": "/moon-msg/static/css/main.5aed8993.chunk.css.map",
+    "static/css/main.9cf9330e.chunk.css.map": "/moon-msg/static/css/main.9cf9330e.chunk.css.map",
     "static/js/2.d5079ac8.chunk.js.LICENSE.txt": "/moon-msg/static/js/2.d5079ac8.chunk.js.LICENSE.txt",
     "static/media/Profile.module.css": "/moon-msg/static/media/walp.287261c4.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.bd35e333.js",
     "static/js/2.d5079ac8.chunk.js",
-    "static/css/main.5aed8993.chunk.css",
-    "static/js/main.82f5d761.chunk.js"
+    "static/css/main.9cf9330e.chunk.css",
+    "static/js/main.058378f2.chunk.js"
   ]
 }
