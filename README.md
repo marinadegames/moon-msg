@@ -32,7 +32,8 @@ This repository for my social network `Moon!msg`!
 🛠️ `v0.3.2` - fix layout `Profile` page  
 🆔 `v0.3.3` - added `UUID`  
 📝 `v0.3.4` - added `temp Store` | added `props` in Posts  
-⌨️ `v0.3.5` - enter key => `add new post`  
+⌨️ `v0.3.5` - enter key => `add new post`    
+🔗️ `v0.3.5` - added `react-router-dom` and changed pages | added 404 not found page  
 
 
 ### 🙃 Good luck for me!  

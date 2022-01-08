@@ -1,0 +1,11 @@
+.pageName{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 46px;
+    display: flex;
+    align-items: center;
+    /*border: 1px solid black;*/
+    padding: 1rem 0;
+    color: var(--secondColor);
+}

@@ -1,14 +1,20 @@
 // import
 import React from "react";
 import s from './Main.module.css'
-
 import {Profile} from "./Profile/Profile";
-import {addPost, PostType} from "../../Redux/tempStore";
+import {PostType} from "../../Redux/tempStore";
+import {Messages} from "./Messages/Messages";
+import {Route, Routes} from "react-router-dom";
+import {NotFound404} from "../404/NotFound404";
+import {Settings} from "./Settings/Settings";
+import {Music} from "./Music/Music";
+import {Friends} from "./Friends/Friends";
+
 
 // types
 type MainPropsType = {
     postsUser: Array<PostType>
-    addPost: (text:string) => void
+    addPost: (text: string) => void
 }
 // assets
 
@@ -19,9 +25,15 @@ export const Main = function ({postsUser, addPost, ...props}: MainPropsType) {
     return (
         <div className={s.Main}>
 
-            <Profile postsUser={postsUser}
-                     addPost={addPost}/>
-
+            <Routes>
+                <Route path={'/'} element={<Profile postsUser={postsUser} addPost={addPost}/>}/>
+                <Route path={'/profile'} element={<Profile postsUser={postsUser} addPost={addPost}/>}/>
+                <Route path={'/messages'} element={<Messages/>}/>
+                <Route path={'/settings'} element={<Settings/>}/>
+                <Route path={'/Music'} element={<Music/>}/>
+                <Route path={'/friends'} element={<Friends/>}/>
+                <Route path={'*'} element={<NotFound404/>}/>
+            </Routes>
         </div>
     )
 }

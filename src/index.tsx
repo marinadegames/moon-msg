@@ -7,9 +7,10 @@ import './index.css';
 
 export let rerenderEntireTree = () => {
     ReactDOM.render(
-        <App />,
+            <App/>,
         document.getElementById('root')
-    );
+    )
+    ;
 }
 
 rerenderEntireTree()

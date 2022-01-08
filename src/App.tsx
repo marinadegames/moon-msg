@@ -17,13 +17,14 @@ function App() {
     return (
         <BrowserRouter>
             <div className={s.App}>
-                <Header />
+
+                <Header/>
+
                 <div className={s.flexMain}>
-                    <LeftSideBar />
+                    <LeftSideBar/>
                     <Main postsUser={postsUser}
                           addPost={addPost}/>
                 </div>
-
 
                 {/*<Footer />*/}
             </div>

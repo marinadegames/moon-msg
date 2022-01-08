@@ -1,8 +1,8 @@
 .LeftSideBar{
     padding: 4.5rem 2rem 2rem 2rem;
     width: 22%;
+    text-decoration: none;
 }
-
 .menuItem {
     display: flex;
     align-items: center;
