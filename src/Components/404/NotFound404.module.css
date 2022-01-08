@@ -9,3 +9,21 @@
     padding: 1rem 0;
     color: var(--secondColor);
 }
+.main404{
+    padding: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    font-size: 100px;
+    color: var(--secondColor);
+}
+.backGif{
+    width: 400px;
+    height: 400px;
+    background-image: url("https://i.pinimg.com/originals/15/56/73/1556733162ff7df149cb5ad2c5e560f3.gif");
+    background-size: contain;
+}
