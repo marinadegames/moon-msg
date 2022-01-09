@@ -3,7 +3,7 @@
     --generalColor: #63A4DC;
     --secondColor: #1C4F7B;
 
-    --backgroundColor: #E0E1EC;
+    --backgroundColor: #e6e7ee;
     --backgroundBox: #FFFFFF;
 
     --gray: #F1F1F1;
@@ -11,6 +11,7 @@
     --shadow: 2px 2px 9px rgba(0, 0, 0, 0.25);
     --borderRadiusCustom: 15px;
 
+    --grayColor: #aaaaaa;
 }
 
 /* ====== @media ======*/
@@ -21,7 +22,9 @@
 /*    }*/
 /*}*/
 /* ========= ALL APP ========= */
-
+html{
+    background-color: white;
+}
 h1,h2,h3,h4,h5,h6, p {
     margin: 0;
     padding: 0;

@@ -1,0 +1,51 @@
+.backChat{
+    background-color: var(--backgroundBox);
+    border-radius: var(--borderRadiusCustom);
+    box-shadow: var(--shadow);
+    padding: 1rem;
+    min-height: 90%;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.chatNameUser{
+    padding: 0 0 0.5rem 0;
+    border-bottom: 1px solid var(--grayColor);
+}
+.chat{
+    /*border: 1px solid green;*/
+    min-height: 70%;
+}
+.senMsgArea{
+    display: flex;
+    flex-direction: row;
+}
+.sendMsgTextArea{
+    width: 85%;
+    height: 4rem;
+    padding: 0.5rem;
+    border-radius: 10px 0 0 10px;
+    border: 4px solid var(--generalColor);
+    color: black;
+    font-weight: 500;
+    font-size: 20px;
+    outline: none;
+    resize: none;
+}
+.btnSendMsg{
+    border-top: 4px solid var(--generalColor);
+    border-bottom: 4px solid var(--generalColor);
+    border-right: 4px solid var(--generalColor);
+    border-left: none;
+    font-weight: 600;
+    color: var(--generalColor);
+    background-color: var(--backgroundBox);
+    border-radius: 0 10px 10px 0;
+    transition: ease-in-out .2s;
+    cursor: pointer;
+}
+.btnSendMsg:hover{
+    color: white;
+    background-color: var(--generalColor);
+}

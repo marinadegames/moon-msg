@@ -1,7 +1,7 @@
 {
   "name": "way-of-the-samurai",
   "homepage": "https://marinadegames.github.io/moon-msg",
-  "version": "0.3.8",
+  "version": "0.3.9",
   "private": true,
   "dependencies": {
     "@bigheads/core": "^0.3.3",
