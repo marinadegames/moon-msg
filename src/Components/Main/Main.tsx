@@ -2,13 +2,13 @@
 import React from "react";
 import s from './Main.module.css'
 import {Profile} from "./Profile/Profile";
-import {PostType} from "../../Redux/tempStore";
 import {Messages} from "./Messages/Messages";
 import {Route, Routes} from "react-router-dom";
 import {NotFound404} from "../404/NotFound404";
 import {Settings} from "./Settings/Settings";
 import {Music} from "./Music/Music";
 import {Friends} from "./Friends/Friends";
+import {PostType} from "../../Redux/state";
 
 
 // types
