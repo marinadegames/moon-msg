@@ -32,7 +32,7 @@ export const Main = function ({postsUser, addPost, ...props}: MainPropsType) {
                 <Route path={'/settings'} element={<Settings/>}/>
                 <Route path={'/Music'} element={<Music/>}/>
                 <Route path={'/friends'} element={<Friends/>}/>
-                <Route path={'*'} element={<NotFound404/>}/>
+                <Route path={'/*'} element={<NotFound404/>}/>
             </Routes>
         </div>
     )

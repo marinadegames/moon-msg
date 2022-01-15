@@ -33,6 +33,7 @@ h1,h2,h3,h4,h5,h6, p {
 body {
     /*padding: 60px 60px 0 60px;*/
     background-color: var(--backgroundColor);
+    /*width: 90%;*/
 }
 
 .App {
