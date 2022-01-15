@@ -5,7 +5,7 @@ import {BigHead} from "@bigheads/core";
 import like from '../../../../../Assets/like.png'
 import comments from '../../../../../Assets/msg.png'
 import shareIcon from '../../../../../Assets/share.png'
-import {PostType} from "../../../../../Redux/tempStore";
+
 // types
 type PostPropsType = {
     key: string
@@ -18,7 +18,6 @@ type PostPropsType = {
 }
 
 // assets
-
 
 // components
 
