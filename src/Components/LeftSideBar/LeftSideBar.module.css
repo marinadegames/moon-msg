@@ -3,6 +3,9 @@
     width: 22%;
     text-decoration: none;
 }
+.LeftSideBar a {
+    text-decoration: none;
+}
 .menuItem {
     display: flex;
     align-items: center;

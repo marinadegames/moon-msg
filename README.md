@@ -37,7 +37,8 @@ This repository for my social network `Moon!msg`!
 🐈 `v0.3.7` - added page `404 not found` with cat 😁   
 🐈 `v0.3.8` - added `GitPage` ===> <b>[GO TO MY GIT PAGE](https://marinadegames.github.io/moon-msg) </b>  
 📩 `v0.3.9` - added `Messages page` layout  
-🛠️ `v0.4.0` - fixed menu
+🛠️ `v0.4.0` - fixed menu  
+🧈 `v0.4.1` - create `state`
 
 
 ### 🙃 Good luck for me!  

@@ -19,7 +19,8 @@ export const Chat = function () {
                 <MsgRight />
             </div>
             <div className={s.senMsgArea}>
-                <textarea className={s.sendMsgTextArea} placeholder={'Send message...'}>
+                <textarea className={s.sendMsgTextArea}
+                          placeholder={'Send message...'}>
 
                 </textarea>
                 <button className={s.btnSendMsg}>send</button>
