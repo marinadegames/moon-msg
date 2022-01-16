@@ -4,7 +4,6 @@ import s from './Header.module.css'
 import { BigHead } from '@bigheads/core'
 //imports icons
 import moon from '../../Assets/moon.png'
-import notificationIcon from '../../Assets/notification.png'
 
 // types
 
@@ -12,8 +11,8 @@ import notificationIcon from '../../Assets/notification.png'
 const sun = <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="60px" height="60px">
     <linearGradient id="PtY0UrX1qJDQb5CcMCRpOa" x1="6.221" x2="37.408" y1="5.221" y2="36.408"
                     gradientUnits="userSpaceOnUse">
-        <stop offset="0" stop-color="#fed100"/>
-        <stop offset="1" stop-color="#e36001"/>
+        <stop offset="0" stopColor="#fed100"/>
+        <stop offset="1" stopColor="#e36001"/>
     </linearGradient>
     <path fill="url(#PtY0UrX1qJDQb5CcMCRpOa)"
           d="M24,4C13.507,4,5,12.507,5,23s8.507,19,19,19s19-8.507,19-19S34.493,4,24,4z"/>
@@ -28,8 +27,8 @@ const sun = <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="6
         opacity=".07"/>
     <linearGradient id="PtY0UrX1qJDQb5CcMCRpOb" x1="29.373" x2="37.64" y1="20.668" y2="39.146"
                     gradientUnits="userSpaceOnUse">
-        <stop offset="0" stop-color="#fcfcfc"/>
-        <stop offset="1" stop-color="#c3c9cd"/>
+        <stop offset="0" stopColor="#fcfcfc"/>
+        <stop offset="1" stopColor="#c3c9cd"/>
     </linearGradient>
     <path fill="url(#PtY0UrX1qJDQb5CcMCRpOb)"
           d="M39.5,24c-0.245,0-0.484,0.022-0.721,0.053C37.518,22.21,35.401,21,33,21	c-3.178,0-5.858,2.12-6.712,5.021C23.904,26.134,22,28.087,22,30.5c0,2.485,2.015,4.5,4.5,4.5c1.085,0,11.875,0,13,0	c3.038,0,5.5-2.462,5.5-5.5C45,26.462,42.538,24,39.5,24z"/>

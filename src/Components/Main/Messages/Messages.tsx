@@ -1,19 +1,24 @@
 // import
-import React, {useState} from "react";
+import React from "react";
 import s from './Messages.module.css'
-import {BigHead} from "@bigheads/core";
 import {MsgTitle} from "./MsgTitle/MsgTitle";
 import {Chat} from "./Chat/Chat";
+import {DialogsType} from "../../../Redux/state";
 
 // types
-
+type MessagesPropsType = {
+    dialogs: DialogsType[]
+}
 // assets
+
+
+
 
 // components
 
-export const Messages = function () {
+export const Messages = function (props: MessagesPropsType) {
 
-    const [activeTitle, setActiveTitle] = useState(false)
+    // const [selectedDialog, setSelectedDialog] = useState(false)
 
     return (
         <div>
@@ -24,10 +29,17 @@ export const Messages = function () {
                 <div className={s.msgBoxLeft}>
                     <div className={s.titleMsgBoxPage}>Friends:</div>
 
-                    <MsgTitle activeTitle={true}/>
-                    <MsgTitle activeTitle={false}/>
-                    <MsgTitle activeTitle={false}/>
-                    <MsgTitle activeTitle={false}/>
+                    {props.dialogs.map( d => {
+                        return (
+                            <MsgTitle selectedDialog={d.selectedDialog}
+                                      lastMessage={d.lastMessage}
+                                      avatar={d.avatar}
+                                      time={d.time}
+                                      id={d.id}
+                                      userName={d.userName}/>
+                        )
+                    })}
+
 
                 </div>
 

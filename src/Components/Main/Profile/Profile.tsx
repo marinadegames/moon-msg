@@ -7,14 +7,14 @@ import {PostType} from "../../../Redux/state";
 
 // types
 type ProfilePropsType = {
-    postsUser: Array<PostType>
+    posts: Array<PostType>
     addPost: (text: string) => void
 }
 // assets
 
 // components
 
-export const Profile = function ({postsUser, addPost, ...props}: ProfilePropsType) {
+export const Profile = function ({posts, addPost, ...props}: ProfilePropsType) {
 
     const userLogo = () => (
         <BigHead
@@ -65,7 +65,7 @@ export const Profile = function ({postsUser, addPost, ...props}: ProfilePropsTyp
 
             </div>
 
-            <Posts postsUser={postsUser}
+            <Posts posts={posts}
                    addPost={addPost}/>
 
         </div>

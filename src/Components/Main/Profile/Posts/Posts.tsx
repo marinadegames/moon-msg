@@ -6,19 +6,22 @@ import {PostType} from "../../../../Redux/state";
 
 // types
 type PostsPropsType = {
-    postsUser: Array<PostType>
+    posts: Array<PostType>
     addPost: (text:string) => void
 }
 // assets
 
 // components
 
-export const Posts = function ({postsUser, addPost, ...props}: PostsPropsType) {
+export const Posts = function ({posts, addPost, ...props}: PostsPropsType) {
 
+    // hooks
     const [textarea, setTexArea] = useState<string>('')
 
+    // functions
     const changeTextArea = (text: string) => {
         setTexArea(text)
+
     }
     const onClickAddPostCallback = () => {
         if (textarea !== '') addPost(textarea);
@@ -31,6 +34,7 @@ export const Posts = function ({postsUser, addPost, ...props}: PostsPropsType) {
         }
     }
 
+    // return
     return (
         <div className={s.boxPosts}>
             <div className={s.boxPostsTitle}>
@@ -53,7 +57,7 @@ export const Posts = function ({postsUser, addPost, ...props}: PostsPropsType) {
                 <div className={s.myPostsBox}>
                     <div className={s.myPostsTitle}>My posts:</div>
                     <div className={s.myPosts}>
-                        {postsUser.map((p) => {
+                        {posts.map((p) => {
                             return (
                                 <Post key={p.id}
                                       shares={p.shares}

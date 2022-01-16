@@ -8,7 +8,7 @@ import messagesIcon from '../../Assets/msg.png'
 import musicIcon from '../../Assets/musicIcon.png'
 import FriendsIcon from '../../Assets/people.png'
 import SettingsIcon from '../../Assets/keypng.png'
-import {Link, NavLink} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 // types
 type statusPageActiveType = 'PROFILE' | 'MESSAGES' | 'MUSIC' | 'FRIENDS' | 'SETTINGS'

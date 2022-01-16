@@ -13,7 +13,7 @@ This repository for my social network `Moon!msg`!
 🟨 `v0.0.5` - added `Dialogs` | other fix  
 🗺️ `v0.0.6` - added `.map`   
 🚚  `v0.0.7` - Transfer Data to index.js  
-☑️ `v0.0.8` - `LAYOUT` | added box "friends" in Nav | Transfer data to `state.ts` | refactor code  
+☑️ `v0.0.8` - `LAYOUT` | added box "friends" in Nav | Transfer data to `state.tsx` | refactor code  
 🌴    `v0.0.9` - added `ref` + `onclick` Post and Message  
 🔧 `v0.1.0` - added typing to state file  
 📝 `v0.1.1` - added the ability to make posts  
@@ -38,7 +38,8 @@ This repository for my social network `Moon!msg`!
 🐈 `v0.3.8` - added `GitPage` ===> <b>[GO TO MY GIT PAGE](https://marinadegames.github.io/moon-msg) </b>  
 📩 `v0.3.9` - added `Messages page` layout  
 🛠️ `v0.4.0` - fixed menu  
-🧈 `v0.4.1` - create `state`
+🧈 `v0.4.1` - create `state`  
+🔢 `v0.4.2` - fixed `state` and fixed `dialogs`
 
 
 ### 🙃 Good luck for me!  
