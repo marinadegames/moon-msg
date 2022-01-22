@@ -22,8 +22,11 @@ export const Chat = function (props: ChatPropsType) {
         setTextAreaValue(e)
     }
     const onclickSendMessageHandler = () => {
-        props.dispatch(sendMessageActionCreator(textAreaValue))
-        setTextAreaValue('')
+        if (textAreaValue !== '') {
+            props.dispatch(sendMessageActionCreator(textAreaValue))
+            setTextAreaValue('')
+        }
+
     }
     const enterHandler = (event: KeyboardEvent) => {
         if (event.charCode === 13 && textAreaValue !== '') {
