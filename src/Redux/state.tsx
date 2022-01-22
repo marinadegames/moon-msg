@@ -1,10 +1,13 @@
 // imports
 import {v1} from "uuid"
 import {rerenderEntireTree} from "../index";
+import {profileReducer} from "./profileReducer";
+import {dialogsReducer} from "./dialogsReducer";
 
 // const
 const ADD_POST = 'ADD_POST'
 const SEND_MESSAGE = 'SEND_MESSAGE'
+
 //types
 export type StoreType = {
     _state: StateType
@@ -50,9 +53,7 @@ export type UserType = {
     email: string
     posts: Array<PostType>
 }
-
 export type ActionType = SendMessageActionType | AddPostActionType
-
 
 // id
 // const userId_1 = v1()
@@ -162,37 +163,10 @@ let store: StoreType = {
 
     },
     dispatch(action: ActionType) {   // { type: 'ADD_POST' }
-        if (action.type === ADD_POST) {
-            let newPost =
-                {
-                    id: v1(),
-                    userName: 'Eugene Pashkevich',
-                    date: '08.01.2022 in 22:00',
-                    likes: 0,
-                    comments: 0,
-                    shares: 0,
-                    text: action.newText,
-                }
 
-            // state.allUsers[userId_1].posts.unshift(newPost)
-            this._state.allUsers[0].posts.unshift(newPost)
-            rerenderEntireTree()
-        }
-        if (action.type === SEND_MESSAGE) {
-            let newMessage =
-                {
-                    id: v1(),
-                    message: action.newMessage,
-                    time: '16:25'
-                }
+        this._state.allUsers[0] = profileReducer(this._state.allUsers[0], action)
+        this._state.allMessages = dialogsReducer(this._state.allMessages, action)
 
-            // state.allUsers[userId_1].posts.unshift(newPost)
-            this._state.allMessages.RIGHT.push(newMessage)
-            rerenderEntireTree()
-        }
-        // if (action.type === SEND_MESSAGE) {
-        //
-        // }
     }
 }
 
