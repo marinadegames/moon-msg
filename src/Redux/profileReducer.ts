@@ -24,3 +24,10 @@ export const profileReducer = (state: any, action: any) => {
     }
     return state
 }
+
+export const addPostActionCreator = (text: string) => {
+    return {
+        type: ADD_POST,
+        newText: text
+    }
+}

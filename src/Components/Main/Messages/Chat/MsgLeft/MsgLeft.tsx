@@ -2,7 +2,7 @@
 import React from "react";
 import s from './MsgLeft.module.css'
 import {BigHead} from "@bigheads/core";
-import {MessageType} from "../../../../../Redux/state";
+import {MessageType} from "../../../../../Redux/store";
 
 // types
 type ChatLeftPropsType = {

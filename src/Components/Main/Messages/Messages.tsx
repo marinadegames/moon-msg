@@ -1,9 +1,9 @@
 // import
-import React, {useState} from "react";
+import React from "react";
 import s from './Messages.module.css'
 import {MsgTitle} from "./MsgTitle/MsgTitle";
 import {Chat} from "./Chat/Chat";
-import {AllMessagesType, MessageType, PostType} from "../../../Redux/state";
+import {AllMessagesType} from "../../../Redux/store";
 
 // types
 type MessagesPropsType = {
@@ -15,8 +15,6 @@ type MessagesPropsType = {
 // components
 
 export const Messages = function (props: MessagesPropsType) {
-
-    const [activeTitle, setActiveTitle] = useState(false)
 
     return (
         <div>

@@ -20,3 +20,10 @@ export const dialogsReducer = (state: any, action: any) => {
 
     return state
 }
+
+export const sendMessageActionCreator = (text: string) => {
+    return {
+        type: SEND_MESSAGE,
+        newMessage: text
+    }
+}

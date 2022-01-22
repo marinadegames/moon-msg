@@ -6,7 +6,7 @@ import {BrowserRouter} from "react-router-dom";
 import {Header} from "./Components/Header/Header";
 import {LeftSideBar} from "./Components/LeftSideBar/LeftSideBar";
 import {Main} from "./Components/Main/Main";
-import store from "./Redux/state";
+import store from "./Redux/store";
 
 //types
 

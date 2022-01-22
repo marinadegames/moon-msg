@@ -5,8 +5,7 @@ import {profileReducer} from "./profileReducer";
 import {dialogsReducer} from "./dialogsReducer";
 
 // const
-const ADD_POST = 'ADD_POST'
-const SEND_MESSAGE = 'SEND_MESSAGE'
+
 
 //types
 export type StoreType = {
@@ -170,18 +169,8 @@ let store: StoreType = {
     }
 }
 
-export const addPostActionCreator = (text: string) => {
-    return {
-        type: ADD_POST,
-        newText: text
-    }
-}
-export const sendMessageActionCreator = (text: string) => {
-    return {
-        type: SEND_MESSAGE,
-        newMessage: text
-    }
-}
+
+
 
 
 export default store

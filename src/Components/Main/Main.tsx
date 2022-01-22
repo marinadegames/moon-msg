@@ -8,7 +8,7 @@ import {NotFound404} from "../404/NotFound404";
 import {Settings} from "./Settings/Settings";
 import {Music} from "./Music/Music";
 import {Friends} from "./Friends/Friends";
-import {AllMessagesType, PostType} from "../../Redux/state";
+import {AllMessagesType, PostType} from "../../Redux/store";
 
 
 // types

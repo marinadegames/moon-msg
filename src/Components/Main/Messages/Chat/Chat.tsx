@@ -3,7 +3,8 @@ import React, {KeyboardEvent, useState} from "react";
 import s from './Chat.module.css'
 import {MsgLeft} from "./MsgLeft/MsgLeft";
 import {MsgRight} from "./MsgRight/MsgRight";
-import {AllMessagesType, sendMessageActionCreator} from "../../../../Redux/state";
+import {AllMessagesType} from "../../../../Redux/store";
+import {sendMessageActionCreator} from "../../../../Redux/dialogsReducer";
 
 // types
 type ChatPropsType = {

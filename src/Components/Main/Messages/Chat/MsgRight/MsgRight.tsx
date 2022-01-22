@@ -1,6 +1,6 @@
 import {BigHead} from "@bigheads/core";
 import React from "react";
-import {MessageType} from "../../../../../Redux/state";
+import {MessageType} from "../../../../../Redux/store";
 import s from './MsgRight.module.css'
 
 // type
