@@ -6,16 +6,14 @@ import {BrowserRouter} from "react-router-dom";
 import {Header} from "./Components/Header/Header";
 import {LeftSideBar} from "./Components/LeftSideBar/LeftSideBar";
 import {Main} from "./Components/Main/Main";
-import {StoreType} from "./Redux/state";
+import store from "./Redux/state";
 
 //types
-type AppPropsType = {
-    store: StoreType
-}
+
 //assets
 
 // components
-function App({store, ...props}: AppPropsType) {
+function App() {
     return (
         <BrowserRouter>
             <div className={s.App}>
@@ -24,9 +22,9 @@ function App({store, ...props}: AppPropsType) {
 
                 <div className={s.flexMain}>
                     <LeftSideBar/>
-                    <Main posts={store._state.profilePage.posts}
-                          dialogs={store._state.dialogsPage.dialogs}
-                          addPost={store.addPost}/>
+                    <Main postsUser={store._state.allUsers[0].posts}
+                          allMessages={store._state.allMessages}
+                          dispatch={store.dispatch.bind(store)}/>
                 </div>
 
                 {/*<Footer />*/}

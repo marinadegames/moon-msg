@@ -1,8 +1,15 @@
 import {BigHead} from "@bigheads/core";
-import s from './MsgRight.module.css'
 import React from "react";
+import {MessageType} from "../../../../../Redux/state";
+import s from './MsgRight.module.css'
 
-export const MsgRight = function () {
+// type
+type ChatRightPropsType = {
+    rightMessages: Array<MessageType>
+}
+
+
+export const MsgRight = function (props: ChatRightPropsType) {
 
     const userLogo = () => (
         <BigHead
@@ -29,16 +36,23 @@ export const MsgRight = function () {
         />
     )
 
-    return (
-        <div className={s.msgRight}>
 
-            <div className={s.textMsg}>
-                What? What you doing?! Lorem ipsum dolor septim sanctum!
-                Error 404 not found!
-                <div className={s.timeMsg}>16:25</div>
-            </div>
-            <div className={s.msgAvatarFriend}>{userLogo()}</div>
+
+    return (
+        <div>
+            {props.rightMessages.map( (m) => {
+                return (
+                    <div className={s.msgRight} key={m.id}>
+                        <div className={s.textMsg}>
+                            {m.message}
+                            <div className={s.timeMsg}>{m.time}</div>
+                        </div>
+                        <div className={s.msgAvatarFriend}>{userLogo()}</div>
+                    </div>
+                )
+            } )}
 
         </div>
     )
+
 }

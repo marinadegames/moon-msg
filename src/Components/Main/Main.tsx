@@ -8,26 +8,30 @@ import {NotFound404} from "../404/NotFound404";
 import {Settings} from "./Settings/Settings";
 import {Music} from "./Music/Music";
 import {Friends} from "./Friends/Friends";
-import {DialogsType, PostType} from "../../Redux/state";
+import {AllMessagesType, PostType} from "../../Redux/state";
 
 
 // types
 type MainPropsType = {
-    posts: Array<PostType>
-    addPost: (text: string) => void
-    dialogs: DialogsType[]
+    postsUser: Array<PostType>
+    dispatch: any
+    allMessages: AllMessagesType
 }
-
 // assets
 
 // components
-export const Main = function ({posts, addPost, dialogs, ...props}: MainPropsType) {
+
+export const Main = function ({postsUser, dispatch, ...props}: MainPropsType) {
+
     return (
         <div className={s.Main}>
+
             <Routes>
-                <Route path={'/'} element={<Profile posts={posts} addPost={addPost}/>}/>
-                <Route path={'/profile'} element={<Profile posts={posts} addPost={addPost}/>}/>
-                <Route path={'/messages'} element={<Messages dialogs={dialogs}/>}/>
+                <Route path={'/'} element={<Profile postsUser={postsUser}
+                                                    dispatch={dispatch}/>}/>
+                <Route path={'/profile'} element={<Profile postsUser={postsUser}
+                                                           dispatch={dispatch}/>}/>
+                <Route path={'/messages'} element={<Messages allMessages={props.allMessages} dispatch={dispatch}/>}/>
                 <Route path={'/settings'} element={<Settings/>}/>
                 <Route path={'/Music'} element={<Music/>}/>
                 <Route path={'/friends'} element={<Friends/>}/>

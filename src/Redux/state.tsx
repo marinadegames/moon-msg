@@ -1,11 +1,23 @@
 // imports
 import {v1} from "uuid"
-import {ElinaMalina, GlebTop4ipk, JamesonWood, MrGray, MrSmith} from "./BigHeadsFile";
-import {ReactNode} from "react";
+import {rerenderEntireTree} from "../index";
 
-// assets
-
+// const
+const ADD_POST = 'ADD_POST'
+const SEND_MESSAGE = 'SEND_MESSAGE'
 //types
+export type StoreType = {
+    _state: StateType
+    dispatch: (action: AddPostActionType) => void
+}
+export type StateType = {
+    allUsers: AllUsersType
+    allMessages: AllMessagesType
+}
+export type AllMessagesType = {
+    LEFT: Array<MessageType>
+    RIGHT: Array<MessageType>
+}
 export type PostType = {
     id: string
     userName: string
@@ -15,147 +27,194 @@ export type PostType = {
     shares: number
     text: string
 }
-export type DialogsType = {
-    id: string
-    userName: string
-    lastMessage: string
-    selectedDialog: boolean
-    avatar: () => ReactNode
-    time: string
+export type AddPostActionType = {
+    type:  'ADD_POST',
+    newText: string
 }
-export type MessagesType = {
+export type SendMessageActionType = {
+    type: 'SEND_MESSAGE',
+    newMessage: string
+}
+export type MessageType = {
     id: string
     message: string
+    time: string
 }
-type ProfilePageType = {
-    posts: PostType[]
-}
-type DialogsPageType = {
-    dialogs: DialogsType[]
-    messages: MessagesType[]
-}
-export type StateType = {
-    profilePage: ProfilePageType
-    dialogsPage: DialogsPageType
-}
-export type StoreType = {
-    _state: StateType
-    rerenderEntireTree: () => void
-    addPost: (text: string) => void
-    getState: () => void
+export type AllUsersType = Array<UserType>
+export type UserType = {
+    id: string
+    birthtime: string
+    name: string
+    city: string
+    country: string
+    email: string
+    posts: Array<PostType>
 }
 
-// store
-export let store: StoreType = {
+export type ActionType = SendMessageActionType | AddPostActionType
+
+
+// id
+// const userId_1 = v1()
+// const userId_2 = v1()
+
+
+let store: StoreType = {
     _state: {
-        profilePage: {
-            posts: [
+        allUsers: [
+            {
+                id: 'ID_1',
+                name: 'Eugene Pashkevich',
+                birthtime: '17.02.1997',
+                city: 'Minsk',
+                country: 'Belarus',
+                email: 'marinadegames@gmail.com',
+                posts: [
+                    {
+                        id: v1(),
+                        userName: 'Eugene Pashkevich',
+                        date: '08.01.2022 in 14:21',
+                        likes: 1923,
+                        comments: 123,
+                        shares: 34,
+                        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labod minim veniam, quis nostrud exercitation ullamco',
+                    },
+                    {
+                        id: v1(),
+                        userName: 'Eugene Pashkevich',
+                        date: '08.01.2022 in 15:67',
+                        likes: 234,
+                        comments: 34,
+                        shares: 2,
+                        text: 'Hi, friends! How ary you?)))',
+                    },
+                    {
+                        id: v1(),
+                        userName: 'Eugene Pashkevich',
+                        date: '09.01.2022 in 09:02',
+                        likes: 123,
+                        comments: 1,
+                        shares: 0,
+                        text: 'I love IT-INCUBATOR',
+                    },
+                ]
+            },
+            {
+                id: 'ID_2',
+                name: 'Elina Malina',
+                birthtime: '23.12.1998',
+                city: 'Minsk',
+                country: 'Belarus',
+                email: 'elinamalina@gmail.com',
+                posts: [
+                    {
+                        id: v1(),
+                        userName: 'Elina Malina',
+                        date: '08.01.2022 in 14:21',
+                        likes: 1923,
+                        comments: 123,
+                        shares: 34,
+                        text: 'WHAT YOU SAY BUT MY MOM?!',
+                    },
+                    {
+                        id: v1(),
+                        userName: 'Elina Malina',
+                        date: '08.01.2022 in 15:67',
+                        likes: 234,
+                        comments: 34,
+                        shares: 2,
+                        text: 'Hi, friends! How ary you?)))',
+                    },
+                    {
+                        id: v1(),
+                        userName: 'Elina Malina',
+                        date: '09.01.2022 in 09:02',
+                        likes: 123,
+                        comments: 1,
+                        shares: 0,
+                        text: 'I love IT-INCUBATOR',
+                    },
+                ]
+            },
+        ],
+        allMessages: {
+            LEFT: [
                 {
                     id: v1(),
-                    userName: 'Eugene Pashkevich',
-                    date: '08.01.2022 in 14:21',
-                    likes: 1923,
-                    comments: 123,
-                    shares: 34,
-                    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labod minim veniam, quis nostrud exercitation ullamco',
+                    message: 'Hi, how are you?',
+                    time: '16:25'
                 },
                 {
                     id: v1(),
-                    userName: 'Eugene Pashkevich',
-                    date: '08.01.2022 in 15:67',
-                    likes: 234,
-                    comments: 34,
-                    shares: 2,
-                    text: 'Hi, friends! How ary you?)))',
-                },
-                {
-                    id: v1(),
-                    userName: 'Eugene Pashkevich',
-                    date: '09.01.2022 in 09:02',
-                    likes: 123,
-                    comments: 1,
-                    shares: 0,
-                    text: 'I love IT-INCUBATOR',
+                    message: 'Where are you?!',
+                    time: '16:25'
                 },
             ],
-        },
 
-        dialogsPage: {
-            dialogs: [
+            RIGHT: [
                 {
                     id: v1(),
-                    avatar: ElinaMalina,
-                    userName: 'Elina Malina',
-                    lastMessage: 'Hi, how are you?',
-                    selectedDialog: true,
-                    time: '18:34',
+                    message: "I'm fine!!!",
+                    time: '16:26'
                 },
-                {
-                    id: v1(),
-                    avatar: GlebTop4ipk,
-                    userName: 'Gleb Top4ipk',
-                    lastMessage: 'Шо ты там, собака сутулая?)',
-                    selectedDialog: false,
-                    time: '14:32',
-                },
-                {
-                    id: v1(),
-                    avatar: MrSmith,
-                    userName: 'Mr. Smith',
-                    lastMessage: 'Why are you resisting?',
-                    selectedDialog: false,
-                    time: '15:56',
-                },
-                {
-                    id: v1(),
-                    avatar: MrGray,
-                    userName: 'Mr. Gray',
-                    lastMessage: 'Anastasia...',
-                    selectedDialog: false,
-                    time: '00:43',
-                },
-                {
-                    id: v1(),
-                    avatar: JamesonWood,
-                    userName: 'Jameson Wood',
-                    lastMessage: 'YEEEEEEESSSS!!!!',
-                    selectedDialog: false,
-                    time: '09:12',
-                },
-            ],
-            messages: [
-                {id: v1(), message: 'Hi, how are you?'},
-                {id: v1(), message: 'yes'},
-                {id: v1(), message: 'No< its crazy'},
-                {id: v1(), message: 'GOOD! START!'},
-                {id: v1(), message: 'holywaaaaaaaaaaar!'},
             ],
         }
-    },
-    getState() {
-        return this._state
-    },
-    rerenderEntireTree() {
-        console.log('state changed')
-    },
-    addPost (text: string){
-        let newPost =
-            {
-                id: v1(),
-                userName: 'Eugene Pashkevich',
-                date: '08.01.2022 in 22:00',
-                likes: 0,
-                comments: 0,
-                shares: 0,
-                text: text,
-            }
 
-        this._state.profilePage.posts.unshift(newPost)
-        this.rerenderEntireTree()
     },
+    dispatch(action: ActionType) {   // { type: 'ADD_POST' }
+        if (action.type === ADD_POST) {
+            let newPost =
+                {
+                    id: v1(),
+                    userName: 'Eugene Pashkevich',
+                    date: '08.01.2022 in 22:00',
+                    likes: 0,
+                    comments: 0,
+                    shares: 0,
+                    text: action.newText,
+                }
+
+            // state.allUsers[userId_1].posts.unshift(newPost)
+            this._state.allUsers[0].posts.unshift(newPost)
+            rerenderEntireTree()
+        }
+        if (action.type === SEND_MESSAGE) {
+            let newMessage =
+                {
+                    id: v1(),
+                    message: action.newMessage,
+                    time: '16:25'
+                }
+
+            // state.allUsers[userId_1].posts.unshift(newPost)
+            this._state.allMessages.RIGHT.push(newMessage)
+            rerenderEntireTree()
+        }
+        // if (action.type === SEND_MESSAGE) {
+        //
+        // }
+    }
+}
+
+export const addPostActionCreator = (text: string) => {
+    return {
+        type: ADD_POST,
+        newText: text
+    }
+}
+export const sendMessageActionCreator = (text: string) => {
+    return {
+        type: SEND_MESSAGE,
+        newMessage: text
+    }
 }
 
 
+export default store
+
 // functional
+
+
+
 
 

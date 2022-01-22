@@ -2,39 +2,41 @@
 import React, {useState, KeyboardEvent} from "react";
 import s from "./Posts.module.css";
 import {Post} from "./Post/Post";
-import {PostType} from "../../../../Redux/state";
+import {addPostActionCreator, AddPostActionType, PostType} from "../../../../Redux/state";
 
 // types
 type PostsPropsType = {
-    posts: Array<PostType>
-    addPost: (text:string) => void
+    postsUser: Array<PostType>
+    dispatch: (action: any) => void
 }
 // assets
 
+// other
+
+
 // components
 
-export const Posts = function ({posts, addPost, ...props}: PostsPropsType) {
+export const Posts = function ({postsUser, dispatch}: PostsPropsType) {
 
-    // hooks
     const [textarea, setTexArea] = useState<string>('')
 
-    // functions
     const changeTextArea = (text: string) => {
         setTexArea(text)
-
     }
     const onClickAddPostCallback = () => {
-        if (textarea !== '') addPost(textarea);
+        if (textarea !== '') {
+            let action = addPostActionCreator(textarea)
+            dispatch(action);
+        }
         setTexArea('')
     }
     const enterHandler = (event: KeyboardEvent) => {
         if (event.charCode === 13 && textarea !== ''){
-            addPost(textarea)
+            dispatch( {type: 'ADD_POST', newText: textarea})
             setTexArea('')
         }
     }
 
-    // return
     return (
         <div className={s.boxPosts}>
             <div className={s.boxPostsTitle}>
@@ -57,7 +59,7 @@ export const Posts = function ({posts, addPost, ...props}: PostsPropsType) {
                 <div className={s.myPostsBox}>
                     <div className={s.myPostsTitle}>My posts:</div>
                     <div className={s.myPosts}>
-                        {posts.map((p) => {
+                        {postsUser.map((p) => {
                             return (
                                 <Post key={p.id}
                                       shares={p.shares}

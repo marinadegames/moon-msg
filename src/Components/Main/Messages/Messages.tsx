@@ -1,24 +1,22 @@
 // import
-import React from "react";
+import React, {useState} from "react";
 import s from './Messages.module.css'
 import {MsgTitle} from "./MsgTitle/MsgTitle";
 import {Chat} from "./Chat/Chat";
-import {DialogsType} from "../../../Redux/state";
+import {AllMessagesType, MessageType, PostType} from "../../../Redux/state";
 
 // types
 type MessagesPropsType = {
-    dialogs: DialogsType[]
+    allMessages: AllMessagesType
+    dispatch: any
 }
 // assets
-
-
-
 
 // components
 
 export const Messages = function (props: MessagesPropsType) {
 
-    // const [selectedDialog, setSelectedDialog] = useState(false)
+    const [activeTitle, setActiveTitle] = useState(false)
 
     return (
         <div>
@@ -29,22 +27,16 @@ export const Messages = function (props: MessagesPropsType) {
                 <div className={s.msgBoxLeft}>
                     <div className={s.titleMsgBoxPage}>Friends:</div>
 
-                    {props.dialogs.map( d => {
-                        return (
-                            <MsgTitle selectedDialog={d.selectedDialog}
-                                      lastMessage={d.lastMessage}
-                                      avatar={d.avatar}
-                                      time={d.time}
-                                      id={d.id}
-                                      userName={d.userName}/>
-                        )
-                    })}
-
+                    <MsgTitle activeTitle={true}/>
+                    <MsgTitle activeTitle={false}/>
+                    <MsgTitle activeTitle={false}/>
+                    <MsgTitle activeTitle={false}/>
 
                 </div>
 
                 <div className={s.msgBoxRight}>
-                    <Chat/>
+                    <Chat allMessages={props.allMessages}
+                          dispatch={props.dispatch}/>
 
                 </div>
 
