@@ -1,29 +1,53 @@
 // import
-import React from "react";
+import React, {KeyboardEvent, useState} from "react";
 import s from './Chat.module.css'
 import {MsgLeft} from "./MsgLeft/MsgLeft";
 import {MsgRight} from "./MsgRight/MsgRight";
-// types
+import {AllMessagesType, sendMessageActionCreator} from "../../../../Redux/state";
 
+// types
+type ChatPropsType = {
+    allMessages: AllMessagesType
+    dispatch: any
+}
 // assets
 
 // components
 
-export const Chat = function () {
+export const Chat = function (props: ChatPropsType) {
+
+    const [textAreaValue, setTextAreaValue] = useState('')
+
+    const textAreaHandler = (e: string) => {
+        setTextAreaValue(e)
+    }
+    const onclickSendMessageHandler = () => {
+        props.dispatch(sendMessageActionCreator(textAreaValue))
+        setTextAreaValue('')
+    }
+    const enterHandler = (event: KeyboardEvent) => {
+        if (event.charCode === 13 && textAreaValue !== '') {
+            props.dispatch(sendMessageActionCreator(textAreaValue))
+            setTextAreaValue('')
+        }
+    }
 
     return (
         <div className={s.backChat}>
             <div className={s.chatNameUser}>Elina Malina</div>
             <div className={s.chat}>
-                <MsgLeft />
-                <MsgRight />
+                <MsgLeft leftMessages={props.allMessages.LEFT}/>
+                <MsgRight rightMessages={props.allMessages.RIGHT}/>
             </div>
             <div className={s.senMsgArea}>
                 <textarea className={s.sendMsgTextArea}
-                          placeholder={'Send message...'}>
-
+                          value={textAreaValue}
+                          onChange={(e) => textAreaHandler(e.currentTarget.value)}
+                          placeholder={'Send message...'}
+                          onKeyPress={(event) => enterHandler(event)}
+                >
                 </textarea>
-                <button className={s.btnSendMsg}>send</button>
+                <button className={s.btnSendMsg} onClick={onclickSendMessageHandler}>send</button>
             </div>
         </div>
     )

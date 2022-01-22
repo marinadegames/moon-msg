@@ -39,7 +39,8 @@ This repository for my social network `Moon!msg`!
 📩 `v0.3.9` - added `Messages page` layout  
 🛠️ `v0.4.0` - fixed menu  
 🧈 `v0.4.1` - create `state`  
-🔢 `v0.4.2` - fixed `state` and fixed `dialogs`
+🔢 `v0.4.2` - fixed `state` and fixed `dialogs`  
+😝 `v0.5.0` - send message | fix state and create store
 
 
 ### 🙃 Good luck for me!  
