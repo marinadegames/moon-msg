@@ -161,7 +161,7 @@ let store: StoreType = {
         }
 
     },
-    dispatch(action: ActionType) {   // { type: 'ADD_POST' }
+    dispatch(action: ActionType) {
 
         this._state.allUsers[0] = profileReducer(this._state.allUsers[0], action)
         this._state.allMessages = dialogsReducer(this._state.allMessages, action)
@@ -169,13 +169,9 @@ let store: StoreType = {
     }
 }
 
+export default store// functional
 
 
-
-
-export default store
-
-// functional
 
 
 
