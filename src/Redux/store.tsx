@@ -42,7 +42,7 @@ export type MessageType = {
     message: string
     time: string
 }
-export type AllUsersType = Array<UserType>
+export type AllUsersType = Test
 export type UserType = {
     id: string
     birthtime: string
@@ -55,14 +55,19 @@ export type UserType = {
 export type ActionType = SendMessageActionType | AddPostActionType
 
 // id
-// const userId_1 = v1()
-// const userId_2 = v1()
+export const USER_ID_1 = v1()
+export const USER_ID_2 = v1()
+
+type Test = {
+    [key: string] : UserType
+}
 
 
 let store: StoreType = {
     _state: {
-        allUsers: [
-            {
+        allUsers: {
+            [USER_ID_1]:
+                {
                 id: 'ID_1',
                 name: 'Eugene Pashkevich',
                 birthtime: '17.02.1997',
@@ -99,6 +104,7 @@ let store: StoreType = {
                     },
                 ]
             },
+            [USER_ID_2]:
             {
                 id: 'ID_2',
                 name: 'Elina Malina',
@@ -136,7 +142,7 @@ let store: StoreType = {
                     },
                 ]
             },
-        ],
+    },
         allMessages: {
             LEFT: [
                 {
@@ -163,11 +169,15 @@ let store: StoreType = {
     },
     dispatch(action: ActionType) {
 
-        this._state.allUsers[0] = profileReducer(this._state.allUsers[0], action)
+        this._state.allUsers[USER_ID_1] = profileReducer(this._state.allUsers[USER_ID_1], action)
         this._state.allMessages = dialogsReducer(this._state.allMessages, action)
 
-    }
+    },
+
 }
+
+
+
 
 export default store// functional
 

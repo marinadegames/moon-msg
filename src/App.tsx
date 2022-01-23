@@ -6,7 +6,8 @@ import {BrowserRouter} from "react-router-dom";
 import {Header} from "./Components/Header/Header";
 import {LeftSideBar} from "./Components/LeftSideBar/LeftSideBar";
 import {Main} from "./Components/Main/Main";
-import store from "./Redux/store";
+import store, {USER_ID_1} from "./Redux/store";
+
 
 //types
 
@@ -22,7 +23,7 @@ function App() {
 
                 <div className={s.flexMain}>
                     <LeftSideBar/>
-                    <Main postsUser={store._state.allUsers[0].posts}
+                    <Main postsUser={store._state.allUsers[USER_ID_1].posts}
                           allMessages={store._state.allMessages}
                           dispatch={store.dispatch.bind(store)}/>
                 </div>
