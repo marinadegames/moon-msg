@@ -6,7 +6,9 @@ import {BrowserRouter} from "react-router-dom";
 import {Header} from "./Components/Header/Header";
 import {LeftSideBar} from "./Components/LeftSideBar/LeftSideBar";
 import {Main} from "./Components/Main/Main";
-import store, {USER_ID_1} from "./Redux/store";
+import store from "./Redux/redux-store";
+import { USER_ID_1 } from './Redux/profileReducer';
+
 
 
 //types
@@ -15,6 +17,7 @@ import store, {USER_ID_1} from "./Redux/store";
 
 // components
 function App() {
+    console.log(store.getState().allUsers, USER_ID_1)
     return (
         <BrowserRouter>
             <div className={s.App}>
@@ -23,8 +26,8 @@ function App() {
 
                 <div className={s.flexMain}>
                     <LeftSideBar/>
-                    <Main postsUser={store._state.allUsers[USER_ID_1].posts}
-                          allMessages={store._state.allMessages}
+                    <Main postsUser={store.getState().allUsers[USER_ID_1].posts}
+                          allMessages={store.getState().allMessages}
                           dispatch={store.dispatch.bind(store)}/>
                 </div>
 

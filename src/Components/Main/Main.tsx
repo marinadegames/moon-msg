@@ -8,16 +8,16 @@ import {NotFound404} from "../404/NotFound404";
 import {Settings} from "./Settings/Settings";
 import {Music} from "./Music/Music";
 import {Friends} from "./Friends/Friends";
-import {AllMessagesType, PostType} from "../../Redux/store";
+import {Dispatch} from "../../Redux/redux-store";
+import {PostType} from "../../Redux/store";
 
 
 // types
 type MainPropsType = {
     postsUser: Array<PostType>
-    dispatch: any
-    allMessages: AllMessagesType
+    dispatch: Dispatch
+    allMessages: any
 }
-// assets
 
 // components
 

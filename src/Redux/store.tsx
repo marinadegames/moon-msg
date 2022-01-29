@@ -42,7 +42,7 @@ export type MessageType = {
     message: string
     time: string
 }
-export type AllUsersType = Test
+export type AllUsersType = KeyUserType
 export type UserType = {
     id: string
     birthtime: string
@@ -58,11 +58,14 @@ export type ActionType = SendMessageActionType | AddPostActionType
 export const USER_ID_1 = v1()
 export const USER_ID_2 = v1()
 
-type Test = {
+
+// types
+export type KeyUserType = {
     [key: string] : UserType
 }
 
 
+// store
 let store: StoreType = {
     _state: {
         allUsers: {
@@ -164,23 +167,19 @@ let store: StoreType = {
                     time: '16:26'
                 },
             ],
-        }
-
+        },
     },
     dispatch(action: ActionType) {
-
-        this._state.allUsers[USER_ID_1] = profileReducer(this._state.allUsers[USER_ID_1], action)
-        this._state.allMessages = dialogsReducer(this._state.allMessages, action)
-
+        // this._state.allUsers[USER_ID_1] = profileReducer(this._state.allUsers[USER_ID_1], action)
+        // this._state.allMessages = dialogsReducer(this._state.allMessages, action)
     },
 
 }
 
 
+// export
 
-
-export default store// functional
-
+export default store
 
 
 

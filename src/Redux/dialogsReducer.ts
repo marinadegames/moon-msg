@@ -1,35 +1,43 @@
 // imports
 import {v1} from "uuid";
-import {rerenderEntireTree} from "../index";
+import {AllMessagesType} from "./store";
 
 // const
 const SEND_MESSAGE = 'SEND_MESSAGE'
 
 // initialState
-// let initialState = {
-//     LEFT: [
-//         {
-//             id: v1(),
-//             message: 'Hi, how are you?',
-//             time: '16:25'
-//         },
-//         {
-//             id: v1(),
-//             message: 'Where are you?!',
-//             time: '16:25'
-//         },
-//     ],
-//
-//     RIGHT: [
-//         {
-//             id: v1(),
-//             message: "I'm fine!!!",
-//             time: '16:26'
-//         },
-//     ],
-// }
+let initialState: AllMessagesType  = {
+    LEFT: [
+        {
+            id: v1(),
+            message: 'Hi, how are you?',
+            time: '16:25'
+        },
+        {
+            id: v1(),
+            message: 'Where are you?!',
+            time: '16:25'
+        },
+    ],
 
-export const dialogsReducer = (state: any, action: any) => {
+    RIGHT: [
+        {
+            id: v1(),
+            message: "I'm fine!!!",
+            time: '16:26'
+        },
+    ],
+}
+
+// types
+type ActionType = {
+    type: 'SEND_MESSAGE'
+    newMessage: string
+}
+
+
+// reducer
+export const dialogsReducer = (state = initialState, action: ActionType): AllMessagesType => {
 
     if (action.type === SEND_MESSAGE) {
         let newMessage =
@@ -38,9 +46,7 @@ export const dialogsReducer = (state: any, action: any) => {
                 message: action.newMessage,
                 time: '16:25'
             }
-
-        state.RIGHT.push(newMessage)
-        rerenderEntireTree()
+        return {...state, RIGHT: [...state.RIGHT, newMessage] }
     }
 
     return state
