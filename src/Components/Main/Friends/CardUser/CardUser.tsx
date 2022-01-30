@@ -7,7 +7,8 @@ import {BigHead} from "@bigheads/core";
 type CardUserPropsType = {
     userName: string
     userPhrase: string
-    locationUser: string
+    countryUser: string
+    cityUser: string
     id: string
 }
 
@@ -24,10 +25,9 @@ export const CardUser = (props: CardUserPropsType) => {
             <div className={s.userLogo}>{userLogo()}</div>
             <div className={s.userInformText}>
                 <h3 className={s.userName}>{props.userName}</h3>
-                <h5 className={s.userCountry}>{props.locationUser}</h5>
-
+                <h5 className={s.userCountry}>{props.countryUser}, {props.cityUser}</h5>
             </div>
-            <div className={s.userInformText}>
+            <div className={s.userInformText2}>
                 <p className={s.userPhrase}>{props.userPhrase}</p>
             </div>
 

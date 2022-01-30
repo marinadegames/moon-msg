@@ -118,7 +118,7 @@ let initialState: AllUsersType = {
         city: 'xxxx',
         country: '????',
         email: '??????',
-        userPhrase: 'XXXXXXXXXXXXXXXXXXXXXXXXx',
+        userPhrase: 'xwxwexwexwe',
         posts: []
     },
     [USER_ID_6]: {
@@ -128,7 +128,7 @@ let initialState: AllUsersType = {
         city: 'xxxx',
         country: '????',
         email: '??????',
-        userPhrase: 'XXXXXXXXXXXXXXXXXXXXXXXXx',
+        userPhrase: 'eryrth5t5',
         posts: []
     },
 }

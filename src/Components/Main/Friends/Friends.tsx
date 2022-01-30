@@ -21,7 +21,8 @@ export const Friends = function (props: FriendsPropsType) {
                 {Object.values(props.allUsers).map ( (user: any) => {
                     return (
                         <CardUser id={user.id}
-                                  locationUser={user.location}
+                                  countryUser={user.country}
+                                  cityUser={user.city}
                                   userName={user.name}
                                   userPhrase={user.userPhrase}/>
                     )
