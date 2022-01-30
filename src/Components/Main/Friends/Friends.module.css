@@ -9,3 +9,27 @@
     padding: 1rem 0;
     color: var(--secondColor);
 }
+.mainUsers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:flex-start ;
+    padding: 1rem 0 0 0;
+}
+
+
+.showMoreButton{
+    border: 4px solid var(--generalColor);
+    border-radius: var(--borderRadiusCustom);
+    background-color: white;
+    cursor: pointer;
+    color: var(--generalColor);
+    font-weight: 700;
+    font-size: 20px;
+    margin: 0.5rem 0 0 0;
+    padding: 0.8rem;
+    transition: 0.2s;
+}
+.showMoreButton:hover{
+    background-color: var(--generalColor);
+    color: white;
+}

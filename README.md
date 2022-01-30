@@ -42,7 +42,8 @@ This repository for my social network `Moon!msg`!
 🔢 `v0.4.2` - fixed `state` and fixed `dialogs`  
 😝 `v0.4.3` - send message | fix state and create store  
 ##### ================================================ #####
-🎆 `v0.5.0` - added `redux`
+🎆 `v0.5.0` - added `redux`  
+🦾 `v0.5.1` - added `react-redux` | refactor store | other fix | added map friends  
 
 
 ### 🙃 Good luck for me!  

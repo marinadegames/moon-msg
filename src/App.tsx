@@ -27,6 +27,7 @@ function App() {
                 <div className={s.flexMain}>
                     <LeftSideBar/>
                     <Main postsUser={store.getState().allUsers[USER_ID_1].posts}
+                          allUsers={store.getState().allUsers}
                           allMessages={store.getState().allMessages}
                           dispatch={store.dispatch.bind(store)}/>
                 </div>

@@ -1,0 +1,34 @@
+.cardUser {
+    background: var(--backgroundBox);
+    box-shadow: var(--shadow);
+    border-radius: var(--borderRadiusCustom);
+    display: flex;
+    margin: 0 1rem 0.5rem 0;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: ease-in-out 0.2s;
+}
+.cardUser:hover{
+    transform: scale(1.03);
+}
+.userLogo{
+    width: 80px;
+    height: 80px;
+
+}
+.userInformText{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 3rem 0 0;
+}
+.userName{
+    color: var(--secondColor);
+}
+.userCountry{
+    color: var(--grayColor);
+}
+.userPhrase{
+    font-weight: 800;
+    color: var(--secondColor);
+}

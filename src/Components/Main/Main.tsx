@@ -17,6 +17,7 @@ type MainPropsType = {
     postsUser: Array<PostType>
     dispatch: Dispatch
     allMessages: any
+    allUsers: any
 }
 
 // components
@@ -34,7 +35,7 @@ export const Main = function ({postsUser, dispatch, ...props}: MainPropsType) {
                 <Route path={'/messages'} element={<Messages allMessages={props.allMessages} dispatch={dispatch}/>}/>
                 <Route path={'/settings'} element={<Settings/>}/>
                 <Route path={'/Music'} element={<Music/>}/>
-                <Route path={'/friends'} element={<Friends/>}/>
+                <Route path={'/friends'} element={<Friends allUsers={props.allUsers}/>}/>
                 <Route path={'/*'} element={<NotFound404/>}/>
             </Routes>
         </div>
