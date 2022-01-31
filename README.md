@@ -44,6 +44,7 @@ This repository for my social network `Moon!msg`!
 ##### ================================================ #####
 🎆 `v0.5.0` - added `redux`  
 🦾 `v0.5.1` - added `react-redux` | refactor store | other fix | added map friends  
+📩 `v0.5.2` - added `axios`  
 
 
 ### 🙃 Good luck for me!  
