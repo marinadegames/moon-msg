@@ -162,10 +162,10 @@ export const profileReducer = (state = initialState, action: ActionType): AllUse
 }
 
 
-
-export const addPostActionCreator = (text: string) => {
+// Action Creators
+export const AddPostAC = (newText: string) => {
     return {
         type: ADD_POST,
-        newText: text
+        newText: newText
     }
 }

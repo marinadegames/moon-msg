@@ -4,7 +4,7 @@ import s from './Chat.module.css'
 import {MsgLeft} from "./MsgLeft/MsgLeft";
 import {MsgRight} from "./MsgRight/MsgRight";
 import {AllMessagesType} from "../../../../Redux/store";
-import {sendMessageActionCreator} from "../../../../Redux/dialogsReducer";
+import {SendMessageAC} from "../../../../Redux/dialogsReducer";
 
 // types
 type ChatPropsType = {
@@ -24,14 +24,14 @@ export const Chat = function (props: ChatPropsType) {
     }
     const onclickSendMessageHandler = () => {
         if (textAreaValue !== '') {
-            props.dispatch(sendMessageActionCreator(textAreaValue))
+            props.dispatch(SendMessageAC(textAreaValue))
             setTextAreaValue('')
         }
 
     }
     const enterHandler = (event: KeyboardEvent) => {
         if (event.charCode === 13 && textAreaValue !== '') {
-            props.dispatch(sendMessageActionCreator(textAreaValue))
+            props.dispatch(SendMessageAC(textAreaValue))
             setTextAreaValue('')
         }
     }

@@ -3,10 +3,10 @@ import {v1} from "uuid";
 import {AllMessagesType} from "./store";
 
 // const
-const SEND_MESSAGE = 'SEND_MESSAGE'
+
 
 // initialState
-let initialState: AllMessagesType  = {
+let initialState: AllMessagesType = {
     LEFT: [
         {
             id: v1(),
@@ -19,7 +19,6 @@ let initialState: AllMessagesType  = {
             time: '16:25'
         },
     ],
-
     RIGHT: [
         {
             id: v1(),
@@ -35,26 +34,25 @@ type ActionType = {
     newMessage: string
 }
 
-
 // reducer
 export const dialogsReducer = (state = initialState, action: ActionType): AllMessagesType => {
-
-    if (action.type === SEND_MESSAGE) {
-        let newMessage =
-            {
-                id: v1(),
-                message: action.newMessage,
-                time: '16:25'
-            }
-        return {...state, RIGHT: [...state.RIGHT, newMessage] }
+    switch (action.type) {
+        case 'SEND_MESSAGE':
+            let newMessage =
+                {
+                    id: v1(),
+                    message: action.newMessage,
+                    time: '16:25'
+                }
+            return {...state, RIGHT: [...state.RIGHT, newMessage]}
+        default:
+            return state
     }
-
-    return state
 }
 
-export const sendMessageActionCreator = (text: string) => {
+export const SendMessageAC = (text: string) => {
     return {
-        type: SEND_MESSAGE,
+        type: 'SEND_MESSAGE',
         newMessage: text
     }
 }

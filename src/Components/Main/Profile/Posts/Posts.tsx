@@ -3,7 +3,7 @@ import React, {useState, KeyboardEvent} from "react";
 import s from "./Posts.module.css";
 import {Post} from "./Post/Post";
 import {PostType} from "../../../../Redux/store";
-import {addPostActionCreator} from "../../../../Redux/profileReducer";
+import {AddPostAC} from "../../../../Redux/profileReducer";
 
 // types
 type PostsPropsType = {
@@ -26,7 +26,7 @@ export const Posts = function ({postsUser, dispatch}: PostsPropsType) {
     }
     const onClickAddPostCallback = () => {
         if (textarea !== '') {
-            let action = addPostActionCreator(textarea)
+            let action = AddPostAC(textarea)
             dispatch(action);
         }
         setTexArea('')
