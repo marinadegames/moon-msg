@@ -23,7 +23,7 @@ function App() {
         <BrowserRouter>
             <div className={s.App}>
 
-                <Header avatarUser={store.getState().allUsers[0].avatar}/>
+                <Header allUsers={store.getState().allUsers}/>
 
                 <div className={s.flexMain}>
                     <LeftSideBar/>

@@ -62,7 +62,7 @@ export const Header = function (props: any) {
 
             <div className={s.flexBoxHeaderUserLogo}>
                 <div className={s.logoUser}>
-                    {props.avatar}
+                    {props.allUsers[0].avatar}
                 </div>
             </div>
         </div>
