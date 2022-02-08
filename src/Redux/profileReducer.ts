@@ -1,13 +1,53 @@
 // imports
 import {v1} from "uuid";
-import {AllUsersType, PostType} from "./store";
+import {AndrewWater, ElinaMalina, JohnSmith, KotVasya, MrNikto, UserLogo} from "./BigHeadsFile";
 
-// id
-// export const USER_ID_1 = v1()
-// export const USER_ID_2 = v1()
-// export const USER_ID_3 = v1()
-// export const USER_ID_4 = v1()
-// export const USER_ID_5 = v1()
+// types
+
+
+// ============= types
+
+// Action types
+type ActionType = AddPostActionType | FollowActionType | UnfollowActionType
+type AddPostActionType = {
+    type: 'ADD_POST'
+    newText: string
+    userId: string
+}
+type FollowActionType = {
+    type: 'FOLLOW'
+    userId: string
+}
+type UnfollowActionType = {
+    type: 'UNFOLLOW'
+    userId: string
+}
+
+// State types
+export type PostType = {
+    id: string
+    userName: string
+    date: string
+    likes: number
+    comments: number
+    shares: number
+    text: string
+}
+export type AllUsersType = Array<UserType>
+export type UserType = {
+    id: string
+    birthtime: string
+    name: string
+    city: string
+    country: string
+    email: string
+    userPhrase: string
+    follow?: boolean
+    avatar: any
+    posts: Array<PostType>
+}
+
+
 // export const USER_ID_6 = v1()
 
 // const
@@ -24,6 +64,7 @@ const initialState: AllUsersType = [
         email: 'marinadegames@gmail.com',
         userPhrase: 'I LIKE A PIZZA!!!',
         follow: false,
+        avatar: UserLogo(),
         posts: [
             {
                 id: v1(),
@@ -63,6 +104,7 @@ const initialState: AllUsersType = [
         email: 'elinamalina@gmail.com',
         userPhrase: 'I LIKE A MUSIC!!!',
         follow: true,
+        avatar: ElinaMalina(),
         posts: [
             {
                 id: v1(),
@@ -102,6 +144,7 @@ const initialState: AllUsersType = [
         email: 'adkreyJudkiy@gmail.com',
         userPhrase: 'I LIKE A WATER!!!',
         follow: false,
+        avatar: AndrewWater(),
         posts: []
     },
     {
@@ -113,6 +156,7 @@ const initialState: AllUsersType = [
         email: 'kotVasya@gmail.com',
         userPhrase: 'I LIKE A WATER!!!',
         follow: false,
+        avatar: KotVasya(),
         posts: []
     },
     {
@@ -124,6 +168,7 @@ const initialState: AllUsersType = [
         email: '??????',
         userPhrase: 'xwxwexwexwe',
         follow: false,
+        avatar: JohnSmith(),
         posts: []
     },
     {
@@ -135,36 +180,10 @@ const initialState: AllUsersType = [
         email: '??????',
         userPhrase: 'eryrth5t5',
         follow: true,
+        avatar: MrNikto(),
         posts: []
     },
 ]
-
-// types
-export type UserType = {
-    id: string
-    birthtime: string
-    name: string
-    city: string
-    country: string
-    email: string
-    userPhrase: string
-    follow?: boolean
-    posts: Array<PostType>
-}
-export type ActionType = AddPostActionType | FollowActionType | UnfollowActionType
-type AddPostActionType = {
-    type: 'ADD_POST'
-    newText: string
-    userId: string
-}
-type FollowActionType = {
-    type: 'FOLLOW'
-    userId: string
-}
-type UnfollowActionType = {
-    type: 'UNFOLLOW'
-    userId: string
-}
 
 
 // reducer

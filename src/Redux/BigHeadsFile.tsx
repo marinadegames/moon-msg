@@ -1,6 +1,30 @@
 import React from "react";
 import {BigHead} from "@bigheads/core";
 
+export const UserLogo = () => (
+    <BigHead
+        accessory="roundGlasses"
+        body="breasts"
+        circleColor="blue"
+        clothing="dressShirt"
+        clothingColor="red"
+        eyebrows="raised"
+        eyes="normal"
+        faceMask={false}
+        faceMaskColor="black"
+        facialHair="mediumBeard"
+        graphic="vue"
+        hair="balding"
+        hairColor="brown"
+        hat="none4"
+        hatColor="white"
+        lashes={false}
+        lipColor="green"
+        mask
+        mouth="grin"
+        skinTone="red"
+    />
+)
 
 export const ElinaMalina = () => (
     <BigHead
@@ -26,7 +50,7 @@ export const ElinaMalina = () => (
         skinTone="red"
     />
 )
-export const GlebTop4ipk = () => (
+export const MrNikto = () => (
     <BigHead
         accessory="shades"
         body="breasts"
@@ -51,7 +75,7 @@ export const GlebTop4ipk = () => (
     />
 )
 
-export const MrSmith = () => (
+export const KotVasya = () => (
     <BigHead
         accessory="shades"
         body="chest"
@@ -76,7 +100,7 @@ export const MrSmith = () => (
     />
 )
 
-export const MrGray = () => (
+export const AndrewWater = () => (
     <BigHead
         accessory="shades"
         body="chest"
@@ -101,7 +125,7 @@ export const MrGray = () => (
     />
 )
 
-export const JamesonWood = () => (
+export const JohnSmith = () => (
     <BigHead
         accessory="shades"
         body="chest"

@@ -7,7 +7,6 @@ import {Header} from "./Components/Header/Header";
 import {LeftSideBar} from "./Components/LeftSideBar/LeftSideBar";
 import {Main} from "./Components/Main/Main";
 import store from "./Redux/redux-store";
-import {useDispatch, useSelector} from "react-redux";
 
 
 
@@ -24,7 +23,7 @@ function App() {
         <BrowserRouter>
             <div className={s.App}>
 
-                <Header/>
+                <Header avatarUser={store.getState().allUsers[0].avatar}/>
 
                 <div className={s.flexMain}>
                     <LeftSideBar/>

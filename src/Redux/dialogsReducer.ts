@@ -1,8 +1,24 @@
 // imports
 import {v1} from "uuid";
-import {AllMessagesType} from "./store";
 
-// const
+// types
+// ACTION types
+type SendMessageActionType = {
+    type: 'SEND_MESSAGE'
+    newMessage: string
+}
+type ActionType = SendMessageActionType
+
+// state types
+export type AllMessagesType = {
+    LEFT: Array<MessageType>
+    RIGHT: Array<MessageType>
+}
+export type MessageType = {
+    id: string
+    message: string
+    time: string
+}
 
 
 // initialState
@@ -28,12 +44,6 @@ let initialState: AllMessagesType = {
     ],
 }
 
-// types
-type SendMessageActionType = {
-    type: 'SEND_MESSAGE'
-    newMessage: string
-}
-type ActionType = SendMessageActionType
 
 // reducer
 export const dialogsReducer = (state = initialState, action: ActionType): AllMessagesType => {

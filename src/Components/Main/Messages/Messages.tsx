@@ -3,12 +3,14 @@ import React from "react";
 import s from './Messages.module.css'
 import {MsgTitle} from "./MsgTitle/MsgTitle";
 import {Chat} from "./Chat/Chat";
-import {AllMessagesType} from "../../../Redux/store";
+import {UserType} from "../../../Redux/profileReducer";
+import {AllMessagesType} from "../../../Redux/dialogsReducer";
 
 // types
 type MessagesPropsType = {
     allMessages: AllMessagesType
     dispatch: any
+    users: Array<UserType>
 }
 // assets
 
@@ -34,6 +36,7 @@ export const Messages = function (props: MessagesPropsType) {
 
                 <div className={s.msgBoxRight}>
                     <Chat allMessages={props.allMessages}
+                          users={props.users}
                           dispatch={props.dispatch}/>
 
                 </div>

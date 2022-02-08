@@ -9,7 +9,7 @@ import {Settings} from "./Settings/Settings";
 import {Music} from "./Music/Music";
 import {Friends} from "./Friends/Friends";
 import {Dispatch} from "../../Redux/redux-store";
-import {PostType} from "../../Redux/store";
+import {PostType, UserType} from "../../Redux/profileReducer";
 
 
 // types
@@ -17,7 +17,7 @@ type MainPropsType = {
     postsUser: Array<PostType>
     dispatch: Dispatch
     allMessages: any
-    allUsers: any
+    allUsers: Array<UserType>
 }
 
 // components
@@ -29,12 +29,16 @@ export const Main = function ({postsUser, dispatch, ...props}: MainPropsType) {
 
             <Routes>
                 <Route path={'/'} element={<Profile postsUser={postsUser}
+                                                    avatar={props.allUsers[0].avatar}
                                                     userId={props.allUsers[0].id}
                                                     dispatch={dispatch}/>}/>
                 <Route path={'/profile'} element={<Profile postsUser={postsUser}
+                                                           avatar={props.allUsers[0].avatar}
                                                            userId={props.allUsers[0].id}
                                                            dispatch={dispatch}/>}/>
-                <Route path={'/messages'} element={<Messages allMessages={props.allMessages} dispatch={dispatch}/>}/>
+                <Route path={'/messages'} element={<Messages allMessages={props.allMessages}
+                                                             users={props.allUsers}
+                                                             dispatch={dispatch}/>}/>
                 <Route path={'/settings'} element={<Settings/>}/>
                 <Route path={'/Music'} element={<Music/>}/>
                 <Route path={'/friends'} element={<Friends allUsers={props.allUsers}

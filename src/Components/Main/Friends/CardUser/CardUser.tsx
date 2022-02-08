@@ -1,9 +1,7 @@
 // imports
 import React from 'react'
 import s from './CardUser.module.css'
-import {BigHead} from "@bigheads/core";
 import {FollowAC} from "../../../../Redux/profileReducer";
-import {useDispatch} from 'react-redux';
 import {Dispatch} from "../../../../Redux/redux-store";
 
 // types
@@ -16,6 +14,7 @@ type CardUserPropsType = {
     follow: boolean
     userId: string
     dispatch: Dispatch
+    avatar: any
 }
 
 // component
@@ -35,12 +34,9 @@ export const CardUser = (props: CardUserPropsType) => {
         props.dispatch(FollowAC(props.userId))
     }
 
-    const userLogo = () => (
-        <BigHead />
-    )
     return (
         <div className={s.cardUser} key={props.id}>
-            <div className={s.userLogo}>{userLogo()}</div>
+            <div className={s.userLogo}>{props.avatar}</div>
             <div className={s.userInformText}>
                 <h3 className={s.userName}>{props.userName}</h3>
                 <h5 className={s.userCountry}>{props.countryUser}, {props.cityUser}</h5>

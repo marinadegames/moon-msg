@@ -2,8 +2,7 @@
 import React, {useState, KeyboardEvent} from "react";
 import s from "./Posts.module.css";
 import {Post} from "./Post/Post";
-import {PostType} from "../../../../Redux/store";
-import {AddPostAC} from "../../../../Redux/profileReducer";
+import {AddPostAC, PostType} from "../../../../Redux/profileReducer";
 
 // types
 type PostsPropsType = {

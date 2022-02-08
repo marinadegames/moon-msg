@@ -2,15 +2,14 @@
 import React from "react";
 import s from './Profile.module.css'
 import {Posts} from "./Posts/Posts";
-import {BigHead} from "@bigheads/core";
-import {PostType} from "../../../Redux/store";
+import {PostType} from "../../../Redux/profileReducer";
 
 // types
 type ProfilePropsType = {
     postsUser: Array<PostType>
     userId: string
     dispatch: (action: any) => void
-
+    avatar: any
 }
 // assets
 
@@ -18,38 +17,13 @@ type ProfilePropsType = {
 
 export const Profile = function ({postsUser, dispatch, ...props}: ProfilePropsType) {
 
-    const userLogo = () => (
-        <BigHead
-            accessory="roundGlasses"
-            body="breasts"
-            circleColor="blue"
-            clothing="dressShirt"
-            clothingColor="red"
-            eyebrows="raised"
-            eyes="normal"
-            faceMask={false}
-            faceMaskColor="black"
-            facialHair="mediumBeard"
-            graphic="vue"
-            hair="balding"
-            hairColor="brown"
-            hat="none4"
-            hatColor="white"
-            lashes={false}
-            lipColor="green"
-            mask
-            mouth="grin"
-            skinTone="red"
-        />
-    )
-
     return (
         <div>
             <div className={s.pageName}>Profile</div>
             <div className={s.profileInform}>
                 <div className={s.profileInfoLeft}>
                     <div className={s.userLogo}>
-                        {userLogo()}
+                        {props.avatar}
                     </div>
                     <div>
                         <div className={s.userName}>Eugene Pashkevich</div>

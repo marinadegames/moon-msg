@@ -1,8 +1,6 @@
 // import
 import React from "react";
 import s from './Header.module.css'
-import { BigHead } from '@bigheads/core'
-//imports icons
 import moon from '../../Assets/moon.png'
 
 // types
@@ -37,33 +35,9 @@ const sun = <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="6
 
 // components
 
-export const Header = function () {
+export const Header = function (props: any) {
 
 
-    const userLogo = () => (
-        <BigHead
-            accessory="roundGlasses"
-            body="breasts"
-            circleColor="blue"
-            clothing="dressShirt"
-            clothingColor="red"
-            eyebrows="raised"
-            eyes="normal"
-            faceMask={false}
-            faceMaskColor="black"
-            facialHair="mediumBeard"
-            graphic="vue"
-            hair="balding"
-            hairColor="brown"
-            hat="none4"
-            hatColor="white"
-            lashes={false}
-            lipColor="green"
-            mask
-            mouth="grin"
-            skinTone="red"
-        />
-    )
 
 
     return (
@@ -88,7 +62,7 @@ export const Header = function () {
 
             <div className={s.flexBoxHeaderUserLogo}>
                 <div className={s.logoUser}>
-                    {userLogo()}
+                    {props.avatar}
                 </div>
             </div>
         </div>

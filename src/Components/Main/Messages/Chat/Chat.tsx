@@ -3,13 +3,14 @@ import React, {KeyboardEvent, useState} from "react";
 import s from './Chat.module.css'
 import {MsgLeft} from "./MsgLeft/MsgLeft";
 import {MsgRight} from "./MsgRight/MsgRight";
-import {AllMessagesType} from "../../../../Redux/store";
-import {SendMessageAC} from "../../../../Redux/dialogsReducer";
+import {AllMessagesType, SendMessageAC} from "../../../../Redux/dialogsReducer";
+import {UserType} from "../../../../Redux/profileReducer";
 
 // types
 type ChatPropsType = {
     allMessages: AllMessagesType
     dispatch: any
+    users: Array<UserType>
 }
 // assets
 
@@ -40,8 +41,8 @@ export const Chat = function (props: ChatPropsType) {
         <div className={s.backChat}>
             <div className={s.chatNameUser}>Elina Malina</div>
             <div className={s.chat}>
-                <MsgLeft leftMessages={props.allMessages.LEFT}/>
-                <MsgRight rightMessages={props.allMessages.RIGHT}/>
+                <MsgLeft leftMessages={props.allMessages.LEFT} users={props.users}/>
+                <MsgRight rightMessages={props.allMessages.RIGHT} users={props.users}/>
             </div>
             <div className={s.senMsgArea}>
                 <textarea className={s.sendMsgTextArea}
