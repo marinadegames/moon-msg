@@ -29,13 +29,16 @@ export const Main = function ({postsUser, dispatch, ...props}: MainPropsType) {
 
             <Routes>
                 <Route path={'/'} element={<Profile postsUser={postsUser}
+                                                    userId={props.allUsers[0].id}
                                                     dispatch={dispatch}/>}/>
                 <Route path={'/profile'} element={<Profile postsUser={postsUser}
+                                                           userId={props.allUsers[0].id}
                                                            dispatch={dispatch}/>}/>
                 <Route path={'/messages'} element={<Messages allMessages={props.allMessages} dispatch={dispatch}/>}/>
                 <Route path={'/settings'} element={<Settings/>}/>
                 <Route path={'/Music'} element={<Music/>}/>
-                <Route path={'/friends'} element={<Friends allUsers={props.allUsers}/>}/>
+                <Route path={'/friends'} element={<Friends allUsers={props.allUsers}
+                                                           dispatch={dispatch}/>}/>
                 <Route path={'/*'} element={<NotFound404/>}/>
             </Routes>
         </div>

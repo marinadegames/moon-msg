@@ -1,28 +1,29 @@
 // imports
 import {v1} from "uuid";
-import {AllUsersType} from "./store";
+import {AllUsersType, PostType} from "./store";
 
 // id
-export const USER_ID_1 = v1()
-export const USER_ID_2 = v1()
-export const USER_ID_3 = v1()
-export const USER_ID_4 = v1()
-export const USER_ID_5 = v1()
-export const USER_ID_6 = v1()
+// export const USER_ID_1 = v1()
+// export const USER_ID_2 = v1()
+// export const USER_ID_3 = v1()
+// export const USER_ID_4 = v1()
+// export const USER_ID_5 = v1()
+// export const USER_ID_6 = v1()
 
 // const
 const ADD_POST = 'ADD_POST'
 
 // initialState
-const initialState: AllUsersType = {
-    [USER_ID_1]: {
-        id: USER_ID_1,
+const initialState: AllUsersType = [
+    {
+        id: v1(),
         name: 'Eugene Pashkevich',
         birthtime: '17.02.1997',
         city: 'Minsk',
         country: 'Belarus',
         email: 'marinadegames@gmail.com',
         userPhrase: 'I LIKE A PIZZA!!!',
+        follow: false,
         posts: [
             {
                 id: v1(),
@@ -53,14 +54,15 @@ const initialState: AllUsersType = {
             },
         ]
     },
-    [USER_ID_2]: {
-        id: USER_ID_2,
+    {
+        id: v1(),
         name: 'Elina Malina',
         birthtime: '23.12.1998',
         city: 'Minsk',
         country: 'Belarus',
         email: 'elinamalina@gmail.com',
         userPhrase: 'I LIKE A MUSIC!!!',
+        follow: true,
         posts: [
             {
                 id: v1(),
@@ -91,60 +93,85 @@ const initialState: AllUsersType = {
             },
         ]
     },
-    [USER_ID_3]: {
-        id: USER_ID_3,
+    {
+        id: v1(),
         name: 'Andrew Water',
         birthtime: '18.12.21',
         city: 'Minsk',
         country: 'Belarus',
         email: 'adkreyJudkiy@gmail.com',
         userPhrase: 'I LIKE A WATER!!!',
+        follow: false,
         posts: []
     },
-    [USER_ID_4]: {
-        id: USER_ID_4,
+    {
+        id: v1(),
         name: 'Kot Vasya',
         birthtime: '01.02.2012',
         city: 'Minsk',
         country: 'Belarus',
         email: 'kotVasya@gmail.com',
         userPhrase: 'I LIKE A WATER!!!',
+        follow: false,
         posts: []
     },
-    [USER_ID_5]: {
-        id: USER_ID_5,
+    {
+        id: v1(),
         name: 'John Smith',
         birthtime: 'xx.xx.xxxx',
         city: 'xxxx',
         country: '????',
         email: '??????',
         userPhrase: 'xwxwexwexwe',
+        follow: false,
         posts: []
     },
-    [USER_ID_6]: {
-        id: USER_ID_6,
+    {
+        id: v1(),
         name: 'Mr. Nikto',
         birthtime: 'xx.xx.xxxx',
         city: 'xxxx',
         country: '????',
         email: '??????',
         userPhrase: 'eryrth5t5',
+        follow: true,
         posts: []
     },
-}
+]
 
 // types
-export type ActionType = AddPostActionType
+export type UserType = {
+    id: string
+    birthtime: string
+    name: string
+    city: string
+    country: string
+    email: string
+    userPhrase: string
+    follow?: boolean
+    posts: Array<PostType>
+}
+export type ActionType = AddPostActionType | FollowActionType | UnfollowActionType
 type AddPostActionType = {
     type: 'ADD_POST'
     newText: string
+    userId: string
 }
+type FollowActionType = {
+    type: 'FOLLOW'
+    userId: string
+}
+type UnfollowActionType = {
+    type: 'UNFOLLOW'
+    userId: string
+}
+
 
 // reducer
 export const profileReducer = (state = initialState, action: ActionType): AllUsersType => {
     switch (action.type) {
         case "ADD_POST":
-            let newPost =
+            const newPost =
                 {
                     id: v1(),
                     userName: 'Eugene Pashkevich',
@@ -154,8 +181,14 @@ export const profileReducer = (state = initialState, action: ActionType): AllUse
                     shares: 0,
                     text: action.newText,
                 }
-
-            return {...state, [USER_ID_1]: {...state[USER_ID_1], posts: [newPost, ...state[USER_ID_1].posts]}}
+            let copyState = [...state]
+            return copyState.map( user => user.id === action.userId ? {...user, posts: [newPost ,...user.posts]} : user)
+        case "FOLLOW":
+            const copyStateFollow = [...state]
+            return copyStateFollow.map( user => user.id === action.userId ? {...user, follow: !user.follow} : user)
+        case "UNFOLLOW":
+            const copyStateUnfollow = [...state]
+            return copyStateUnfollow.map( user => user.id === action.userId ? {...user, follow: !user.follow} : user)
         default:
             return state
     }
@@ -164,6 +197,12 @@ export const profileReducer = (state = initialState, action: ActionType): AllUse
 
 
 // Action Creators
-export const AddPostAC = (newText: string):AddPostActionType => {
-    return {type: ADD_POST, newText: newText} as const
+export const AddPostAC = (newText: string, userId: string): AddPostActionType => {
+    return {type: ADD_POST, newText, userId} as const
+}
+export const FollowAC = (userId: string): FollowActionType => {
+    return {type: 'FOLLOW', userId} as const
+}
+export const UnfollowAC = (userId: string): UnfollowActionType => {
+    return {type: "UNFOLLOW", userId} as const
 }

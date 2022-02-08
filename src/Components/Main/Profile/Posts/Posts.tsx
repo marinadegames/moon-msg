@@ -8,6 +8,7 @@ import {AddPostAC} from "../../../../Redux/profileReducer";
 // types
 type PostsPropsType = {
     postsUser: Array<PostType>
+    userId: string
     dispatch: (action: any) => void
 }
 // assets
@@ -17,7 +18,7 @@ type PostsPropsType = {
 
 // components
 
-export const Posts = function ({postsUser, dispatch}: PostsPropsType) {
+export const Posts = function ({postsUser, userId,  dispatch}: PostsPropsType) {
 
     const [textarea, setTexArea] = useState<string>('')
 
@@ -26,7 +27,7 @@ export const Posts = function ({postsUser, dispatch}: PostsPropsType) {
     }
     const onClickAddPostCallback = () => {
         if (textarea !== '') {
-            let action = AddPostAC(textarea)
+            let action = AddPostAC(textarea, userId)
             dispatch(action);
         }
         setTexArea('')

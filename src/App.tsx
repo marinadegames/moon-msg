@@ -7,7 +7,7 @@ import {Header} from "./Components/Header/Header";
 import {LeftSideBar} from "./Components/LeftSideBar/LeftSideBar";
 import {Main} from "./Components/Main/Main";
 import store from "./Redux/redux-store";
-import { USER_ID_1 } from './Redux/profileReducer';
+import {useDispatch, useSelector} from "react-redux";
 
 
 
@@ -17,7 +17,9 @@ import { USER_ID_1 } from './Redux/profileReducer';
 
 // components
 function App() {
-    console.log(store.getState().allUsers, USER_ID_1)
+
+
+
     return (
         <BrowserRouter>
             <div className={s.App}>
@@ -26,7 +28,7 @@ function App() {
 
                 <div className={s.flexMain}>
                     <LeftSideBar/>
-                    <Main postsUser={store.getState().allUsers[USER_ID_1].posts}
+                    <Main postsUser={store.getState().allUsers[0].posts}
                           allUsers={store.getState().allUsers}
                           allMessages={store.getState().allMessages}
                           dispatch={store.dispatch.bind(store)}/>

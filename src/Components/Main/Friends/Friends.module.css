@@ -18,7 +18,7 @@
 
 
 .showMoreButton{
-    border: 4px solid var(--generalColor);
+    border: 2px solid var(--generalColor);
     border-radius: var(--borderRadiusCustom);
     background-color: white;
     cursor: pointer;

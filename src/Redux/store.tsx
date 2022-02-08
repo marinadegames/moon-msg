@@ -39,7 +39,7 @@ export type MessageType = {
     message: string
     time: string
 }
-export type AllUsersType = KeyUserType
+export type AllUsersType = Array<UserType>
 export type UserType = {
     id: string
     birthtime: string
@@ -48,6 +48,7 @@ export type UserType = {
     country: string
     email: string
     userPhrase: string
+    follow?: boolean
     posts: Array<PostType>
 }
 export type ActionType = SendMessageActionType | AddPostActionType
@@ -66,8 +67,7 @@ export type KeyUserType = {
 // store
 let store: any = {
     _state: {
-        allUsers: {
-            [USER_ID_1]:
+        allUsers: [
                 {
                     id: USER_ID_1,
                     name: 'Eugene Pashkevich',
@@ -106,7 +106,6 @@ let store: any = {
                         },
                     ]
                 },
-            [USER_ID_2]:
                 {
                     id: USER_ID_2,
                     name: 'Elina Malina',
@@ -145,7 +144,7 @@ let store: any = {
                         },
                     ]
                 },
-        },
+        ],
         allMessages: {
             LEFT: [
                 {

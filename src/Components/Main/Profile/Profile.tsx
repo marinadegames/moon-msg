@@ -8,6 +8,7 @@ import {PostType} from "../../../Redux/store";
 // types
 type ProfilePropsType = {
     postsUser: Array<PostType>
+    userId: string
     dispatch: (action: any) => void
 
 }
@@ -67,6 +68,7 @@ export const Profile = function ({postsUser, dispatch, ...props}: ProfilePropsTy
             </div>
 
             <Posts postsUser={postsUser}
+                   userId={props.userId}
                    dispatch={dispatch}/>
 
         </div>
