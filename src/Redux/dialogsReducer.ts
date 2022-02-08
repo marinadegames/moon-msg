@@ -29,10 +29,11 @@ let initialState: AllMessagesType = {
 }
 
 // types
-type ActionType = {
+type SendMessageActionType = {
     type: 'SEND_MESSAGE'
     newMessage: string
 }
+type ActionType = SendMessageActionType
 
 // reducer
 export const dialogsReducer = (state = initialState, action: ActionType): AllMessagesType => {
@@ -50,9 +51,6 @@ export const dialogsReducer = (state = initialState, action: ActionType): AllMes
     }
 }
 
-export const SendMessageAC = (text: string) => {
-    return {
-        type: 'SEND_MESSAGE',
-        newMessage: text
-    }
+export const SendMessageAC = (text: string): SendMessageActionType => {
+    return {type: 'SEND_MESSAGE', newMessage: text} as const
 }

@@ -14,83 +14,83 @@ export const USER_ID_6 = v1()
 const ADD_POST = 'ADD_POST'
 
 // initialState
-let initialState: AllUsersType = {
+const initialState: AllUsersType = {
     [USER_ID_1]: {
-            id: USER_ID_1,
-            name: 'Eugene Pashkevich',
-            birthtime: '17.02.1997',
-            city: 'Minsk',
-            country: 'Belarus',
-            email: 'marinadegames@gmail.com',
-            userPhrase: 'I LIKE A PIZZA!!!',
-            posts: [
-                {
-                    id: v1(),
-                    userName: 'Eugene Pashkevich',
-                    date: '08.01.2022 in 14:21',
-                    likes: 1923,
-                    comments: 123,
-                    shares: 34,
-                    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labod minim veniam, quis nostrud exercitation ullamco',
-                },
-                {
-                    id: v1(),
-                    userName: 'Eugene Pashkevich',
-                    date: '08.01.2022 in 15:67',
-                    likes: 234,
-                    comments: 34,
-                    shares: 2,
-                    text: 'Hi, friends! How ary you?)))',
-                },
-                {
-                    id: v1(),
-                    userName: 'Eugene Pashkevich',
-                    date: '09.01.2022 in 09:02',
-                    likes: 123,
-                    comments: 1,
-                    shares: 0,
-                    text: 'I love IT-INCUBATOR',
-                },
-            ]
-        },
+        id: USER_ID_1,
+        name: 'Eugene Pashkevich',
+        birthtime: '17.02.1997',
+        city: 'Minsk',
+        country: 'Belarus',
+        email: 'marinadegames@gmail.com',
+        userPhrase: 'I LIKE A PIZZA!!!',
+        posts: [
+            {
+                id: v1(),
+                userName: 'Eugene Pashkevich',
+                date: '08.01.2022 in 14:21',
+                likes: 1923,
+                comments: 123,
+                shares: 34,
+                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labod minim veniam, quis nostrud exercitation ullamco',
+            },
+            {
+                id: v1(),
+                userName: 'Eugene Pashkevich',
+                date: '08.01.2022 in 15:67',
+                likes: 234,
+                comments: 34,
+                shares: 2,
+                text: 'Hi, friends! How ary you?)))',
+            },
+            {
+                id: v1(),
+                userName: 'Eugene Pashkevich',
+                date: '09.01.2022 in 09:02',
+                likes: 123,
+                comments: 1,
+                shares: 0,
+                text: 'I love IT-INCUBATOR',
+            },
+        ]
+    },
     [USER_ID_2]: {
-            id: USER_ID_2,
-            name: 'Elina Malina',
-            birthtime: '23.12.1998',
-            city: 'Minsk',
-            country: 'Belarus',
-            email: 'elinamalina@gmail.com',
-            userPhrase: 'I LIKE A MUSIC!!!',
-            posts: [
-                {
-                    id: v1(),
-                    userName: 'Elina Malina',
-                    date: '08.01.2022 in 14:21',
-                    likes: 1923,
-                    comments: 123,
-                    shares: 34,
-                    text: 'WHAT YOU SAY BUT MY MOM?!',
-                },
-                {
-                    id: v1(),
-                    userName: 'Elina Malina',
-                    date: '08.01.2022 in 15:67',
-                    likes: 234,
-                    comments: 34,
-                    shares: 2,
-                    text: 'Hi, friends! How ary you?)))',
-                },
-                {
-                    id: v1(),
-                    userName: 'Elina Malina',
-                    date: '09.01.2022 in 09:02',
-                    likes: 123,
-                    comments: 1,
-                    shares: 0,
-                    text: 'I love IT-INCUBATOR',
-                },
-            ]
-        },
+        id: USER_ID_2,
+        name: 'Elina Malina',
+        birthtime: '23.12.1998',
+        city: 'Minsk',
+        country: 'Belarus',
+        email: 'elinamalina@gmail.com',
+        userPhrase: 'I LIKE A MUSIC!!!',
+        posts: [
+            {
+                id: v1(),
+                userName: 'Elina Malina',
+                date: '08.01.2022 in 14:21',
+                likes: 1923,
+                comments: 123,
+                shares: 34,
+                text: 'WHAT YOU SAY BUT MY MOM?!',
+            },
+            {
+                id: v1(),
+                userName: 'Elina Malina',
+                date: '08.01.2022 in 15:67',
+                likes: 234,
+                comments: 34,
+                shares: 2,
+                text: 'Hi, friends! How ary you?)))',
+            },
+            {
+                id: v1(),
+                userName: 'Elina Malina',
+                date: '09.01.2022 in 09:02',
+                likes: 123,
+                comments: 1,
+                shares: 0,
+                text: 'I love IT-INCUBATOR',
+            },
+        ]
+    },
     [USER_ID_3]: {
         id: USER_ID_3,
         name: 'Andrew Water',
@@ -134,14 +134,15 @@ let initialState: AllUsersType = {
 }
 
 // types
-export type ActionType = {
+export type ActionType = AddPostActionType
+type AddPostActionType = {
     type: 'ADD_POST'
     newText: string
 }
 
 // reducer
 export const profileReducer = (state = initialState, action: ActionType): AllUsersType => {
-    switch (action.type){
+    switch (action.type) {
         case "ADD_POST":
             let newPost =
                 {
@@ -163,9 +164,6 @@ export const profileReducer = (state = initialState, action: ActionType): AllUse
 
 
 // Action Creators
-export const AddPostAC = (newText: string) => {
-    return {
-        type: ADD_POST,
-        newText: newText
-    }
+export const AddPostAC = (newText: string):AddPostActionType => {
+    return {type: ADD_POST, newText: newText} as const
 }

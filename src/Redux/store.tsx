@@ -169,10 +169,6 @@ let store: any = {
             ],
         },
     },
-    dispatch(action: ActionType) {
-        // this._state.allUsers[USER_ID_1] = profileReducer(this._state.allUsers[USER_ID_1], action)
-        // this._state.allMessages = dialogsReducer(this._state.allMessages, action)
-    },
 
 }
 
