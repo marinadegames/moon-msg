@@ -1,12 +1,11 @@
 import React from "react";
 import s from './MsgRight.module.css'
-import {UserType} from "../../../../../Redux/profileReducer";
 import {MessageType} from "../../../../../Redux/dialogsReducer";
+import {UserLogo} from "../../../../../Redux/BigHeadsFile";
 
 // type
 type ChatRightPropsType = {
     rightMessages: Array<MessageType>
-    users: Array<UserType>
 }
 
 
@@ -21,7 +20,7 @@ export const MsgRight = function (props: ChatRightPropsType) {
                             {m.message}
                             <div className={s.timeMsg}>{m.time}</div>
                         </div>
-                        <div className={s.msgAvatarFriend}>{props.users[0].avatar}</div>
+                        <div className={s.msgAvatarFriend}>{UserLogo}</div>
                     </div>
                 )
             } )}

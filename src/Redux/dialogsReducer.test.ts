@@ -1,7 +1,6 @@
 // imports
 import {v1} from "uuid";
-import {AllMessagesType} from "./store";
-import {dialogsReducer, SendMessageAC} from "./dialogsReducer";
+import {AllMessagesType, dialogsReducer, SendMessageAC} from "./dialogsReducer";
 
 
 // start state

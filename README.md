@@ -54,23 +54,12 @@ This repository for my social network `Moon!msg`!
 
 🎆 `v0.5.0` - added `redux`  
 🦾 `v0.5.1` - added `react-redux` | refactor store | other fix | added map friends  
-📩 `v0.5.2` - added `axios`
-  
-➕ `v0.5.3`:
-- added `follow\unfollow`
-- `rebuilding` state users
-- added `follow\unfollow button` (users page)
-- fixed types
-- added `tests` for reducers
+📩 `v0.5.2` - added `axios`  
+➕ `v0.5.3` - added `follow\unfollow` | `rebuilding` state users | added `follow\unfollow button` (users page) | fixed types | added `tests` for reducers  
+🛹 `v0.5.4` - avatar for `header` | fixed `BigHead` file | fixed `props` | typing moved to `reducers` | `removed` other comments | delete old `store-file`  
+##### ================================================ #####
 
-🛹 `v0.5.4`:
-- avatar for header
-- fixed BigHead file
-- fixed props
-- typing moved to reducers
-- removed other comments
-- delete old store-file  
-
+📱 `v0.6.0` - `⚠️REBUILD PROJECT!⚠️` added `API` | refactor `state` | refactor `state types` | added new `AC` and `reducers`
 
 ### 🙃 Good luck for me!
 

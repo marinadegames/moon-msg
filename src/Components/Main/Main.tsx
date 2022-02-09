@@ -8,41 +8,38 @@ import {NotFound404} from "../404/NotFound404";
 import {Settings} from "./Settings/Settings";
 import {Music} from "./Music/Music";
 import {Friends} from "./Friends/Friends";
+import {ProfileType} from "../../Redux/profileReducer";
+import {UserType} from "../../Redux/usersReducer";
+import {AllMessagesType} from "../../Redux/dialogsReducer";
 import {Dispatch} from "../../Redux/redux-store";
-import {PostType, UserType} from "../../Redux/profileReducer";
 
 
 // types
 type MainPropsType = {
-    postsUser: Array<PostType>
-    dispatch: Dispatch
-    allMessages: any
+    profile: ProfileType
     allUsers: Array<UserType>
+    allMessages: AllMessagesType
+    dispatch: Dispatch
 }
 
 // components
 
-export const Main = function ({postsUser, dispatch, ...props}: MainPropsType) {
+export const Main = function (props: MainPropsType) {
 
     return (
         <div className={s.Main}>
 
             <Routes>
-                <Route path={'/'} element={<Profile postsUser={postsUser}
-                                                    avatar={props.allUsers[0].avatar}
-                                                    userId={props.allUsers[0].id}
-                                                    dispatch={dispatch}/>}/>
-                <Route path={'/profile'} element={<Profile postsUser={postsUser}
-                                                           avatar={props.allUsers[0].avatar}
-                                                           userId={props.allUsers[0].id}
-                                                           dispatch={dispatch}/>}/>
+                <Route path={'/'} element={<Profile profile={props.profile}
+                                                    dispatch={props.dispatch}/>}/>
+                <Route path={'/profile'} element={<Profile profile={props.profile}
+                                                           dispatch={props.dispatch}/>}/>
                 <Route path={'/messages'} element={<Messages allMessages={props.allMessages}
-                                                             users={props.allUsers}
-                                                             dispatch={dispatch}/>}/>
+                                                             dispatch={props.dispatch}/>}/>
                 <Route path={'/settings'} element={<Settings/>}/>
                 <Route path={'/Music'} element={<Music/>}/>
                 <Route path={'/friends'} element={<Friends allUsers={props.allUsers}
-                                                           dispatch={dispatch}/>}/>
+                                                           dispatch={props.dispatch}/>}/>
                 <Route path={'/*'} element={<NotFound404/>}/>
             </Routes>
         </div>

@@ -17,7 +17,7 @@ type PostsPropsType = {
 
 // components
 
-export const Posts = function ({postsUser, userId,  dispatch}: PostsPropsType) {
+export const Posts = function ({postsUser, userId, dispatch}: PostsPropsType) {
 
     const [textarea, setTexArea] = useState<string>('')
 
@@ -32,8 +32,8 @@ export const Posts = function ({postsUser, userId,  dispatch}: PostsPropsType) {
         setTexArea('')
     }
     const enterHandler = (event: KeyboardEvent) => {
-        if (event.charCode === 13 && textarea !== ''){
-            dispatch( {type: 'ADD_POST', newText: textarea})
+        if (event.charCode === 13 && textarea !== '') {
+            dispatch({type: 'ADD_POST', newText: textarea})
             setTexArea('')
         }
     }
@@ -47,7 +47,7 @@ export const Posts = function ({postsUser, userId,  dispatch}: PostsPropsType) {
                     <div className={s.createPost}>
                         <textarea placeholder={`What's news?`}
                                   value={textarea}
-                                  onKeyPress={ (event) => enterHandler(event)}
+                                  onKeyPress={(event) => enterHandler(event)}
                                   onChange={(event => changeTextArea(event.currentTarget.value))}
                                   className={s.textareaAddPost} maxLength={150}/>
                         <button className={s.addPostButton}

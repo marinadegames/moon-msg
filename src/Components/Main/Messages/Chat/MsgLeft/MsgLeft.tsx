@@ -1,13 +1,12 @@
 // import
 import React from "react";
 import s from './MsgLeft.module.css'
-import {UserType} from "../../../../../Redux/profileReducer";
 import {MessageType} from "../../../../../Redux/dialogsReducer";
+import {ElinaMalina} from "../../../../../Redux/BigHeadsFile";
 
 // types
 type ChatLeftPropsType = {
     leftMessages: Array<MessageType>
-    users: Array<UserType>
 }
 
 // assets
@@ -22,7 +21,7 @@ export const MsgLeft = function (props: ChatLeftPropsType) {
             { props.leftMessages.map( m => {
                 return (
                     <div className={s.msgLeft} key={m.id}>
-                        <div className={s.msgAvatarFriend}>{props.users[1].avatar}</div>
+                        <div className={s.msgAvatarFriend}>{ElinaMalina}</div>
                         <div className={s.textMsg}>
                             What? What you doing?! Lorem ipsum dolor septim sanctum!
                             Error 404 not found!

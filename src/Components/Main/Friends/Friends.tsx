@@ -1,13 +1,16 @@
 // import
-import React from "react";
+import React, {useEffect} from "react";
 import s from './Friends.module.css'
 import {CardUser} from "./CardUser/CardUser";
 import {Dispatch} from "../../../Redux/redux-store";
+import axios from "axios";
+import {setUsersAC, UserType} from "../../../Redux/usersReducer";
+import {BigHead} from "@bigheads/core";
 
 
 // types
 type FriendsPropsType = {
-    allUsers: any
+    allUsers: Array<UserType>
     dispatch: Dispatch
 }
 
@@ -15,12 +18,17 @@ type FriendsPropsType = {
 
 export const Friends = function (props: FriendsPropsType) {
 
+    useEffect(()=>{
+        if (props.allUsers.length === 0) {
+            axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
+                props.dispatch(setUsersAC(response.data.items))
+            })
+        }
+    }, [props.allUsers])
 
-
-    // if (props.allUsers.length === 0) {
-    //     axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
-    //     })
-    // }
+    const TEMP_AVATAR = () => (
+        <BigHead/>
+    )
 
     return (
         <div>
@@ -29,22 +37,22 @@ export const Friends = function (props: FriendsPropsType) {
 
                 {props.allUsers.map((user: any) => {
                     return (
-                        <CardUser id={user.id}
-                                  avatar={user.avatar}
+                        <CardUser name={user.name}
+                                  id={user.id}
+                                  uniqueUrlName={user.uniqueUrlName}
+                                  photos={user.photos}
+                                  status={user.status}
+                                  followed={user.followed}
                                   dispatch={props.dispatch}
-                                  countryUser={user.country}
-                                  cityUser={user.city}
-                                  userName={user.name}
-                                  userPhrase={user.userPhrase}
-                                  follow={user.follow}
-                                  userId={user.id}
-
+                                  TEMP_AVATAR={TEMP_AVATAR}
                         />
                     )
                 })}
             </div>
 
             <button className={s.showMoreButton}>show more...</button>
+
         </div>
     )
 }
+

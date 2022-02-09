@@ -32,7 +32,7 @@
     background: #FFFFFF;
     box-sizing: border-box;
     border-radius: 10px;
-    border: 4px solid var(--generalColor);
+    border: 2px solid var(--generalColor);
     color: black;
     padding: 1rem;
     height: 200px;
@@ -49,7 +49,7 @@
     flex-direction: column;
 }
 .addPostButton{
-    border: 4px solid var(--generalColor);
+    border: 2px solid var(--generalColor);
     border-radius: var(--borderRadiusCustom);
     background-color: white;
     cursor: pointer;

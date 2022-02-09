@@ -23,11 +23,11 @@ function App() {
         <BrowserRouter>
             <div className={s.App}>
 
-                <Header allUsers={store.getState().allUsers}/>
+                <Header profile={store.getState().profile}/>
 
                 <div className={s.flexMain}>
                     <LeftSideBar/>
-                    <Main postsUser={store.getState().allUsers[0].posts}
+                    <Main profile={store.getState().profile}
                           allUsers={store.getState().allUsers}
                           allMessages={store.getState().allMessages}
                           dispatch={store.dispatch.bind(store)}/>

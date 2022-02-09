@@ -1,6 +1,6 @@
 // imports
 import {v1} from "uuid";
-import {AndrewWater, ElinaMalina, JohnSmith, KotVasya, MrNikto, UserLogo} from "./BigHeadsFile";
+import {UserLogo} from "./BigHeadsFile";
 
 // types
 
@@ -33,8 +33,7 @@ export type PostType = {
     shares: number
     text: string
 }
-export type AllUsersType = Array<UserType>
-export type UserType = {
+export type ProfileType = {
     id: string
     birthtime: string
     name: string
@@ -54,7 +53,7 @@ export type UserType = {
 const ADD_POST = 'ADD_POST'
 
 // initialState
-const initialState: AllUsersType = [
+const initialState: ProfileType =
     {
         id: v1(),
         name: 'Eugene Pashkevich',
@@ -93,101 +92,13 @@ const initialState: AllUsersType = [
                 shares: 0,
                 text: 'I love IT-INCUBATOR',
             },
-        ]
-    },
-    {
-        id: v1(),
-        name: 'Elina Malina',
-        birthtime: '23.12.1998',
-        city: 'Minsk',
-        country: 'Belarus',
-        email: 'elinamalina@gmail.com',
-        userPhrase: 'I LIKE A MUSIC!!!',
-        follow: true,
-        avatar: ElinaMalina(),
-        posts: [
-            {
-                id: v1(),
-                userName: 'Elina Malina',
-                date: '08.01.2022 in 14:21',
-                likes: 1923,
-                comments: 123,
-                shares: 34,
-                text: 'WHAT YOU SAY BUT MY MOM?!',
-            },
-            {
-                id: v1(),
-                userName: 'Elina Malina',
-                date: '08.01.2022 in 15:67',
-                likes: 234,
-                comments: 34,
-                shares: 2,
-                text: 'Hi, friends! How ary you?)))',
-            },
-            {
-                id: v1(),
-                userName: 'Elina Malina',
-                date: '09.01.2022 in 09:02',
-                likes: 123,
-                comments: 1,
-                shares: 0,
-                text: 'I love IT-INCUBATOR',
-            },
-        ]
-    },
-    {
-        id: v1(),
-        name: 'Andrew Water',
-        birthtime: '18.12.21',
-        city: 'Minsk',
-        country: 'Belarus',
-        email: 'adkreyJudkiy@gmail.com',
-        userPhrase: 'I LIKE A WATER!!!',
-        follow: false,
-        avatar: AndrewWater(),
-        posts: []
-    },
-    {
-        id: v1(),
-        name: 'Kot Vasya',
-        birthtime: '01.02.2012',
-        city: 'Minsk',
-        country: 'Belarus',
-        email: 'kotVasya@gmail.com',
-        userPhrase: 'I LIKE A WATER!!!',
-        follow: false,
-        avatar: KotVasya(),
-        posts: []
-    },
-    {
-        id: v1(),
-        name: 'John Smith',
-        birthtime: 'xx.xx.xxxx',
-        city: 'xxxx',
-        country: '????',
-        email: '??????',
-        userPhrase: 'xwxwexwexwe',
-        follow: false,
-        avatar: JohnSmith(),
-        posts: []
-    },
-    {
-        id: v1(),
-        name: 'Mr. Nikto',
-        birthtime: 'xx.xx.xxxx',
-        city: 'xxxx',
-        country: '????',
-        email: '??????',
-        userPhrase: 'eryrth5t5',
-        follow: true,
-        avatar: MrNikto(),
-        posts: []
-    },
-]
+        ],
+    }
+
 
 
 // reducer
-export const profileReducer = (state = initialState, action: ActionType): AllUsersType => {
+export const profileReducer = (state = initialState, action: ActionType): ProfileType => {
     switch (action.type) {
         case "ADD_POST":
             const newPost =
@@ -200,14 +111,8 @@ export const profileReducer = (state = initialState, action: ActionType): AllUse
                     shares: 0,
                     text: action.newText,
                 }
-            let copyState = [...state]
-            return copyState.map( user => user.id === action.userId ? {...user, posts: [newPost ,...user.posts]} : user)
-        case "FOLLOW":
-            const copyStateFollow = [...state]
-            return copyStateFollow.map( user => user.id === action.userId ? {...user, follow: !user.follow} : user)
-        case "UNFOLLOW":
-            const copyStateUnfollow = [...state]
-            return copyStateUnfollow.map( user => user.id === action.userId ? {...user, follow: !user.follow} : user)
+            return {...state, posts: [newPost, ...state.posts] }
+
         default:
             return state
     }
@@ -218,10 +123,4 @@ export const profileReducer = (state = initialState, action: ActionType): AllUse
 // Action Creators
 export const AddPostAC = (newText: string, userId: string): AddPostActionType => {
     return {type: ADD_POST, newText, userId} as const
-}
-export const FollowAC = (userId: string): FollowActionType => {
-    return {type: 'FOLLOW', userId} as const
-}
-export const UnfollowAC = (userId: string): UnfollowActionType => {
-    return {type: "UNFOLLOW", userId} as const
 }
