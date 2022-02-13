@@ -51,11 +51,9 @@ export const CardUser = (props: CardUserPropsType) => {
             <div className={s.userInformText2}>
                 <p className={s.userPhrase}>{props.status}</p>
             </div>
-
-
-            {props.followed
-                ? <button className={s.followButton_FALSE} onClick={onClickUnfollowHandler}>+</button>
-                : <button className={s.followButton_TRUE} onClick={onClickFollowHandler}>&#10004;</button>}
+            {!props.followed
+                ? <button className={s.followButton_TRUE} onClick={onClickFollowHandler}>+</button>
+                : <button className={s.followButton_FALSE} onClick={onClickUnfollowHandler}>&#10004;</button>}
         </div>
     )
 }

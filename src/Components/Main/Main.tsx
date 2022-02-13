@@ -7,11 +7,11 @@ import {Route, Routes} from "react-router-dom";
 import {NotFound404} from "../404/NotFound404";
 import {Settings} from "./Settings/Settings";
 import {Music} from "./Music/Music";
-import {Friends} from "./Friends/Friends";
 import {ProfileType} from "../../Redux/profileReducer";
 import {UserType} from "../../Redux/usersReducer";
 import {AllMessagesType} from "../../Redux/dialogsReducer";
 import {Dispatch} from "../../Redux/redux-store";
+import FriendsClass from "./Friends/FriendsClass";
 
 
 // types
@@ -38,7 +38,7 @@ export const Main = function (props: MainPropsType) {
                                                              dispatch={props.dispatch}/>}/>
                 <Route path={'/settings'} element={<Settings/>}/>
                 <Route path={'/Music'} element={<Music/>}/>
-                <Route path={'/friends'} element={<Friends allUsers={props.allUsers}
+                <Route path={'/friends'} element={<FriendsClass allUsers={props.allUsers}
                                                            dispatch={props.dispatch}/>}/>
                 <Route path={'/*'} element={<NotFound404/>}/>
             </Routes>

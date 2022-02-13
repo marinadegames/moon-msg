@@ -3,7 +3,7 @@ import React, {useEffect} from "react";
 import s from './Friends.module.css'
 import {CardUser} from "./CardUser/CardUser";
 import {Dispatch} from "../../../Redux/redux-store";
-import axios from "axios";
+import * as axios from "axios";
 import {setUsersAC, UserType} from "../../../Redux/usersReducer";
 import {BigHead} from "@bigheads/core";
 
@@ -18,13 +18,14 @@ type FriendsPropsType = {
 
 export const Friends = function (props: FriendsPropsType) {
 
-    useEffect(()=>{
-        if (props.allUsers.length === 0) {
+    useEffect( () => {
+        if (props.allUsers.length === 0){
             axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
                 props.dispatch(setUsersAC(response.data.items))
             })
         }
     }, [props.allUsers])
+
 
     const TEMP_AVATAR = () => (
         <BigHead/>
