@@ -3,7 +3,7 @@ import React, {useEffect} from "react";
 import s from './Friends.module.css'
 import {CardUser} from "./CardUser/CardUser";
 import {Dispatch} from "../../../Redux/redux-store";
-import * as axios from "axios";
+import axios from "axios";
 import {setUsersAC, UserType} from "../../../Redux/usersReducer";
 import {BigHead} from "@bigheads/core";
 
