@@ -15,27 +15,21 @@ type FriendsPropsType = {
 
 class FriendsClass extends React.Component<FriendsPropsType, any> {
 
-    // constructor(props: FriendsPropsType) {
-    //     super(props);
-    // }
+    constructor(props: FriendsPropsType) {
+        super(props);
+        axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
+            this.props.dispatch(setUsersAC(response.data.items))
+        });
+    }
 
     TEMP_AVATAR = () => (
         <BigHead/>
     )
 
-    getUsers = () => {
-        if (this.props.allUsers.length === 0) {
-            axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
-                this.props.dispatch(setUsersAC(response.data.items))
-            })
-        }
-    }
-
 
     render() {
         return (
             <div>
-                <button onClick={this.getUsers}>get users</button>
                 <div className={s.pageName}>Friends</div>
                 <div className={s.mainUsers}>
 
