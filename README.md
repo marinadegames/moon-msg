@@ -59,7 +59,8 @@ This repository for my social network `Moon!msg`!
 🛹 `v0.5.4` - avatar for `header` | fixed `BigHead` file | fixed `props` | typing moved to `reducers` | `removed` other comments | delete old `store-file`  
 ##### ================================================ #####
 
-📱 `v0.6.0` - `⚠️REBUILD PROJECT!⚠️` added `API` | refactor `state` | refactor `state types` | added new `AC` and `reducers`
+📱 `v0.6.0` - `⚠️REBUILD PROJECT!⚠️` added `API` | refactor `state` | refactor `state types` | added new `AC` and `reducers`  
+✨ `v0.6.1` - `float` left sidebar | added `API-users` | added `class-component` | added `new tests` | `rebuild` state | added `new cases` in reducer
 
 ### 🙃 Good luck for me!
 

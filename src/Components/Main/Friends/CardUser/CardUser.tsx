@@ -38,15 +38,16 @@ export const CardUser = (props: CardUserPropsType) => {
     }
 
 
-
-
-
     return (
         <div className={s.cardUser} key={props.id}>
-            <div className={s.userLogo}>{props.TEMP_AVATAR()}</div>
+            <div className={s.userLogo}>
+
+                {props.photos.small === null ? props.TEMP_AVATAR() : <img alt={'logo'} className={s.userLogoAvatar} src={props.photos.small}/>}
+
+            </div>
             <div className={s.userInformText}>
                 <h3 className={s.userName}>{props.name}</h3>
-                <h5 className={s.userCountry}>{props.countryUser}, {props.cityUser}</h5>
+                <h5 className={s.userCountry}>{props.countryUser} {props.cityUser}</h5>
             </div>
             <div className={s.userInformText2}>
                 <p className={s.userPhrase}>{props.status}</p>

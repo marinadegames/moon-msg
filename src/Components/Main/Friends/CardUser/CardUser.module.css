@@ -7,8 +7,9 @@
     margin: 0 1rem 0.5rem 0;
     padding: 0.5rem;
     /*cursor: pointer;*/
-    width: 40%;
+    width: 100%;
     transition: ease-in-out 0.2s;
+    cursor: pointer;
 }
 .cardUser:hover{
     transform: scale(1.01);
@@ -16,7 +17,12 @@
 .userLogo{
     width: 80px;
     height: 80px;
-
+    border-radius: var(--borderRadiusCustom);
+}
+.userLogoAvatar {
+    width: 80px;
+    height: 80px;
+    border-radius: var(--borderRadiusCustom);
 }
 .userInformText{
     display: flex;

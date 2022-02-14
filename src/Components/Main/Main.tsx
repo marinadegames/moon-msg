@@ -8,7 +8,7 @@ import {NotFound404} from "../404/NotFound404";
 import {Settings} from "./Settings/Settings";
 import {Music} from "./Music/Music";
 import {ProfileType} from "../../Redux/profileReducer";
-import {UserType} from "../../Redux/usersReducer";
+import {itemsType} from "../../Redux/usersReducer";
 import {AllMessagesType} from "../../Redux/dialogsReducer";
 import {Dispatch} from "../../Redux/redux-store";
 import FriendsClass from "./Friends/FriendsClass";
@@ -17,7 +17,7 @@ import FriendsClass from "./Friends/FriendsClass";
 // types
 type MainPropsType = {
     profile: ProfileType
-    allUsers: Array<UserType>
+    allUsers: itemsType
     allMessages: AllMessagesType
     dispatch: Dispatch
 }
