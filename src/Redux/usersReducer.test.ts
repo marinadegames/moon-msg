@@ -4,7 +4,7 @@ import {
     itemsType,
     SetCurrentPageAC,
     SetTotalUserCountAC,
-    SetUsersAC,
+    SetUsersAC, ToggleIsFetchingAC,
     UnfollowAC,
     usersReducer
 } from "./usersReducer";
@@ -41,6 +41,7 @@ beforeEach( () => {
         pageSize: 6,
         totalUsersCount: 0,
         currentPage: 1,
+        isFetching: false,
     }
 
 
@@ -74,4 +75,9 @@ test('SET TOTAL USER COUNT', () => {
     const action = SetTotalUserCountAC(totalCount)
     const endState = usersReducer(startState, action)
     expect(endState.totalUsersCount).toBe(totalCount)
+})
+test('TOGGLE IS FETCHING', () => {
+    const action = ToggleIsFetchingAC(false)
+    const endState = usersReducer(startState, action)
+    expect(endState.isFetching).toBe(false)
 })

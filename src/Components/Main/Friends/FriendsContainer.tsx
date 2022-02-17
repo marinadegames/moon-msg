@@ -2,15 +2,13 @@
 import {
     FollowAC,
     SetCurrentPageAC, SetTotalUserCountAC,
-    SetUsersAC,
+    SetUsersAC, ToggleIsFetchingAC,
     UnfollowAC,
     UserType
 } from "../../../Redux/usersReducer";
 import FriendsAPIComponent from "./FriendsAPIComponent";
 import {connect} from "react-redux";
-import { Dispatch } from "redux";
 import {rootReducerType} from "../../../Redux/store";
-
 
 
 type MapDispatchPropsType = {
@@ -19,13 +17,14 @@ type MapDispatchPropsType = {
     setTotalUserCount: (totalCount: number) => void
     onClickFollowHandler: (id: number) => void
     onClickUnfollowHandler: (id: number) => void
-
+    toggleIsFetching: (isFetching: boolean) => void
 }
 type MapStatePropsType = {
     users: Array<UserType>
     totalUsersCount: number
     pageSize: number
     currentPage: number
+    isFetching: boolean
 }
 
 export type FriendsAPIComponentType = MapDispatchPropsType & MapStatePropsType
@@ -38,29 +37,16 @@ const mapStateToProps = (state: rootReducerType) => {
         totalUsersCount: state.allUsers.totalUsersCount,
         pageSize: state.allUsers.pageSize,
         currentPage: state.allUsers.currentPage,
+        isFetching: state.allUsers.isFetching
     }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch) => {
-    return {
-        setUsers: (users: Array<UserType>) => {
-            dispatch(SetUsersAC(users))
-        },
-        setCurrentPage: (currentPage: number) => {
-            dispatch(SetCurrentPageAC(currentPage))
-        },
-        setTotalUserCount: (totalCount: number) => {
-            dispatch(SetTotalUserCountAC(totalCount))
-        },
-        onClickFollowHandler: (id: number) => {
-            dispatch(FollowAC(id))
-        },
-        onClickUnfollowHandler: (id: number) => {
-            dispatch(UnfollowAC(id))
-        }
 
-
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(FriendsAPIComponent)
+export default connect(mapStateToProps, {
+    setUsers: SetUsersAC,
+    setCurrentPage: SetCurrentPageAC,
+    setTotalUserCount: SetTotalUserCountAC,
+    onClickFollowHandler: FollowAC,
+    onClickUnfollowHandler: UnfollowAC,
+    toggleIsFetching: ToggleIsFetchingAC,
+})(FriendsAPIComponent)

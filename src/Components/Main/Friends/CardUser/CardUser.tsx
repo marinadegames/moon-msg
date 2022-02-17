@@ -14,7 +14,6 @@ type CardUserPropsType = {
     followed: boolean
 
     // my
-
     onClickFollowHandler: (id: number) => void
     onClickUnfollowHandler: (id: number) => void
 

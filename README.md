@@ -62,6 +62,7 @@ This repository for my social network `Moon!msg`!
 📱 `v0.6.0` - `⚠️REBUILD PROJECT!⚠️` added `API` | refactor `state` | refactor `state types` | added new `AC` and `reducers`  
 ✨ `v0.6.1` - `float` left sidebar | added `API-users` | added `class-component` | added `new tests` | `rebuild` state | added `new cases` in reducer  
 💡 `v0.6.2` - added container component `<FriendsContainer/>`  
+📮 `v0.6.3` - added `preloader gif`. Refactor `connect`  
 
 
 ### 🙃 Good luck for me!

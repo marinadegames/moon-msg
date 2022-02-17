@@ -1,23 +1,22 @@
-.pageName{
+.pageName {
     font-style: normal;
     font-weight: bold;
     font-size: 36px;
     line-height: 46px;
     display: flex;
     align-items: center;
-    /*border: 1px solid black;*/
     padding: 1rem 0;
     color: var(--secondColor);
 }
+
 .mainUsers {
     display: flex;
     flex-wrap: wrap;
-    justify-content:flex-start ;
-    padding: 20px 0 0 0;
+    justify-content: flex-start;
+    padding: 50px 0 0 0;
 }
 
-
-.showMoreButton{
+.showMoreButton {
     border: 2px solid var(--generalColor);
     border-radius: var(--borderRadiusCustom);
     background-color: white;
@@ -29,10 +28,12 @@
     padding: 0.8rem;
     transition: 0.2s;
 }
-.showMoreButton:hover{
+
+.showMoreButton:hover {
     background-color: var(--generalColor);
     color: white;
 }
+
 .pageNumberButton {
     cursor: pointer;
 
@@ -45,10 +46,12 @@
     font-weight: 800;
     transition: 0.2s;
 }
+
 .pageNumberButton:hover {
     color: white;
     background-color: var(--generalColor);
 }
+
 .pageNumberButton_active {
     cursor: pointer;
 
