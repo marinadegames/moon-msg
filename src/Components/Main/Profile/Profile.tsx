@@ -3,7 +3,7 @@ import React from "react";
 import s from './Profile.module.css'
 import {Posts} from "./Posts/Posts";
 import {ProfileType} from "../../../Redux/profileReducer";
-import {Dispatch} from "../../../Redux/redux-store";
+import { Dispatch } from "redux";
 
 // types
 type ProfilePropsType = {

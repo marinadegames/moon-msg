@@ -5,12 +5,15 @@ import {dialogsReducer} from "./dialogsReducer";
 import {usersReducer} from "./usersReducer";
 
 
-let reducers = combineReducers({
+const rootReducer = combineReducers({
     profile: profileReducer,
     allMessages: dialogsReducer,
     allUsers: usersReducer
 })
 
-let store = createStore(reducers);
-export type Dispatch = typeof store.dispatch
-export default store;
+export type rootReducerType = ReturnType<typeof rootReducer>
+export const store = createStore(rootReducer)
+
+
+// @ts-ignore
+window.store = store

@@ -1,42 +1,44 @@
-// import
-import React, {useEffect} from "react";
-import s from './Friends.module.css'
+import React from "react";
+import s from "./Friends.module.css";
 import {CardUser} from "./CardUser/CardUser";
-import {Dispatch} from "../../../Redux/redux-store";
-import axios from "axios";
-import {setUsersAC, UserType} from "../../../Redux/usersReducer";
-import {BigHead} from "@bigheads/core";
+import {UserType} from "../../../Redux/usersReducer";
 
 
-// types
-type FriendsPropsType = {
-    allUsers: Array<UserType>
-    dispatch: Dispatch
+type PropsType = {
+    users: Array<UserType>
+    totalUsersCount: number
+    pageSize: number
+    currentPage: number
+    setCurrentPageHandler: (num: number) => void
+    onClickFollowHandler: (id: number) => void
+    setTotalUserCount: (totalCount: number) => void
+    onClickUnfollowHandler: (id: number) => void
 }
 
-// components
 
-export const Friends = function (props: FriendsPropsType) {
+export const Friends = (props: PropsType) => {
 
-    useEffect( () => {
-        if (props.allUsers.length === 0){
-            axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
-                props.dispatch(setUsersAC(response.data.items))
-            })
-        }
-    }, [props.allUsers])
+    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
 
-
-    const TEMP_AVATAR = () => (
-        <BigHead/>
-    )
+    let pages = []
+    for (let i = 1; i <= pagesCount; i++) {
+        pages.push(i)
+    }
 
     return (
-        <div>
+        <div key={2}>
             <div className={s.pageName}>Friends</div>
+            {pages.map(p => {
+                return (
+                    <span
+                        onClick={() => props.setCurrentPageHandler(p)}
+                        className={props.currentPage === p ? s.pageNumberButton_active : s.pageNumberButton}>{p}</span>
+                )
+            })}
             <div className={s.mainUsers}>
 
-                {props.allUsers.map((user: any) => {
+
+                {props.users.map((user: UserType) => {
                     return (
                         <CardUser name={user.name}
                                   id={user.id}
@@ -44,8 +46,8 @@ export const Friends = function (props: FriendsPropsType) {
                                   photos={user.photos}
                                   status={user.status}
                                   followed={user.followed}
-                                  dispatch={props.dispatch}
-                                  TEMP_AVATAR={TEMP_AVATAR}
+                                  onClickFollowHandler={props.onClickFollowHandler}
+                                  onClickUnfollowHandler={props.onClickUnfollowHandler}
                         />
                     )
                 })}
@@ -56,4 +58,3 @@ export const Friends = function (props: FriendsPropsType) {
         </div>
     )
 }
-

@@ -4,7 +4,7 @@
 
 const items: itemsType = {
     users: [],
-    pageSize: 100,
+    pageSize: 10,
     totalUsersCount: 0,
     currentPage: 1,
 }
@@ -64,6 +64,7 @@ export const usersReducer = (state = items, action: ActionType): itemsType => {
     switch (action.type) {
         case "SET_USERS":
             let newUsers = action.items
+            debugger
             return {...state, users: [...newUsers]}
         case "FOLLOW":
             return {...state, users: state.users.map(u => u.id === action.userId ? {...u, followed: true} : u)}
@@ -76,11 +77,13 @@ export const usersReducer = (state = items, action: ActionType): itemsType => {
         default:
             return state
     }
+
+
 }
 
 
 // Action Creators
-export const setUsersAC = (items: Array<UserType>): SetUserActionType => {
+export const SetUsersAC = (items: Array<UserType>): SetUserActionType => {
     return {
         type: 'SET_USERS',
         items
@@ -95,6 +98,6 @@ export const UnfollowAC = (userId: number): UnfollowActionType => {
 export const SetCurrentPageAC = (currentPage: number): SetCurrentPageActionType => {
     return {type: "SET_CURRENT_PAGE", currentPage}
 }
-export const setTotalUserCountAC = (totalCount: number): SetTotalUsersCountActionType => {
+export const SetTotalUserCountAC = (totalCount: number): SetTotalUsersCountActionType => {
     return {type: "SET_TOTAL_USER_COUNT", totalCount}
 }

@@ -1,8 +1,7 @@
 // imports
 import React from 'react'
 import s from './CardUser.module.css'
-import {Dispatch} from "../../../../Redux/redux-store";
-import {FollowAC, UnfollowAC} from "../../../../Redux/usersReducer";
+import {BigHead} from "@bigheads/core";
 
 // types
 type CardUserPropsType = {
@@ -15,9 +14,13 @@ type CardUserPropsType = {
     followed: boolean
 
     // my
-    dispatch: Dispatch
-    TEMP_AVATAR: any
+
+    onClickFollowHandler: (id: number) => void
+    onClickUnfollowHandler: (id: number) => void
+
+
     // maybe not
+
     countryUser?: string | null
     cityUser?: string | null
 }
@@ -30,19 +33,15 @@ type photoType = {
 
 export const CardUser = (props: CardUserPropsType) => {
 
-    const onClickFollowHandler = () => {
-        props.dispatch(FollowAC(props.id))
-    }
-    const onClickUnfollowHandler = () => {
-        props.dispatch(UnfollowAC(props.id))
-    }
-
+    const TEMP_AVATAR = () => (
+        <BigHead/>
+    )
 
     return (
         <div className={s.cardUser} key={props.id}>
             <div className={s.userLogo}>
 
-                {props.photos.small === null ? props.TEMP_AVATAR() : <img alt={'logo'} className={s.userLogoAvatar} src={props.photos.small}/>}
+                {props.photos.small === null ? TEMP_AVATAR() : <img alt={'logo'} className={s.userLogoAvatar} src={props.photos.small}/>}
 
             </div>
             <div className={s.userInformText}>
@@ -53,8 +52,8 @@ export const CardUser = (props: CardUserPropsType) => {
                 <p className={s.userPhrase}>{props.status}</p>
             </div>
             {!props.followed
-                ? <button className={s.followButton_TRUE} onClick={onClickFollowHandler}>+</button>
-                : <button className={s.followButton_FALSE} onClick={onClickUnfollowHandler}>&#10004;</button>}
+                ? <button className={s.followButton_TRUE} onClick={() => props.onClickFollowHandler(props.id)}>+</button>
+                : <button className={s.followButton_FALSE} onClick={() => props.onClickUnfollowHandler(props.id)}>&#10004;</button>}
         </div>
     )
 }

@@ -10,8 +10,7 @@ import {Music} from "./Music/Music";
 import {ProfileType} from "../../Redux/profileReducer";
 import {itemsType} from "../../Redux/usersReducer";
 import {AllMessagesType} from "../../Redux/dialogsReducer";
-import {Dispatch} from "../../Redux/redux-store";
-import FriendsClass from "./Friends/FriendsClass";
+import FriendsContainer from "./Friends/FriendsContainer";
 
 
 // types
@@ -19,7 +18,7 @@ type MainPropsType = {
     profile: ProfileType
     allUsers: itemsType
     allMessages: AllMessagesType
-    dispatch: Dispatch
+    dispatch: any
 }
 
 // components
@@ -38,8 +37,7 @@ export const Main = function (props: MainPropsType) {
                                                              dispatch={props.dispatch}/>}/>
                 <Route path={'/settings'} element={<Settings/>}/>
                 <Route path={'/Music'} element={<Music/>}/>
-                <Route path={'/friends'} element={<FriendsClass allUsers={props.allUsers}
-                                                           dispatch={props.dispatch}/>}/>
+                <Route path={'/friends'} element={<FriendsContainer/>}/>
                 <Route path={'/*'} element={<NotFound404/>}/>
             </Routes>
         </div>

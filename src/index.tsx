@@ -4,11 +4,16 @@ import ReactDOM from "react-dom";
 import React from "react";
 import App from "./App";
 import './index.css';
-import store from "./Redux/redux-store";
+
+import {Provider} from "react-redux";
+import {store} from "./Redux/store";
+
 
 export let rerenderEntireTree = () => {
     ReactDOM.render(
-            <App/>,
+        <Provider store={store}>
+            <App/>
+        </Provider>,
         document.getElementById('root')
     );
 }

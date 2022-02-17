@@ -3,8 +3,8 @@ import {
     FollowAC,
     itemsType,
     SetCurrentPageAC,
-    setTotalUserCountAC,
-    setUsersAC,
+    SetTotalUserCountAC,
+    SetUsersAC,
     UnfollowAC,
     usersReducer
 } from "./usersReducer";
@@ -49,7 +49,7 @@ beforeEach( () => {
 
 
 test('SET USERS', () => {
-    const action = setUsersAC(startState.users)
+    const action = SetUsersAC(startState.users)
     const endState = usersReducer(startState, action)
     expect(endState.users.length).toBe(2)
 })
@@ -71,7 +71,7 @@ test('SET CURRENT PAGE', () => {
 })
 test('SET TOTAL USER COUNT', () => {
     const totalCount = 35
-    const action = setTotalUserCountAC(totalCount)
+    const action = SetTotalUserCountAC(totalCount)
     const endState = usersReducer(startState, action)
     expect(endState.totalUsersCount).toBe(totalCount)
 })
