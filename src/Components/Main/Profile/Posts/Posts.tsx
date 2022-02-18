@@ -2,11 +2,11 @@
 import React, {useState, KeyboardEvent} from "react";
 import s from "./Posts.module.css";
 import {Post} from "./Post/Post";
-import {AddPostAC, PostType} from "../../../../Redux/profileReducer";
+import {AddPostAC} from "../../../../Redux/profileReducer";
 
 // types
 type PostsPropsType = {
-    postsUser: Array<PostType>
+    postsUser: Array<any>
     userId: string
     dispatch: (action: any) => void
 }

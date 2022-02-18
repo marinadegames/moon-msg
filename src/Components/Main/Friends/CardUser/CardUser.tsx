@@ -2,6 +2,7 @@
 import React from 'react'
 import s from './CardUser.module.css'
 import {BigHead} from "@bigheads/core";
+import {NavLink} from "react-router-dom";
 
 // types
 type CardUserPropsType = {
@@ -40,8 +41,10 @@ export const CardUser = (props: CardUserPropsType) => {
         <div className={s.cardUser} key={props.id}>
             <div className={s.userLogo}>
 
-                {props.photos.small === null ? TEMP_AVATAR() : <img alt={'logo'} className={s.userLogoAvatar} src={props.photos.small}/>}
-
+                <NavLink to={'/profile/' + props.id}>
+                    {props.photos.small === null ? TEMP_AVATAR() :
+                        <img alt={'logo'} className={s.userLogoAvatar} src={props.photos.small}/>}
+                </NavLink>
             </div>
             <div className={s.userInformText}>
                 <h3 className={s.userName}>{props.name}</h3>
@@ -51,8 +54,10 @@ export const CardUser = (props: CardUserPropsType) => {
                 <p className={s.userPhrase}>{props.status}</p>
             </div>
             {!props.followed
-                ? <button className={s.followButton_TRUE} onClick={() => props.onClickFollowHandler(props.id)}>+</button>
-                : <button className={s.followButton_FALSE} onClick={() => props.onClickUnfollowHandler(props.id)}>&#10004;</button>}
+                ?
+                <button className={s.followButton_TRUE} onClick={() => props.onClickFollowHandler(props.id)}>+</button>
+                : <button className={s.followButton_FALSE}
+                          onClick={() => props.onClickUnfollowHandler(props.id)}>&#10004;</button>}
         </div>
     )
 }

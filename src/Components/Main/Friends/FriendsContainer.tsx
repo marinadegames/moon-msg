@@ -28,8 +28,8 @@ type MapStatePropsType = {
 }
 
 export type FriendsAPIComponentType = MapDispatchPropsType & MapStatePropsType
-// container component
 
+// container component
 const mapStateToProps = (state: rootReducerType) => {
 
     return {

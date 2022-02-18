@@ -13,7 +13,7 @@
     align-items: center;
     flex-direction: row;
     border-radius: var(--borderRadiusCustom);
-    height: 180px;
+    height: 220px;
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("../../../Assets/walp.jpg");
     background-size: cover;
     padding: 1rem;
@@ -25,56 +25,74 @@
 .profileInfoLeft{
     display: flex;
     flex-direction: row;
-    align-items: center;
-    width: 50%;
+    align-items: flex-start;
+    width: 60%;
 }
 .profileInfoRight{
-    width: 50%;
+    width: 40%;
 }
 
 .userLogo{
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
-    height: 150px;
-    width: 150px;
-    padding: 0 0 1rem 0;
+    height: 200px;
+    width: 200px;
+    padding: 10px 30px 10px 10px;
+
     transition: ease-in-out 0.2s;
 }
 .userLogo:hover{
     transform: scale(1.05);
 }
+.avatarUser {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    /*border: 5px solid white;*/
+}
+.profileInfoTextBox {
+    padding: 10px 0 10px 0;
+}
 .userName{
     color: white;
     font-style: normal;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 35px;
     line-height: 38px;
-    margin: 1rem 0 0 0 ;
+    margin: 0;
 }
-.userBirthday{
+.userAboutMe{
     color: white;
     font-style: normal;
     font-weight: normal;
-    font-size: 20px;
+    font-size: 25px;
 }
 .userLocation{
     color: white;
     font-style: normal;
     font-weight: normal;
-    font-size: 20px;
+    font-size: 23px;
 }
-.userEmail{
+.lookingForAJob {
+    color: white;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+}
+.userWebsite{
     color: white;
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
 }
-.userEmail a {
+.userWebsite a {
     text-decoration: none;
     color: white;
     transition: 0.2s;
 }
-.userEmail a:hover{
+.userWebsite a:hover{
     color: var(--generalColor);
 }
 .userSlogan{

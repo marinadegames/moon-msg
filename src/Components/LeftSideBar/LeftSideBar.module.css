@@ -1,7 +1,7 @@
 .LeftSideBar{
     position: fixed;
     padding: 4.5rem 2rem 2rem 2rem;
-    width: 18%;
+    width: auto;
     text-decoration: none;
 }
 .LeftSideBar a {

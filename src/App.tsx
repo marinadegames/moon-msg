@@ -17,22 +17,16 @@ import {store} from "./Redux/store";
 // components
 function App() {
 
-
-
     return (
         <BrowserRouter>
             <div className={s.App}>
-
-                <Header profile={store.getState().profile}/>
-
+                <Header profile={store.getState().profilePage}/>
                 <div className={s.flexMain}>
                     <LeftSideBar/>
-                    <Main profile={store.getState().profile}
-                          allUsers={store.getState().allUsers}
+                    <Main allUsers={store.getState().allUsers}
                           allMessages={store.getState().allMessages}
                           dispatch={store.dispatch.bind(store)}/>
                 </div>
-
                 {/*<Footer />*/}
             </div>
         </BrowserRouter>

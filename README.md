@@ -63,6 +63,7 @@ This repository for my social network `Moon!msg`!
 ✨ `v0.6.1` - `float` left sidebar | added `API-users` | added `class-component` | added `new tests` | `rebuild` state | added `new cases` in reducer  
 💡 `v0.6.2` - added container component `<FriendsContainer/>`  
 📮 `v0.6.3` - added `preloader gif`. Refactor `connect`  
+🔦 `v0.6.4` - added `pages profiles` for each profile
 
 
 ### 🙃 Good luck for me!

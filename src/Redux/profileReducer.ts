@@ -1,14 +1,15 @@
 // imports
-import {v1} from "uuid";
-import {UserLogo} from "./BigHeadsFile";
 
-// types
+
+// const
+const ADD_POST = 'ADD_POST'
+const SET_USER_PROFILE = 'SET_USER_PROFILE'
 
 
 // ============= types
 
 // Action types
-type ActionType = AddPostActionType | FollowActionType | UnfollowActionType
+type ActionType = AddPostActionType | FollowActionType | UnfollowActionType | SetUserProfileActionType
 type AddPostActionType = {
     type: 'ADD_POST'
     newText: string
@@ -22,97 +23,57 @@ type UnfollowActionType = {
     type: 'UNFOLLOW'
     userId: string
 }
+type SetUserProfileActionType = {
+    type: 'SET_USER_PROFILE',
+    profile: any
+}
 
 // State types
-export type PostType = {
-    id: string
-    userName: string
-    date: string
-    likes: number
-    comments: number
-    shares: number
-    text: string
-}
 export type ProfileType = {
-    id: string
-    birthtime: string
-    name: string
-    city: string
-    country: string
-    email: string
-    userPhrase: string
-    follow?: boolean
-    avatar: any
-    posts: Array<PostType>
+    aboutMe: string
+    contacts: ContactsType
+    lookingForAJob: boolean
+    lookingForAJobDescription: string
+    fullName: string
+    userId: number
+    photos: PhotosType
+}
+type ContactsType = {
+    facebook: string | null
+    website: string | null
+    vk: string | null
+    twitter: string | null
+    instagram: string | null
+    youtube: string | null
+    github: string | null
+    mainLink: string | null
+}
+type PhotosType = {
+    small: string | null
+    large: string | null
+}
+export type InitStateType = {
+    posts: Array<any> | null
+    newPostText: string
+    profile: null | ProfileType
 }
 
-
-// export const USER_ID_6 = v1()
-
-// const
-const ADD_POST = 'ADD_POST'
 
 // initialState
-const initialState: ProfileType =
-    {
-        id: v1(),
-        name: 'Eugene Pashkevich',
-        birthtime: '17.02.1997',
-        city: 'Minsk',
-        country: 'Belarus',
-        email: 'marinadegames@gmail.com',
-        userPhrase: 'I LIKE A PIZZA!!!',
-        follow: false,
-        avatar: UserLogo(),
-        posts: [
-            {
-                id: v1(),
-                userName: 'Eugene Pashkevich',
-                date: '08.01.2022 in 14:21',
-                likes: 1923,
-                comments: 123,
-                shares: 34,
-                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labod minim veniam, quis nostrud exercitation ullamco',
-            },
-            {
-                id: v1(),
-                userName: 'Eugene Pashkevich',
-                date: '08.01.2022 in 15:67',
-                likes: 234,
-                comments: 34,
-                shares: 2,
-                text: 'Hi, friends! How ary you?)))',
-            },
-            {
-                id: v1(),
-                userName: 'Eugene Pashkevich',
-                date: '09.01.2022 in 09:02',
-                likes: 123,
-                comments: 1,
-                shares: 0,
-                text: 'I love IT-INCUBATOR',
-            },
-        ],
-    }
-
+const initialState: InitStateType = {
+    posts: [],
+    newPostText: '',
+    profile: null,
+}
 
 
 // reducer
-export const profileReducer = (state = initialState, action: ActionType): ProfileType => {
+export const profileReducer = (state = initialState, action: ActionType): InitStateType => {
     switch (action.type) {
         case "ADD_POST":
-            const newPost =
-                {
-                    id: v1(),
-                    userName: 'Eugene Pashkevich',
-                    date: '08.01.2022 in 22:00',
-                    likes: 0,
-                    comments: 0,
-                    shares: 0,
-                    text: action.newText,
-                }
-            return {...state, posts: [newPost, ...state.posts] }
-
+            return state
+        case "SET_USER_PROFILE":
+            return {...state, profile: action.profile}
         default:
             return state
     }
@@ -123,4 +84,7 @@ export const profileReducer = (state = initialState, action: ActionType): Profil
 // Action Creators
 export const AddPostAC = (newText: string, userId: string): AddPostActionType => {
     return {type: ADD_POST, newText, userId} as const
+}
+export const SetUserProfileAC = (profile: ProfileType): SetUserProfileActionType => {
+    return {type: SET_USER_PROFILE, profile} as const
 }
