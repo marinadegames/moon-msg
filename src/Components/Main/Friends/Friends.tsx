@@ -31,7 +31,7 @@ export const Friends = (props: PropsType) => {
 
     //return
     return (
-        <div key={2}>
+        <div>
 
             <div className={s.pageName}>Friends</div>
 
@@ -40,6 +40,7 @@ export const Friends = (props: PropsType) => {
             {pages.map(p => {
                 return (
                     <span
+                        key={p}
                         onClick={() => props.setCurrentPageHandler(p)}
                         className={props.currentPage === p ? s.pageNumberButton_active : s.pageNumberButton}>{p}</span>
                 )
@@ -47,16 +48,20 @@ export const Friends = (props: PropsType) => {
             <div className={s.mainUsers}>
                 {props.users.map((user: UserType) => {
                     return (
-                        <CardUser name={user.name}
-                                  id={user.id}
-                                  uniqueUrlName={user.uniqueUrlName}
-                                  photos={user.photos}
-                                  status={user.status}
-                                  followed={user.followed}
-                                  onClickFollowHandler={props.onClickFollowHandler}
-                                  onClickUnfollowHandler={props.onClickUnfollowHandler}
+                        <div key={user.id}>
+                            <CardUser name={user.name}
+                                      id={user.id}
+                                      uniqueUrlName={user.uniqueUrlName}
+                                      photos={user.photos}
+                                      status={user.status}
+                                      followed={user.followed}
+                                      onClickFollowHandler={props.onClickFollowHandler}
+                                      onClickUnfollowHandler={props.onClickUnfollowHandler}
 
-                        />
+                            />
+                        </div>
+
+
                     )
                 })}
             </div>

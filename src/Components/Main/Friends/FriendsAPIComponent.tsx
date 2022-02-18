@@ -7,8 +7,8 @@ import {FriendsAPIComponentType} from "./FriendsContainer";
 class FriendsAPIComponent extends React.Component<FriendsAPIComponentType> {
 
     componentDidMount() {
-        console.log('CURRENT PAGE: ' + this.props.currentPage)
-        console.log('TOTAL USERS COUNT: ' + this.props.totalUsersCount)
+        // console.log('CURRENT PAGE: ' + this.props.currentPage)
+        // console.log('TOTAL USERS COUNT: ' + this.props.totalUsersCount)
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
             .then(response => {
                 this.props.toggleIsFetching(false)
@@ -28,7 +28,7 @@ class FriendsAPIComponent extends React.Component<FriendsAPIComponentType> {
     render() {
 
         return (
-            <div key={Math.random()}>
+            <div>
                 <Friends users={this.props.users}
                          isFetching={this.props.isFetching}
                          toggleIsFetching={this.props.toggleIsFetching}
