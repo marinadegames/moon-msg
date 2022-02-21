@@ -28,7 +28,6 @@ export const LeftSideBar = function () {
         else if (pageActive === 'SETTINGS') setActiveItemMenu('SETTINGS')
     }
 
-
     return (
         <div className={s.LeftSideBar}>
             <NavLink className={(params) => params.isActive ? s.menuItemACTIVE : s.menuItem}

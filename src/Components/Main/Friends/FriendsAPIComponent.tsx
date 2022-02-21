@@ -9,7 +9,10 @@ class FriendsAPIComponent extends React.Component<FriendsAPIComponentType> {
     componentDidMount() {
         // console.log('CURRENT PAGE: ' + this.props.currentPage)
         // console.log('TOTAL USERS COUNT: ' + this.props.totalUsersCount)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`,
+            {
+                withCredentials: true
+            })
             .then(response => {
                 this.props.toggleIsFetching(false)
                 this.props.setUsers(response.data.items)
@@ -19,10 +22,14 @@ class FriendsAPIComponent extends React.Component<FriendsAPIComponentType> {
 
     setCurrentPageHandler = (currentPage: number) => {
         this.props.setCurrentPage(currentPage)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${this.props.pageSize}`).then(response => {
-            this.props.toggleIsFetching(false)
-            this.props.setUsers(response.data.items)
-        })
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${this.props.pageSize}`,
+            {
+                withCredentials: true
+            })
+            .then(response => {
+                this.props.toggleIsFetching(false)
+                this.props.setUsers(response.data.items)
+            })
     }
 
     render() {

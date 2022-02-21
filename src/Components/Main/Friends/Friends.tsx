@@ -48,19 +48,17 @@ export const Friends = (props: PropsType) => {
             <div className={s.mainUsers}>
                 {props.users.map((user: UserType) => {
                     return (
-                        <div key={user.id}>
-                            <CardUser name={user.name}
-                                      id={user.id}
-                                      uniqueUrlName={user.uniqueUrlName}
-                                      photos={user.photos}
-                                      status={user.status}
-                                      followed={user.followed}
-                                      onClickFollowHandler={props.onClickFollowHandler}
-                                      onClickUnfollowHandler={props.onClickUnfollowHandler}
+                        <CardUser name={user.name}
+                                  key={user.id}
+                                  id={user.id}
+                                  uniqueUrlName={user.uniqueUrlName}
+                                  photos={user.photos}
+                                  status={user.status}
+                                  followed={user.followed}
+                                  onClickFollowHandler={props.onClickFollowHandler}
+                                  onClickUnfollowHandler={props.onClickUnfollowHandler}
 
-                            />
-                        </div>
-
+                        />
 
                     )
                 })}

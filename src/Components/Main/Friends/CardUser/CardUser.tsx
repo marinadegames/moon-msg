@@ -1,8 +1,10 @@
 // imports
-import React from 'react'
+import React, {useCallback} from 'react'
 import s from './CardUser.module.css'
 import {BigHead} from "@bigheads/core";
 import {NavLink} from "react-router-dom";
+import axios from "axios";
+
 
 // types
 type CardUserPropsType = {
@@ -31,11 +33,12 @@ type photoType = {
 // component
 
 
-export const CardUser = (props: CardUserPropsType) => {
+export const CardUser = React.memo((props: CardUserPropsType) => {
 
-    const TEMP_AVATAR = () => (
-        <BigHead/>
-    )
+
+    const TEMP_AVATAR = useCallback(() => {
+        return <BigHead/>
+    }, [])
 
     return (
         <div className={s.cardUser} key={props.id}>
@@ -45,6 +48,7 @@ export const CardUser = (props: CardUserPropsType) => {
                     {props.photos.small === null ? TEMP_AVATAR() :
                         <img alt={'logo'} className={s.userLogoAvatar} src={props.photos.small}/>}
                 </NavLink>
+
             </div>
             <div className={s.userInformText}>
                 <h3 className={s.userName}>{props.name}</h3>
@@ -55,9 +59,51 @@ export const CardUser = (props: CardUserPropsType) => {
             </div>
             {!props.followed
                 ?
-                <button className={s.followButton_TRUE} onClick={() => props.onClickFollowHandler(props.id)}>+</button>
-                : <button className={s.followButton_FALSE}
-                          onClick={() => props.onClickUnfollowHandler(props.id)}>&#10004;</button>}
+                <button className={s.followButton_TRUE}
+                        onClick={() => {
+                            axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${props.id}`,
+                                null,
+                                {
+                                    withCredentials: true,
+                                    headers: {
+                                        'API-KEY': 'bb507bdb-8e96-4353-8e86-10a14bdf8963'
+                                    },
+                                }
+                            )
+                                .then(response => {
+                                    if (response.data.resultCode === 0) {
+                                        props.onClickFollowHandler(props.id)
+                                        console.log('Follow!!!')
+                                    }
+                                })
+                                .catch(error => {
+                                    console.warn(error)
+                                })
+
+                        }}>+</button>
+                :
+                <button className={s.followButton_FALSE}
+                        onClick={() => {
+                            axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${props.id}`,
+                                {
+                                    withCredentials: true,
+                                    headers: {
+                                        'API-KEY': 'bb507bdb-8e96-4353-8e86-10a14bdf8963'
+                                    },
+                                }
+                            )
+                                .then(response => {
+                                    if (response.data.resultCode === 0) {
+                                        props.onClickUnfollowHandler(props.id)
+                                        console.log('UNFOLLOW!')
+                                    }
+                                })
+                                .catch(error => {
+                                    console.warn(error)
+                                })
+
+                        }}>&#10004;</button>
+            }
         </div>
     )
-}
+})

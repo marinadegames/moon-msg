@@ -2,6 +2,8 @@
 import React from "react";
 import s from './Header.module.css'
 import moon from '../../Assets/moon.png'
+import {NavLink} from "react-router-dom";
+import {BigHead} from "@bigheads/core";
 
 // types
 
@@ -37,33 +39,48 @@ const sun = <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="6
 
 export const Header = function (props: any) {
 
-
-
-
     return (
         <div className={s.Header}>
             <div className={s.flexBoxHeaderLeft}>
                 <div className={s.logotype}>
                     <img src={moon} alt="moon" width={'60px'} height={'60px'}/>
                 </div>
-                <div className={s.siteTitle}>
+
+                <NavLink className={s.siteTitle} to={'/'}>
                     Moon!msg
+                </NavLink>
+            </div>
+
+            {props.isAuth ?
+
+                <div className={s.flexBoxHeaderCenter}>
+                    {sun}
+                    Good morning, {props.login}!
                 </div>
-            </div>
+                :
+                <div className={s.flexBoxHeaderCenter}>
+                    {sun}
+                    Good morning!
+                </div>
+            }
 
-            <div className={s.flexBoxHeaderCenter}>
-                {sun}
-                Good morning, Eugene!
-            </div>
-
-            <div className={s.flexBoxHeaderRight}>
-                 <input placeholder={'Search'} type={'search'}/>
-            </div>
+            {/*<div className={s.flexBoxHeaderRight}>*/}
+            {/*    <input placeholder={'Search'} type={'search'}/>*/}
+            {/*</div>*/}
 
             <div className={s.flexBoxHeaderUserLogo}>
-                <div className={s.logoUser}>
-                    {props.profile.avatar}
-                </div>
+
+
+                {props.isAuth
+                    ?
+                    <div className={s.logoUser}>
+                        {/*{props.profile.avatar}*/}
+                        <BigHead/>
+
+                    </div>
+                    :
+                    <NavLink to={'/login'} className={s.login_btn}>Login</NavLink>}
+
             </div>
         </div>
     )

@@ -10,11 +10,16 @@ const items: itemsType = {
     isFetching: true
 }
 
-
 // ============= types
 
 // Action types
-type ActionType = FollowActionType | UnfollowActionType | SetUserActionType | SetCurrentPageActionType | SetTotalUsersCountActionType | ToggleIsFetchingActionType
+type ActionType =
+    FollowActionType
+    | UnfollowActionType
+    | SetUserActionType
+    | SetCurrentPageActionType
+    | SetTotalUsersCountActionType
+    | ToggleIsFetchingActionType
 type SetUserActionType = {
     type: 'SET_USERS'
     items: Array<UserType>
@@ -92,10 +97,7 @@ export const usersReducer = (state = items, action: ActionType): itemsType => {
 
 // Action Creators
 export const SetUsersAC = (items: Array<UserType>): SetUserActionType => {
-    return {
-        type: 'SET_USERS',
-        items
-    }
+    return {type: 'SET_USERS', items}
 }
 export const FollowAC = (userId: number): FollowActionType => {
     return {type: 'FOLLOW', userId} as const

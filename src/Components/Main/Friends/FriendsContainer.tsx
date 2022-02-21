@@ -31,7 +31,6 @@ export type FriendsAPIComponentType = MapDispatchPropsType & MapStatePropsType
 
 // container component
 const mapStateToProps = (state: rootReducerType) => {
-
     return {
         users: state.allUsers.users,
         totalUsersCount: state.allUsers.totalUsersCount,
@@ -40,7 +39,6 @@ const mapStateToProps = (state: rootReducerType) => {
         isFetching: state.allUsers.isFetching
     }
 }
-
 
 export default connect(mapStateToProps, {
     setUsers: SetUsersAC,
