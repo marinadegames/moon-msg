@@ -1,6 +1,7 @@
 .cardUser {
     background: var(--backgroundBox);
-    box-shadow: var(--shadow);
+    /*box-shadow: var(--shadow);*/
+    border: 2px solid var(--backgroundColor);
     border-radius: var(--borderRadiusCustom);
     display: flex;
     justify-content: space-between;
@@ -8,12 +9,13 @@
     padding: 0.5rem;
     /*cursor: pointer;*/
     width: 45%;
-    transition: ease-in-out 0.2s;
+    transition: 0.05s;
     cursor: pointer;
 }
 
 .cardUser:hover {
-    transform: scale(1.01);
+    border: 2px solid var(--generalColor);
+    box-shadow: var(--shadow);
 }
 
 .userLogo {

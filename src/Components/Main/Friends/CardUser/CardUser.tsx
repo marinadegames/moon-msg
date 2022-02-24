@@ -34,7 +34,6 @@ type photoType = {
 
 
 export const CardUser = React.memo((props: CardUserPropsType) => {
-    console.log('card')
 
     // functions
     const TEMP_AVATAR = useCallback(() => {
@@ -52,7 +51,7 @@ export const CardUser = React.memo((props: CardUserPropsType) => {
             .catch(error => {
                 console.warn(error)
             })
-    }, [props])
+    },[props])
     const followHandler = useCallback(() => {
         props.toggleIsFollowingIsProgress(true, props.id)
         requestsAPI.followFriend(props.id)

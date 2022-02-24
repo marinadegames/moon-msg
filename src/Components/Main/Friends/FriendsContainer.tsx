@@ -1,6 +1,6 @@
 // imports
 import {
-    FollowAC,
+    FollowAC, getUsersThunkCreator,
     SetCurrentPageAC, SetTotalUserCountAC,
     SetUsersAC, ToggleIsFetchingAC, ToggleIsFollowingIsProgressAC,
     UnfollowAC,
@@ -19,6 +19,7 @@ type MapDispatchPropsType = {
     onClickUnfollowHandler: (id: number) => void
     toggleIsFetching: (isFetching: boolean) => void
     toggleIsFollowingIsProgress: (isFetch: boolean, userId: number) => void
+    getUsersThunkCreator: (currentPage: number, pageSize: number) => void
 }
 type MapStatePropsType = {
     users: Array<UserType>
@@ -51,5 +52,7 @@ export default connect(mapStateToProps, {
     onClickUnfollowHandler: UnfollowAC,
     toggleIsFetching: ToggleIsFetchingAC,
     toggleIsFollowingIsProgress: ToggleIsFollowingIsProgressAC,
+    getUsersThunkCreator: getUsersThunkCreator,
 
 })(FriendsAPIComponent)
+

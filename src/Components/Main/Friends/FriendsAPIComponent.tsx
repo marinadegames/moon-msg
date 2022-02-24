@@ -2,30 +2,19 @@
 import React from "react";
 import {Friends} from "./Friends";
 import {FriendsAPIComponentType} from "./FriendsContainer";
-import {requestsAPI} from "../../API/API";
 
 class FriendsAPIComponent extends React.Component<FriendsAPIComponentType> {
 
     componentDidMount() {
-        requestsAPI.getUsers(this.props.currentPage, this.props.pageSize)
-            .then(data => {
-                this.props.toggleIsFetching(false)
-                this.props.setUsers(data.items)
-                this.props.setTotalUserCount(data.totalCount)
-            });
+        this.props.getUsersThunkCreator(this.props.currentPage, this.props.pageSize)
     }
 
     setCurrentPageHandler = (currentPage: number) => {
-        this.props.setCurrentPage(currentPage)
-        requestsAPI.getUsers(currentPage, this.props.pageSize)
-            .then(data => {
-                this.props.toggleIsFetching(false)
-                this.props.setUsers(data.items)
-            })
+        this.props.getUsersThunkCreator(currentPage, this.props.pageSize)
     }
 
-    render() {
 
+    render() {
         return (
             <div>
                 <Friends users={this.props.users}
