@@ -1,5 +1,5 @@
 // imports
-import React from "react";
+import React, {memo} from "react";
 import s from "./Friends.module.css";
 import {CardUser} from "./CardUser/CardUser";
 import {UserType} from "../../../Redux/usersReducer";
@@ -17,10 +17,13 @@ type PropsType = {
     onClickUnfollowHandler: (id: number) => void
     isFetching: boolean
     toggleIsFetching: (isFetching: boolean) => void
+    followingInProgress: Array<number>
+    toggleIsFollowingIsProgress: (isFetch: boolean, userId: number) => void
 }
 
 // component
-export const Friends = (props: PropsType) => {
+export const Friends = memo((props: PropsType) => {
+    console.log('FRIENDS')
 
     // counting
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
@@ -32,11 +35,8 @@ export const Friends = (props: PropsType) => {
     //return
     return (
         <div>
-
             <div className={s.pageName}>Friends</div>
-
             <Preloader isFetching={props.isFetching}/>
-
             {pages.map(p => {
                 return (
                     <span
@@ -57,15 +57,14 @@ export const Friends = (props: PropsType) => {
                                   followed={user.followed}
                                   onClickFollowHandler={props.onClickFollowHandler}
                                   onClickUnfollowHandler={props.onClickUnfollowHandler}
-
+                                  followingInProgress={props.followingInProgress}
+                                  toggleIsFollowingIsProgress={props.toggleIsFollowingIsProgress}
                         />
 
                     )
                 })}
             </div>
-
             <button className={s.showMoreButton}>show more...</button>
-
         </div>
     )
-}
+})

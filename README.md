@@ -55,17 +55,59 @@ This repository for my social network `Moon!msg`!
 🎆 `v0.5.0` - added `redux`  
 🦾 `v0.5.1` - added `react-redux` | refactor store | other fix | added map friends  
 📩 `v0.5.2` - added `axios`  
-➕ `v0.5.3` - added `follow\unfollow` | `rebuilding` state users | added `follow\unfollow button` (users page) | fixed types | added `tests` for reducers  
-🛹 `v0.5.4` - avatar for `header` | fixed `BigHead` file | fixed `props` | typing moved to `reducers` | `removed` other comments | delete old `store-file`  
+
 ##### ================================================ #####
 
-📱 `v0.6.0` - `⚠️REBUILD PROJECT!⚠️` added `API` | refactor `state` | refactor `state types` | added new `AC` and `reducers`  
-✨ `v0.6.1` - `float` left sidebar | added `API-users` | added `class-component` | added `new tests` | `rebuild` state | added `new cases` in reducer  
+➕ `v0.5.3`:
+* added `follow\unfollow`
+* `rebuilding` state users
+* added `follow\unfollow button` (users page)
+* fixed types
+* added `tests` for reducers  
+
+##### ================================================ #####
+
+🛹 `v0.5.4`:
+* avatar for `header`
+* fixed `BigHead` file
+* fixed `props`
+* typing moved to `reducers`
+* `removed` other comments
+* delete old `store-file`  
+
+##### ================================================ #####
+
+📱 `v0.6.0` - `⚠️REBUILD PROJECT!⚠️`:  
+* added `API`
+* refactor `state`
+* refactor `state types`
+* added new `Action Creators` and `reducers`  
+##### ================================================ #####
+
+✨ `v0.6.1`:
+* `float` left sidebar
+* added `API-users` 
+* added `class-component`
+* added `new tests`
+* `rebuild` state
+* added `new cases` in reducer  
+
+##### ================================================ #####
+
 💡 `v0.6.2` - added container component `<FriendsContainer/>`  
 📮 `v0.6.3` - added `preloader gif`. Refactor `connect`  
 🔦 `v0.6.4` - added `pages profiles` for each profile  
-🔵 `v0.6.5` - added `follow` \ `unfollow` users | API request
+🔵 `v0.6.5` - added `follow` \ `unfollow` users | API request  
 
+##### ================================================ #####
+
+🛠️ `v0.6.6`:  
+* `follow\unfollow` buttons `disable` during loading
+* added `pages profiles` for each profile
+* `fixed` URL
+* `fixed` NavLink
+* added `home page`
+* `home page` - it's start page
 
 ### 🙃 Good luck for me!
 

@@ -1,34 +1,26 @@
 // import
 import React from "react";
-import axios from "axios";
 import {Friends} from "./Friends";
 import {FriendsAPIComponentType} from "./FriendsContainer";
+import {requestsAPI} from "../../API/API";
 
 class FriendsAPIComponent extends React.Component<FriendsAPIComponentType> {
 
     componentDidMount() {
-        // console.log('CURRENT PAGE: ' + this.props.currentPage)
-        // console.log('TOTAL USERS COUNT: ' + this.props.totalUsersCount)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`,
-            {
-                withCredentials: true
-            })
-            .then(response => {
+        requestsAPI.getUsers(this.props.currentPage, this.props.pageSize)
+            .then(data => {
                 this.props.toggleIsFetching(false)
-                this.props.setUsers(response.data.items)
-                this.props.setTotalUserCount(response.data.totalCount)
+                this.props.setUsers(data.items)
+                this.props.setTotalUserCount(data.totalCount)
             });
     }
 
     setCurrentPageHandler = (currentPage: number) => {
         this.props.setCurrentPage(currentPage)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${this.props.pageSize}`,
-            {
-                withCredentials: true
-            })
-            .then(response => {
+        requestsAPI.getUsers(currentPage, this.props.pageSize)
+            .then(data => {
                 this.props.toggleIsFetching(false)
-                this.props.setUsers(response.data.items)
+                this.props.setUsers(data.items)
             })
     }
 
@@ -45,7 +37,10 @@ class FriendsAPIComponent extends React.Component<FriendsAPIComponentType> {
                          onClickFollowHandler={this.props.onClickFollowHandler}
                          setTotalUserCount={this.props.setTotalUserCount}
                          onClickUnfollowHandler={this.props.onClickUnfollowHandler}
-                         totalUsersCount={this.props.totalUsersCount}/>
+                         totalUsersCount={this.props.totalUsersCount}
+                         followingInProgress={this.props.followingInProgress}
+                         toggleIsFollowingIsProgress={this.props.toggleIsFollowingIsProgress}
+                />
             </div>
         )
     }

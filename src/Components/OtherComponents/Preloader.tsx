@@ -1,6 +1,6 @@
 // imports
 import preloader from "../../Assets/preloader.gif";
-import React from "react";
+import React, {memo} from "react";
 
 
 // types
@@ -9,11 +9,11 @@ type PreloaderPropsType = {
 }
 
 // component
-export const Preloader = (props: PreloaderPropsType) => {
+export const Preloader = memo((props: PreloaderPropsType) => {
     return (
         <div>
             {props.isFetching ? <img src={preloader} alt={'preloader'}/> : null}
         </div>
 
     )
-}
+})

@@ -3,7 +3,7 @@ import React, {useCallback} from 'react'
 import s from './CardUser.module.css'
 import {BigHead} from "@bigheads/core";
 import {NavLink} from "react-router-dom";
-import axios from "axios";
+import {requestsAPI} from "../../../API/API";
 
 
 // types
@@ -19,10 +19,10 @@ type CardUserPropsType = {
     // my
     onClickFollowHandler: (id: number) => void
     onClickUnfollowHandler: (id: number) => void
-
+    followingInProgress: Array<number>
+    toggleIsFollowingIsProgress: (isFetch: boolean, userId: number) => void
 
     // maybe not
-
     countryUser?: string | null
     cityUser?: string | null
 }
@@ -34,12 +34,40 @@ type photoType = {
 
 
 export const CardUser = React.memo((props: CardUserPropsType) => {
+    console.log('card')
 
-
+    // functions
     const TEMP_AVATAR = useCallback(() => {
         return <BigHead/>
     }, [])
+    const unfollowHandler = useCallback(() => {
+        props.toggleIsFollowingIsProgress(true, props.id)
+        requestsAPI.unfollowFriend(props.id)
+            .then(response => {
+                if (response.data.resultCode === 0) {
+                    props.onClickUnfollowHandler(props.id)
+                    props.toggleIsFollowingIsProgress(false, props.id)
+                }
+            })
+            .catch(error => {
+                console.warn(error)
+            })
+    }, [props])
+    const followHandler = useCallback(() => {
+        props.toggleIsFollowingIsProgress(true, props.id)
+        requestsAPI.followFriend(props.id)
+            .then(response => {
+                if (response.data.resultCode === 0) {
+                    props.onClickFollowHandler(props.id)
+                    props.toggleIsFollowingIsProgress(false, props.id)
+                }
+            })
+            .catch(error => {
+                console.warn(error)
+            })
+    }, [props])
 
+    // return
     return (
         <div className={s.cardUser} key={props.id}>
             <div className={s.userLogo}>
@@ -60,49 +88,12 @@ export const CardUser = React.memo((props: CardUserPropsType) => {
             {!props.followed
                 ?
                 <button className={s.followButton_TRUE}
-                        onClick={() => {
-                            axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${props.id}`,
-                                null,
-                                {
-                                    withCredentials: true,
-                                    headers: {
-                                        'API-KEY': 'bb507bdb-8e96-4353-8e86-10a14bdf8963'
-                                    },
-                                }
-                            )
-                                .then(response => {
-                                    if (response.data.resultCode === 0) {
-                                        props.onClickFollowHandler(props.id)
-                                        console.log('Follow!!!')
-                                    }
-                                })
-                                .catch(error => {
-                                    console.warn(error)
-                                })
-
-                        }}>+</button>
+                        disabled={props.followingInProgress.some(id => id === props.id)}
+                        onClick={followHandler}>+</button>
                 :
                 <button className={s.followButton_FALSE}
-                        onClick={() => {
-                            axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${props.id}`,
-                                {
-                                    withCredentials: true,
-                                    headers: {
-                                        'API-KEY': 'bb507bdb-8e96-4353-8e86-10a14bdf8963'
-                                    },
-                                }
-                            )
-                                .then(response => {
-                                    if (response.data.resultCode === 0) {
-                                        props.onClickUnfollowHandler(props.id)
-                                        console.log('UNFOLLOW!')
-                                    }
-                                })
-                                .catch(error => {
-                                    console.warn(error)
-                                })
-
-                        }}>&#10004;</button>
+                        disabled={props.followingInProgress.some(id => id === props.id)}
+                        onClick={unfollowHandler}>&#10004;</button>
             }
         </div>
     )

@@ -11,35 +11,43 @@
     transition: ease-in-out 0.2s;
     cursor: pointer;
 }
-.cardUser:hover{
+
+.cardUser:hover {
     transform: scale(1.01);
 }
-.userLogo{
+
+.userLogo {
     width: 80px;
     height: 80px;
     border-radius: var(--borderRadiusCustom);
 }
+
 .userLogoAvatar {
     width: 80px;
     height: 80px;
     border-radius: var(--borderRadiusCustom);
 }
-.userInformText{
+
+.userInformText {
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
-.userName{
+
+.userName {
     color: var(--secondColor);
 }
-.userCountry{
+
+.userCountry {
     color: var(--grayColor);
 }
-.userPhrase{
+
+.userPhrase {
     font-weight: 800;
     color: var(--secondColor);
 }
-.userInformText2{
+
+.userInformText2 {
     width: 50%;
     display: flex;
     align-items: center;
@@ -60,6 +68,11 @@
     font-weight: 600;
     color: var(--generalColor);
 }
+
+.followButton_TRUE:disabled {
+    opacity: 0.5;
+}
+
 .followButton_FALSE {
     display: flex;
     flex-direction: column;
@@ -74,4 +87,8 @@
     font-size: 1.5em;
     font-weight: 600;
     color: white;
+}
+
+.followButton_FALSE:disabled {
+    opacity: 0.5;
 }

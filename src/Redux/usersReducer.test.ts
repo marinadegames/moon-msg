@@ -4,7 +4,7 @@ import {
     itemsType,
     SetCurrentPageAC,
     SetTotalUserCountAC,
-    SetUsersAC, ToggleIsFetchingAC,
+    SetUsersAC, ToggleIsFetchingAC, ToggleIsFollowingIsProgressAC,
     UnfollowAC,
     usersReducer
 } from "./usersReducer";
@@ -12,7 +12,7 @@ import {
 // start state
 let startState: itemsType
 
-beforeEach( () => {
+beforeEach(() => {
     startState = {
         users: [
             {
@@ -42,11 +42,11 @@ beforeEach( () => {
         totalUsersCount: 0,
         currentPage: 1,
         isFetching: false,
+        followingInProgress: []
     }
 
 
 })
-
 
 
 test('SET USERS', () => {
@@ -54,7 +54,7 @@ test('SET USERS', () => {
     const endState = usersReducer(startState, action)
     expect(endState.users.length).toBe(2)
 })
-test( 'FOLLOW USER', () => {
+test('FOLLOW USER', () => {
     const action = FollowAC(startState.users[0].id)
     const endState = usersReducer(startState, action)
     expect(endState.users[0].followed).toBe(true)
@@ -80,4 +80,11 @@ test('TOGGLE IS FETCHING', () => {
     const action = ToggleIsFetchingAC(false)
     const endState = usersReducer(startState, action)
     expect(endState.isFetching).toBe(false)
+})
+test('TOGGLE FOLLOWING PROGRESS', () => {
+    const userId = 2
+    const action = ToggleIsFollowingIsProgressAC(true, userId )
+    const endState = usersReducer(startState, action)
+
+    expect(endState.followingInProgress).toBe([2])
 })
