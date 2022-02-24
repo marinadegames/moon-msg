@@ -24,7 +24,6 @@ let initialState: InitialStateAuthType = {
     isAuth: true,
 }
 
-
 // reducer
 export const authReducer = (state = initialState, action: ActionType): InitialStateAuthType => {
     switch (action.type) {

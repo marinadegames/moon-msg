@@ -11,6 +11,7 @@ import {AllMessagesType} from "../../Redux/dialogsReducer";
 import FriendsContainer from "./Friends/FriendsContainer";
 import ProfileContainer from "./Profile/ProfileContainer";
 import {Login} from "../Login/Login";
+import {Home} from "../Home/Home";
 
 
 // types
@@ -28,11 +29,10 @@ export const Main = function (props: MainPropsType) {
         <div className={s.Main}>
 
             <Routes>
-                {/*<Route path={'/'} element={<ProfileContainer/>}/>*/}
+                <Route path={'/'} element={<Home/>}/>
                 <Route path={'/profile/:userId'} element={<ProfileContainer/>}/>
-
-                <Route path={'/messages'} element={<Messages allMessages={props.allMessages}
-                                                             dispatch={props.dispatch}/>}/>
+                <Route path={'/messages'}
+                       element={<Messages allMessages={props.allMessages} dispatch={props.dispatch}/>}/>
                 <Route path={'/settings'} element={<Settings/>}/>
                 <Route path={'/Music'} element={<Music/>}/>
                 <Route path={'/friends'} element={<FriendsContainer/>}/>

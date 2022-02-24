@@ -8,17 +8,18 @@ import messagesIcon from '../../Assets/msg.png'
 import musicIcon from '../../Assets/musicIcon.png'
 import FriendsIcon from '../../Assets/people.png'
 import SettingsIcon from '../../Assets/keypng.png'
+import HomeIcon from '../../Assets/home.png'
 import {NavLink} from "react-router-dom";
 
 // types
-type statusPageActiveType = 'PROFILE' | 'MESSAGES' | 'MUSIC' | 'FRIENDS' | 'SETTINGS'
+type statusPageActiveType = 'PROFILE' | 'MESSAGES' | 'MUSIC' | 'FRIENDS' | 'SETTINGS' | 'HOME'
 // assets
 
 // components
 
 export const LeftSideBar = function () {
 
-    const [activeItemMenu, setActiveItemMenu] = useState('PROFILE')
+    const [activeItemMenu, setActiveItemMenu] = useState('HOME')
 
     const changeStatusItemMenu = (pageActive: statusPageActiveType) => {
         if (pageActive === 'PROFILE') setActiveItemMenu('PROFILE')
@@ -26,10 +27,24 @@ export const LeftSideBar = function () {
         else if (pageActive === 'MUSIC') setActiveItemMenu('MUSIC')
         else if (pageActive === 'FRIENDS') setActiveItemMenu('FRIENDS')
         else if (pageActive === 'SETTINGS') setActiveItemMenu('SETTINGS')
+        else if (pageActive === 'HOME') setActiveItemMenu('HOME')
     }
 
     return (
         <div className={s.LeftSideBar}>
+
+            <NavLink className={(params) => params.isActive ? s.menuItemACTIVE : s.menuItem}
+                     onClick={() => changeStatusItemMenu('HOME')}
+                     to={'/'}>
+                <img src={HomeIcon} height='50px' width='50px' alt={'HomeIcon'}/>
+                Home
+                {activeItemMenu === 'HOME' ?
+                    <div className={s.boxVerticalLineActive}>
+                        <div className={s.verticalLineActive}/>
+                    </div> : <div/>
+                }
+            </NavLink>
+
             <NavLink className={(params) => params.isActive ? s.menuItemACTIVE : s.menuItem}
                      onClick={() => changeStatusItemMenu('PROFILE')}
                      to={'/profile'}>
