@@ -21,14 +21,16 @@
     font-weight: 600;
     font-size: 25px;
     transition: ease-in-out 0.1s;
+    border: 2px solid var(--backgroundColor);
 }
 .menuItem img {
     margin: 0 1rem 0 0;
 }
 
 .menuItem:hover{
-    background-color: var(--generalColor);
-    color: white;
+    /*background-color: var(--generalColor);*/
+    border: 2px solid var(--generalColor);
+    color: var(--generalColor);
     box-shadow: var(--shadow);
 
 }

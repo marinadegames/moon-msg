@@ -8,15 +8,15 @@ import {rootReducerType} from "../../Redux/store";
 
 
 // types
-type MapDispatchPropsType = {
-    setAuthUser: (id: number, email: string, login: string) => void
-}
-type MapStatePropsType = {
-    id: number | null
-    email: string | null
-    login: string | null
-}
-type HeaderComponentType = MapStatePropsType & MapDispatchPropsType
+// type MapDispatchPropsType = {
+//     setAuthUser: (id: number, email: string, login: string) => void
+// }
+// type MapStatePropsType = {
+//     id: number | null
+//     email: string | null
+//     login: string | null
+// }
+// type HeaderComponentType = MapStatePropsType & MapDispatchPropsType
 
 
 // component
@@ -30,7 +30,6 @@ class HeaderContainer extends React.Component<any> {
             .then(response => {
                 if (response.data.resultCode === 0) {
                     let {id, email, login} = response.data.data
-                    console.log(response.data.data)
                     this.props.setAuthUser(id, email, login)
                 }
             });

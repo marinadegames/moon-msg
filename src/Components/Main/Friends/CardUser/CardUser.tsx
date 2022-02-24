@@ -44,7 +44,7 @@ export const CardUser = React.memo((props: CardUserPropsType) => {
         <div className={s.cardUser} key={props.id}>
             <div className={s.userLogo}>
 
-                <NavLink to={'/profile/' + props.id}>
+                <NavLink to={'/friendprofile/' + props.id}>
                     {props.photos.small === null ? TEMP_AVATAR() :
                         <img alt={'logo'} className={s.userLogoAvatar} src={props.photos.small}/>}
                 </NavLink>

@@ -30,7 +30,8 @@ export const Main = function (props: MainPropsType) {
 
             <Routes>
                 <Route path={'/'} element={<Home/>}/>
-                <Route path={'/profile/:userId'} element={<ProfileContainer/>}/>
+                <Route path={'/profile'} element={<ProfileContainer/>}/>
+                <Route path={'/friendprofile/:userId'} element={<ProfileContainer/>}/>
                 <Route path={'/messages'}
                        element={<Messages allMessages={props.allMessages} dispatch={props.dispatch}/>}/>
                 <Route path={'/settings'} element={<Settings/>}/>
