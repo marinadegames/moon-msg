@@ -5,7 +5,7 @@ import {ProfileInfo} from "./ProfileInfo";
 
 // types
 type ProfilePropsType = {
-    profile: ProfileType
+    profile: ProfileType | null
 }
 
 

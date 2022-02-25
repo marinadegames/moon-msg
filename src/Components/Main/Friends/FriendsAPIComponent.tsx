@@ -29,6 +29,8 @@ class FriendsAPIComponent extends React.Component<FriendsAPIComponentType> {
                          totalUsersCount={this.props.totalUsersCount}
                          followingInProgress={this.props.followingInProgress}
                          toggleIsFollowingIsProgress={this.props.toggleIsFollowingIsProgress}
+                         followThunkCreator={this.props.followThunkCreator}
+                         unfollowThunkCreator={this.props.unfollowThunkCreator}
                 />
             </div>
         )

@@ -11,29 +11,10 @@ const instance = axios.create({
 
 // functions
 export const requestsAPI = {
-    getUsers: (currentPage: number, pageSize: number) => {
-        return instance.get(`users?page=${currentPage}&count=${pageSize}`,
-            {
-                withCredentials: true
-            })
-            .then(res => {
-                return res.data
-            })
-    },
-    setProfile: (userId: string) => {
-        return instance.get(`profile/${userId}`)
-            .then(res => res.data)
-    },
-    setAuth: () => {
-        return instance.get(
-            `auth/me`,
-            {withCredentials: true},
-        ).then(res => res.data)
-    },
-    followFriend: (id: number) => {
-        return instance.post(`follow/${id}`)
-    },
-    unfollowFriend: (id: number) => {
-        return instance.delete(`follow/${id}`)
-    },
+    getUsers: (currentPage: number, pageSize: number) => instance.get(`users?page=${currentPage}&count=${pageSize}`).then(res => res.data),
+    setProfile: (userId: string) => instance.get(`profile/${userId}`).then(res => res.data),
+    setAuth: () => instance.get(`auth/me`).then(res => res.data),
+    followFriend: (id: number) => instance.post(`follow/${id}`),
+    unfollowFriend: (id: number) => instance.delete(`follow/${id}`)
+
 }

@@ -20,6 +20,8 @@ type PropsType = {
     toggleIsFetching: (isFetching: boolean) => void
     followingInProgress: Array<number>
     toggleIsFollowingIsProgress: (isFetch: boolean, userId: number) => void
+    followThunkCreator: (id: number) => void
+    unfollowThunkCreator: (id: number) => void
 }
 
 // component
@@ -29,13 +31,11 @@ export const Friends = memo((props: PropsType) => {
     return (
         <div>
             <div className={s.pageName}>Friends</div>
-
             <Pagination totalUsersCount={props.totalUsersCount}
                         pageSize={props.pageSize}
                         currentPage={props.currentPage}
                         setCurrentPageHandler={props.setCurrentPageHandler}
             />
-
             {props.isFetching
                 ? <Preloader isFetching={props.isFetching}/>
                 :
@@ -54,8 +54,9 @@ export const Friends = memo((props: PropsType) => {
                                           onClickUnfollowHandler={props.onClickUnfollowHandler}
                                           followingInProgress={props.followingInProgress}
                                           toggleIsFollowingIsProgress={props.toggleIsFollowingIsProgress}
+                                          followThunkCreator={props.followThunkCreator}
+                                          unfollowThunkCreator={props.unfollowThunkCreator}
                                 />
-
                             )
                         })}
                     </div>

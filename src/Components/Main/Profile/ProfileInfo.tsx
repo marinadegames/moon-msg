@@ -7,7 +7,7 @@ import {Preloader} from "../../OtherComponents/Preloader";
 
 // types
 type ProfileInfoPropsType = {
-    profile: ProfileType
+    profile: ProfileType | null
 }
 
 // components

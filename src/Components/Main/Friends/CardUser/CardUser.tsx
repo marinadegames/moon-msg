@@ -3,8 +3,6 @@ import React, {useCallback} from 'react'
 import s from './CardUser.module.css'
 import {BigHead} from "@bigheads/core";
 import {NavLink} from "react-router-dom";
-import {requestsAPI} from "../../../API/API";
-
 
 // types
 type CardUserPropsType = {
@@ -21,6 +19,8 @@ type CardUserPropsType = {
     onClickUnfollowHandler: (id: number) => void
     followingInProgress: Array<number>
     toggleIsFollowingIsProgress: (isFetch: boolean, userId: number) => void
+    followThunkCreator: (id: number) => void
+    unfollowThunkCreator: (id: number) => void
 
     // maybe not
     countryUser?: string | null
@@ -40,30 +40,11 @@ export const CardUser = React.memo((props: CardUserPropsType) => {
         return <BigHead/>
     }, [])
     const unfollowHandler = useCallback(() => {
-        props.toggleIsFollowingIsProgress(true, props.id)
-        requestsAPI.unfollowFriend(props.id)
-            .then(response => {
-                if (response.data.resultCode === 0) {
-                    props.onClickUnfollowHandler(props.id)
-                    props.toggleIsFollowingIsProgress(false, props.id)
-                }
-            })
-            .catch(error => {
-                console.warn(error)
-            })
-    },[props])
+        props.unfollowThunkCreator(props.id)
+    }, [props])
+
     const followHandler = useCallback(() => {
-        props.toggleIsFollowingIsProgress(true, props.id)
-        requestsAPI.followFriend(props.id)
-            .then(response => {
-                if (response.data.resultCode === 0) {
-                    props.onClickFollowHandler(props.id)
-                    props.toggleIsFollowingIsProgress(false, props.id)
-                }
-            })
-            .catch(error => {
-                console.warn(error)
-            })
+        props.followThunkCreator(props.id)
     }, [props])
 
     // return

@@ -1,5 +1,6 @@
 // imports
-
+import {Dispatch} from "redux";
+import {requestsAPI} from "../Components/API/API";
 
 // const
 const ADD_POST = 'ADD_POST'
@@ -55,7 +56,7 @@ type PhotosType = {
 export type InitStateType = {
     posts: Array<any> | null
     newPostText: string
-    profile: null | ProfileType
+    profile: ProfileType | null
 }
 
 
@@ -77,7 +78,6 @@ export const profileReducer = (state = initialState, action: ActionType): InitSt
         default:
             return state
     }
-
 }
 
 
@@ -87,4 +87,14 @@ export const AddPostAC = (newText: string, userId: string): AddPostActionType =>
 }
 export const SetUserProfileAC = (profile: ProfileType): SetUserProfileActionType => {
     return {type: SET_USER_PROFILE, profile} as const
+}
+
+// thunks creators
+export const setUserProfileThunkCreator = (userId: string) => {
+    return (dispatch: Dispatch) => {
+        requestsAPI.setProfile(userId)
+            .then(resp => {
+                dispatch(SetUserProfileAC(resp))
+            })
+    }
 }

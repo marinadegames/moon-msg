@@ -1,9 +1,9 @@
 // imports
 import {
-    FollowAC, getUsersThunkCreator,
+    FollowAC, followThunkCreator, getUsersThunkCreator,
     SetCurrentPageAC, SetTotalUserCountAC,
     SetUsersAC, ToggleIsFetchingAC, ToggleIsFollowingIsProgressAC,
-    UnfollowAC,
+    UnfollowAC, unfollowThunkCreator,
     UserType
 } from "../../../Redux/usersReducer";
 import FriendsAPIComponent from "./FriendsAPIComponent";
@@ -20,6 +20,8 @@ type MapDispatchPropsType = {
     toggleIsFetching: (isFetching: boolean) => void
     toggleIsFollowingIsProgress: (isFetch: boolean, userId: number) => void
     getUsersThunkCreator: (currentPage: number, pageSize: number) => void
+    followThunkCreator: (id: number) => void
+    unfollowThunkCreator: (id: number) => void
 }
 type MapStatePropsType = {
     users: Array<UserType>
@@ -43,7 +45,6 @@ const mapStateToProps = (state: rootReducerType) => {
         followingInProgress: state.allUsers.followingInProgress,
     }
 }
-
 export default connect(mapStateToProps, {
     setUsers: SetUsersAC,
     setCurrentPage: SetCurrentPageAC,
@@ -53,6 +54,9 @@ export default connect(mapStateToProps, {
     toggleIsFetching: ToggleIsFetchingAC,
     toggleIsFollowingIsProgress: ToggleIsFollowingIsProgressAC,
     getUsersThunkCreator: getUsersThunkCreator,
+    followThunkCreator: followThunkCreator,
+    unfollowThunkCreator: unfollowThunkCreator,
+
 
 })(FriendsAPIComponent)
 

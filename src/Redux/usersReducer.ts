@@ -101,8 +101,6 @@ export const usersReducer = (state = items, action: ActionType): itemsType => {
         default:
             return state
     }
-
-
 }
 
 
@@ -129,7 +127,6 @@ export const ToggleIsFollowingIsProgressAC = (isFetching: boolean, userId: numbe
     return {type: "TOGGLE_IS_FOLLOWING_PROGRESS", isFetching, userId} as const
 }
 
-
 export const getUsersThunkCreator = (currentPage: number, pageSize: number) => {
     return (dispatch: Dispatch) => {
         dispatch(ToggleIsFetchingAC(true))
@@ -141,6 +138,39 @@ export const getUsersThunkCreator = (currentPage: number, pageSize: number) => {
                 dispatch(SetTotalUserCountAC(data.totalCount))
                 dispatch(ToggleIsFetchingAC(false))
             });
+    }
+
+}
+export const followThunkCreator = (id: number) => {
+    return (dispatch: Dispatch) => {
+        dispatch(ToggleIsFollowingIsProgressAC(true, id))
+
+        requestsAPI.followFriend(id)
+            .then(response => {
+                if (response.data.resultCode === 0) {
+                    dispatch(FollowAC(id))
+                    dispatch(ToggleIsFollowingIsProgressAC(false, id))
+                }
+            })
+            .catch(error => {
+                console.warn(error)
+            })
+    }
+
+}
+export const unfollowThunkCreator = (id: number) => {
+    return (dispatch: Dispatch) => {
+        dispatch(ToggleIsFollowingIsProgressAC(true, id))
+        requestsAPI.unfollowFriend(id)
+            .then(response => {
+                if (response.data.resultCode === 0) {
+                    dispatch(UnfollowAC(id))
+                    dispatch(ToggleIsFollowingIsProgressAC(false, id))
+                }
+            })
+            .catch(error => {
+                console.warn(error)
+            })
     }
 
 }
