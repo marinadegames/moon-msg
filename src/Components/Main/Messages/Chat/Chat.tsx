@@ -3,12 +3,13 @@ import React, {KeyboardEvent, useState} from "react";
 import s from './Chat.module.css'
 import {MsgLeft} from "./MsgLeft/MsgLeft";
 import {MsgRight} from "./MsgRight/MsgRight";
-import {AllMessagesType, SendMessageAC} from "../../../../Redux/dialogsReducer";
+import {SendMessageAC} from "../../../../Redux/dialogsReducer";
+import {useDispatch} from "react-redux";
 
 // types
 type ChatPropsType = {
-    allMessages: AllMessagesType
-    dispatch: any
+    allMessages: any
+    sendMessage: (text: string) => void
 }
 // assets
 
@@ -17,20 +18,21 @@ type ChatPropsType = {
 export const Chat = function (props: ChatPropsType) {
 
     const [textAreaValue, setTextAreaValue] = useState('')
+    const dispatch = useDispatch()
 
     const textAreaHandler = (e: string) => {
         setTextAreaValue(e)
     }
     const onclickSendMessageHandler = () => {
         if (textAreaValue !== '') {
-            props.dispatch(SendMessageAC(textAreaValue))
+            dispatch(SendMessageAC(textAreaValue))
             setTextAreaValue('')
         }
 
     }
     const enterHandler = (event: KeyboardEvent) => {
         if (event.charCode === 13 && textAreaValue !== '') {
-            props.dispatch(SendMessageAC(textAreaValue))
+            dispatch(SendMessageAC(textAreaValue))
             setTextAreaValue('')
         }
     }

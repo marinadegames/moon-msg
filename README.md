@@ -44,7 +44,7 @@ This repository for my social network `Moon!msg`!
 🔗️ `v0.3.6` - added `react-router-dom` and changed pages | added 404 not found page    
 🐈 `v0.3.7` - added page `404 not found` with cat 😁   
 🐈 `v0.3.8` - added `GitPage` ===> <b>[GO TO MY GIT PAGE](https://marinadegames.github.io/moon-msg) </b>  
-📩 `v0.3.9` - added `Messages page` layout  
+📩 `v0.3.9` - added `MessagesAPIContainer page` layout  
 🛠️ `v0.4.0` - fixed menu  
 🧈 `v0.4.1` - create `state`  
 🔢 `v0.4.2` - fixed `state` and fixed `dialogs`  
@@ -107,7 +107,11 @@ This repository for my social network `Moon!msg`!
 * `fixed` URL
 * `fixed` NavLink
 * added `home page`
-* `home page` - it's start page
+* `home page` - it's start page  
+
+##### ================================================ #####  
+
+👁️ `v0.6.7` - added `login` | added `thunk` SetProfile | fixed any bugs | added types, fixed types  
 
 ### 🙃 Good luck for me!
 

@@ -1,4 +1,8 @@
 // types
+
+import {Dispatch} from "redux";
+import {requestsAPI} from "../Components/API/API";
+
 export type InitialStateAuthType = {
     id: number | null,
     email: string | null,
@@ -11,9 +15,9 @@ type SetUserDataActionType = {
     data: DataType
 }
 type DataType = {
-    id: number | null
-    email: string | null
-    login: string | null
+    id: any
+    email: string
+    login: string
 }
 
 // initial state
@@ -21,7 +25,7 @@ let initialState: InitialStateAuthType = {
     id: null,
     email: null,
     login: null,
-    isAuth: true,
+    isAuth: false,
 }
 
 // reducer
@@ -45,4 +49,14 @@ export const setAuthUserDataAC = (id: number, email: string, login: string): Set
 
         }
     }
+}
+
+export const getAuthUserDataThunkCreator = () => (dispatch: Dispatch) => {
+    requestsAPI.setAuth()
+        .then(resp => {
+            if (resp.resultCode === 0) {
+                let {id, email, login} = resp.data
+                dispatch(setAuthUserDataAC(id, email, login))
+            }
+        });
 }

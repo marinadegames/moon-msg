@@ -6,15 +6,12 @@ import s from './Login.module.css'
 // types
 
 
-// assets
-
-
 // components
 export const Login = function () {
 
     return (
         <div>
-            <div className={s.pageName}>Login</div>
+            <h1 className={s.pageName}>Login</h1>
         </div>
     )
 }

@@ -2,10 +2,10 @@
 import React from "react";
 import {Profile} from "./Profile";
 import {ProfileAPIComponentType} from "./ProfileContainer";
+import {Navigate} from "react-router-dom";
 
 
 // types
-
 
 
 // class component
@@ -15,8 +15,8 @@ class ProfileAPIComponent extends React.Component<ProfileAPIComponentType> {
         const route = window.location.href.split('/')
         let userId = route[route.length - 1]
         if (!userId || userId === 'profile') userId = '2'
-        // requestsAPI.setProfile(userId).then(data => this.props.setUserProfile(data));
         this.props.setUserProfileThunkCreator(userId)
+
     }
 
     componentWillUnmount() {
@@ -25,11 +25,15 @@ class ProfileAPIComponent extends React.Component<ProfileAPIComponentType> {
     }
 
     render() {
-        return (
-            <div>
-                <Profile {...this.props} profile={this.props.profile}/>
-            </div>
-        )
+        if (!this.props.isAuth) {
+            return <Navigate to="/login"/>
+        } else {
+            return (
+                <div>
+                    <Profile {...this.props} profile={this.props.profile}/>
+                </div>
+            )
+        }
     }
 }
 

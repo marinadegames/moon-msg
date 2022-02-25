@@ -8,6 +8,7 @@ import ProfileAPIComponent from "./ProfileAPIComponent";
 // types
 type MapStateToPropsType = {
     profile: ProfileType | null
+    isAuth: boolean
 }
 type MapDispatchPropsType = {
     setUserProfileThunkCreator: (userId: string) => void
@@ -18,7 +19,8 @@ export type ProfileAPIComponentType = MapDispatchPropsType & MapStateToPropsType
 // container components
 const mapStateToProps = (state: rootReducerType) => {
     return {
-        profile: state.profilePage.profile
+        profile: state.profilePage.profile,
+        isAuth: state.auth.isAuth
     }
 }
 

@@ -20,7 +20,7 @@ export const MsgRight = function (props: ChatRightPropsType) {
                             {m.message}
                             <div className={s.timeMsg}>{m.time}</div>
                         </div>
-                        <div className={s.msgAvatarFriend}>{UserLogo}</div>
+                        <div className={s.msgAvatarFriend}>{UserLogo()}</div>
                     </div>
                 )
             } )}
