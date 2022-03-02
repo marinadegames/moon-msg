@@ -2,7 +2,6 @@
 import React from "react";
 import {Profile} from "./Profile";
 import {ProfileAPIComponentType} from "./ProfileContainer";
-import {Navigate} from "react-router-dom";
 
 
 // types
@@ -14,8 +13,9 @@ class ProfileAPIComponent extends React.Component<ProfileAPIComponentType> {
     componentDidMount() {
         const route = window.location.href.split('/')
         let userId = route[route.length - 1]
-        if (!userId || userId === 'profile') userId = '22149'
-        this.props.setUserProfileThunkCreator(userId)
+        if (!userId || userId === 'profile') userId = '2'
+        this.props.setUserProfileThunkCreator(Number(userId))
+        this.props.getStatus(Number(userId))
     }
 
     componentWillUnmount() {
@@ -23,10 +23,13 @@ class ProfileAPIComponent extends React.Component<ProfileAPIComponentType> {
     }
 
     render() {
-        if (!this.props.isAuth) return <Navigate to="/login"/>
         return (
             <div>
-                <Profile {...this.props} profile={this.props.profile}/>
+                <Profile {...this.props}
+                         status={this.props.status}
+                         profile={this.props.profile}
+                         updateStatus={this.props.updateStatus}
+                />
             </div>
         )
     }

@@ -1,5 +1,5 @@
 // import
-import React, {useState} from "react";
+import React, {useCallback, useState} from "react";
 import s from './Profile.module.css'
 import {ProfileType} from "../../../Redux/profileReducer";
 import {BigHead} from "@bigheads/core";
@@ -8,17 +8,24 @@ import {Preloader} from "../../OtherComponents/Preloader";
 // types
 type ProfileInfoPropsType = {
     profile: ProfileType | null
+    status: string
+    updateStatus: (status: string) => void
 }
 
 // components
 export const ProfileInfo = function (props: ProfileInfoPropsType) {
 
-    const [status, setStatus] = useState<string>('')
+    // local state
+    const [statusText, setStatusText] = useState<string>(props.status)
     const [editMode, setEditMode] = useState<boolean>(false)
 
+    const changeInputValue = useCallback((e: string) => {
+        setStatusText(e)
+    }, [])
 
-    const changeInputValue = (e: string) => {
-        setStatus(e)
+    const updateStatusHandler = () => {
+        setEditMode(false)
+        props.updateStatus(statusText)
     }
 
     const TEMP_AVATAR = () => (
@@ -61,14 +68,15 @@ export const ProfileInfo = function (props: ProfileInfoPropsType) {
                         ?
                         <div className={s.userSlogan}
                              onDoubleClick={() => setEditMode(true)}
-                        >HELLO WORLD MAZAFAKA
+                        >{statusText}
                         </div>
 
                         :
                         <input className={s.editStatusInput}
-                               onBlur={() => setEditMode(false)}
+                               onBlur={updateStatusHandler}
+                               autoFocus={true}
                                onChange={(e) => changeInputValue(e.currentTarget.value)}
-                               value={status}/>
+                               value={statusText}/>
                     }
 
                 </div>

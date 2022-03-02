@@ -1,33 +1,29 @@
 // import
 import React, {useState, KeyboardEvent} from "react";
 import s from "./Posts.module.css";
-import {Post} from "./Post/Post";
-import {AddPostAC} from "../../../../Redux/profileReducer";
+import {AddPostAC, ProfileType} from "../../../../Redux/profileReducer";
+import {useDispatch} from "react-redux";
 
 // types
 type PostsPropsType = {
-    postsUser: Array<any>
-    userId: string
-    dispatch: (action: any) => void
+    profile: ProfileType | null
 }
-// assets
-
-// other
 
 
 // components
-
-export const Posts = function ({postsUser, userId, dispatch}: PostsPropsType) {
+export const Posts = function (props: PostsPropsType) {
 
     const [textarea, setTexArea] = useState<string>('')
+    const dispatch = useDispatch()
 
     const changeTextArea = (text: string) => {
         setTexArea(text)
     }
     const onClickAddPostCallback = () => {
+        let userId = props.profile?.userId
         if (textarea !== '') {
-            let action = AddPostAC(textarea, userId)
-            dispatch(action);
+            // let action = AddPostAC(textarea, userId)
+            // dispatch(action);
         }
         setTexArea('')
     }
@@ -59,20 +55,20 @@ export const Posts = function ({postsUser, userId, dispatch}: PostsPropsType) {
 
                 <div className={s.myPostsBox}>
                     <div className={s.myPostsTitle}>My posts:</div>
-                    <div className={s.myPosts}>
-                        {postsUser.map((p) => {
-                            return (
-                                <Post key={p.id}
-                                      shares={p.shares}
-                                      likes={p.likes}
-                                      date={p.date}
-                                      text={p.text}
-                                      comments={p.comments}
-                                      userName={p.userName}/>
-                            )
+                    {/*<div className={s.myPosts}>*/}
+                    {/*    {props.profile.postsUser.map((p) => {*/}
+                    {/*        return (*/}
+                    {/*            <Post key={p.id}*/}
+                    {/*                  shares={p.shares}*/}
+                    {/*                  likes={p.likes}*/}
+                    {/*                  date={p.date}*/}
+                    {/*                  text={p.text}*/}
+                    {/*                  comments={p.comments}*/}
+                    {/*                  userName={p.userName}/>*/}
+                    {/*        )*/}
 
-                        })}
-                    </div>
+                    {/*    })}*/}
+                    {/*</div>*/}
                 </div>
 
 
