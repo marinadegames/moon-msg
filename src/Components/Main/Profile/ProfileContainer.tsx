@@ -3,6 +3,7 @@ import {ProfileType, setUserProfileThunkCreator} from "../../../Redux/profileRed
 import {rootReducerType} from "../../../Redux/store";
 import {connect} from "react-redux";
 import ProfileAPIComponent from "./ProfileAPIComponent";
+import {Navigate} from "react-router-dom";
 
 
 // types
@@ -13,10 +14,17 @@ type MapStateToPropsType = {
 type MapDispatchPropsType = {
     setUserProfileThunkCreator: (userId: string) => void
 }
-
 export type ProfileAPIComponentType = MapDispatchPropsType & MapStateToPropsType
 
-// container components
+
+
+// HOC
+let AuthNavigateComponent = (props: any) => {
+    if (!props.isAuth) return <Navigate to="/login"/>
+    return <ProfileAPIComponent {...props}/>
+}
+
+// container component:
 const mapStateToProps = (state: rootReducerType) => {
     return {
         profile: state.profilePage.profile,
@@ -25,9 +33,8 @@ const mapStateToProps = (state: rootReducerType) => {
 }
 
 
-
 // connect
 export default connect(mapStateToProps, {
         setUserProfileThunkCreator: setUserProfileThunkCreator,
     }
-)(ProfileAPIComponent)
+)(AuthNavigateComponent)

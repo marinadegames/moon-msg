@@ -23,18 +23,12 @@ This repository for my social network `Moon!msg`!
 📝 `v0.1.1` - added the ability to make posts  
 📨 `v0.1.1` - added `Store` and `Dispatch(action)`  
 🎊 `v0.1.2` - added `action`  
-🎞️ `v0.1.3` - added the ability to `send message` in dialog
-
-##### ================================================ #####  
-
+🎞️ `v0.1.3` - added the ability to `send message` in dialog  
 🚫 `v0.2.0` - `RELOAD PROJECT!!!` Delete all components and `new layout concept v2.0`  
 🤯 `v0.2.1` - added new `header` | added `Big Heads`  
 😶‍🌫️ `v0.2.2` - added `logotype site` | header completed!  
 🧑‍🏫 `v0.2.3` - added `profile information`  
-📓 `v0.2.4` - added `add note` card | added `max length` in textarea add note
-
-##### ================================================ #####
-
+📓 `v0.2.4` - added `add note` card | added `max length` in textarea add note  
 🌑 `v0.3.0` - RENAME PROJECT: `Moon!msg` 🌑 | Create `new layout concept v3.0` in Figma | Start create layout  
 📙 `v0.3.1` - added layout `Profile` page    
 🛠️ `v0.3.2` - fix layout `Profile` page  
@@ -48,15 +42,10 @@ This repository for my social network `Moon!msg`!
 🛠️ `v0.4.0` - fixed menu  
 🧈 `v0.4.1` - create `state`  
 🔢 `v0.4.2` - fixed `state` and fixed `dialogs`  
-😝 `v0.4.3` - send message | fix state and create store
-
-##### ================================================ #####
-
+😝 `v0.4.3` - send message | fix state and create store  
 🎆 `v0.5.0` - added `redux`  
 🦾 `v0.5.1` - added `react-redux` | refactor store | other fix | added map friends  
 📩 `v0.5.2` - added `axios`  
-
-##### ================================================ #####
 
 ➕ `v0.5.3`:
 * added `follow\unfollow`
@@ -64,8 +53,6 @@ This repository for my social network `Moon!msg`!
 * added `follow\unfollow button` (users page)
 * fixed types
 * added `tests` for reducers  
-
-##### ================================================ #####
 
 🛹 `v0.5.4`:
 * avatar for `header`
@@ -75,14 +62,12 @@ This repository for my social network `Moon!msg`!
 * `removed` other comments
 * delete old `store-file`  
 
-##### ================================================ #####
-
 📱 `v0.6.0` - `⚠️REBUILD PROJECT!⚠️`:  
 * added `API`
 * refactor `state`
 * refactor `state types`
 * added new `Action Creators` and `reducers`  
-##### ================================================ #####
+
 
 ✨ `v0.6.1`:
 * `float` left sidebar
@@ -92,14 +77,10 @@ This repository for my social network `Moon!msg`!
 * `rebuild` state
 * added `new cases` in reducer  
 
-##### ================================================ #####
-
 💡 `v0.6.2` - added container component `<FriendsContainer/>`  
 📮 `v0.6.3` - added `preloader gif`. Refactor `connect`  
 🔦 `v0.6.4` - added `pages profiles` for each profile  
 🔵 `v0.6.5` - added `follow` \ `unfollow` users | API request  
-
-##### ================================================ #####
 
 🛠️ `v0.6.6`:  
 * `follow\unfollow` buttons `disable` during loading

@@ -1,4 +1,4 @@
-.pageName{
+.pageName {
     font-style: normal;
     font-weight: bold;
     font-size: 36px;
@@ -8,31 +8,34 @@
     padding: 1rem 0;
     color: var(--secondColor);
 }
-.profileInform{
+
+.profileInform {
     display: flex;
     align-items: center;
     flex-direction: row;
     border-radius: var(--borderRadiusCustom);
     height: 220px;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("../../../Assets/walp.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../../../Assets/walp.jpg");
     background-size: cover;
     padding: 1rem;
 }
-.profileInform:after{
-    background: rgba(0,0,0,1.2);
+
+.profileInform:after {
+    background: rgba(0, 0, 0, 1.2);
 }
 
-.profileInfoLeft{
+.profileInfoLeft {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    width: 60%;
-}
-.profileInfoRight{
-    width: 40%;
+    width: 50%;
 }
 
-.userLogo{
+.profileInfoRight {
+    width: 50%;
+}
+
+.userLogo {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,19 +46,23 @@
 
     transition: ease-in-out 0.2s;
 }
-.userLogo:hover{
+
+.userLogo:hover {
     transform: scale(1.05);
 }
+
 .avatarUser {
     width: 100%;
     height: auto;
     border-radius: 15px;
     /*border: 5px solid white;*/
 }
+
 .profileInfoTextBox {
     padding: 10px 0 10px 0;
 }
-.userName{
+
+.userName {
     color: white;
     font-style: normal;
     font-weight: bold;
@@ -63,44 +70,70 @@
     line-height: 38px;
     margin: 0;
 }
-.userAboutMe{
+
+.userAboutMe {
+
     color: white;
     font-style: normal;
     font-weight: normal;
     font-size: 25px;
 }
-.userLocation{
+
+.editStatusInput {
+    font-size: 30px;
+    padding: 10px;
+    height: 40px;
+    width: 400px;
+}
+
+.userLocation {
     color: white;
     font-style: normal;
     font-weight: normal;
     font-size: 23px;
 }
+
 .lookingForAJob {
     color: white;
     font-style: normal;
     font-weight: normal;
     font-size: 30px;
 }
-.userWebsite{
+
+.userWebsite {
     color: white;
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
 }
+
 .userWebsite a {
     text-decoration: none;
     color: white;
     transition: 0.2s;
 }
-.userWebsite a:hover{
+
+.userWebsite a:hover {
     color: var(--generalColor);
 }
-.userSlogan{
+
+.userSlogan {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     color: white;
     font-style: normal;
-    font-size: 25px;
+    font-size: 30px;
     font-weight: 700;
+}
+
+.editStatusInput {
+    font-size: 30px;
+    font-weight: 700;
+    padding: 10px;
+    height: 40px;
+    width: 90%;
+    border-radius: var(--borderRadiusCustom);
+    border: 2px solid var(--generalColor);
+    color: var(--generalColor);
 }

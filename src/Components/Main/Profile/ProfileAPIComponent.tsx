@@ -14,27 +14,23 @@ class ProfileAPIComponent extends React.Component<ProfileAPIComponentType> {
     componentDidMount() {
         const route = window.location.href.split('/')
         let userId = route[route.length - 1]
-        if (!userId || userId === 'profile') userId = '2'
+        if (!userId || userId === 'profile') userId = '22149'
         this.props.setUserProfileThunkCreator(userId)
-
     }
 
     componentWillUnmount() {
         // this.props.setUserProfile(null)
-
     }
 
     render() {
-        if (!this.props.isAuth) {
-            return <Navigate to="/login"/>
-        } else {
-            return (
-                <div>
-                    <Profile {...this.props} profile={this.props.profile}/>
-                </div>
-            )
-        }
+        if (!this.props.isAuth) return <Navigate to="/login"/>
+        return (
+            <div>
+                <Profile {...this.props} profile={this.props.profile}/>
+            </div>
+        )
     }
 }
+
 
 export default ProfileAPIComponent

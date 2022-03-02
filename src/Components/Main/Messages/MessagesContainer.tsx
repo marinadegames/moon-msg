@@ -13,15 +13,14 @@ type MapStateToPropsType = {
 type MapDispatchToPropsType = {
     sendMessageAC: (text: string) => void
 }
-
 export type MessagesAPIComponentType = MapDispatchToPropsType & MapStateToPropsType
+
 
 //  connect
 const mapStateToProps = (state: rootReducerType) => ({
     isAuth: state.auth.isAuth,
     allMessages: state.allMessages
 })
-
 export default connect(mapStateToProps, {
     sendMessageAC: SendMessageAC
 })(MessagesAPIContainer)
