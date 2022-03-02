@@ -13,12 +13,13 @@ type ProfileInfoPropsType = {
 }
 
 // components
-export const ProfileInfo = function (props: ProfileInfoPropsType) {
+export const ProfileInfo = (props: ProfileInfoPropsType) => {
 
     // local state
     const [statusText, setStatusText] = useState<string>(props.status)
     const [editMode, setEditMode] = useState<boolean>(false)
 
+    // functions
     const changeInputValue = useCallback((e: string) => {
         setStatusText(e)
     }, [])
