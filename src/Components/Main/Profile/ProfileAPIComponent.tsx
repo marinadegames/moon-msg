@@ -4,9 +4,6 @@ import {Profile} from "./Profile";
 import {ProfileAPIComponentType} from "./ProfileContainer";
 
 
-// types
-
-
 // class component
 class ProfileAPIComponent extends React.Component<ProfileAPIComponentType> {
 
@@ -14,12 +11,13 @@ class ProfileAPIComponent extends React.Component<ProfileAPIComponentType> {
         const route = window.location.href.split('/')
         let userId = route[route.length - 1]
         if (!userId || userId === 'profile') userId = '2'
+
         this.props.setUserProfileThunkCreator(Number(userId))
         this.props.getStatus(Number(userId))
     }
 
     componentWillUnmount() {
-        // this.props.setUserProfile(null)
+
     }
 
     render() {

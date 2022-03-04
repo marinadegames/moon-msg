@@ -67,7 +67,7 @@ export type InitStateType = {
     posts: Array<any> | null
     newPostText: string
     profile: ProfileType | null
-    status: string
+    status?: string
 }
 
 

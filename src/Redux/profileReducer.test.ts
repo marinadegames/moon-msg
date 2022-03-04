@@ -9,7 +9,7 @@ beforeEach(() => {
     startState = {
         posts: [],
         newPostText: '',
-        profile: null
+        profile: null,
     }
 })
 
