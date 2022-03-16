@@ -1,11 +1,63 @@
 .pageName{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
     font-style: normal;
     font-weight: bold;
     font-size: 36px;
     line-height: 46px;
-    display: flex;
-    align-items: center;
+
     /*border: 1px solid black;*/
     padding: 1rem 0;
     color: var(--secondColor);
+}
+.loginForm {
+
+}
+.inputLoginForm {
+    padding: 0 10px;
+    margin: 0 0 10px 0;
+    height: 50px;
+    width: 350px;
+    font-size: 23px;
+    font-weight: 400;
+    color: var(--generalColor);
+    outline: none;
+    border: 1px solid var(--generalColor);
+    border-radius: var(--borderRadiusCustom);
+}
+.inputLoginForm::placeholder {
+    color: var(--generalColor);
+}
+.inputLoginForm:focus {
+    outline: 3px solid var(--generalColor);
+}
+.checkBoxLoginRememberMe {
+    transform: scale(4);
+    margin: 30px 30px 30px 20px;
+    color: var(--generalColor);
+}
+.checkBoxLoginRememberMe ~ span {
+    color: var(--generalColor);
+    font-size: 23px;
+    font-weight: 600;
+}
+
+.btnLogin{
+    border: 2px solid var(--generalColor);
+    border-radius: var(--borderRadiusCustom);
+    background-color: white;
+    cursor: pointer;
+    color: var(--generalColor);
+    font-weight: 700;
+    width: 370px;
+    font-size: 20px;
+    margin: 0.5rem 0 0 0;
+    padding: 0.8rem;
+    transition: 0.2s;
+}
+.btnLogin:hover{
+    background-color: var(--generalColor);
+    color: white;
 }

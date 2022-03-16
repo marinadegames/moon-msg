@@ -1,8 +1,8 @@
 // import
-import React, {useState, KeyboardEvent} from "react";
+import React from "react";
 import s from "./Posts.module.css";
-import {AddPostAC, ProfileType} from "../../../../Redux/profileReducer";
-import {useDispatch} from "react-redux";
+import {ProfileType} from "../../../../Redux/profileReducer";
+import {Field, reduxForm} from "redux-form";
 
 // types
 type PostsPropsType = {
@@ -11,27 +11,32 @@ type PostsPropsType = {
 
 
 // components
+export const AddPostForm = function (props: any) {
+    return (
+        <form onSubmit={props.handleSubmit}>
+            <div className={s.createPost}>
+                <Field placeholder={`What's news?`}
+                       name={'text'}
+                       component={'textarea'}
+                       className={s.textareaAddPost} maxLength={150}
+                    // onKeyPress={(event) => enterHandler(event)}
+                    // onChange={(event => changeTextArea(event.currentTarget.value))}
+                />
+                <button className={s.addPostButton}>
+                    Publish
+                </button>
+            </div>
+        </form>
+    )
+}
+
+const AddPostReduxForm = reduxForm({form: 'text'})(AddPostForm)
+
 export const Posts = function (props: PostsPropsType) {
 
-    const [textarea, setTexArea] = useState<string>('')
-    const dispatch = useDispatch()
-
-    const changeTextArea = (text: string) => {
-        setTexArea(text)
-    }
-    const onClickAddPostCallback = () => {
-        let userId = props.profile?.userId
-        if (textarea !== '') {
-            // let action = AddPostAC(textarea, userId)
-            // dispatch(action);
-        }
-        setTexArea('')
-    }
-    const enterHandler = (event: KeyboardEvent) => {
-        if (event.charCode === 13 && textarea !== '') {
-            dispatch({type: 'ADD_POST', newText: textarea})
-            setTexArea('')
-        }
+    const onSubmit = (formData: any) => {
+        debugger
+        console.log(formData)
     }
 
     return (
@@ -41,15 +46,7 @@ export const Posts = function (props: PostsPropsType) {
                 <div className={s.createPostBox}>
                     <div className={s.createPostTitle}>Create post:</div>
                     <div className={s.createPost}>
-                        <textarea placeholder={`What's news?`}
-                                  value={textarea}
-                                  onKeyPress={(event) => enterHandler(event)}
-                                  onChange={(event => changeTextArea(event.currentTarget.value))}
-                                  className={s.textareaAddPost} maxLength={150}/>
-                        <button className={s.addPostButton}
-                                onClick={onClickAddPostCallback}>
-                            Publish
-                        </button>
+                        <AddPostReduxForm onSubmit={onSubmit}/>
                     </div>
                 </div>
 
@@ -76,3 +73,5 @@ export const Posts = function (props: PostsPropsType) {
         </div>
     )
 }
+
+

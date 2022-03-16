@@ -11,7 +11,7 @@ import {Navigate} from "react-router-dom";
 export class MessagesAPIContainer extends React.Component<MessagesAPIComponentType> {
 
     componentDidMount() {
-        console.log(this.props.isAuth)
+        // console.log(this.props.isAuth)
     }
 
 
