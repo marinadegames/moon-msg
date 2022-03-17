@@ -1,6 +1,7 @@
 // imports
 import {Dispatch} from "redux";
 import {authAPI, requestsAPI} from "../Components/API/API";
+import {stopSubmit} from "redux-form";
 
 // types
 export type InitialStateAuthType = {
@@ -33,7 +34,7 @@ let initialState: InitialStateAuthType = {
 export const authReducer = (state = initialState, action: ActionType): InitialStateAuthType => {
     switch (action.type) {
         case "SET_AUTH_USER_DATA":
-            return {...state, ...action.data, isAuth: true}
+            return {...state, ...action.data}
         default:
             return state
     }
@@ -60,22 +61,29 @@ export const getAuthUserDataTC = () => (dispatch: Dispatch) => {
             }
         });
 }
-export const loginTC = (email: string, password: string, rememberMe: boolean) => {
-    return (dispatch: Dispatch) => {
-        authAPI.login(email, password, rememberMe)
-            .then(resp => {
-                if (resp.data.resultCode === 0) {
-                    dispatch(setAuthUserDataAC(resp.data.id, email, resp.data.login, true))
-                }
-            });
-    }
+export const loginTC = (email: string, password: string, rememberMe: boolean) => (dispatch: Dispatch) => {
+    authAPI.login(email, password, rememberMe)
+        .then(resp => {
+            if (resp.data.resultCode === 0) {
+                dispatch(setAuthUserDataAC(resp.data.id, email, resp.data.login, true))
+                localStorage.setItem('isLogin', JSON.stringify(true))
+            } else {
+
+                let message = resp.data.messages.length > 0 ? resp.data.messages[0] : 'SOME ERROR'
+                console.log(message)
+                debugger
+                dispatch(stopSubmit('login', {_error: message}))
+            }
+        });
 }
+
 export const logoutTC = () => {
     return (dispatch: Dispatch) => {
         authAPI.logout()
             .then(resp => {
                 if (resp.data.resultCode === 0) {
                     dispatch(setAuthUserDataAC(null, null, null, false))
+                    localStorage.setItem('isLogin', JSON.stringify(false))
                 }
             });
     }

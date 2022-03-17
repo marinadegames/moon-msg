@@ -61,3 +61,6 @@
     background-color: var(--generalColor);
     color: white;
 }
+.errorTitle {
+    color: red;
+}

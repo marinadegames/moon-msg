@@ -33,6 +33,11 @@ const LoginForm = (props: any) => {
                        component={'input'}/>
                 <span>Remember me</span>
             </div>
+            {props.error &&
+                <h3 className={s.errorTitle}>
+                    {props.error}
+                </h3>
+            }
             <div>
                 <button className={s.btnLogin}>login</button>
             </div>
