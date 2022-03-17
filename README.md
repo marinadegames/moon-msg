@@ -96,6 +96,7 @@ This repository for my social network `Moon!msg`!
 
 👁️ `v0.6.7` - added `login` | added `thunk` SetProfile | fixed any bugs | added types, fixed types  
 ⚡ `v0.6.8` - added `Redux-form` from login  
+🔍 `v0.6.9` - added `login` | fixed `login`
 
 ### 🙃 Good luck for me!
 
