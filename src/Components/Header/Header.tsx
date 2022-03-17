@@ -91,8 +91,9 @@ export const Header = (props: PropsType) => {
                             <img className={s.logoUser} src={props.avatar} alt={'avatar'}/>
                         </div>
                         :
-                        <div>
-                            <BigHead/>
+                        <div className={s.boxHeaderAvatarAndExit}>
+                            <button className={s.buttonExit} onClick={() => onClickLogout()}>exit</button>
+                            <div className={s.logoUser}><BigHead/></div>
                         </div>
                     :
                     <NavLink to={'/login'} className={s.login_btn}>Login</NavLink>}

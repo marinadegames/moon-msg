@@ -16,6 +16,7 @@ type MapStateToPropsType = {
     profile: ProfileType | null
     status: string
     isAuth: boolean
+    authorizedUserId: number
 }
 type MapDispatchPropsType = {
     setUserProfileThunkCreator: (userId: number) => void
@@ -36,8 +37,9 @@ let AuthNavigateComponent = (props: any) => {
 const mapStateToProps = (state: rootReducerType) => {
     return {
         profile: state.profilePage.profile,
-        isAuth: state.auth.isAuth,
         status: state.profilePage.status,
+        isAuth: state.auth.isAuth,
+        authorizedUserId: state.auth.id,
     }
 }
 

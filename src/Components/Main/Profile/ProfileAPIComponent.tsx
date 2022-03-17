@@ -10,14 +10,9 @@ class ProfileAPIComponent extends React.Component<ProfileAPIComponentType> {
     componentDidMount() {
         const route = window.location.href.split('/')
         let userId = route[route.length - 1]
-        if (!userId || userId === 'profile') userId = '2'
-
+        if (!userId || userId === 'profile') userId = String(this.props.authorizedUserId)
         this.props.setUserProfileThunkCreator(Number(userId))
         this.props.getStatus(Number(userId))
-    }
-
-    componentWillUnmount() {
-
     }
 
     render() {
