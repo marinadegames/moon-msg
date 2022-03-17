@@ -3,22 +3,26 @@ import React from "react";
 import s from "./Posts.module.css";
 import {ProfileType} from "../../../../Redux/profileReducer";
 import {Field, reduxForm} from "redux-form";
+import {maxLengthCreator, required} from "../../../../Utils/Validators/validators";
+import {TextArea} from "../../../../Utils/FormsControls/FormsControls";
 
 // types
 type PostsPropsType = {
     profile: ProfileType | null
 }
 
+const maxLength10 = maxLengthCreator(10)
 
 // components
 export const AddPostForm = function (props: any) {
     return (
         <form onSubmit={props.handleSubmit}>
             <div className={s.createPost}>
-                <Field placeholder={`What's news?`}
+                <Field
                        name={'text'}
-                       component={'textarea'}
+                       component={TextArea}
                        className={s.textareaAddPost} maxLength={150}
+                       validate={[required, maxLength10]}
                     // onKeyPress={(event) => enterHandler(event)}
                     // onChange={(event => changeTextArea(event.currentTarget.value))}
                 />
@@ -35,7 +39,6 @@ const AddPostReduxForm = reduxForm({form: 'text'})(AddPostForm)
 export const Posts = function (props: PostsPropsType) {
 
     const onSubmit = (formData: any) => {
-        debugger
         console.log(formData)
     }
 

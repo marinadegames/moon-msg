@@ -7,7 +7,7 @@ import {Settings} from "./Settings/Settings";
 import {Music} from "./Music/Music";
 import FriendsContainer from "./Friends/FriendsContainer";
 import ProfileContainer from "./Profile/ProfileContainer";
-import {Login} from "../Login/Login";
+import Login from "../Login/Login";
 import {Home} from "../Home/Home";
 import MessagesContainer from "./Messages/MessagesContainer";
 

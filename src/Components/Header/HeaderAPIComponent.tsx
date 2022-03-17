@@ -13,7 +13,6 @@ export class HeaderAPIComponent extends React.Component<HeaderAPIComponentType> 
         this.props.getAuthUserDataThunkCreator(this.props.id, this.props.email, this.props.login)
     }
 
-
     render() {
         return <Header {...this.props}/>
     }

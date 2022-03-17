@@ -5,7 +5,6 @@ import moon from '../../Assets/moon.png'
 import {NavLink} from "react-router-dom";
 import {BigHead} from "@bigheads/core";
 
-// types
 
 // assets
 const sun = <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="60px" height="60px">
@@ -34,11 +33,23 @@ const sun = <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="6
           d="M39.5,24c-0.245,0-0.484,0.022-0.721,0.053C37.518,22.21,35.401,21,33,21	c-3.178,0-5.858,2.12-6.712,5.021C23.904,26.134,22,28.087,22,30.5c0,2.485,2.015,4.5,4.5,4.5c1.085,0,11.875,0,13,0	c3.038,0,5.5-2.462,5.5-5.5C45,26.462,42.538,24,39.5,24z"/>
 </svg>
 
+// types
+type PropsType = {
+    isAuth: boolean
+    login: string
+    avatar?: string | null
+    logout: () => void
+}
 
 // components
+export const Header = (props: PropsType) => {
+    console.log(props)
 
-export const Header = function (props: any) {
+    const onClickLogout = () => {
+        props.logout()
+    }
 
+    // return
     return (
         <div className={s.Header}>
             <div className={s.flexBoxHeaderLeft}>
@@ -64,6 +75,7 @@ export const Header = function (props: any) {
                 </div>
             }
 
+            {/*SEARCH OFF*/}
             {/*<div className={s.flexBoxHeaderRight}>*/}
             {/*    <input placeholder={'Search'} type={'search'}/>*/}
             {/*</div>*/}
@@ -72,12 +84,16 @@ export const Header = function (props: any) {
 
 
                 {props.isAuth
-                    ?
-                    <div className={s.logoUser}>
-                        {/*{props.profile.avatar}*/}
-                        <BigHead/>
-
-                    </div>
+                    ? props.avatar !== null
+                        ?
+                        <div className={s.boxHeaderAvatarAndExit}>
+                            <button className={s.buttonExit} onClick={() => onClickLogout()}>exit</button>
+                            <img className={s.logoUser} src={props.avatar} alt={'avatar'}/>
+                        </div>
+                        :
+                        <div>
+                            <BigHead/>
+                        </div>
                     :
                     <NavLink to={'/login'} className={s.login_btn}>Login</NavLink>}
 

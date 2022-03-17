@@ -31,6 +31,7 @@ let AuthNavigateComponent = (props: any) => {
     return <ProfileAPIComponent {...props}/>
 }
 
+
 // container component:
 const mapStateToProps = (state: rootReducerType) => {
     return {

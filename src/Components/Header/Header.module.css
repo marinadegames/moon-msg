@@ -15,43 +15,50 @@
     margin: 0 0.8rem 0 0;
     transition: ease-in-out 0.5s;
 }
-.logotype:hover{
-     margin: 0 2rem 0 0 ;
-     transform: scale(1.3) rotate(360deg);
 
- }
+.logotype:hover {
+    margin: 0 2rem 0 0;
+    transform: scale(1.3) rotate(360deg);
+
+}
+
 .siteTitle {
     text-decoration: none;
     color: var(--secondColor);
 }
 
-.flexBoxHeaderLeft{
+.flexBoxHeaderLeft {
     display: flex;
     align-items: center;
     width: 25%;
 }
-.flexBoxHeaderCenter{
+
+.flexBoxHeaderCenter {
     display: flex;
     align-items: center;
     width: 35%;
 
 }
-.flexBoxHeaderCenter svg{
+
+.flexBoxHeaderCenter svg {
     cursor: pointer;
     transition: ease-in-out 0.5s;
     margin: 0 0.8rem 0 0;
 }
+
 .flexBoxHeaderCenter svg:hover {
 
     transform: scale(1.3) rotate(-360deg);
 }
-.flexBoxHeaderRight{
+
+.flexBoxHeaderRight {
     display: flex;
     justify-content: flex-start;
     /*align-items: center;*/
     width: 25%;
 
 }
+
 .flexBoxHeaderRight input, select {
     padding: 0 0 0 1rem;
     background: #FFFFFF;
@@ -64,9 +71,11 @@
     font-size: 25px;
     outline: none;
 }
+
 .flexBoxHeaderRight input::placeholder {
     color: var(--generalColor);
 }
+
 .flexBoxHeaderUserLogo {
 
     display: flex;
@@ -75,15 +84,17 @@
     width: 15%;
     padding: 0 2.5rem 0 0;
 }
+
 .logoUser {
     cursor: pointer;
-    border: 2px solid var(--generalColor);
-    border-radius: 100px ;
+    /*border: 4px solid var(--generalColor);*/
+    border-radius: 100px;
     height: 80px;
     width: 80px;
     transition: ease-in-out 0.2s;
 }
-.logoUser:hover{
+
+.logoUser:hover {
     transform: scale(1.08);
 }
 
@@ -97,7 +108,28 @@
     cursor: pointer;
     transition: 0.2s ease;
 }
+
 .login_btn:hover {
     background-color: var(--generalColor);
     color: white;
+}
+
+.buttonExit {
+    margin: 0 30px 0 0;
+    border: 1px solid darkred;
+    padding: 0.5em 2em;
+    border-radius: 10px;
+    color: darkred;
+    background-color: var(--backgroundBox);
+}
+
+.buttonExit:hover {
+    background-color: darkred;
+    color: white;
+}
+
+.boxHeaderAvatarAndExit {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
 }

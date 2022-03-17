@@ -8,14 +8,6 @@ import {Main} from "./Components/Main/Main";
 import HeaderContainer from './Components/Header/HeaderContainer';
 
 
-
-
-//types
-
-
-//assets
-
-
 // components
 function App() {
     return (
