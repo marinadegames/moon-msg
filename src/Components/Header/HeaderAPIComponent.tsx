@@ -10,7 +10,7 @@ import {HeaderAPIComponentType} from "./HeaderContainer";
 export class HeaderAPIComponent extends React.Component<HeaderAPIComponentType> {
 
     componentDidMount() {
-        this.props.getAuthUserDataThunkCreator(this.props.id, this.props.email, this.props.login)
+        // this.props.getAuthUserDataThunkCreator(this.props.id, this.props.email, this.props.login)
     }
 
     render() {

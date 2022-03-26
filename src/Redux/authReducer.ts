@@ -70,8 +70,6 @@ export const loginTC = (email: string, password: string, rememberMe: boolean) =>
             } else {
 
                 let message = resp.data.messages.length > 0 ? resp.data.messages[0] : 'SOME ERROR'
-                console.log(message)
-                debugger
                 dispatch(stopSubmit('login', {_error: message}))
             }
         });

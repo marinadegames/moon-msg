@@ -43,7 +43,6 @@ type PropsType = {
 
 // components
 export const Header = (props: PropsType) => {
-    console.log(props)
 
     const onClickLogout = () => {
         props.logout()

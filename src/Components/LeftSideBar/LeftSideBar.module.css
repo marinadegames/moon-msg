@@ -1,12 +1,14 @@
-.LeftSideBar{
+.LeftSideBar {
     position: fixed;
     padding: 4.5rem 2rem 2rem 2rem;
     width: auto;
     text-decoration: none;
 }
+
 .LeftSideBar a {
     text-decoration: none;
 }
+
 .menuItem {
     display: flex;
     align-items: center;
@@ -23,21 +25,23 @@
     transition: ease-in-out 0.1s;
     border: 2px solid var(--backgroundColor);
 }
+
 .menuItem img {
     margin: 0 1rem 0 0;
 }
 
-.menuItem:hover{
-    /*background-color: var(--generalColor);*/
+.menuItem:hover {
     border: 2px solid var(--generalColor);
     color: var(--generalColor);
     box-shadow: var(--shadow);
 
 }
+
 .menuItemACTIVE {
     display: flex;
     align-items: center;
     cursor: pointer;
+    border: 2px solid var(--generalColor);
     background-color: var(--generalColor);
     box-shadow: var(--shadow);
     border-radius: var(--borderRadiusCustom);
@@ -50,6 +54,7 @@
     font-size: 25px;
     line-height: 30px;
 }
+
 .menuItemACTIVE img {
     margin: 0 1rem 0 0;
 }
@@ -59,7 +64,8 @@
     justify-content: flex-end;
     width: 100%;
 }
-.verticalLineActive{
+
+.verticalLineActive {
     margin: 0 1.5rem;
     border-radius: 50px;
     background-color: white;

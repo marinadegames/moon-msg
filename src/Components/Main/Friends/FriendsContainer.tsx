@@ -9,6 +9,14 @@ import {
 import FriendsAPIComponent from "./FriendsAPIComponent";
 import {connect} from "react-redux";
 import {rootReducerType} from "../../../Redux/store";
+import {
+    getCurrentPage,
+    getFollowingInProgress,
+    getIsFetching,
+    getPageSize,
+    getTotalUsersCount,
+    getUsers
+} from "../../../Redux/usersSelectors";
 
 
 type MapDispatchPropsType = {
@@ -37,12 +45,12 @@ export type FriendsAPIComponentType = MapDispatchPropsType & MapStatePropsType
 // container component
 const mapStateToProps = (state: rootReducerType) => {
     return {
-        users: state.allUsers.users,
-        totalUsersCount: state.allUsers.totalUsersCount,
-        pageSize: state.allUsers.pageSize,
-        currentPage: state.allUsers.currentPage,
-        isFetching: state.allUsers.isFetching,
-        followingInProgress: state.allUsers.followingInProgress,
+        users: getUsers(state),
+        totalUsersCount: getTotalUsersCount(state),
+        pageSize: getPageSize(state),
+        currentPage: getCurrentPage(state),
+        isFetching: getIsFetching(state),
+        followingInProgress: getFollowingInProgress(state),
     }
 }
 export default connect(mapStateToProps, {
@@ -56,7 +64,5 @@ export default connect(mapStateToProps, {
     getUsersThunkCreator: getUsersThunkCreator,
     followThunkCreator: followThunkCreator,
     unfollowThunkCreator: unfollowThunkCreator,
-
-
 })(FriendsAPIComponent)
 

@@ -29,9 +29,9 @@ export const ProfileInfo = (props: ProfileInfoPropsType) => {
         props.updateStatus(statusText)
     }
 
-    const TEMP_AVATAR = () => (
-        <BigHead/>
-    )
+    // const TEMP_AVATAR = useCallback(() => (
+    //     <BigHead/>
+    // ), [])
 
     // returns
     if (!props.profile) return <Preloader isFetching={true}/>
@@ -43,7 +43,7 @@ export const ProfileInfo = (props: ProfileInfoPropsType) => {
             <div className={s.profileInform}>
                 <div className={s.profileInfoLeft}>
                     <div className={s.userLogo}>
-                        {!props.profile.photos.large ? TEMP_AVATAR() :
+                        {!props.profile.photos.large ? <BigHead/>:
                             <img className={s.avatarUser} src={props.profile.photos.large} alt={'avatar'}/>}
                     </div>
                     <div className={s.profileInfoTextBox}>
