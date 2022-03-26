@@ -1,24 +1,24 @@
 {
   "files": {
     "main.css": "/moon-msg/static/css/main.4091b7ec.chunk.css",
-    "main.js": "/moon-msg/static/js/main.7160b23a.chunk.js",
-    "main.js.map": "/moon-msg/static/js/main.7160b23a.chunk.js.map",
+    "main.js": "/moon-msg/static/js/main.7c39b918.chunk.js",
+    "main.js.map": "/moon-msg/static/js/main.7c39b918.chunk.js.map",
     "runtime-main.js": "/moon-msg/static/js/runtime-main.cb1bd7a3.js",
     "runtime-main.js.map": "/moon-msg/static/js/runtime-main.cb1bd7a3.js.map",
-    "static/js/2.c9e8f801.chunk.js": "/moon-msg/static/js/2.c9e8f801.chunk.js",
-    "static/js/2.c9e8f801.chunk.js.map": "/moon-msg/static/js/2.c9e8f801.chunk.js.map",
+    "static/js/2.9d867193.chunk.js": "/moon-msg/static/js/2.9d867193.chunk.js",
+    "static/js/2.9d867193.chunk.js.map": "/moon-msg/static/js/2.9d867193.chunk.js.map",
     "static/js/3.d9f476fb.chunk.js": "/moon-msg/static/js/3.d9f476fb.chunk.js",
     "static/js/3.d9f476fb.chunk.js.map": "/moon-msg/static/js/3.d9f476fb.chunk.js.map",
     "index.html": "/moon-msg/index.html",
     "static/css/main.4091b7ec.chunk.css.map": "/moon-msg/static/css/main.4091b7ec.chunk.css.map",
-    "static/js/2.c9e8f801.chunk.js.LICENSE.txt": "/moon-msg/static/js/2.c9e8f801.chunk.js.LICENSE.txt",
+    "static/js/2.9d867193.chunk.js.LICENSE.txt": "/moon-msg/static/js/2.9d867193.chunk.js.LICENSE.txt",
     "static/media/preloader.14cef696.gif": "/moon-msg/static/media/preloader.14cef696.gif",
     "static/media/Profile.module.css": "/moon-msg/static/media/walp.287261c4.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.cb1bd7a3.js",
-    "static/js/2.c9e8f801.chunk.js",
+    "static/js/2.9d867193.chunk.js",
     "static/css/main.4091b7ec.chunk.css",
-    "static/js/main.7160b23a.chunk.js"
+    "static/js/main.7c39b918.chunk.js"
   ]
 }
