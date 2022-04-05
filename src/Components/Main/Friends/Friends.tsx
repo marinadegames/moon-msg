@@ -1,5 +1,5 @@
 // imports
-import React, {useEffect} from "react";
+import React, {useCallback, useEffect} from "react";
 import s from "./Friends.module.css";
 import {CardUser} from "./CardUser/CardUser";
 import {getUsersThunkCreator, UserType} from "../../../Redux/usersReducer";
@@ -11,21 +11,21 @@ import {rootReducerType} from "../../../Redux/store";
 // component
 export const Friends = () => {
 
-    const totalUsersCount = useSelector<rootReducerType, any>(state => state.allUsers.totalUsersCount)
-    const pageSize = useSelector<rootReducerType, any>(state => state.allUsers.pageSize)
-    const currentPage = useSelector<rootReducerType, any>(state => state.allUsers.currentPage)
-    const isFetching = useSelector<rootReducerType, any>(state => state.allUsers.isFetching)
+    const totalUsersCount = useSelector<rootReducerType, number>(state => state.allUsers.totalUsersCount)
+    const pageSize = useSelector<rootReducerType, number>(state => state.allUsers.pageSize)
+    const currentPage = useSelector<rootReducerType, number>(state => state.allUsers.currentPage)
+    const isFetching = useSelector<rootReducerType, boolean>(state => state.allUsers.isFetching)
     const users = useSelector<rootReducerType, UserType[]>(state => state.allUsers.users)
-    const followingInProgress = useSelector<rootReducerType, any>(state => state.allUsers.followingInProgress)
+    const followingInProgress = useSelector<rootReducerType, number[]>(state => state.allUsers.followingInProgress)
     const dispatch = useDispatch()
-
+    console.log(currentPage)
     useEffect(() => {
-        dispatch(getUsersThunkCreator(currentPage,pageSize))
+        dispatch(getUsersThunkCreator(currentPage, pageSize))
     }, [dispatch, currentPage, pageSize])
 
-    const setCurrentPageHandler = () => {
-        dispatch(getUsersThunkCreator(currentPage, pageSize))
-    }
+    const setCurrentPageHandler = useCallback((p: number) => {
+        dispatch(getUsersThunkCreator(p, pageSize))
+    }, [dispatch, pageSize])
 
     //return
     if (isFetching) return <Preloader isFetching={true}/>
@@ -40,24 +40,22 @@ export const Friends = () => {
             {isFetching
                 ? <Preloader isFetching={isFetching}/>
                 :
-                <>
-                    <div className={s.mainUsers}>
-                        {users.map((user: UserType) => {
-                            return (
-                                <CardUser name={user.name}
-                                          key={user.id}
-                                          id={user.id}
-                                          uniqueUrlName={user.uniqueUrlName}
-                                          photos={user.photos}
-                                          status={user.status}
-                                          followed={user.followed}
-                                          followingInProgress={followingInProgress}
-                                />
-                            )
-                        })}
-                    </div>
-                    <button className={s.showMoreButton}>show more...</button>
-                </>
+                <div className={s.mainUsers}>
+                    {users.map((user: UserType) => {
+                        return (
+                            <CardUser name={user.name}
+                                      key={user.id}
+                                      id={user.id}
+                                      uniqueUrlName={user.uniqueUrlName}
+                                      photos={user.photos}
+                                      status={user.status}
+                                      followed={user.followed}
+                                      followingInProgress={followingInProgress}
+                            />
+                        )
+                    })}
+                </div>
+
             }
 
         </div>

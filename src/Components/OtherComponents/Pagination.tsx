@@ -20,7 +20,6 @@ export const Pagination = memo((props: PropsType) => {
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i)
     }
-
     // return
     return (
         <>

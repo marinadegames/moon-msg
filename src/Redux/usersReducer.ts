@@ -69,7 +69,7 @@ export type UserType = {
 // initialState
 const items: itemsType = {
     users: [],
-    pageSize: 20,
+    pageSize: 16,
     totalUsersCount: 0,
     currentPage: 1,
     isFetching: true,
@@ -132,7 +132,6 @@ export const getUsersThunkCreator = (currentPage: number, pageSize: number) => {
         dispatch(ToggleIsFetchingAC(true))
         requestsAPI.getUsers(currentPage, pageSize)
             .then(data => {
-                dispatch(ToggleIsFetchingAC(false))
                 dispatch(SetUsersAC(data.items))
                 dispatch(SetCurrentPageAC(currentPage))
                 dispatch(SetTotalUserCountAC(data.totalCount))

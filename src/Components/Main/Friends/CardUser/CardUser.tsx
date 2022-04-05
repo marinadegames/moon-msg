@@ -15,13 +15,7 @@ type CardUserPropsType = {
     photos: photoType
     status: string | null
     followed: boolean
-
-    // my
-    // onClickFollowHandler: (id: number) => void
-    // onClickUnfollowHandler: (id: number) => void
     followingInProgress: Array<number>
-
-    // maybe not
     countryUser?: string | null
     cityUser?: string | null
 }
@@ -42,12 +36,10 @@ export const CardUser = React.memo((props: CardUserPropsType) => {
 
     const unfollowHandler = useCallback(() => {
         dispatch(unfollowThunkCreator(props.id))
-        // dispatch(ToggleIsFollowingIsProgressAC(true, props.id))
     }, [dispatch, props.id])
 
     const followHandler = useCallback(() => {
         dispatch(followThunkCreator(props.id))
-        // dispatch(ToggleIsFollowingIsProgressAC(false, props.id))
     }, [dispatch, props.id])
 
     // return
