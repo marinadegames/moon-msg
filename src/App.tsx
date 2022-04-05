@@ -1,13 +1,11 @@
 // imports
-import React, {memo, useEffect} from 'react';
-import './App.module.css';
-import s from './App.module.css'
-import {LeftSideBar} from "./Components/LeftSideBar/LeftSideBar";
-import {Main} from "./Components/Main/Main";
-import HeaderContainer from './Components/Header/HeaderContainer';
+import {memo, useEffect} from "react";
+import HeaderContainer from "./components/header/HeaderContainer";
 import {useDispatch} from "react-redux";
-import {getAuthUserDataTC} from "./Redux/authReducer";
-
+import {LeftSideBar} from "./components/leftSideBar/LeftSideBar";
+import {Main} from "./components/main/Main";
+import s from './App.module.css'
+import {getAuthUserDataTC} from "./redux/authReducer";
 
 // components
 export const App = memo(() => {

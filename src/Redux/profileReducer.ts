@@ -1,6 +1,6 @@
 // imports
 import {Dispatch} from "redux";
-import {profileAPI} from "../Components/API/API";
+import {profileAPI} from "../components/api/API";
 
 // const
 const ADD_POST = 'ADD_POST'

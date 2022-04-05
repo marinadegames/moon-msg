@@ -1,7 +1,7 @@
 // imports
 import {Dispatch} from "redux";
-import {authAPI, requestsAPI} from "../Components/API/API";
 import {stopSubmit} from "redux-form";
+import {authAPI, requestsAPI } from "../components/api/API";
 
 // types
 export type InitialStateAuthType = {

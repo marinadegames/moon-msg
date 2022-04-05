@@ -1,5 +1,4 @@
 // imports
-import {authReducer, InitialStateAuthType, setAuthUserDataAC} from "./authReducer";
 
 
 // tests
@@ -22,3 +21,6 @@ import {authReducer, InitialStateAuthType, setAuthUserDataAC} from "./authReduce
 //     expect(endState.login).toBe(data.login)
 //     expect(endState.isAuth).toBe(true)
 // })
+
+
+export const foo = () => {}

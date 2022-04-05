@@ -33,7 +33,7 @@ export const routes: IRoute[] = [
     //     path: RouteNames.PROFILE,
     //     component: (
     //         <RequireAuth>
-    //             <Profile />
+    //             <profile />
     //         </RequireAuth>
     //     ),
     // },

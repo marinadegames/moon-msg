@@ -1,5 +1,4 @@
 // imports
-import {InitStateType, profileReducer, ProfileType, SetUserProfileAC} from "./profileReducer";
 //
 //
 // // start state
@@ -46,3 +45,5 @@ import {InitStateType, profileReducer, ProfileType, SetUserProfileAC} from "./pr
 //     const endState = profileReducer(startState, action)
 //     expect(endState.profile).toBe(newUser)
 // })
+
+export const foo = () => {}

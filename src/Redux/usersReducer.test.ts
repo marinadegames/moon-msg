@@ -1,15 +1,8 @@
 // import
-import {
-    FollowAC,
-    itemsType,
-    SetCurrentPageAC,
-    SetTotalUserCountAC,
-    SetUsersAC, ToggleIsFetchingAC, ToggleIsFollowingIsProgressAC,
-    UnfollowAC,
-    usersReducer
-} from "./usersReducer";
 
 // start state
+import {FollowAC, itemsType, SetCurrentPageAC, SetTotalUserCountAC, SetUsersAC, ToggleIsFetchingAC, ToggleIsFollowingIsProgressAC, UnfollowAC, usersReducer} from "./usersReducer";
+
 let startState: itemsType
 
 beforeEach(() => {

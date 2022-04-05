@@ -1,6 +1,6 @@
 // imports
 import {Dispatch} from "redux";
-import {requestsAPI} from "../Components/API/API";
+import {requestsAPI} from "../components/api/API";
 
 
 // ============= types
