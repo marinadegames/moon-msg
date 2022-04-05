@@ -1,10 +1,10 @@
 // imports
 import React, {useCallback} from 'react'
 import s from './CardUser.module.css'
-import {BigHead} from "@bigheads/core";
 import {NavLink} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {followThunkCreator, unfollowThunkCreator} from "../../../../Redux/usersReducer";
+import {Anonymous} from "../../../../Redux/BigHeadsFile";
 
 // types
 type CardUserPropsType = {
@@ -30,9 +30,6 @@ export const CardUser = React.memo((props: CardUserPropsType) => {
     const dispatch = useDispatch()
 
     // functions
-    const TEMP_AVATAR = useCallback(() => {
-        return <BigHead/>
-    }, [])
 
     const unfollowHandler = useCallback(() => {
         dispatch(unfollowThunkCreator(props.id))
@@ -48,7 +45,7 @@ export const CardUser = React.memo((props: CardUserPropsType) => {
             <div className={s.userLogo}>
 
                 <NavLink to={'/profile/' + props.id}>
-                    {props.photos.small === null ? TEMP_AVATAR() :
+                    {props.photos.small === null ? Anonymous() :
                         <img alt={'logo'} className={s.userLogoAvatar} src={props.photos.small}/>}
                 </NavLink>
 

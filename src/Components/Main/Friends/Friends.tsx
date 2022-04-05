@@ -18,7 +18,7 @@ export const Friends = () => {
     const users = useSelector<rootReducerType, UserType[]>(state => state.allUsers.users)
     const followingInProgress = useSelector<rootReducerType, number[]>(state => state.allUsers.followingInProgress)
     const dispatch = useDispatch()
-    console.log(currentPage)
+
     useEffect(() => {
         dispatch(getUsersThunkCreator(currentPage, pageSize))
     }, [dispatch, currentPage, pageSize])

@@ -2,10 +2,10 @@
 import React, {memo, useCallback, useState} from "react";
 import s from './Profile.module.css'
 import {updateStatusTC} from "../../../Redux/profileReducer";
-import {BigHead} from "@bigheads/core";
 import {Preloader} from "../../OtherComponents/Preloader";
 import {useDispatch, useSelector} from "react-redux";
 import {rootReducerType} from "../../../Redux/store";
+import {Anonymous} from "../../../Redux/BigHeadsFile";
 
 // components
 export const ProfileInfo = memo(({profile}: any) => {
@@ -37,7 +37,7 @@ export const ProfileInfo = memo(({profile}: any) => {
             <div className={s.profileInform}>
                 <div className={s.profileInfoLeft}>
                     <div className={s.userLogo}>
-                        {!profile.photos.large ? <BigHead/> :
+                        {!profile.photos.large ? Anonymous() :
                             <img className={s.avatarUser} src={profile.photos.large} alt={'avatar'}/>}
                     </div>
                     <div className={s.profileInfoTextBox}>

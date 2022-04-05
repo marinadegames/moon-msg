@@ -3,7 +3,7 @@ import React from "react";
 import s from './Header.module.css'
 import moon from '../../assets/moon.png'
 import {NavLink} from "react-router-dom";
-import {BigHead} from "@bigheads/core";
+import {Anonymous} from "../../Redux/BigHeadsFile";
 
 
 // assets
@@ -92,7 +92,7 @@ export const Header = (props: PropsType) => {
                         :
                         <div className={s.boxHeaderAvatarAndExit}>
                             <button className={s.buttonExit} onClick={() => onClickLogout()}>exit</button>
-                            <div className={s.logoUser}><BigHead/></div>
+                            <div className={s.logoUser}>{Anonymous()}</div>
                         </div>
                     :
                     <NavLink to={'/login'} className={s.login_btn}>Login</NavLink>}
