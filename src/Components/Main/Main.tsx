@@ -20,7 +20,7 @@ export const Main = () => {
 
             <Routes>
                 <Route path={RouteNames.HOME} element={<Home/>}/>
-                <Route path={'/profile'} element={<Profile/>}/>
+                <Route path={RouteNames.PROFILE} element={<Profile/>}/>
                 {/*<Route path={'/friendprofile/:userId'} element={<Profile/>}/>*/}
                 <Route path={'/messages'} element={<MessagesContainer/>}/>
                 <Route path={'/settings'} element={<Settings/>}/>

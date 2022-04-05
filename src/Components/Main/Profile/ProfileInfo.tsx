@@ -1,19 +1,17 @@
 // import
-import React, {useCallback, useState} from "react";
+import React, {memo, useCallback, useState} from "react";
 import s from './Profile.module.css'
-import {ProfileType, updateStatusTC} from "../../../Redux/profileReducer";
+import {updateStatusTC} from "../../../Redux/profileReducer";
 import {BigHead} from "@bigheads/core";
 import {Preloader} from "../../OtherComponents/Preloader";
 import {useDispatch, useSelector} from "react-redux";
 import {rootReducerType} from "../../../Redux/store";
 
 // components
-export const ProfileInfo = () => {
+export const ProfileInfo = memo(({profile}: any) => {
 
     // local state
     const status = useSelector<rootReducerType, string>(state => state.profilePage.status)
-    const profile = useSelector<rootReducerType, ProfileType | null>(state => state.profilePage.profile)
-
     const [statusText, setStatusText] = useState<string>(status)
     const [editMode, setEditMode] = useState<boolean>(false)
     const dispatch = useDispatch()
@@ -30,6 +28,7 @@ export const ProfileInfo = () => {
 
     // returns
     if (!profile) return <Preloader isFetching={true}/>
+    console.log(profile)
     return (
         <div>
             <div className={s.pageName}>
@@ -38,7 +37,7 @@ export const ProfileInfo = () => {
             <div className={s.profileInform}>
                 <div className={s.profileInfoLeft}>
                     <div className={s.userLogo}>
-                        {!profile.photos.large ? <BigHead/>:
+                        {!profile.photos.large ? <BigHead/> :
                             <img className={s.avatarUser} src={profile.photos.large} alt={'avatar'}/>}
                     </div>
                     <div className={s.profileInfoTextBox}>
@@ -58,7 +57,7 @@ export const ProfileInfo = () => {
 
                 </div>
                 <div className={s.profileInfoRight}>
-                    {/*{props.profile.aboutMe}*/}
+                    {profile.aboutMe}
 
                     {!editMode
                         ?
@@ -77,4 +76,4 @@ export const ProfileInfo = () => {
             </div>
         </div>
     )
-}
+})

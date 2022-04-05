@@ -70,7 +70,6 @@ export type InitStateType = {
     status: string
 }
 
-
 // initialState
 const initialState: InitStateType = {
     posts: [],
@@ -78,7 +77,6 @@ const initialState: InitStateType = {
     profile: null,
     status: '',
 }
-
 
 // reducer
 export const profileReducer = (state = initialState, action: ActionType): InitStateType => {
