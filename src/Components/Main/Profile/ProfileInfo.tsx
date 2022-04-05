@@ -28,7 +28,7 @@ export const ProfileInfo = memo(({profile}: any) => {
 
     // returns
     if (!profile) return <Preloader isFetching={true}/>
-    console.log(profile)
+
     return (
         <div>
             <div className={s.pageName}>

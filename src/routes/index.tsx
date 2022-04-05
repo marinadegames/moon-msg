@@ -14,6 +14,7 @@ export enum RouteNames {
     // RESET_PASSWORD = '/reset-password',
     // NEW_PASSWORD = '/set-new-password/:token',
     PROFILE = '/profile',
+    FRIENDS = '/friends',
     PROFILE_ID = '/profile/:userId',
 }
 
