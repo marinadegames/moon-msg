@@ -1,16 +1,15 @@
 .cardUser {
     background: var(--backgroundBox);
-    /*box-shadow: var(--shadow);*/
     border: 2px solid var(--backgroundColor);
     border-radius: var(--borderRadiusCustom);
     display: flex;
     justify-content: space-between;
     margin: 0 1rem 0.5rem 0;
     padding: 0.5rem;
-    /*cursor: pointer;*/
     width: 45%;
     transition: 0.05s;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .cardUser:hover {

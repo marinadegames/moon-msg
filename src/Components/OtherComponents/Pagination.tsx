@@ -1,5 +1,5 @@
 // imports
-import React from "react";
+import React, {memo} from "react";
 import s from "../Main/Friends/Friends.module.css";
 
 // types
@@ -12,7 +12,7 @@ type PropsType = {
 
 // component
 
-export const Pagination = (props: PropsType) => {
+export const Pagination = memo((props: PropsType) => {
 
     // counting
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
@@ -35,3 +35,4 @@ export const Pagination = (props: PropsType) => {
         </>
     )
 }
+)

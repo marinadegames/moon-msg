@@ -6,11 +6,11 @@ import {Home} from "../Home/Home";
 import MessagesContainer from "./Messages/MessagesContainer";
 import {Settings} from "./Settings/Settings";
 import {Music} from "./Music/Music";
-import FriendsContainer from "./Friends/FriendsContainer";
 import Login from "../Login/Login";
 import {NotFound404} from "../404/NotFound404";
 import {Profile} from "./Profile/Profile";
 import {RouteNames} from "../../routes";
+import {Friends} from "./Friends/Friends";
 
 
 // components
@@ -24,7 +24,7 @@ export const Main = () => {
                 <Route path={'/messages'} element={<MessagesContainer/>}/>
                 <Route path={'/settings'} element={<Settings/>}/>
                 <Route path={'/Music'} element={<Music/>}/>
-                <Route path={RouteNames.FRIENDS} element={<FriendsContainer/>}/>
+                <Route path={RouteNames.FRIENDS} element={<Friends/>}/>
                 <Route path={RouteNames.LOGIN} element={<Login/>}/>
                 <Route path={'/*'} element={<NotFound404/>}/>
             </Routes>

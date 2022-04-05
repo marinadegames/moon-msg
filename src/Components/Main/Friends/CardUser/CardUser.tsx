@@ -3,6 +3,8 @@ import React, {useCallback} from 'react'
 import s from './CardUser.module.css'
 import {BigHead} from "@bigheads/core";
 import {NavLink} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {followThunkCreator, unfollowThunkCreator} from "../../../../Redux/usersReducer";
 
 // types
 type CardUserPropsType = {
@@ -15,12 +17,9 @@ type CardUserPropsType = {
     followed: boolean
 
     // my
-    onClickFollowHandler: (id: number) => void
-    onClickUnfollowHandler: (id: number) => void
+    // onClickFollowHandler: (id: number) => void
+    // onClickUnfollowHandler: (id: number) => void
     followingInProgress: Array<number>
-    toggleIsFollowingIsProgress: (isFetch: boolean, userId: number) => void
-    followThunkCreator: (id: number) => void
-    unfollowThunkCreator: (id: number) => void
 
     // maybe not
     countryUser?: string | null
@@ -34,25 +33,29 @@ type photoType = {
 
 
 export const CardUser = React.memo((props: CardUserPropsType) => {
+    const dispatch = useDispatch()
 
     // functions
     const TEMP_AVATAR = useCallback(() => {
         return <BigHead/>
     }, [])
+
     const unfollowHandler = useCallback(() => {
-        props.unfollowThunkCreator(props.id)
-    }, [props])
+        dispatch(unfollowThunkCreator(props.id))
+        // dispatch(ToggleIsFollowingIsProgressAC(true, props.id))
+    }, [dispatch, props.id])
 
     const followHandler = useCallback(() => {
-        props.followThunkCreator(props.id)
-    }, [props])
+        dispatch(followThunkCreator(props.id))
+        // dispatch(ToggleIsFollowingIsProgressAC(false, props.id))
+    }, [dispatch, props.id])
 
     // return
     return (
         <div className={s.cardUser} key={props.id}>
             <div className={s.userLogo}>
 
-                <NavLink to={'/friendprofile/' + props.id}>
+                <NavLink to={'/profile/' + props.id}>
                     {props.photos.small === null ? TEMP_AVATAR() :
                         <img alt={'logo'} className={s.userLogoAvatar} src={props.photos.small}/>}
                 </NavLink>

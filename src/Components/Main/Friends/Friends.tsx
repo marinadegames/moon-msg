@@ -1,47 +1,48 @@
 // imports
-import React, {memo} from "react";
+import React, {useEffect} from "react";
 import s from "./Friends.module.css";
 import {CardUser} from "./CardUser/CardUser";
-import {UserType} from "../../../Redux/usersReducer";
+import {getUsersThunkCreator, UserType} from "../../../Redux/usersReducer";
 import {Preloader} from "../../OtherComponents/Preloader";
 import {Pagination} from "../../OtherComponents/Pagination";
-
-// types
-type PropsType = {
-    users: Array<UserType>
-    totalUsersCount: number
-    pageSize: number
-    currentPage: number
-    setCurrentPageHandler: (currentPage: number) => void
-    onClickFollowHandler: (id: number) => void
-    setTotalUserCount: (totalCount: number) => void
-    onClickUnfollowHandler: (id: number) => void
-    isFetching: boolean
-    toggleIsFetching: (isFetching: boolean) => void
-    followingInProgress: Array<number>
-    toggleIsFollowingIsProgress: (isFetch: boolean, userId: number) => void
-    followThunkCreator: (id: number) => void
-    unfollowThunkCreator: (id: number) => void
-}
+import {useDispatch, useSelector} from "react-redux";
+import {rootReducerType} from "../../../Redux/store";
 
 // component
-export const Friends = memo((props: PropsType) => {
+export const Friends = () => {
+
+    const totalUsersCount = useSelector<rootReducerType, any>(state => state.allUsers.totalUsersCount)
+    const pageSize = useSelector<rootReducerType, any>(state => state.allUsers.pageSize)
+    const currentPage = useSelector<rootReducerType, any>(state => state.allUsers.currentPage)
+    const isFetching = useSelector<rootReducerType, any>(state => state.allUsers.isFetching)
+    const users = useSelector<rootReducerType, UserType[]>(state => state.allUsers.users)
+    const followingInProgress = useSelector<rootReducerType, any>(state => state.allUsers.followingInProgress)
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getUsersThunkCreator(currentPage,pageSize))
+    }, [dispatch, currentPage, pageSize])
+
+    const setCurrentPageHandler = () => {
+        dispatch(getUsersThunkCreator(currentPage, pageSize))
+    }
 
     //return
+    if (isFetching) return <Preloader isFetching={true}/>
     return (
         <div>
             <div className={s.pageName}>Friends</div>
-            <Pagination totalUsersCount={props.totalUsersCount}
-                        pageSize={props.pageSize}
-                        currentPage={props.currentPage}
-                        setCurrentPageHandler={props.setCurrentPageHandler}
+            <Pagination totalUsersCount={totalUsersCount}
+                        pageSize={pageSize}
+                        currentPage={currentPage}
+                        setCurrentPageHandler={setCurrentPageHandler}
             />
-            {props.isFetching
-                ? <Preloader isFetching={props.isFetching}/>
+            {isFetching
+                ? <Preloader isFetching={isFetching}/>
                 :
                 <>
                     <div className={s.mainUsers}>
-                        {props.users.map((user: UserType) => {
+                        {users.map((user: UserType) => {
                             return (
                                 <CardUser name={user.name}
                                           key={user.id}
@@ -50,12 +51,7 @@ export const Friends = memo((props: PropsType) => {
                                           photos={user.photos}
                                           status={user.status}
                                           followed={user.followed}
-                                          onClickFollowHandler={props.onClickFollowHandler}
-                                          onClickUnfollowHandler={props.onClickUnfollowHandler}
-                                          followingInProgress={props.followingInProgress}
-                                          toggleIsFollowingIsProgress={props.toggleIsFollowingIsProgress}
-                                          followThunkCreator={props.followThunkCreator}
-                                          unfollowThunkCreator={props.unfollowThunkCreator}
+                                          followingInProgress={followingInProgress}
                                 />
                             )
                         })}
@@ -66,4 +62,4 @@ export const Friends = memo((props: PropsType) => {
 
         </div>
     )
-})
+}
