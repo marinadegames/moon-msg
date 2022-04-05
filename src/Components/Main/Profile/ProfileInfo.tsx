@@ -1,23 +1,22 @@
 // import
 import React, {useCallback, useState} from "react";
 import s from './Profile.module.css'
-import {ProfileType} from "../../../Redux/profileReducer";
+import {ProfileType, updateStatusTC} from "../../../Redux/profileReducer";
 import {BigHead} from "@bigheads/core";
 import {Preloader} from "../../OtherComponents/Preloader";
-
-// types
-type ProfileInfoPropsType = {
-    profile: ProfileType | null
-    status: string
-    updateStatus: (status: string) => void
-}
+import {useDispatch, useSelector} from "react-redux";
+import {rootReducerType} from "../../../Redux/store";
 
 // components
-export const ProfileInfo = (props: ProfileInfoPropsType) => {
+export const ProfileInfo = () => {
 
     // local state
-    const [statusText, setStatusText] = useState<string>(props.status)
+    const status = useSelector<rootReducerType, string>(state => state.profilePage.status)
+    const profile = useSelector<rootReducerType, ProfileType | null>(state => state.profilePage.profile)
+
+    const [statusText, setStatusText] = useState<string>(status)
     const [editMode, setEditMode] = useState<boolean>(false)
+    const dispatch = useDispatch()
 
     // functions
     const changeInputValue = useCallback((e: string) => {
@@ -26,35 +25,31 @@ export const ProfileInfo = (props: ProfileInfoPropsType) => {
 
     const updateStatusHandler = () => {
         setEditMode(false)
-        props.updateStatus(statusText)
+        dispatch(updateStatusTC(statusText))
     }
 
-    // const TEMP_AVATAR = useCallback(() => (
-    //     <BigHead/>
-    // ), [])
-
     // returns
-    if (!props.profile) return <Preloader isFetching={true}/>
+    if (!profile) return <Preloader isFetching={true}/>
     return (
         <div>
             <div className={s.pageName}>
-                <div>USER: {props.profile.fullName}</div>
+                <div>USER: {profile.fullName}</div>
             </div>
             <div className={s.profileInform}>
                 <div className={s.profileInfoLeft}>
                     <div className={s.userLogo}>
-                        {!props.profile.photos.large ? <BigHead/>:
-                            <img className={s.avatarUser} src={props.profile.photos.large} alt={'avatar'}/>}
+                        {!profile.photos.large ? <BigHead/>:
+                            <img className={s.avatarUser} src={profile.photos.large} alt={'avatar'}/>}
                     </div>
                     <div className={s.profileInfoTextBox}>
-                        <div className={s.userName}>{props.profile.fullName}</div>
-                        <div className={s.userLocation}>{props.profile.contacts.mainLink}</div>
-                        <div className={s.userLocation}>{props.profile.contacts.github}</div>
-                        <div className={s.userLocation}>{props.profile.contacts.youtube}</div>
+                        <div className={s.userName}>{profile.fullName}</div>
+                        <div className={s.userLocation}>{profile.contacts.mainLink}</div>
+                        <div className={s.userLocation}>{profile.contacts.github}</div>
+                        <div className={s.userLocation}>{profile.contacts.youtube}</div>
                         <div className={s.userWebsite}>
-                            <a href={`mailto:${props.profile.contacts.website}`}>{props.profile.contacts.website}</a>
+                            <a href={`mailto:${profile.contacts.website}`}>{profile.contacts.website}</a>
                         </div>
-                        {props.profile.lookingForAJob ?
+                        {profile.lookingForAJob ?
                             <div className={s.lookingForAJob}>
                                 Looking for job in the moment
                             </div>
@@ -68,10 +63,8 @@ export const ProfileInfo = (props: ProfileInfoPropsType) => {
                     {!editMode
                         ?
                         <div className={s.userSlogan}
-                             onDoubleClick={() => setEditMode(true)}
-                        >{statusText}
+                             onDoubleClick={() => setEditMode(true)}>{statusText}
                         </div>
-
                         :
                         <input className={s.editStatusInput}
                                onBlur={updateStatusHandler}

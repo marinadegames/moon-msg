@@ -6,7 +6,7 @@
 
 This repository for my social network `Moon!msg`!
 
-![GitHub Light](src/Assets/pres.png)
+![GitHub Light](src/assets/pres.png)
 
 ### Updates:
 

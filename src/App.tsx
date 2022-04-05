@@ -2,7 +2,6 @@
 import React, {memo, useEffect} from 'react';
 import './App.module.css';
 import s from './App.module.css'
-import {BrowserRouter} from "react-router-dom";
 import {LeftSideBar} from "./Components/LeftSideBar/LeftSideBar";
 import {Main} from "./Components/Main/Main";
 import HeaderContainer from './Components/Header/HeaderContainer';

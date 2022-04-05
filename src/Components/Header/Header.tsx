@@ -1,7 +1,7 @@
 // import
 import React from "react";
 import s from './Header.module.css'
-import moon from '../../Assets/moon.png'
+import moon from '../../assets/moon.png'
 import {NavLink} from "react-router-dom";
 import {BigHead} from "@bigheads/core";
 

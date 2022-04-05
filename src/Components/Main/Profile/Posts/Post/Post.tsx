@@ -2,9 +2,9 @@
 import React from "react";
 import s from './Post.module.css'
 import {BigHead} from "@bigheads/core";
-import like from '../../../../../Assets/like.png'
-import comments from '../../../../../Assets/msg.png'
-import shareIcon from '../../../../../Assets/share.png'
+import like from '../../../../../assets/like.png'
+import comments from '../../../../../assets/msg.png'
+import shareIcon from '../../../../../assets/share.png'
 
 // types
 type PostPropsType = {

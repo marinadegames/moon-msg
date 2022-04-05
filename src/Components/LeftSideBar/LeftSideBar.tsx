@@ -1,23 +1,24 @@
 // import
 import React, {useState} from "react";
 import s from './LeftSideBar.module.css'
+import {NavLink} from "react-router-dom";
 
 // imports icons
-import profileIcon from '../../Assets/iconProfile.png'
-import messagesIcon from '../../Assets/msg.png'
-import musicIcon from '../../Assets/musicIcon.png'
-import FriendsIcon from '../../Assets/people.png'
-import SettingsIcon from '../../Assets/keypng.png'
-import HomeIcon from '../../Assets/home.png'
-import {NavLink} from "react-router-dom";
+import profileIcon from '../../assets/iconProfile.png'
+import messagesIcon from '../../assets/msg.png'
+import musicIcon from '../../assets/musicIcon.png'
+import FriendsIcon from '../../assets/people.png'
+import SettingsIcon from '../../assets/keypng.png'
+import HomeIcon from '../../assets/home.png'
+
 
 // types
 type statusPageActiveType = 'PROFILE' | 'MESSAGES' | 'MUSIC' | 'FRIENDS' | 'SETTINGS' | 'HOME'
-// assets
+
 
 // components
 
-export const LeftSideBar = function () {
+export const LeftSideBar = ()  => {
 
     const [activeItemMenu, setActiveItemMenu] = useState('HOME')
 

@@ -1,5 +1,5 @@
 // imports
-import preloader from "../../Assets/preloader.gif";
+import preloader from "../../assets/preloader.gif";
 import React, {memo} from "react";
 
 

@@ -67,7 +67,7 @@ export type InitStateType = {
     posts: Array<any> | null
     newPostText: string
     profile: ProfileType | null
-    status?: string
+    status: string
 }
 
 
@@ -123,7 +123,7 @@ export const getStatusThunkCreator = (userId: number) => {
             })
     }
 }
-export const updateStatusThunkCreator = (status: string) => {
+export const updateStatusTC = (status: string) => {
     return (dispatch: Dispatch) => {
         profileAPI.updateStatus(status)
             .then(resp => {
