@@ -1,12 +1,6 @@
-export type InitialStateAuthType = {
-    initialized: boolean
-}
-type ActionType = ReturnType<typeof InitializedAC>
-
 let initialState: InitialStateAuthType = {
     initialized: false,
 }
-
 export const authReducer = (state = initialState, action: ActionType): InitialStateAuthType => {
     switch (action.type) {
         case "INITIALIZED_APP":
@@ -16,3 +10,8 @@ export const authReducer = (state = initialState, action: ActionType): InitialSt
     }
 }
 export const InitializedAC = () => ({type: 'INITIALIZED_APP'} as const)
+
+type ActionType = ReturnType<typeof InitializedAC>
+export type InitialStateAuthType = {
+    initialized: boolean
+}

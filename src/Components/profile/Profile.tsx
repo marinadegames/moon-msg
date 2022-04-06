@@ -2,7 +2,7 @@
 
 
 // components
-import {ProfileType, setUserProfileThunkCreator} from "../../redux/profileReducer";
+import {ProfileType, setUserProfileTC} from "../../redux/profileReducer";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {rootReducerType} from "../../redux/store";
@@ -18,7 +18,7 @@ export const Profile = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        if (userId) dispatch(setUserProfileThunkCreator(Number(userId)))
+        if (userId) dispatch(setUserProfileTC(Number(userId)))
     }, [userId, dispatch])
 
     if (!isAuth) return <Navigate to={RouteNames.LOGIN}/>

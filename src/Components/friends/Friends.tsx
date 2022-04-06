@@ -6,7 +6,7 @@ import {Pagination} from "../otherComponents/Pagination";
 import {Preloader} from "../otherComponents/Preloader";
 import {CardUser} from "./cardUser/CardUser";
 import {rootReducerType} from "../../redux/store";
-import {getUsersThunkCreator, UserType} from "../../redux/usersReducer";
+import {getUsersTC, UserType} from "../../redux/usersReducer";
 import {Navigate} from "react-router-dom";
 import {RouteNames} from "../../routes";
 
@@ -24,11 +24,11 @@ export const Friends = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(getUsersThunkCreator(currentPage, pageSize))
+        dispatch(getUsersTC(currentPage, pageSize))
     }, [dispatch, currentPage, pageSize])
 
     const setCurrentPageHandler = useCallback((p: number) => {
-        dispatch(getUsersThunkCreator(p, pageSize))
+        dispatch(getUsersTC(p, pageSize))
     }, [dispatch, pageSize])
 
     //return

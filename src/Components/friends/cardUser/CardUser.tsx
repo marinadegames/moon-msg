@@ -3,7 +3,7 @@ import React, {useCallback} from 'react'
 import s from './CardUser.module.css'
 import {Link} from "react-router-dom";
 import {useDispatch} from "react-redux";
-import {followThunkCreator, unfollowThunkCreator} from "../../../redux/usersReducer";
+import {followTC, unfollowTC} from "../../../redux/usersReducer";
 import {Anonymous} from "../../../utils/BigHeadsFile";
 
 // types
@@ -27,10 +27,10 @@ type photoType = {
 export const CardUser = React.memo((props: CardUserPropsType) => {
     const dispatch = useDispatch()
     const unfollowHandler = useCallback(() => {
-        dispatch(unfollowThunkCreator(props.id))
+        dispatch(unfollowTC(props.id))
     }, [dispatch, props.id])
     const followHandler = useCallback(() => {
-        dispatch(followThunkCreator(props.id))
+        dispatch(followTC(props.id))
     }, [dispatch, props.id])
 
     return (
