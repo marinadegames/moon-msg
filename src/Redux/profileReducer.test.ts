@@ -1,5 +1,5 @@
 // imports
-import {InitStateType, profileReducer, ProfileType, SetUserProfileAC} from "./profileReducer";
+import {InitStateType, profileReducer, ProfileType, SetStatusProfileAC, SetUserProfileAC} from "./profileReducer";
 
 
 // start state
@@ -46,4 +46,9 @@ test( 'SET USER PROFILE', () => {
     const endState = profileReducer(startState, action)
     expect(endState.profile).toBe(newUser)
 })
-
+test('UPDATE STATUS', () => {
+    const newStatus = 'NEW STATUS!'
+    const action = SetStatusProfileAC(newStatus)
+    const endState = profileReducer(startState, action)
+    expect(endState.status).toBe(newStatus)
+})

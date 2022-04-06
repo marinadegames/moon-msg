@@ -32,6 +32,8 @@
 }
 
 .profileInfoRight {
+    font-size: 25px;
+    color: white;
     width: 50%;
 }
 
@@ -80,7 +82,7 @@
 }
 
 .editStatusInput {
-    font-size: 30px;
+    font-size: 20px;
     padding: 10px;
     height: 40px;
     width: 400px;
@@ -128,7 +130,8 @@
 }
 
 .editStatusInput {
-    font-size: 30px;
+    outline: none;
+    font-size: 20px;
     font-weight: 700;
     padding: 10px;
     height: 40px;
@@ -136,4 +139,18 @@
     border-radius: var(--borderRadiusCustom);
     border: 2px solid var(--generalColor);
     color: var(--generalColor);
+}
+.setStatusButton {
+    font-size: 20px;
+    font-weight: 700;
+    padding: 7px 10px;
+    cursor: pointer;
+    border-radius: var(--borderRadiusCustom);
+    border: 2px solid var(--generalColor);
+    color: var(--generalColor);
+    transition: 0.2s;
+}
+.setStatusButton:hover{
+    background-color: var(--generalColor);
+    color: white;
 }

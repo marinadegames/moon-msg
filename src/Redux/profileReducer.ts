@@ -57,8 +57,10 @@ export const getStatusTC = (userId: number) => async (dispatch: Dispatch) => {
 export const updateStatusTC = (status: string) => async (dispatch: Dispatch) => {
     try {
         const res = await profileAPI.updateStatus(status)
+        console.log(res)
         if (res.data.resultCode === 0) {
-            dispatch(SetStatusProfileAC(res.data))
+            dispatch(SetStatusProfileAC(status))
+            console.log(res.data)
         }
     }
     catch {

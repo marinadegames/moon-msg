@@ -1,35 +1,37 @@
 // import
 import React, {memo, useCallback, useState} from "react";
 import s from './me.module.css'
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {Preloader} from "../otherComponents/Preloader";
-import {rootReducerType} from "../../redux/store";
 import {Anonymous} from "../../utils/BigHeadsFile";
-import {updateStatusTC} from "../../redux/profileReducer";
+import {ProfileType, updateStatusTC} from "../../redux/profileReducer";
 
+type PropsType = {
+    profile: ProfileType | null
+    status: string
+}
 
-// components
-export const MeInfo = memo(({profile}: any) => {
+export const MeInfo = memo(({profile, status}: PropsType) => {
 
-    // local state
-    const status = useSelector<rootReducerType, string>(state => state.profilePage.status)
     const [statusText, setStatusText] = useState<string>(status)
     const [editMode, setEditMode] = useState<boolean>(false)
     const dispatch = useDispatch()
 
-    // functions
     const changeInputValue = useCallback((e: string) => {
         setStatusText(e)
     }, [])
 
-    const updateStatusHandler = () => {
-        setEditMode(false)
-        dispatch(updateStatusTC(statusText))
+    const changeEditMode = () => {
+        setStatusText(status)
+        setEditMode(true)
     }
 
-    // returns
-    if (!profile) return <Preloader isFetching={true}/>
+    const updateStatusHandler = useCallback(() => {
+        setEditMode(false)
+        dispatch(updateStatusTC(statusText))
+    }, [dispatch, statusText])
 
+    if (!profile) return <Preloader isFetching={true}/>
     return (
         <div>
             <div className={s.pageName}>
@@ -49,31 +51,23 @@ export const MeInfo = memo(({profile}: any) => {
                         <div className={s.userWebsite}>
                             <a href={`mailto:${profile.contacts.website}`}>{profile.contacts.website}</a>
                         </div>
-                        {profile.lookingForAJob ?
+                        {profile.lookingForAJob &&
                             <div className={s.lookingForAJob}>
                                 Looking for job in the moment
-                            </div>
-                            : null}
+                            </div>}
                     </div>
-
                 </div>
                 <div className={s.profileInfoRight}>
-                    {profile.aboutMe}
-
-                    {!editMode
-                        ?
-                        <div className={s.userSlogan}
-                             onDoubleClick={() => setEditMode(true)}>{statusText}
-                        </div>
-                        :
-                        <input className={s.editStatusInput}
-                               onBlur={updateStatusHandler}
-                               autoFocus={true}
-                               onChange={(e) => changeInputValue(e.currentTarget.value)}
-                               value={statusText}/>
-                    }
-
+                    {!editMode && <span className={s.userSlogan}>{status}</span>}
+                    {editMode
+                        && <>
+                            <input className={s.editStatusInput}
+                                   value={statusText}
+                                   onChange={e => changeInputValue(e.currentTarget.value)}/>
+                            <button className={s.setStatusButton} style={{margin: '10px 0 0 0'}} onClick={updateStatusHandler}>save</button>
+                        </>}
                 </div>
+                {!editMode && <button onClick={changeEditMode} className={s.setStatusButton}>Edit status</button>}
             </div>
         </div>
     )
