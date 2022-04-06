@@ -1,7 +1,7 @@
 // imports
 import React, {useCallback} from 'react'
 import s from './CardUser.module.css'
-import {NavLink} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {followThunkCreator, unfollowThunkCreator} from "../../../redux/usersReducer";
 import {Anonymous} from "../../../redux/BigHeadsFile";
@@ -41,10 +41,10 @@ export const CardUser = React.memo((props: CardUserPropsType) => {
     return (
         <div className={s.cardUser} key={props.id}>
             <div className={s.userLogo}>
-                <NavLink to={'/profile/' + props.id}>
+                <Link to={'/profile/' + props.id}>
                     {props.photos.small === null ? Anonymous() :
                         <img alt={'logo'} className={s.userLogoAvatar} src={props.photos.small}/>}
-                </NavLink>
+                </Link>
             </div>
             <div className={s.userInformText}>
                 <h3 className={s.userName}>{props.name}</h3>

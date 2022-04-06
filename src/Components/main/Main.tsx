@@ -13,10 +13,7 @@ import {Profile} from "../profile/Profile";
 import {Settings} from "../settings/Settings";
 import {Me} from "../me/me";
 
-
-// components
 export const Main = () => {
-
     return (
         <div className={s.Main}>
             <Routes>
@@ -30,7 +27,6 @@ export const Main = () => {
                 <Route path={RouteNames.LOGIN} element={<Login/>}/>
                 <Route path={'/*'} element={<NotFound404/>}/>
             </Routes>
-
         </div>
     )
 }

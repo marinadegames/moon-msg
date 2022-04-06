@@ -18,9 +18,7 @@ export const Me = () => {
         if (id) dispatch(setUserProfileThunkCreator(id))
     }, [id, dispatch])
 
-    if (!isAuth) {
-        return <Navigate to={RouteNames.LOGIN}/>
-    }
+    if (!isAuth) return <Navigate to={RouteNames.LOGIN}/>
 
     return (
         <div>

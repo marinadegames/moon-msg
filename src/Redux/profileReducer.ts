@@ -1,4 +1,3 @@
-// imports
 import {Dispatch} from "redux";
 import {profileAPI} from "../components/api/API";
 
@@ -8,7 +7,6 @@ const SET_USER_PROFILE = 'SET_USER_PROFILE'
 const SET_STATUS = 'SET_STATUS'
 
 // ============= types
-
 // Action types
 type ActionType =
     SetStatusActionType
@@ -91,7 +89,6 @@ export const profileReducer = (state = initialState, action: ActionType): InitSt
             return state
     }
 }
-
 
 // Action Creators
 export const AddPostAC = (newText: string, userId: number): AddPostActionType => {

@@ -1,7 +1,6 @@
 // import
 import React, {useState} from "react";
 import s from './LeftSideBar.module.css'
-import {NavLink} from "react-router-dom";
 
 // imports icons
 import profileIcon from '../../assets/iconProfile.png'
@@ -11,15 +10,16 @@ import FriendsIcon from '../../assets/people.png'
 import SettingsIcon from '../../assets/keypng.png'
 import HomeIcon from '../../assets/home.png'
 import {RouteNames} from "../../routes";
+import {ItemMenu} from "./ItemMenu";
 
 
 // types
-type statusPageActiveType = 'PROFILE' | 'MESSAGES' | 'MUSIC' | 'FRIENDS' | 'SETTINGS' | 'HOME' | 'ME'
+export type statusPageActiveType = 'PROFILE' | 'MESSAGES' | 'MUSIC' | 'FRIENDS' | 'SETTINGS' | 'HOME' | 'ME'
 
 
 // components
 
-export const LeftSideBar = ()  => {
+export const LeftSideBar = () => {
 
     const [activeItemMenu, setActiveItemMenu] = useState('HOME')
 
@@ -35,84 +35,42 @@ export const LeftSideBar = ()  => {
 
     return (
         <div className={s.LeftSideBar}>
-
-            <NavLink className={(params) => params.isActive ? s.menuItemACTIVE : s.menuItem}
-                     onClick={() => changeStatusItemMenu('HOME')}
-                     to={'/'}>
-                <img src={HomeIcon} height='50px' width='50px' alt={'HomeIcon'}/>
-                Home
-                {activeItemMenu === 'HOME' ?
-                    <div className={s.boxVerticalLineActive}>
-                        <div className={s.verticalLineActive}/>
-                    </div> : <div/>
-                }
-            </NavLink>
-
-            <NavLink className={(params) => params.isActive ? s.menuItemACTIVE : s.menuItem}
-                     onClick={() => changeStatusItemMenu('ME')}
-                     to={RouteNames.ME}>
-                <img src={profileIcon} height='50px' width='50px' alt={'profileIcon'}/>
-                Profile
-                {activeItemMenu === 'ME' ?
-                    <div className={s.boxVerticalLineActive}>
-                        <div className={s.verticalLineActive}/>
-                    </div> : <div/>
-                }
-            </NavLink>
-
-
-            <NavLink className={(params) => params.isActive ? s.menuItemACTIVE : s.menuItem}
-                     onClick={() => changeStatusItemMenu('MESSAGES')}
-                     to={'/messages'}>
-                <img src={messagesIcon} height='50px' width='50px' alt={'messagesIcon'}/>
-                Messages
-                {activeItemMenu === 'MESSAGES' ?
-                    <div className={s.boxVerticalLineActive}>
-                        <div className={s.verticalLineActive}/>
-                    </div> : <div/>
-                }
-            </NavLink>
-
-            <NavLink className={(params) => params.isActive ? s.menuItemACTIVE : s.menuItem}
-                     onClick={() => changeStatusItemMenu('MUSIC')}
-                     to={'/music'}>
-                <img src={musicIcon} height='50px' width='50px' alt={'musicIcon'}/>
-                Music
-                {activeItemMenu === 'MUSIC'
-                    ? <div className={s.boxVerticalLineActive}>
-                        <div className={s.verticalLineActive}/>
-                    </div>
-                    : <div/>
-                }
-            </NavLink>
-
-            <NavLink className={(params) => params.isActive ? s.menuItemACTIVE : s.menuItem}
-                     onClick={() => changeStatusItemMenu('FRIENDS')}
-                     to={'/friends'}>
-                <img src={FriendsIcon} height='50px' width='50px' alt={'FriendsIcon'}/>
-                Friends
-                {activeItemMenu === 'FRIENDS'
-                    ? <div className={s.boxVerticalLineActive}>
-                        <div className={s.verticalLineActive}/>
-                    </div>
-                    : <div/>
-                }
-            </NavLink>
-
-            <NavLink className={(params) => params.isActive ? s.menuItemACTIVE : s.menuItem}
-                     onClick={() => changeStatusItemMenu('SETTINGS')}
-                     to={'/settings'}>
-                <img src={SettingsIcon} height='50px' width='50px' alt={'SettingsIcon'}/>
-                Settings
-                {activeItemMenu === 'SETTINGS'
-                    ? <div className={s.boxVerticalLineActive}>
-                        <div className={s.verticalLineActive}/>
-                    </div>
-                    : <div/>
-                }
-            </NavLink>
-
-
+            <ItemMenu name={'HOME'}
+                      changeStatusItemMenu={changeStatusItemMenu}
+                      img={HomeIcon}
+                      activeItemMenu={activeItemMenu}
+                      link={'/'}
+                      title={'Home'}/>
+            <ItemMenu name={'ME'}
+                      title={'My profile'}
+                      changeStatusItemMenu={changeStatusItemMenu}
+                      img={profileIcon}
+                      activeItemMenu={activeItemMenu}
+                      link={RouteNames.ME}/>
+            <ItemMenu name={'MESSAGES'}
+                      title={'Messages'}
+                      changeStatusItemMenu={changeStatusItemMenu}
+                      img={messagesIcon}
+                      activeItemMenu={activeItemMenu}
+                      link={RouteNames.MESSAGES}/>
+            <ItemMenu name={'MUSIC'}
+                      title={'Music'}
+                      changeStatusItemMenu={changeStatusItemMenu}
+                      img={musicIcon}
+                      activeItemMenu={activeItemMenu}
+                      link={RouteNames.MUSIC}/>
+            <ItemMenu name={'FRIENDS'}
+                      title={'Friends'}
+                      changeStatusItemMenu={changeStatusItemMenu}
+                      img={FriendsIcon}
+                      activeItemMenu={activeItemMenu}
+                      link={RouteNames.FRIENDS}/>
+            <ItemMenu name={'SETTINGS'}
+                      title={'Settings'}
+                      changeStatusItemMenu={changeStatusItemMenu}
+                      img={SettingsIcon}
+                      activeItemMenu={activeItemMenu}
+                      link={RouteNames.SETTINGS}/>
         </div>
     )
 }

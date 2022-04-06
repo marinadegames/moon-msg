@@ -9,13 +9,12 @@ export enum RouteNames {
     HOME = '/',
     LOGIN = '/login',
     NOT_FOUND = '/*',
-    // SIGN_IN = '/sign-in',
-    // SIGN_UP = '/sign-up',
-    // RESET_PASSWORD = '/reset-password',
-    // NEW_PASSWORD = '/set-new-password/:token',
+    MESSAGES = '/messages',
     PROFILE = '/profile/:userId',
     ME = '/me',
     FRIENDS = '/friends',
+    MUSIC = '/music',
+    SETTINGS = '/settings',
 }
 
 export const routes: IRoute[] = [

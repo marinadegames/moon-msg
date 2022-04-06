@@ -18,10 +18,8 @@ export const Profile = () => {
     const profile = useSelector<rootReducerType, ProfileType | null>(state => state.profilePage.profile)
     const dispatch = useDispatch()
 
-
     useEffect(() => {
         if (userId) dispatch(setUserProfileThunkCreator(Number(userId)))
-
     }, [userId, dispatch])
 
     if (!isAuth) return <Navigate to={RouteNames.LOGIN}/>
