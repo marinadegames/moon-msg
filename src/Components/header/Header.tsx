@@ -3,7 +3,7 @@ import React from "react";
 import s from './Header.module.css'
 import moon from '../../assets/moon.png'
 import {NavLink} from "react-router-dom";
-import {Anonymous} from "../../redux/BigHeadsFile";
+import {Anonymous} from "../../utils/BigHeadsFile";
 
 
 // assets

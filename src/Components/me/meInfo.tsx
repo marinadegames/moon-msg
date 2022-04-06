@@ -4,7 +4,7 @@ import s from './me.module.css'
 import {useDispatch, useSelector} from "react-redux";
 import {Preloader} from "../otherComponents/Preloader";
 import {rootReducerType} from "../../redux/store";
-import {Anonymous} from "../../redux/BigHeadsFile";
+import {Anonymous} from "../../utils/BigHeadsFile";
 import {updateStatusTC} from "../../redux/profileReducer";
 
 

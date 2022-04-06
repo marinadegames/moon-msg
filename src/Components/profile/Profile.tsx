@@ -5,7 +5,6 @@
 import {ProfileType, setUserProfileThunkCreator} from "../../redux/profileReducer";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {Posts} from "../posts/Posts";
 import {rootReducerType} from "../../redux/store";
 import {ProfileInfo} from "./ProfileInfo";
 import {RouteNames} from "../../routes";
@@ -28,7 +27,6 @@ export const Profile = () => {
     return (
         <div>
             <ProfileInfo profile={profile}/>
-            <Posts profile={profile}/>
         </div>
     )
 }

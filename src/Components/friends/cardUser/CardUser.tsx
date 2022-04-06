@@ -4,7 +4,7 @@ import s from './CardUser.module.css'
 import {Link} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {followThunkCreator, unfollowThunkCreator} from "../../../redux/usersReducer";
-import {Anonymous} from "../../../redux/BigHeadsFile";
+import {Anonymous} from "../../../utils/BigHeadsFile";
 
 // types
 type CardUserPropsType = {
@@ -24,16 +24,11 @@ type photoType = {
     large: string | null
 }
 // component
-
-
 export const CardUser = React.memo((props: CardUserPropsType) => {
-
     const dispatch = useDispatch()
-
     const unfollowHandler = useCallback(() => {
         dispatch(unfollowThunkCreator(props.id))
     }, [dispatch, props.id])
-
     const followHandler = useCallback(() => {
         dispatch(followThunkCreator(props.id))
     }, [dispatch, props.id])

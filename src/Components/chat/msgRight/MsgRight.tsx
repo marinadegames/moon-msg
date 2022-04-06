@@ -1,6 +1,6 @@
 import React from "react";
 import s from './MsgRight.module.css'
-import {Anonymous} from "../../../redux/BigHeadsFile";
+import {Anonymous} from "../../../utils/BigHeadsFile";
 import {MessageType} from "../../../redux/dialogsReducer";
 
 

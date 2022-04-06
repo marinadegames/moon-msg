@@ -155,7 +155,6 @@ export const followThunkCreator = (id: number) => {
                 console.warn(error)
             })
     }
-
 }
 export const unfollowThunkCreator = (id: number) => {
     return (dispatch: Dispatch) => {
@@ -171,5 +170,4 @@ export const unfollowThunkCreator = (id: number) => {
                 console.warn(error)
             })
     }
-
 }

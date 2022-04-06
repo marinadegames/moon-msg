@@ -1,7 +1,7 @@
 // import
 import React from "react";
 import s from './MsgLeft.module.css'
-import {ElinaMalina} from "../../../redux/BigHeadsFile";
+import {ElinaMalina} from "../../../utils/BigHeadsFile";
 import {MessageType} from "../../../redux/dialogsReducer";
 
 

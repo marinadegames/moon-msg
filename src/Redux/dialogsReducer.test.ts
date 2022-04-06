@@ -29,10 +29,8 @@ const startState: AllMessagesType = {
 
 // tests
 test('SEND MESSAGE', () => {
-
     const newTextMessage = "IT'S MY CAR!!!"
     const action = SendMessageAC(newTextMessage)
     const endState = dialogsReducer(startState, action)
-
     expect(endState.RIGHT[1].message).toBe(newTextMessage)
 })

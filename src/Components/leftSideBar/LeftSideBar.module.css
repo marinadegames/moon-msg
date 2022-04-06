@@ -1,6 +1,5 @@
 .LeftSideBar {
-    position: fixed;
-    padding: 4.5rem 2rem 2rem 2rem;
+    padding: 1rem 2rem 2rem 2rem;
     width: auto;
     text-decoration: none;
 }
@@ -47,7 +46,7 @@
     border-radius: var(--borderRadiusCustom);
     padding: 1rem 0 1rem 1.5rem;
     margin: 0 0 0.3rem 0;
-    width: 250px;
+    width: 300px;
     color: white;
     font-style: normal;
     font-weight: 500;

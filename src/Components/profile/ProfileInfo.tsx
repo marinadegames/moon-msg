@@ -4,12 +4,14 @@ import s from './Profile.module.css'
 import {useDispatch, useSelector} from "react-redux";
 import {Preloader} from "../otherComponents/Preloader";
 import {rootReducerType} from "../../redux/store";
-import {Anonymous} from "../../redux/BigHeadsFile";
-import {updateStatusTC} from "../../redux/profileReducer";
+import {Anonymous} from "../../utils/BigHeadsFile";
+import {ProfileType, updateStatusTC} from "../../redux/profileReducer";
 
-
+type PropsType = {
+    profile: ProfileType | null
+}
 // components
-export const ProfileInfo = memo(({profile}: any) => {
+export const ProfileInfo = memo(({profile}: PropsType) => {
 
     // local state
     const status = useSelector<rootReducerType, string>(state => state.profilePage.status)
