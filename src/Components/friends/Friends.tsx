@@ -7,6 +7,8 @@ import {Preloader} from "../otherComponents/Preloader";
 import {CardUser} from "./cardUser/CardUser";
 import {rootReducerType} from "../../redux/store";
 import {getUsersThunkCreator, UserType} from "../../redux/usersReducer";
+import {Navigate} from "react-router-dom";
+import {RouteNames} from "../../routes";
 
 // component
 export const Friends = () => {
@@ -17,6 +19,8 @@ export const Friends = () => {
     const isFetching = useSelector<rootReducerType, boolean>(state => state.allUsers.isFetching)
     const users = useSelector<rootReducerType, UserType[]>(state => state.allUsers.users)
     const followingInProgress = useSelector<rootReducerType, number[]>(state => state.allUsers.followingInProgress)
+    const isAuth = useSelector<rootReducerType, boolean>(state => state.auth.isAuth)
+
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -28,6 +32,9 @@ export const Friends = () => {
     }, [dispatch, pageSize])
 
     //return
+    if (!isAuth) {
+        return <Navigate to={RouteNames.LOGIN}/>
+    }
     if (isFetching) return <Preloader isFetching={true}/>
     return (
         <div>

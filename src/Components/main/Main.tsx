@@ -11,16 +11,18 @@ import {Home} from "../home/Home";
 import {RouteNames} from "../../routes";
 import {Profile} from "../profile/Profile";
 import {Settings} from "../settings/Settings";
+import {Me} from "../me/me";
 
 
 // components
 export const Main = () => {
+
     return (
         <div className={s.Main}>
-
             <Routes>
                 <Route path={RouteNames.HOME} element={<Home/>}/>
-                <Route path={RouteNames.PROFILE} element={<Profile/>}/>
+                <Route path={`profile/:userId`} element={<Profile/>}/>
+                <Route path={RouteNames.ME} element={<Me/>}/>
                 <Route path={'/messages'} element={<MessagesContainer/>}/>
                 <Route path={'/settings'} element={<Settings/>}/>
                 <Route path={'/music'} element={<Music/>}/>

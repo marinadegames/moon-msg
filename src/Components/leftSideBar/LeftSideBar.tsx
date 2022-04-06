@@ -10,10 +10,11 @@ import musicIcon from '../../assets/musicIcon.png'
 import FriendsIcon from '../../assets/people.png'
 import SettingsIcon from '../../assets/keypng.png'
 import HomeIcon from '../../assets/home.png'
+import {RouteNames} from "../../routes";
 
 
 // types
-type statusPageActiveType = 'PROFILE' | 'MESSAGES' | 'MUSIC' | 'FRIENDS' | 'SETTINGS' | 'HOME'
+type statusPageActiveType = 'PROFILE' | 'MESSAGES' | 'MUSIC' | 'FRIENDS' | 'SETTINGS' | 'HOME' | 'ME'
 
 
 // components
@@ -29,6 +30,7 @@ export const LeftSideBar = ()  => {
         else if (pageActive === 'FRIENDS') setActiveItemMenu('FRIENDS')
         else if (pageActive === 'SETTINGS') setActiveItemMenu('SETTINGS')
         else if (pageActive === 'HOME') setActiveItemMenu('HOME')
+        else if (pageActive === 'ME') setActiveItemMenu('ME')
     }
 
     return (
@@ -47,11 +49,11 @@ export const LeftSideBar = ()  => {
             </NavLink>
 
             <NavLink className={(params) => params.isActive ? s.menuItemACTIVE : s.menuItem}
-                     onClick={() => changeStatusItemMenu('PROFILE')}
-                     to={'/profile'}>
+                     onClick={() => changeStatusItemMenu('ME')}
+                     to={RouteNames.ME}>
                 <img src={profileIcon} height='50px' width='50px' alt={'profileIcon'}/>
                 Profile
-                {activeItemMenu === 'PROFILE' ?
+                {activeItemMenu === 'ME' ?
                     <div className={s.boxVerticalLineActive}>
                         <div className={s.verticalLineActive}/>
                     </div> : <div/>

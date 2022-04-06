@@ -1,35 +1,30 @@
-// import
-
-
-// components
 import {ProfileType, setUserProfileThunkCreator} from "../../redux/profileReducer";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {Posts} from "../posts/Posts";
 import {rootReducerType} from "../../redux/store";
-import {ProfileInfo} from "./ProfileInfo";
+import {MeInfo} from "./meInfo";
 import {RouteNames} from "../../routes";
-import {Navigate, useParams} from "react-router-dom";
+import {Navigate} from "react-router-dom";
 
-export const Profile = () => {
+export const Me = () => {
 
-    const {userId} = useParams()
+    const id = useSelector<rootReducerType, number | null>(state => state.auth.id)
     const isAuth = useSelector<rootReducerType, boolean>(state => state.auth.isAuth)
     const profile = useSelector<rootReducerType, ProfileType | null>(state => state.profilePage.profile)
     const dispatch = useDispatch()
 
-
     useEffect(() => {
-        if (userId) dispatch(setUserProfileThunkCreator(Number(userId)))
+        if (id) dispatch(setUserProfileThunkCreator(id))
+    }, [id, dispatch])
 
-    }, [userId, dispatch])
-
-    if (!isAuth) return <Navigate to={RouteNames.LOGIN}/>
-    if (!userId) return <Navigate to={RouteNames.NOT_FOUND}/>
+    if (!isAuth) {
+        return <Navigate to={RouteNames.LOGIN}/>
+    }
 
     return (
         <div>
-            <ProfileInfo profile={profile}/>
+            <MeInfo profile={profile}/>
             <Posts profile={profile}/>
         </div>
     )
