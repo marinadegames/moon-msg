@@ -1,19 +1,29 @@
 // imports
-import React from 'react'
+import React, {useEffect} from 'react'
 import s from './Home.module.css'
 import keyIcon from '../../assets/keypng.png'
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {Navigate} from "react-router-dom";
 import {RouteNames} from "../../routes";
 import {rootReducerType} from "../../redux/store";
+import {getStatusTC, setUserProfileTC} from "../../redux/profileReducer";
 
 // component
 
 export const Home = () => {
-
+    const id = useSelector<rootReducerType, number | null>(state => state.auth.id)
     const isAuth = useSelector<rootReducerType, boolean>(state => state.auth.isAuth)
-    if (!isAuth){
-        return <Navigate to={RouteNames.LOGIN} />
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        if (id) {
+            dispatch(setUserProfileTC(id))
+            dispatch(getStatusTC(Number(id)))
+        }
+    }, [id, dispatch])
+
+    if (!isAuth) {
+        return <Navigate to={RouteNames.LOGIN}/>
     }
 
     return (

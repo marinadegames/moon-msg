@@ -1,6 +1,5 @@
-import {getStatusTC, ProfileType, setUserProfileTC} from "../../redux/profileReducer";
-import {useDispatch, useSelector} from "react-redux";
-import {useEffect} from "react";
+import {ProfileType} from "../../redux/profileReducer";
+import {useSelector} from "react-redux";
 import {Posts} from "../posts/Posts";
 import {rootReducerType} from "../../redux/store";
 import {MeInfo} from "./meInfo";
@@ -9,18 +8,9 @@ import {Navigate} from "react-router-dom";
 
 export const Me = () => {
 
-    const id = useSelector<rootReducerType, number | null>(state => state.auth.id)
     const isAuth = useSelector<rootReducerType, boolean>(state => state.auth.isAuth)
     const profile = useSelector<rootReducerType, ProfileType | null>(state => state.profilePage.profile)
     const status = useSelector<rootReducerType, string>(state => state.profilePage.status)
-    const dispatch = useDispatch()
-
-    useEffect(() => {
-        if (id) {
-            dispatch(setUserProfileTC(id))
-            dispatch(getStatusTC(Number(id)))
-        }
-    }, [id, dispatch])
 
     if (!isAuth) return <Navigate to={RouteNames.LOGIN}/>
 

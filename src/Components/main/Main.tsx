@@ -14,10 +14,12 @@ import {Settings} from "../settings/Settings";
 import {Me} from "../me/me";
 
 export const Main = () => {
+
     return (
         <div className={s.Main}>
             <Routes>
-                <Route path={RouteNames.HOME} element={<Home/>}/>
+                <Route path={'/*'} element={<NotFound404/>}/>
+                <Route path={'/'} element={<Home/>}/>
                 <Route path={`profile/:userId`} element={<Profile/>}/>
                 <Route path={RouteNames.ME} element={<Me/>}/>
                 <Route path={'/messages'} element={<MessagesContainer/>}/>
@@ -25,7 +27,6 @@ export const Main = () => {
                 <Route path={'/music'} element={<Music/>}/>
                 <Route path={RouteNames.FRIENDS} element={<Friends/>}/>
                 <Route path={RouteNames.LOGIN} element={<Login/>}/>
-                <Route path={'/*'} element={<NotFound404/>}/>
             </Routes>
         </div>
     )

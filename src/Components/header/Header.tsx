@@ -1,12 +1,13 @@
 // import
-import React from "react";
+import React, {memo} from "react";
 import s from './Header.module.css'
 import moon from '../../assets/moon.png'
 import {NavLink} from "react-router-dom";
 import {Anonymous} from "../../utils/BigHeadsFile";
+import {useDispatch, useSelector} from "react-redux";
+import {rootReducerType} from "../../redux/store";
+import {logoutTC} from "../../redux/authReducer";
 
-
-// assets
 const sun = <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="60px" height="60px">
     <linearGradient id="PtY0UrX1qJDQb5CcMCRpOa" x1="6.221" x2="37.408" y1="5.221" y2="36.408"
                     gradientUnits="userSpaceOnUse">
@@ -33,19 +34,17 @@ const sun = <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="6
           d="M39.5,24c-0.245,0-0.484,0.022-0.721,0.053C37.518,22.21,35.401,21,33,21	c-3.178,0-5.858,2.12-6.712,5.021C23.904,26.134,22,28.087,22,30.5c0,2.485,2.015,4.5,4.5,4.5c1.085,0,11.875,0,13,0	c3.038,0,5.5-2.462,5.5-5.5C45,26.462,42.538,24,39.5,24z"/>
 </svg>
 
-// types
-type PropsType = {
-    isAuth: boolean
-    login: string
-    avatar?: string | null
-    logout: () => void
-}
 
 // components
-export const Header = (props: PropsType) => {
+export const Header = memo(() => {
+
+    const isAuth = useSelector<rootReducerType, boolean>(state => state.auth.isAuth)
+    const avatar = useSelector<rootReducerType, any>(state => state.profilePage.profile?.photos.small)
+    const login = useSelector<rootReducerType, string | null>(state => state.auth.login)
+    const dispatch = useDispatch()
 
     const onClickLogout = () => {
-        props.logout()
+        dispatch(logoutTC())
     }
 
     // return
@@ -61,11 +60,11 @@ export const Header = (props: PropsType) => {
                 </NavLink>
             </div>
 
-            {props.isAuth ?
+            {isAuth ?
 
                 <div className={s.flexBoxHeaderCenter}>
                     {sun}
-                    Good morning, {props.login}!
+                    Good morning, {login}!
                 </div>
                 :
                 <div className={s.flexBoxHeaderCenter}>
@@ -74,30 +73,23 @@ export const Header = (props: PropsType) => {
                 </div>
             }
 
-            {/*SEARCH OFF*/}
+            {/*todo: =>*/}
             {/*<div className={s.flexBoxHeaderRight}>*/}
             {/*    <input placeholder={'Search'} type={'search'}/>*/}
             {/*</div>*/}
 
             <div className={s.flexBoxHeaderUserLogo}>
-
-
-                {props.isAuth
-                    ? props.avatar !== null
-                        ?
-                        <div className={s.boxHeaderAvatarAndExit}>
-                            <button className={s.buttonExit} onClick={() => onClickLogout()}>exit</button>
-                            <img className={s.logoUser} src={props.avatar} alt={'avatar'}/>
-                        </div>
-                        :
-                        <div className={s.boxHeaderAvatarAndExit}>
-                            <button className={s.buttonExit} onClick={() => onClickLogout()}>exit</button>
-                            <div className={s.logoUser}>{Anonymous()}</div>
-                        </div>
+                {isAuth
+                    ?
+                    <div className={s.boxHeaderAvatarAndExit}>
+                        <button className={s.buttonExit} onClick={() => onClickLogout()}>exit</button>
+                        {avatar !== null
+                            ? <img className={s.logoUser} src={avatar} alt={'avatar'}/>
+                            : <div className={s.logoUser}>{Anonymous()}</div>}
+                    </div>
                     :
                     <NavLink to={'/login'} className={s.login_btn}>Login</NavLink>}
-
             </div>
         </div>
     )
-}
+})
