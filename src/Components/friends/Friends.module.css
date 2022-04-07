@@ -34,33 +34,3 @@
     color: white;
 }
 
-.pageNumberButton {
-    cursor: pointer;
-
-    padding: 0.5rem 0.8rem;
-    margin: 0 0.5em 1rem 0;
-
-    border-radius: var(--borderRadiusCustom);
-    border: 2px solid var(--generalColor);
-    color: var(--generalColor);
-    font-weight: 800;
-    transition: 0.2s;
-}
-
-.pageNumberButton:hover {
-    color: white;
-    background-color: var(--generalColor);
-}
-
-.pageNumberButton_active {
-    cursor: pointer;
-    padding: 0.5rem 0.8rem;
-    margin: 0 0.5em 1rem 0;
-
-    border-radius: var(--borderRadiusCustom);
-    border: 2px solid var(--generalColor);
-    color: white;
-    background-color: var(--generalColor);
-    font-weight: 800;
-    transition: 0.2s;
-}

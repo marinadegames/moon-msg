@@ -62,9 +62,7 @@ export const Friends = () => {
                         )
                     })}
                 </div>
-
             }
-
         </div>
     )
 }
