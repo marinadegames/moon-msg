@@ -39,7 +39,7 @@ const sun = <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="6
 export const Header = memo(() => {
 
     const isAuth = useSelector<rootReducerType, boolean>(state => state.auth.isAuth)
-    const avatar = useSelector<rootReducerType, any>(state => state.profilePage.profile?.photos.small)
+    const avatar = useSelector<rootReducerType, any>(state => state.meProfilePage.profile?.photos.small)
     const login = useSelector<rootReducerType, string | null>(state => state.auth.login)
     const dispatch = useDispatch()
 

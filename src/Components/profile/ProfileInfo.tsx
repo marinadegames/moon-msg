@@ -12,13 +12,9 @@ type PropsType = {
 // components
 export const ProfileInfo = memo(({profile, status}: PropsType) => {
 
-
     if (!profile) return <Preloader isFetching={true}/>
     return (
-        <div>
-            <div className={s.pageName}>
-                <div>USER: {profile.fullName}</div>
-            </div>
+        <div style={{margin:'1rem 0 0 0'}}>
             <div className={s.profileInform}>
                 <div className={s.profileInfoLeft}>
                     <div className={s.userLogo}>

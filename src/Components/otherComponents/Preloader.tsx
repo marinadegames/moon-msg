@@ -12,7 +12,7 @@ type PreloaderPropsType = {
 export const Preloader = memo((props: PreloaderPropsType) => {
     return (
         <div>
-            {props.isFetching ? <img src={preloader} alt={'preloader'}/> : null}
+            {props.isFetching ? <img src={preloader} style={{width:'100%'}} alt={'preloader'}/> : null}
         </div>
 
     )

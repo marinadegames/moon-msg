@@ -21,11 +21,9 @@ export const Profile = memo(() => {
             dispatch(getStatusTC(Number(userId)))
         }
     }, [userId, dispatch])
-    console.log(profile)
 
     if (!isAuth) return <Navigate to={RouteNames.LOGIN}/>
     if (!userId) return <Navigate to={RouteNames.NOT_FOUND}/>
-
     return (
         <div>
             <ProfileInfo profile={profile} status={status}/>
