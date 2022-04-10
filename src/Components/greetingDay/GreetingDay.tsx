@@ -10,7 +10,7 @@ type PropsType = {
     isAuth?: boolean
     login: string | null
 }
-export const GreetingDay = ({isAuth, login, ...props}: PropsType) => {
+export const GreetingDay = ({isAuth, login}: PropsType) => {
 
     const dateHours = new Date().getHours()
 
