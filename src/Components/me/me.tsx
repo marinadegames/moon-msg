@@ -12,17 +12,14 @@ export const Me = () => {
 
     const isAuth = useSelector<rootReducerType, boolean>(state => state.auth.isAuth)
     const myProfile = useSelector<rootReducerType, ProfileType | null>(state => state.meProfilePage.profile)
-    const myStatus = useSelector<rootReducerType, string>(state => state.meProfilePage.status)
-
     if (!isAuth) return <Navigate to={RouteNames.LOGIN}/>
-
     return (
         <div>
             {!myProfile
                 ? <Preloader isFetching={true}/>
                 :
                 <React.Fragment>
-                    <MeInfo profile={myProfile} status={myStatus}/>
+                    <MeInfo profile={myProfile}/>
                     <Posts profile={myProfile}/>
                 </React.Fragment>
             }

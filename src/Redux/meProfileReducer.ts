@@ -57,7 +57,6 @@ export const getMyStatusTC = (userId: number) => async (dispatch: Dispatch) => {
 export const updateMyStatusTC = (status: string) => async (dispatch: Dispatch) => {
     try {
         const res = await profileAPI.updateStatus(status)
-        console.log(res)
         if (res.data.resultCode === 0) {
             dispatch(SetMyStatusProfileAC(status))
             console.log(res.data)

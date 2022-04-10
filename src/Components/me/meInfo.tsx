@@ -1,21 +1,23 @@
 // import
 import React, {memo, useCallback, useState} from "react";
 import s from './me.module.css'
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {Anonymous} from "../../utils/BigHeadsFile";
 import {ProfileType} from "../../redux/profileReducer";
 import {updateMyStatusTC} from "../../redux/meProfileReducer";
+import {rootReducerType} from "../../redux/store";
 
 type PropsType = {
     profile: ProfileType
-    status: string
 }
 
-export const MeInfo = memo(({profile, status}: PropsType) => {
+export const MeInfo = memo(({profile}: PropsType) => {
 
-    const [statusText, setStatusText] = useState<string>(status)
+    const [statusText, setStatusText] = useState<string>('')
     const [editMode, setEditMode] = useState<boolean>(false)
+    const status = useSelector<rootReducerType, string>(state => state.meProfilePage.status)
     const dispatch = useDispatch()
+
 
     const changeInputValue = useCallback((e: string) => {
         setStatusText(e)
