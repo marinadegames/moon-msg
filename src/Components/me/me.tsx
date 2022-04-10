@@ -5,19 +5,27 @@ import {rootReducerType} from "../../redux/store";
 import {MeInfo} from "./meInfo";
 import {RouteNames} from "../../routes";
 import {Navigate} from "react-router-dom";
+import {Preloader} from "../otherComponents/Preloader";
+import React from "react";
 
 export const Me = () => {
 
     const isAuth = useSelector<rootReducerType, boolean>(state => state.auth.isAuth)
-    const profile = useSelector<rootReducerType, ProfileType | null>(state => state.profilePage.profile)
-    const status = useSelector<rootReducerType, string>(state => state.profilePage.status)
+    const myProfile = useSelector<rootReducerType, ProfileType | null>(state => state.meProfilePage.profile)
+    const myStatus = useSelector<rootReducerType, string>(state => state.meProfilePage.status)
 
     if (!isAuth) return <Navigate to={RouteNames.LOGIN}/>
 
     return (
         <div>
-            <MeInfo profile={profile} status={status}/>
-            <Posts profile={profile}/>
+            {!myProfile
+                ? <Preloader isFetching={true}/>
+                :
+                <React.Fragment>
+                    <MeInfo profile={myProfile} status={myStatus}/>
+                    <Posts profile={myProfile}/>
+                </React.Fragment>
+            }
         </div>
     )
 }

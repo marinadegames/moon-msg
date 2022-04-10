@@ -2,12 +2,12 @@
 import React, {memo, useCallback, useState} from "react";
 import s from './me.module.css'
 import {useDispatch} from "react-redux";
-import {Preloader} from "../otherComponents/Preloader";
 import {Anonymous} from "../../utils/BigHeadsFile";
-import {ProfileType, updateStatusTC} from "../../redux/profileReducer";
+import {ProfileType} from "../../redux/profileReducer";
+import {updateMyStatusTC} from "../../redux/meProfileReducer";
 
 type PropsType = {
-    profile: ProfileType | null
+    profile: ProfileType
     status: string
 }
 
@@ -28,15 +28,12 @@ export const MeInfo = memo(({profile, status}: PropsType) => {
 
     const updateStatusHandler = useCallback(() => {
         setEditMode(false)
-        dispatch(updateStatusTC(statusText))
+        dispatch(updateMyStatusTC(statusText))
     }, [dispatch, statusText])
 
-    if (!profile) return <Preloader isFetching={true}/>
+
     return (
-        <div>
-            <div className={s.pageName}>
-                <div>USER: {profile.fullName}</div>
-            </div>
+        <div style={{margin:'1rem 0 0 0'}}>
             <div className={s.profileInform}>
                 <div className={s.profileInfoLeft}>
                     <div className={s.userLogo}>

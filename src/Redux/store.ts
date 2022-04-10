@@ -6,9 +6,11 @@ import { profileReducer } from "./profileReducer";
 import {dialogsReducer} from "./dialogsReducer";
 import {usersReducer} from "./usersReducer";
 import {authReducer} from "./authReducer";
+import {meProfileReducer} from "./meProfileReducer";
 
 const rootReducer = combineReducers({
     profilePage: profileReducer,
+    meProfilePage: meProfileReducer,
     allMessages: dialogsReducer,
     allUsers: usersReducer,
     auth: authReducer,

@@ -8,64 +8,75 @@ const initialState: InitStateType = {
     status: '',
 }
 
-export const profileReducer = (state = initialState, action: ActionType): InitStateType => {
+export const meProfileReducer = (state = initialState, action: ActionType): InitStateType => {
     switch (action.type) {
-        case "SET_USER_PROFILE":
+        case "ME_ADD_POST":
+            return state
+        case "ME_SET_USER_PROFILE":
             return {...state, profile: action.profile}
-        case 'SET_STATUS':
+        case 'ME_SET_STATUS':
             return {...state, status: action.status}
         default:
             return state
     }
 }
 
-
-export const SetUserProfileAC = (profile: ProfileType): SetUserProfileActionType => {
-    return {type: SET_USER_PROFILE, profile} as const
+export const AddPostAC = (newText: string, userId: number): AddPostActionType => {
+    return {type: ME_ADD_POST, newText, userId} as const
 }
-export const SetStatusProfileAC = (status: string): SetStatusActionType => {
-    return {type: SET_STATUS, status}
+export const SetMeProfileAC = (profile: ProfileType): SetUserProfileActionType => {
+    return {type: ME_SET_USER_PROFILE, profile} as const
+}
+export const SetMyStatusProfileAC = (status: string): SetStatusActionType => {
+    return {type: ME_SET_STATUS, status}
 }
 
-export const setUserProfileTC = (userId: number) => async (dispatch: Dispatch) => {
+export const setMeProfileTC = (userId: number) => async (dispatch: Dispatch) => {
     try {
         const res = await profileAPI.getProfile(userId)
-        dispatch(SetUserProfileAC(res))
+        dispatch(SetMeProfileAC(res))
     } catch {
         console.warn('ERROR')
-    } finally {
+    }
+    finally {
 
     }
 }
-export const getStatusTC = (userId: number) => async (dispatch: Dispatch) => {
+export const getMyStatusTC = (userId: number) => async (dispatch: Dispatch) => {
     try {
         const res = await profileAPI.getStatus(userId)
-        dispatch(SetStatusProfileAC(res.data))
-    } catch {
+        dispatch(SetMyStatusProfileAC(res.data))
+    }
+    catch {
         console.warn('ERROR')
-    } finally {
+    }
+    finally {
 
     }
 }
-export const updateStatusTC = (status: string) => async (dispatch: Dispatch) => {
+export const updateMyStatusTC = (status: string) => async (dispatch: Dispatch) => {
     try {
         const res = await profileAPI.updateStatus(status)
         console.log(res)
         if (res.data.resultCode === 0) {
-            dispatch(SetStatusProfileAC(status))
+            dispatch(SetMyStatusProfileAC(status))
             console.log(res.data)
         }
-    } catch {
+    }
+    catch {
         console.warn('ERROR')
-    } finally {
+    }
+    finally {
 
     }
 }
 
-const SET_USER_PROFILE = 'SET_USER_PROFILE'
-const SET_STATUS = 'SET_STATUS'
+const ME_ADD_POST = 'ME_ADD_POST'
+const ME_SET_USER_PROFILE = 'ME_SET_USER_PROFILE'
+const ME_SET_STATUS = 'ME_SET_STATUS'
 type ActionType =
     SetStatusActionType
+    | AddPostActionType
     | FollowActionType
     | UnfollowActionType
     | SetUserProfileActionType
@@ -99,8 +110,13 @@ export type InitStateType = {
     status: string
 }
 type SetStatusActionType = {
-    type: 'SET_STATUS',
+    type: 'ME_SET_STATUS',
     status: string
+}
+type AddPostActionType = {
+    type: 'ME_ADD_POST'
+    newText: string
+    userId: number
 }
 type FollowActionType = {
     type: 'FOLLOW'
@@ -111,6 +127,6 @@ type UnfollowActionType = {
     userId: string
 }
 type SetUserProfileActionType = {
-    type: 'SET_USER_PROFILE',
+    type: 'ME_SET_USER_PROFILE',
     profile: any
 }
