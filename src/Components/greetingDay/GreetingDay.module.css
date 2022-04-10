@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.iconStyle {
+    width: 60px;
+    height: 60px;
+    transition: ease-in-out .5s;
+    cursor: pointer;
+}
+.iconStyle:hover {
+    transform: scale(1.2) rotate(360deg);
+    margin: 0 10px 0 0;
+}

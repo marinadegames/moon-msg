@@ -44,6 +44,13 @@ export const Friends = () => {
                         currentPage={currentPage}
                         setCurrentPageHandler={setCurrentPageHandler}
             />
+
+            {/*todo: =>*/}
+            {/*<div className={s.flexBoxHeaderRight}>*/}
+            {/*    <input placeholder={'Search'} type={'search'}/>*/}
+            {/*</div>*/}
+
+
             {isFetching
                 ? <Preloader isFetching={isFetching}/>
                 :
