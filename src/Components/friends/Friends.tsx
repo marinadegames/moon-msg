@@ -35,7 +35,7 @@ export const Friends = () => {
     if (!isAuth) {
         return <Navigate to={RouteNames.LOGIN}/>
     }
-    if (isFetching) return <Preloader isFetching={true}/>
+    if (totalUsersCount === 0) return <Preloader isFetching={true}/>
     return (
         <div>
             <div className={s.pageName}>Friends</div>
