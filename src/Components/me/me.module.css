@@ -141,6 +141,7 @@
     color: var(--generalColor);
 }
 .setStatusButton {
+    float: right;
     font-size: 20px;
     font-weight: 700;
     padding: 7px 10px;

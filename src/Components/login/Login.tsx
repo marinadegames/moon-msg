@@ -62,7 +62,6 @@ const LoginComponent = (props: LoginType) => {
         props.login(formData.email, formData.password, formData.rememberMe)
     }
 
-    // return
     if (!props.isAuth) {
         return (
             <div>
@@ -71,10 +70,7 @@ const LoginComponent = (props: LoginType) => {
             </div>
         )
     }
-    // else => redirect to profile
-    return (<Navigate to={'/profile'}/>)
-
-
+    return (<Navigate to={'/'}/>)
 }
 
 const mapStateToProps = (state: rootReducerType) => {

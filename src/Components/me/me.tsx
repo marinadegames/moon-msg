@@ -5,8 +5,8 @@ import {rootReducerType} from "../../redux/store";
 import {MeInfo} from "./meInfo";
 import {RouteNames} from "../../routes";
 import {Navigate} from "react-router-dom";
-import {Preloader} from "../otherComponents/Preloader";
 import React from "react";
+import {Spinner} from "../otherComponents/Spinner";
 
 export const Me = () => {
 
@@ -16,7 +16,7 @@ export const Me = () => {
     return (
         <div>
             {!myProfile
-                ? <Preloader isFetching={true}/>
+                ? <Spinner isLoading={isAuth} size={'300'} style={{width: '100%', display: 'flex', justifyContent: 'center'}}/>
                 :
                 <React.Fragment>
                     <MeInfo profile={myProfile}/>

@@ -65,8 +65,8 @@ export const MeInfo = memo(({profile}: PropsType) => {
                                    onChange={e => changeInputValue(e.currentTarget.value)}/>
                             <button className={s.setStatusButton} style={{margin: '10px 0 0 0'}} onClick={updateStatusHandler}>save</button>
                         </>}
+                    {!editMode && <button onClick={changeEditMode} className={s.setStatusButton}>Edit</button>}
                 </div>
-                {!editMode && <button onClick={changeEditMode} className={s.setStatusButton}>Edit status</button>}
             </div>
         </div>
     )
