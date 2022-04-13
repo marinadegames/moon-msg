@@ -56,7 +56,7 @@ export const Post = function ({...props}: PostPropsType) {
                     <div className={s.userNamePost}>{props.userName}</div>
                     <div className={s.datePost}>{props.date}</div>
                 </div>
-                <div className={s.boxBtnsDots}>
+                <div className={s.boxButtonsDots}>
                     <div className={s.btnDotsPost}/>
                     <div className={s.btnDotsPost}/>
                     <div className={s.btnDotsPost}/>

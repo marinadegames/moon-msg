@@ -109,7 +109,7 @@
 .likesPost, .commentsPost, .sharePost img{
     cursor: pointer;
 }
-.boxBtnsDots{
+.boxButtonsDots{
     display: flex;
     margin: 0 0 1rem 17rem;
     cursor: pointer;

@@ -1,9 +1,9 @@
 // import
 import React, {memo} from "react";
 import s from './Profile.module.css'
-import {Preloader} from "../otherComponents/Preloader";
 import {Anonymous} from "../../utils/BigHeadsFile";
 import {ProfileType} from "../../redux/profileReducer";
+import {Spinner} from "../otherComponents/Spinner";
 
 type PropsType = {
     profile: ProfileType | null
@@ -12,7 +12,8 @@ type PropsType = {
 // components
 export const ProfileInfo = memo(({profile, status}: PropsType) => {
 
-    if (!profile) return <Preloader isFetching={true}/>
+    if (!profile) return <Spinner isLoading={true} size={'300'} style={{width: '100%', display: 'flex', justifyContent: 'center'}}/>
+
     return (
         <div style={{margin:'1rem 0 0 0'}}>
             <div className={s.profileInform}>
