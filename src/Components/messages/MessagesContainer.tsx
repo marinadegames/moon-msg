@@ -1,8 +1,8 @@
 // imports
 import {connect} from "react-redux";
-import {rootReducerType} from "../../redux/store";
-import {AllMessagesType, SendMessageAC} from "../../redux/dialogsReducer";
 import {MessagesAPIContainer} from "./MessagesAPIContainer";
+import {AllMessagesType, SendMessageAC} from "../../Redux/dialogsReducer";
+import {rootReducerType} from "../../Redux/store";
 
 
 // types

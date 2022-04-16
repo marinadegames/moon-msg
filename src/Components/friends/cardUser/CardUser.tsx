@@ -3,8 +3,8 @@ import React, {useCallback} from 'react'
 import s from './CardUser.module.css'
 import {Link} from "react-router-dom";
 import {useDispatch} from "react-redux";
-import {followTC, unfollowTC} from "../../../redux/usersReducer";
-import {Anonymous} from "../../../utils/BigHeadsFile";
+import {followTC, unfollowTC } from '../../../Redux/usersReducer';
+import {Anonymous} from "../../../Utils/BigHeadsFile";
 
 // types
 type CardUserPropsType = {

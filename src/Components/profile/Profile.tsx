@@ -1,11 +1,11 @@
 // import
-import {getStatusTC, ProfileType, setUserProfileTC} from "../../redux/profileReducer";
 import {useDispatch, useSelector} from "react-redux";
 import {memo, useEffect} from "react";
-import {rootReducerType} from "../../redux/store";
 import {ProfileInfo} from "./ProfileInfo";
 import {RouteNames} from "../../routes";
 import {Navigate, useParams} from "react-router-dom";
+import {getStatusTC, ProfileType, setUserProfileTC} from "../../Redux/profileReducer";
+import {rootReducerType} from "../../Redux/store";
 
 export const Profile = memo(() => {
 

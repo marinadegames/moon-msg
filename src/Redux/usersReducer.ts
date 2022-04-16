@@ -1,5 +1,5 @@
 import {Dispatch} from "redux";
-import {requestsAPI} from "../components/api/API";
+import {requestsAPI} from "../api/API";
 
 const items: itemsType = {
     users: [],

@@ -1,18 +1,11 @@
-// import
 import React from "react";
 import s from './MsgLeft.module.css'
-import {ElinaMalina} from "../../../utils/BigHeadsFile";
-import {MessageType} from "../../../redux/dialogsReducer";
+import {ElinaMalina} from "../../../Utils/BigHeadsFile";
+import {MessageType} from "../../../Redux/dialogsReducer";
 
-
-// types
 type ChatLeftPropsType = {
     leftMessages: Array<MessageType>
 }
-
-// assets
-
-// components
 
 export const MsgLeft = function (props: ChatLeftPropsType) {
     return (
@@ -26,11 +19,9 @@ export const MsgLeft = function (props: ChatLeftPropsType) {
                             Error 404 not found!
                             <div className={s.timeMsg}>16:25</div>
                         </div>
-
                     </div>
                 )
             })}
         </div>
-
     )
 }

@@ -2,10 +2,10 @@
 import React, {memo, useCallback, useState} from "react";
 import s from './me.module.css'
 import {useDispatch, useSelector} from "react-redux";
-import {Anonymous} from "../../utils/BigHeadsFile";
-import {ProfileType} from "../../redux/profileReducer";
-import {updateMyStatusTC} from "../../redux/meProfileReducer";
-import {rootReducerType} from "../../redux/store";
+import {ProfileType, updateMyStatusTC} from "../../Redux/meProfileReducer";
+import {rootReducerType} from "../../Redux/store";
+import {Anonymous} from "../../Utils/BigHeadsFile";
+
 
 type PropsType = {
     profile: ProfileType

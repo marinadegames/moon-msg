@@ -1,9 +1,9 @@
 // import
 import React, {memo} from "react";
 import s from './Profile.module.css'
-import {Anonymous} from "../../utils/BigHeadsFile";
-import {ProfileType} from "../../redux/profileReducer";
+import {ProfileType} from "../../Redux/profileReducer";
 import {Spinner} from "../otherComponents/Spinner";
+import {Anonymous} from "../../Utils/BigHeadsFile";
 
 type PropsType = {
     profile: ProfileType | null

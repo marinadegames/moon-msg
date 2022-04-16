@@ -1,12 +1,12 @@
-import {ProfileType} from "../../redux/profileReducer";
 import {useSelector} from "react-redux";
 import {Posts} from "../posts/Posts";
-import {rootReducerType} from "../../redux/store";
 import {MeInfo} from "./meInfo";
 import {RouteNames} from "../../routes";
 import {Navigate} from "react-router-dom";
 import React from "react";
 import {Spinner} from "../otherComponents/Spinner";
+import {rootReducerType} from "../../Redux/store";
+import {ProfileType} from "../../Redux/profileReducer";
 
 export const Me = () => {
 

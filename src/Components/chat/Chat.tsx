@@ -1,10 +1,10 @@
 // import
 import {useDispatch} from "react-redux";
 import React, {useState, KeyboardEvent} from "react";
-import {SendMessageAC} from "../../redux/dialogsReducer";
 import {MsgLeft} from "./msgLeft/MsgLeft";
 import {MsgRight} from "./msgRight/MsgRight";
 import s from './Chat.module.css'
+import {SendMessageAC} from "../../Redux/dialogsReducer";
 
 // types
 type ChatPropsType = {

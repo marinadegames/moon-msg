@@ -4,11 +4,11 @@ import s from "./Friends.module.css";
 import {useDispatch, useSelector} from "react-redux";
 import {Pagination} from "../otherComponents/Pagination";
 import {CardUser} from "./cardUser/CardUser";
-import {rootReducerType} from "../../redux/store";
-import {getUsersTC, UserType} from "../../redux/usersReducer";
 import {Navigate} from "react-router-dom";
 import {RouteNames} from "../../routes";
 import {Spinner} from "../otherComponents/Spinner";
+import { rootReducerType } from "../../Redux/store";
+import {getUsersTC, UserType} from "../../Redux/usersReducer";
 
 // component
 export const Friends = () => {

@@ -2,18 +2,15 @@
 import React from "react";
 import s from "./Posts.module.css";
 import {Field, reduxForm} from "redux-form";
-import {maxLengthCreator, required} from "../../utils/validators/validators";
-import {TextArea} from "../../utils/formsControls/FormsControls";
-import {ProfileType} from "../../redux/profileReducer";
+import {maxLengthCreator, required} from "../../Utils/validators/validators";
+import {TextArea} from "../../Utils/formsControls/FormsControls";
+import {ProfileType} from "../../Redux/meProfileReducer";
 
-// types
 type PostsPropsType = {
     profile: ProfileType | null
 }
-
 const maxLength10 = maxLengthCreator(10)
 
-// components
 export const AddPostForm = function (props: any) {
     return (
         <form onSubmit={props.handleSubmit}>

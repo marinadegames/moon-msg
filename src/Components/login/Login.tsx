@@ -2,10 +2,11 @@
 import React from "react";
 import s from './Login.module.css'
 import {Field, reduxForm} from "redux-form";
-import {connect} from "react-redux";
 import {Navigate} from "react-router-dom";
-import {rootReducerType} from "../../redux/store";
-import {loginTC} from "../../redux/authReducer";
+import {rootReducerType} from "../../Redux/store";
+import {loginTC} from "../../Redux/authReducer";
+import {connect} from "react-redux";
+
 
 // form
 const LoginForm = (props: any) => {

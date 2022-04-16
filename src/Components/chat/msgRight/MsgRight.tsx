@@ -1,17 +1,13 @@
 import React from "react";
 import s from './MsgRight.module.css'
-import {Anonymous} from "../../../utils/BigHeadsFile";
-import {MessageType} from "../../../redux/dialogsReducer";
+import {Anonymous} from "../../../Utils/BigHeadsFile";
+import {MessageType} from "../../../Redux/dialogsReducer";
 
-
-// type
 type ChatRightPropsType = {
     rightMessages: Array<MessageType>
 }
 
-
 export const MsgRight = function (props: ChatRightPropsType) {
-
     return (
         <div>
             {props.rightMessages.map( (m) => {
@@ -25,8 +21,6 @@ export const MsgRight = function (props: ChatRightPropsType) {
                     </div>
                 )
             } )}
-
         </div>
     )
-
 }

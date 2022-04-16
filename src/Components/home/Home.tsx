@@ -5,11 +5,10 @@ import keyIcon from '../../assets/keypng.png'
 import {useDispatch, useSelector} from "react-redux";
 import {Navigate} from "react-router-dom";
 import {RouteNames} from "../../routes";
-import {rootReducerType} from "../../redux/store";
-import {getStatusTC, setUserProfileTC} from "../../redux/profileReducer";
+import {rootReducerType} from "../../Redux/store";
+import {getStatusTC, setUserProfileTC} from "../../Redux/profileReducer";
 
 // component
-
 export const Home = () => {
     const id = useSelector<rootReducerType, number | null>(state => state.auth.id)
     const isAuth = useSelector<rootReducerType, boolean>(state => state.auth.isAuth)

@@ -1,6 +1,6 @@
 import {Dispatch} from "redux";
 import {stopSubmit} from "redux-form";
-import {authAPI, requestsAPI} from "../components/api/API";
+import {authAPI, requestsAPI} from "../api/API";
 
 let initialState: InitialStateAuthType = {
     id: null,

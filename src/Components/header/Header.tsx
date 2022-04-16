@@ -3,11 +3,11 @@ import React, {memo} from "react";
 import s from './Header.module.css'
 import moon from '../../assets/moon.png'
 import {NavLink} from "react-router-dom";
-import {Anonymous} from "../../utils/BigHeadsFile";
 import {useDispatch, useSelector} from "react-redux";
-import {rootReducerType} from "../../redux/store";
-import {logoutTC} from "../../redux/authReducer";
 import {GreetingDay} from "../greetingDay/GreetingDay";
+import {rootReducerType} from "../../Redux/store";
+import {logoutTC} from "../../Redux/authReducer";
+import {Anonymous} from "../../Utils/BigHeadsFile";
 
 
 // components

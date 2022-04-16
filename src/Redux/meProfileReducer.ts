@@ -1,5 +1,5 @@
 import {Dispatch} from "redux";
-import {profileAPI} from "../components/api/API";
+import {profileAPI} from "../api/API";
 
 const initialState: InitStateType = {
     posts: [],
