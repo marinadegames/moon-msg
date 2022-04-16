@@ -50,6 +50,7 @@ export const loginTC = (email: string, password: string, rememberMe: boolean) =>
         if (res.data.resultCode === 0) {
             dispatch(setAuthUserDataAC(res.data.id, email, res.data.login, true))
             localStorage.setItem('isLogin', JSON.stringify(true))
+
         } else {
             let message = res.data.messages.length > 0 ? res.data.messages[0] : 'SOME ERROR'
             dispatch(stopSubmit('login', {_error: message}))

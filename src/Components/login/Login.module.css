@@ -13,7 +13,8 @@
     color: var(--secondColor);
 }
 .loginForm {
-
+    display: flex;
+    flex-direction: column;
 }
 .inputLoginForm {
     padding: 0 10px;
@@ -33,8 +34,21 @@
 .inputLoginForm:focus {
     outline: 3px solid var(--generalColor);
 }
+.inputLoginFormError {
+    padding: 0 10px;
+    margin: 0 0 10px 0;
+    height: 50px;
+    width: 350px;
+    font-size: 23px;
+    font-weight: 400;
+    color: red;
+    outline: none;
+    border: 1px solid red;
+    border-radius: var(--borderRadiusCustom);
+}
 .checkBoxLoginRememberMe {
     transform: scale(4);
+    cursor: pointer;
     margin: 30px 30px 30px 20px;
     color: var(--generalColor);
 }

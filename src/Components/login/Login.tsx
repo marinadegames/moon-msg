@@ -1,84 +1,90 @@
 // import
-import React from "react";
+import React, {useCallback, useState} from "react";
 import s from './Login.module.css'
-import {Field, reduxForm} from "redux-form";
-import {Navigate} from "react-router-dom";
-import {rootReducerType} from "../../Redux/store";
+import {useDispatch, useSelector} from "react-redux";
 import {loginTC} from "../../Redux/authReducer";
-import {connect} from "react-redux";
+import {rootReducerType} from "../../Redux/store";
+import {Navigate} from "react-router-dom";
+import {RouteNames} from "../../routes";
 
+export const Login = () => {
+    console.log('render login')
+    const regexEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
+    const isLogged = useSelector<rootReducerType, boolean>(state => state.auth.isAuth)
+    const [emailValue, setEmailValue] = useState<string>('')
+    const [passwordValue, setPasswordValue] = useState<string>('')
+    const [rememberMeValue, setRememberMeValue] = useState<boolean>(false)
+    const [errorEmail, setErrorEmail] = useState<boolean>(false)
+    const dispatch = useDispatch()
 
-// form
-const LoginForm = (props: any) => {
+    const onChangeEmail = useCallback((e: string) => {
+        setErrorEmail(false)
+        setEmailValue(e)
+    }, [])
+
+    const onChangePassword = useCallback((e: string) => {
+        setErrorEmail(false)
+        setPasswordValue(e)
+    }, [])
+
+    const onChangeRememberMe = useCallback((e: boolean) => {
+        setErrorEmail(false)
+        setRememberMeValue(e)
+    }, [])
+
+    const enterSend = (e: string) => {
+        if (e === 'Enter') {
+            sendLogin()
+        }
+    }
+
+    const sendLogin = () => {
+        if (regexEmail.test(emailValue)) {
+            dispatch(loginTC(emailValue, passwordValue, rememberMeValue))
+        }
+        if (!regexEmail.test(emailValue)) {
+            setErrorEmail(true)
+        }
+    }
+
+    if (isLogged) {
+        return <Navigate to={RouteNames.HOME}/>
+    }
+
     return (
-        <form onSubmit={props.handleSubmit}
-              className={s.loginForm}>
-            <div>
-                <Field placeholder={'email'}
-                       name={'email'}
+        <div>
+            <h1 className={s.pageName}>Login</h1>
+            <div className={s.loginForm}>
+                <input onChange={e => onChangeEmail(e.currentTarget.value)}
+                       className={errorEmail ? s.inputLoginFormError : s.inputLoginForm}
+                       type={'email'}
+                       value={emailValue}
+                       placeholder={'Email'}/>
+
+                <input onChange={e => onChangePassword(e.currentTarget.value)}
                        className={s.inputLoginForm}
-                       component={'input'}/>
+                       value={passwordValue}
+                       type={'password'}
+                       placeholder={'Password'}
+                       onKeyPress={e => enterSend(e.key)}
+                />
+                <div>
+                    <input onChange={e => onChangeRememberMe(e.currentTarget.checked)}
+                           className={s.checkBoxLoginRememberMe}
+                           type={'checkbox'}
+                           checked={rememberMeValue}
+                           placeholder={'Remember me'}/>
+                    <span>Remember me</span>
+                </div>
+                {errorEmail && <h1 style={{color: 'red'}}> Incorrect email! </h1>}
             </div>
             <div>
-                <Field placeholder={'password'}
-                       name={'password'}
-                       type='password'
-                       className={s.inputLoginForm}
-                       component={'input'}/>
+                <button onClick={sendLogin}
+                        className={s.btnLogin}>
+                    login
+                </button>
             </div>
-            <div>
-                <Field placeholder={'remember me'}
-                       name={'rememberMe'}
-                       type={'checkbox'}
-                       className={s.checkBoxLoginRememberMe}
-                       component={'input'}/>
-                <span>Remember me</span>
-            </div>
-            {props.error &&
-                <h3 className={s.errorTitle}>
-                    {props.error}
-                </h3>
-            }
-            <div>
-                <button className={s.btnLogin}>login</button>
-            </div>
-        </form>
+        </div>
+
     )
 }
-
-let LoginReduxForm = reduxForm({form: 'login'})(LoginForm)
-type LoginType = {
-    login: (email: string, password: string, rememberMe: boolean) => void
-    isAuth: boolean
-}
-type FormDataPropsType = {
-    email: string
-    password: string
-    rememberMe: boolean
-}
-const LoginComponent = (props: LoginType) => {
-
-    const onSubmit = (formData: FormDataPropsType | any) => {
-        console.log(formData)
-        props.login(formData.email, formData.password, formData.rememberMe)
-    }
-
-    if (!props.isAuth) {
-        return (
-            <div>
-                <h1 className={s.pageName}>Login</h1>
-                <LoginReduxForm onSubmit={onSubmit}/>
-            </div>
-        )
-    }
-    return (<Navigate to={'/'}/>)
-}
-
-const mapStateToProps = (state: rootReducerType) => {
-    return {
-        isAuth: state.auth.isAuth
-    }
-}
-export default connect(mapStateToProps, {
-    login: loginTC
-})(LoginComponent)

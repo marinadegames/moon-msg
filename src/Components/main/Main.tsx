@@ -5,13 +5,13 @@ import s from './Main.module.css'
 import MessagesContainer from "../messages/MessagesContainer";
 import {Music} from "../music/Music";
 import {Friends} from "../friends/Friends";
-import Login from "../login/Login";
 import {NotFound404} from "../404/NotFound404";
 import {Home} from "../home/Home";
 import {RouteNames} from "../../routes";
 import {Profile} from "../profile/Profile";
 import {Settings} from "../settings/Settings";
 import {Me} from "../me/me";
+import {Login} from "../login/Login";
 
 export const Main = () => {
 
