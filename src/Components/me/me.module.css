@@ -14,7 +14,7 @@
     align-items: center;
     flex-direction: row;
     border-radius: var(--borderRadiusCustom);
-    height: 220px;
+    height: 280px;
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../../assets/walp.jpg");
     background-size: cover;
     padding: 1rem;
@@ -39,25 +39,27 @@
 
 .userLogo {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
     cursor: pointer;
     height: 200px;
     width: 200px;
     padding: 10px 30px 10px 10px;
-
     transition: ease-in-out 0.2s;
 }
 
-.userLogo:hover {
-    transform: scale(1.05);
-}
-
 .avatarUser {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
     height: auto;
     border-radius: 15px;
-    /*border: 5px solid white;*/
+}
+
+.changePhotoTitle input {
+    height: 40px;
 }
 
 .profileInfoTextBox {
@@ -140,6 +142,7 @@
     border: 2px solid var(--generalColor);
     color: var(--generalColor);
 }
+
 .setStatusButton {
     float: right;
     font-size: 20px;
@@ -151,7 +154,65 @@
     color: var(--generalColor);
     transition: 0.2s;
 }
-.setStatusButton:hover{
+
+.setStatusButton:hover {
     background-color: var(--generalColor);
     color: white;
+}
+
+
+/* input__wrapper*/
+
+.input__wrapper {
+    position: relative;
+    margin: 5px 0;
+    text-align: center;
+}
+
+.input__file {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+}
+
+.input__file_button_text {
+    line-height: 1;
+    margin-top: 1px;
+}
+
+.input__file_button {
+    display: flex;
+    width: 200px;
+    height: 30px;
+    background: white;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: center;
+    margin: 0 auto;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 7px 10px;
+    cursor: pointer;
+    border-radius: var(--borderRadiusCustom);
+    border: 2px solid var(--generalColor);
+    color: var(--generalColor);
+    transition: 0.2s;
+}
+
+.input__file_button:hover {
+    background-color: var(--generalColor);
+    color: white;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

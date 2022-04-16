@@ -99,7 +99,8 @@ This repository for my social network `Moon!msg`!
 🔍 `v0.6.9` - added `login` | fixed `login`  
 🎶 `v0.7.0` - big `refactoring`: delete trash, create new component and delete class components  
 👌 `v0.7.1` - `refactoring`: async\await thunks, use try\catch\finally, fix tests  
-🚀 `v0.7.2` - `set status`
+🚀 `v0.7.2` - `set status`  
+📷 `v0.7.3` - `change` photo profile!  
 
 ### 🙃 Good luck for me!
 

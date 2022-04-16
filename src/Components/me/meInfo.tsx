@@ -2,7 +2,7 @@
 import React, {memo, useCallback, useState} from "react";
 import s from './me.module.css'
 import {useDispatch, useSelector} from "react-redux";
-import {ProfileType, updateMyStatusTC} from "../../Redux/meProfileReducer";
+import {ProfileType, savePhotoTC, updateMyStatusTC} from "../../Redux/meProfileReducer";
 import {rootReducerType} from "../../Redux/store";
 import {Anonymous} from "../../Utils/BigHeadsFile";
 
@@ -18,7 +18,6 @@ export const MeInfo = memo(({profile}: PropsType) => {
     const status = useSelector<rootReducerType, string>(state => state.meProfilePage.status)
     const dispatch = useDispatch()
 
-
     const changeInputValue = useCallback((e: string) => {
         setStatusText(e)
     }, [])
@@ -33,14 +32,27 @@ export const MeInfo = memo(({profile}: PropsType) => {
         dispatch(updateMyStatusTC(statusText))
     }, [dispatch, statusText])
 
+    const onMainPhotoSelected = (e: any) => {
+        dispatch((savePhotoTC(e.target.files[0])))
+    }
 
     return (
-        <div style={{margin:'1rem 0 0 0'}}>
+        <div style={{margin: '1rem 0 0 0'}}>
             <div className={s.profileInform}>
                 <div className={s.profileInfoLeft}>
-                    <div className={s.userLogo}>
-                        {!profile.photos.large ? Anonymous() :
-                            <img className={s.avatarUser} src={profile.photos.large} alt={'avatar'}/>}
+                    <div className={s.container}>
+                        <div className={s.userLogo}>
+                            {!profile.photos.large ? Anonymous() :
+                                <img className={s.avatarUser}
+                                     src={profile.photos.large}
+                                     alt={'avatar'}/>}
+                        </div>
+                        <div className={s.input__wrapper}>
+                            <input onChange={onMainPhotoSelected} type="file" name="file" id="input__file" className={s.input__file} multiple/>
+                            <label htmlFor="input__file" className={s.input__file_button}>
+                                <span className={s.input__file_button_text}>Change photo</span>
+                            </label>
+                        </div>
                     </div>
                     <div className={s.profileInfoTextBox}>
                         <div className={s.userName}>{profile.fullName}</div>

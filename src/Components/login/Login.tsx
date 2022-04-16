@@ -8,7 +8,7 @@ import {Navigate} from "react-router-dom";
 import {RouteNames} from "../../routes";
 
 export const Login = () => {
-    console.log('render login')
+
     const regexEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
     const isLogged = useSelector<rootReducerType, boolean>(state => state.auth.isAuth)
     const [emailValue, setEmailValue] = useState<string>('')

@@ -16,6 +16,11 @@ export const meProfileReducer = (state = initialState, action: ActionType): Init
             return {...state, profile: action.profile}
         case 'ME_SET_STATUS':
             return {...state, status: action.status}
+        case "ME_UPDATE_PHOTO":
+            if (state.profile) {
+                return {...state, profile: {...state.profile, photos: action.file}}
+            }
+            return state
         default:
             return state
     }
@@ -30,6 +35,9 @@ export const SetMeProfileAC = (profile: ProfileType): SetUserProfileActionType =
 export const SetMyStatusProfileAC = (status: string): SetStatusActionType => {
     return {type: ME_SET_STATUS, status}
 }
+export const UpdateProfilePhotoAC = (file: PhotosType): UpdatePhotoActionType => {
+    return {type: ME_UPDATE_PHOTO, file}
+}
 
 export const setMeProfileTC = (userId: number) => async (dispatch: Dispatch) => {
     try {
@@ -37,8 +45,7 @@ export const setMeProfileTC = (userId: number) => async (dispatch: Dispatch) => 
         dispatch(SetMeProfileAC(res))
     } catch {
         console.warn('ERROR')
-    }
-    finally {
+    } finally {
 
     }
 }
@@ -46,11 +53,9 @@ export const getMyStatusTC = (userId: number) => async (dispatch: Dispatch) => {
     try {
         const res = await profileAPI.getStatus(userId)
         dispatch(SetMyStatusProfileAC(res.data))
-    }
-    catch {
+    } catch {
         console.warn('ERROR')
-    }
-    finally {
+    } finally {
 
     }
 }
@@ -61,11 +66,22 @@ export const updateMyStatusTC = (status: string) => async (dispatch: Dispatch) =
             dispatch(SetMyStatusProfileAC(status))
             console.log(res.data)
         }
-    }
-    catch {
+    } catch {
         console.warn('ERROR')
+    } finally {
+
     }
-    finally {
+}
+
+export const savePhotoTC = (file: PhotosType) => async (dispatch: Dispatch) => {
+    try {
+        const res = await profileAPI.savePhoto(file)
+        if (res.data.resultCode === 0) {
+            dispatch(UpdateProfilePhotoAC(res.data.data.photos))
+        }
+    } catch {
+        console.warn('ERROR')
+    } finally {
 
     }
 }
@@ -73,12 +89,15 @@ export const updateMyStatusTC = (status: string) => async (dispatch: Dispatch) =
 const ME_ADD_POST = 'ME_ADD_POST'
 const ME_SET_USER_PROFILE = 'ME_SET_USER_PROFILE'
 const ME_SET_STATUS = 'ME_SET_STATUS'
+const ME_UPDATE_PHOTO = 'ME_UPDATE_PHOTO'
 type ActionType =
     SetStatusActionType
     | AddPostActionType
     | FollowActionType
     | UnfollowActionType
     | SetUserProfileActionType
+    | UpdatePhotoActionType
+
 export type ProfileType = {
     aboutMe: string
     contacts: ContactsType
@@ -128,4 +147,8 @@ type UnfollowActionType = {
 type SetUserProfileActionType = {
     type: 'ME_SET_USER_PROFILE',
     profile: any
+}
+type UpdatePhotoActionType = {
+    type: 'ME_UPDATE_PHOTO',
+    file: PhotosType
 }
