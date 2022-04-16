@@ -1,0 +1,33 @@
+.msgLeft{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: flex-end;
+    margin: 0 0 0.8rem 0;
+}
+.msgAvatarFriend{
+    height: 50px;
+    width: 50px;
+    margin: 0 0.5rem 0 0 ;
+}
+.textMsg{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    position: relative;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+    background-color: var(--backgroundColor);
+    padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+    border-radius: var(--borderRadiusCustom) var(--borderRadiusCustom) var(--borderRadiusCustom) 0;
+    max-width: 60%;
+}
+
+.timeMsg{
+    background-color: var(--backgroundColor);
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--grayColor);
+    border-radius: 0 var(--borderRadiusCustom);
+}

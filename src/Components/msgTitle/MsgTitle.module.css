@@ -1,0 +1,64 @@
+
+.friendMsgTitle{
+    border-radius: var(--borderRadiusCustom);
+    padding: 0.6rem 0.4rem;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    background-color: var(--backgroundBox);
+    box-shadow: var(--shadow);
+    margin: 0 0 0.5rem 0;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.friendMsgTitle:hover{
+    background-color: var(--generalColor);
+}
+.friendMsgTitle:hover div {
+    color: white;
+}
+.friendMsgTitle_ACTIVE{
+    border-radius: var(--borderRadiusCustom);
+    padding: 0.6rem 0.4rem;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    background-color: var(--generalColor);
+    box-shadow: var(--shadow);
+    margin: 0 0 0.5rem 0;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.friendMsgTitle_ACTIVE div {
+    color: white;
+}
+.avatarBoxMsg{
+    width: 55px;
+}
+.titleMsgNameAndTextMsg{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    transition: 0.2s;
+}
+.textMsgTitle{
+    font-weight: 500;
+    font-size: 23px;
+    line-height: 29px;
+    color: var(--secondColor);
+    transition: 0.2s;
+}
+.timeMsgTitleFriend{
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 29px;
+    /*margin: 0 0 0 4.5rem;*/
+    color: var(--grayColor);
+    transition: 0.2s;
+}
+.titleMsgUserName{
+    font-weight: 600;
+    font-size: 30px;
+    transition: 0.2s;
+}

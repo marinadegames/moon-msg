@@ -1,0 +1,137 @@
+.Header {
+    padding: 1.2rem 0 0 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--secondColor);
+}
+
+.logotype {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin: 0 0.8rem 0 0;
+    transition: ease-in-out 0.5s;
+}
+
+.logotype:hover {
+    margin: 0 2rem 0 0;
+    transform: scale(1.3) rotate(360deg);
+
+}
+
+.siteTitle {
+    text-decoration: none;
+    color: var(--secondColor);
+}
+
+.flexBoxHeaderLeft {
+    display: flex;
+    align-items: center;
+    width: 25%;
+}
+
+.flexBoxHeaderCenter {
+    display: flex;
+    align-items: center;
+    width: 35%;
+}
+
+.flexBoxHeaderCenter svg {
+    cursor: pointer;
+    transition: ease-in-out 0.5s;
+    margin: 0 0.8rem 0 0;
+}
+
+.flexBoxHeaderCenter svg:hover {
+
+    transform: scale(1.3) rotate(-360deg);
+}
+
+.flexBoxHeaderRight {
+    display: flex;
+    justify-content: flex-start;
+    /*align-items: center;*/
+    width: 25%;
+
+}
+
+.flexBoxHeaderRight input, select {
+    padding: 0 0 0 1rem;
+    background: #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 2px solid var(--generalColor);
+    color: var(--generalColor);
+    height: 60px;
+    font-weight: 600;
+    font-size: 25px;
+    outline: none;
+}
+
+.flexBoxHeaderRight input::placeholder {
+    color: var(--generalColor);
+}
+
+.flexBoxHeaderUserLogo {
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 15%;
+    padding: 0 2.5rem 0 0;
+}
+
+.logoUser {
+    cursor: pointer;
+    /*border: 4px solid var(--generalColor);*/
+    border-radius: 100px;
+    height: 80px;
+    width: 80px;
+    transition: ease-in-out 0.2s;
+}
+
+.logoUser:hover {
+    transform: scale(1.08);
+}
+
+.login_btn {
+    background-color: white;
+    padding: 10px 20px;
+    border: 2px solid var(--generalColor);
+    border-radius: var(--borderRadiusCustom);
+    font-size: 25px;
+    color: var(--generalColor);
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.login_btn:hover {
+    background-color: var(--generalColor);
+    color: white;
+}
+
+.buttonExit {
+    margin: 0 30px 0 0;
+    border: 1px solid darkred;
+    padding: 0.3em 1.5em;
+    border-radius: 10px;
+    color: darkred;
+    cursor: pointer;
+    font-size: 25px;
+    transition: .2s ease-in-out;
+    background-color: var(--backgroundBox);
+}
+
+.buttonExit:hover {
+    background-color: darkred;
+    color: white;
+}
+
+.boxHeaderAvatarAndExit {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}

@@ -1,0 +1,73 @@
+.LeftSideBar {
+    padding: 1rem 2rem 2rem 2rem;
+    width: auto;
+    text-decoration: none;
+}
+
+.LeftSideBar a {
+    text-decoration: none;
+}
+
+.menuItem {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    border-radius: var(--borderRadiusCustom);
+    padding: 1rem 0 1rem 1.5rem;
+    margin: 0 0 0.3rem 0;
+
+    color: var(--secondColor);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    transition: ease-in-out 0.1s;
+    border: 2px solid var(--backgroundColor);
+}
+
+.menuItem img {
+    margin: 0 1rem 0 0;
+}
+
+.menuItem:hover {
+    border: 2px solid var(--generalColor);
+    color: var(--generalColor);
+    box-shadow: var(--shadow);
+
+}
+
+.menuItemACTIVE {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border: 2px solid var(--generalColor);
+    background-color: var(--generalColor);
+    box-shadow: var(--shadow);
+    border-radius: var(--borderRadiusCustom);
+    padding: 1rem 0 1rem 1.5rem;
+    margin: 0 0 0.3rem 0;
+    width: 300px;
+    color: white;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 30px;
+}
+
+.menuItemACTIVE img {
+    margin: 0 1rem 0 0;
+}
+
+.boxVerticalLineActive {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.verticalLineActive {
+    margin: 0 1.5rem;
+    border-radius: 50px;
+    background-color: white;
+    height: 50px;
+    width: 12px;
+}
