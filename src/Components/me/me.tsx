@@ -9,7 +9,6 @@ import {rootReducerType} from "../../Redux/store";
 import {ProfileType} from "../../Redux/profileReducer";
 
 export const Me = () => {
-
     const isAuth = useSelector<rootReducerType, boolean>(state => state.auth.isAuth)
     const myProfile = useSelector<rootReducerType, ProfileType | null>(state => state.meProfilePage.profile)
     if (!isAuth) return <Navigate to={RouteNames.LOGIN}/>

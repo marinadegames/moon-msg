@@ -15,7 +15,7 @@ export const ProfileInfo = memo(({profile, status}: PropsType) => {
     if (!profile) return <Spinner isLoading={true} size={'300'} style={{width: '100%', display: 'flex', justifyContent: 'center'}}/>
 
     return (
-        <div style={{margin:'1rem 0 0 0'}}>
+        <div style={{margin: '1rem 0 0 0'}}>
             <div className={s.profileInform}>
                 <div className={s.profileInfoLeft}>
                     <div className={s.userLogo}>
@@ -30,15 +30,31 @@ export const ProfileInfo = memo(({profile, status}: PropsType) => {
                         <div className={s.userWebsite}>
                             <a href={`mailto:${profile.contacts.website}`}>{profile.contacts.website}</a>
                         </div>
-                        {profile.lookingForAJob &&
-                            <div className={s.lookingForAJob}>
-                                Looking for job in the moment
-                            </div>}
+                        <div className={s.containerText}>
+                            <b>Looking for job:</b> {profile.lookingForAJob ? 'yes' : 'no'}
+                        </div>
+                        <div className={s.containerText}>
+                            <b>My skills:</b> {profile.lookingForAJobDescription}
+                        </div>
+                        <div className={s.containerText}>
+                            <b>About me:</b> {profile.aboutMe}
+                        </div>
+                        <br/>
+                        <div className={s.containerText}>
+                            <b>Contacts:</b> <br/>
+                            {Object.entries(profile.contacts).map(c => {
+                                if (c[1]) {
+                                    return (
+                                        <div><b>{c[0]}</b>: {c[1]}</div>
+                                    )
+                                }
+                            })}
+                        </div>
                     </div>
 
                 </div>
                 <div className={s.profileInfoRight}>
-                    {status}
+                    <b>Status:</b> <div>{status}</div>
                 </div>
             </div>
         </div>

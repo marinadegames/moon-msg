@@ -4,20 +4,19 @@
     font-size: 36px;
     display: flex;
     align-items: center;
-    /*border: 1px solid black;*/
     padding: 1rem 0;
     color: var(--secondColor);
 }
 
 .profileInform {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: row;
     border-radius: var(--borderRadiusCustom);
-    height: 220px;
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../../assets/walp.jpg");
     background-size: cover;
-    padding: 1rem;
+    padding: 2rem;
+    height: 400px;
 }
 
 .profileInform:after {
@@ -28,7 +27,7 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    width: 50%;
+    width: 70%;
 }
 
 .profileInfoRight {
@@ -45,12 +44,6 @@
     height: 200px;
     width: 200px;
     padding: 10px 30px 10px 10px;
-
-    transition: ease-in-out 0.2s;
-}
-
-.userLogo:hover {
-    transform: scale(1.05);
 }
 
 .avatarUser {
@@ -95,11 +88,11 @@
     font-size: 23px;
 }
 
-.lookingForAJob {
+.containerText {
     color: white;
     font-style: normal;
     font-weight: normal;
-    font-size: 30px;
+    font-size: 23px;
 }
 
 .userWebsite {

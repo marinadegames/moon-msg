@@ -11,17 +11,23 @@
 
 .profileInform {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: row;
     border-radius: var(--borderRadiusCustom);
-    height: 280px;
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../../assets/walp.jpg");
     background-size: cover;
-    padding: 1rem;
+    padding: 2rem;
+    height: 400px;
 }
 
 .profileInform:after {
     background: rgba(0, 0, 0, 1.2);
+}
+.containerText {
+    color: white;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 23px;
 }
 
 .profileInfoLeft {
@@ -32,7 +38,7 @@
 }
 
 .profileInfoRight {
-    font-size: 25px;
+    font-size: 20px;
     color: white;
     width: 50%;
 }
