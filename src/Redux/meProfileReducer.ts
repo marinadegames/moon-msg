@@ -1,5 +1,8 @@
 import {Dispatch} from "redux";
 import {profileAPI} from "../api/API";
+import {Navigate} from "react-router-dom";
+import {Profile} from "../Components/profile/Profile";
+import {getUsersTC} from "./usersReducer";
 
 const initialState: InitStateType = {
     posts: [],
@@ -44,7 +47,7 @@ export const setMeProfileTC = (userId: number) => async (dispatch: Dispatch) => 
         const res = await profileAPI.getProfile(userId)
         dispatch(SetMeProfileAC(res))
     } catch {
-        console.warn('ERROR')
+        console.warn('ERROR setMeProfileTC')
     } finally {
 
     }
@@ -83,6 +86,21 @@ export const savePhotoTC = (file: PhotosType) => async (dispatch: Dispatch) => {
         console.warn('ERROR')
     } finally {
 
+    }
+}
+
+export const saveProfileTC = (profile: any) => async (dispatch: Dispatch, getState: any) => {
+    try {
+        const userId = getState().profile.userId
+        const res = await profileAPI.saveProfile(profile)
+
+        if (res.data.resultCode === 0) {
+            console.log(res)
+            setMeProfileTC(userId)
+        }
+    } catch {
+        console.warn('ERROR saveProfileTC')
+    } finally {
     }
 }
 

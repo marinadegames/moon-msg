@@ -78,7 +78,7 @@ export type ProfileType = {
     userId: number
     photos: PhotosType
 }
-type ContactsType = {
+export type ContactsType = {
     facebook: string | null
     website: string | null
     vk: string | null

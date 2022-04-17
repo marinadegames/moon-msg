@@ -9,9 +9,10 @@ import {Anonymous} from "../../Utils/BigHeadsFile";
 
 type PropsType = {
     profile: ProfileType
+    changeProfileEditMode: () => void
 }
 
-export const MeInfo = memo(({profile}: PropsType) => {
+export const MeInfo = memo(({profile, changeProfileEditMode}: PropsType) => {
 
     const [statusText, setStatusText] = useState<string>('')
     const [editMode, setEditMode] = useState<boolean>(false)
@@ -36,6 +37,10 @@ export const MeInfo = memo(({profile}: PropsType) => {
         dispatch((savePhotoTC(e.target.files[0])))
     }
 
+    const changeEditModeProfileCallback = () => {
+        changeProfileEditMode()
+    }
+
     return (
         <div style={{margin: '1rem 0 0 0'}}>
             <div className={s.profileInform}>
@@ -53,6 +58,7 @@ export const MeInfo = memo(({profile}: PropsType) => {
                                 <span className={s.input__file_button_text}>Change photo</span>
                             </label>
                         </div>
+                        <button className={s.editProfileButton} onClick={changeEditModeProfileCallback}>Edit profile</button>
                     </div>
                     <div className={s.profileInfoTextBox}>
                         <div className={s.userName}>{profile.fullName}</div>
@@ -93,8 +99,9 @@ export const MeInfo = memo(({profile}: PropsType) => {
                                    onChange={e => changeInputValue(e.currentTarget.value)}/>
                             <button className={s.setStatusButton} style={{margin: '10px 0 0 0'}} onClick={updateStatusHandler}>save</button>
                         </>}
-                    {!editMode && <button onClick={changeEditMode} className={s.setStatusButton}>Edit</button>}
+                    {!editMode && <button onClick={changeEditMode} className={s.setStatusButton}>Edit status</button>}
                 </div>
+
             </div>
         </div>
     )

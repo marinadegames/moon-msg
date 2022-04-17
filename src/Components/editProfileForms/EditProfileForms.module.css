@@ -1,0 +1,86 @@
+.editProfileTitle {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.profileEditBox {
+    color: var(--secondColor);
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin: 2rem 0 0 0;
+}
+
+.element {
+    margin: 10px 0 10px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 28px;
+}
+
+.inputElement {
+    width: 400px;
+    outline: none;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 10px;
+    height: 20px;
+    margin: 0 0 0 20px;
+    border-radius: var(--borderRadiusCustom);
+    border: 2px solid var(--generalColor);
+    color: var(--generalColor);
+}
+
+.checkboxElement {
+    cursor: pointer;
+    margin: 0 0 0 20px;
+    transform: scale(1.8);
+}
+
+.elementContacts {
+    margin: 10px 0 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 28px;
+}
+
+.elementCont {
+    margin: 10px 0;
+}
+
+.containerLeft {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.containerRight {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.main {
+    display: flex;
+    flex-direction: row;
+}
+
+.buttonSaveProfile {
+    float: right;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 7px 10px;
+    cursor: pointer;
+    background: white;
+    border-radius: var(--borderRadiusCustom);
+    border: 2px solid var(--generalColor);
+    color: var(--generalColor);
+    transition: 0.2s;
+    width: 200px;
+}
+
+.buttonSaveProfile:hover{
+    background-color: var(--generalColor);
+    color: white;
+}

@@ -1,9 +1,7 @@
 .boxPosts{
-
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-
     margin: 1rem 0 0 0;
 }
 .boxPostsTitle{
