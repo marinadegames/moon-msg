@@ -62,7 +62,6 @@ export const MeInfo = memo(({profile, changeProfileEditMode}: PropsType) => {
                     </div>
                     <div className={s.profileInfoTextBox}>
                         <div className={s.userName}>{profile.fullName}</div>
-                        <div className={s.userLocation}>{profile.contacts.mainLink}</div>
                         <div className={s.userLocation}>{profile.contacts.github}</div>
                         <div className={s.userLocation}>{profile.contacts.youtube}</div>
                         <div className={s.userWebsite}>

@@ -1,8 +1,8 @@
 import s from './EditProfileForms.module.css'
-import React, {memo, useCallback, useEffect, useState} from "react";
+import React, {memo} from "react";
 import {ProfileType, saveProfileTC} from "../../Redux/meProfileReducer";
-import {SocMediaItem} from "./socMediaItem";
 import {useDispatch} from "react-redux";
+import {useFormik} from "formik";
 
 type PropsType = {
     profile: ProfileType
@@ -11,125 +11,61 @@ type PropsType = {
 export const EditProfileForms = memo(({profile, changeProfileEditMode}: PropsType) => {
 
     const dispatch = useDispatch()
-    const [fullName, setFullName] = useState<string>('')
-    const [lookingForAJob, setLookingForAJob] = useState<boolean>(false)
-    const [lookingForAJobDescription, setLookingForAJobDescription] = useState<string>('')
-    const [aboutMe, setAboutMe] = useState<string>('')
 
-    const [github, setGithub] = useState<string>('')
-    const [vk, setVk] = useState<string>('')
-    const [facebook, setFacebook] = useState<string>('')
-    const [instagram, setInstagram] = useState<string>('')
-    const [twitter, setTwitter] = useState<string>('')
-    const [website, setWebsite] = useState<string>('')
-    const [youtube, setYoutube] = useState<string>('')
-    const [mainLink, setMainLink] = useState<string>('')
-
-    useEffect(() => {
-        if (profile) {
-            setFullName(profile.fullName)
-            setLookingForAJob(profile.lookingForAJob)
-            setLookingForAJobDescription(profile.lookingForAJobDescription)
-            setAboutMe(profile.aboutMe)
-            setGithub(profile.contacts.github || '')
-            setVk(profile.contacts.vk || '')
-            setFacebook(profile.contacts.facebook || '')
-            setInstagram(profile.contacts.instagram || '')
-            setTwitter(profile.contacts.twitter || '')
-            setWebsite(profile.contacts.website || '')
-            setYoutube(profile.contacts.youtube || '')
-            setMainLink(profile.contacts.mainLink || '')
-        }
-    }, [profile])
-
-    const onChangeFullName = useCallback((e: string) => {
-        setFullName(e)
-    }, [])
-    const onChangeLookingForJob = useCallback((e: boolean) => {
-        setLookingForAJob(e)
-    }, [])
-    const onChangeLookingForJobDescription = useCallback((e: string) => {
-        setLookingForAJobDescription(e)
-    }, [])
-    const onChangeAboutMe = useCallback((e: string) => {
-        setAboutMe(e)
-    }, [])
-
-    const onChangeGitHub = useCallback((e: string) => {
-        setGithub(e)
-    }, [])
-    const onChangeVk = useCallback((e: string) => {
-        setVk(e)
-    }, [])
-    const onChangeFacebook = useCallback((e: string) => {
-        setFacebook(e)
-    }, [])
-    const onChangeInstagram = useCallback((e: string) => {
-        setInstagram(e)
-    }, [])
-    const onChangeTwitter = useCallback((e: string) => {
-        setTwitter(e)
-    }, [])
-    const onChangeWebsite = useCallback((e: string) => {
-        setWebsite(e)
-    }, [])
-    const onChangeYoutube = useCallback((e: string) => {
-        setYoutube(e)
-    }, [])
-    const onChangeMainLink = useCallback((e: string) => {
-        setMainLink(e)
-    }, [])
-
-    const onSubmit = () => {
-        const profileObj = {
+    const formik = useFormik({
+        initialValues: {
             userId: profile.userId,
-            fullName,
-            lookingForAJob,
-            lookingForAJobDescription,
-            aboutMe,
+            lookingForAJob: profile.lookingForAJob,
+            lookingForAJobDescription: profile.lookingForAJobDescription,
+            fullName: profile.fullName,
+            aboutMe: profile.aboutMe,
             contacts: {
-                github,
-                vk,
-                facebook,
-                instagram,
-                twitter,
-                website,
-                youtube,
-                mainLink,
-            },
-        }
-
-        dispatch(saveProfileTC(profileObj))
-        changeProfileEditMode()
-    }
+                github: profile.contacts.github,
+                vk: profile.contacts.vk,
+                facebook: profile.contacts.facebook,
+                instagram: profile.contacts.instagram,
+                twitter: profile.contacts.twitter,
+                website: profile.contacts.website,
+                youtube: profile.contacts.youtube,
+                mainLink: profile.contacts.mainLink
+            }
+        },
+        onSubmit: values => {
+            console.log(values)
+            dispatch(saveProfileTC(values))
+            changeProfileEditMode()
+        },
+    });
 
     return (
-        <div className={s.profileEditBox}>
+        <form className={s.profileEditBox} onSubmit={formik.handleSubmit}>
             <div className={s.main}>
                 <div className={s.containerLeft}>
                     <div className={s.editProfileTitle}>Edit profile:</div>
                     <div className={s.element}>
                         <b>Full name: </b>
-                        <input value={fullName}
-                               onChange={e => onChangeFullName(e.currentTarget.value)}
+                        <input id={'fullName'}
+                               {...formik.getFieldProps('fullName')}
                                className={s.inputElement}/>
                     </div>
                     <div className={s.element}>
                         <b>Looking for job: </b>
-                        <input type={"checkbox"}
-                               onChange={e => onChangeLookingForJob(e.currentTarget.checked)}
-                               checked={lookingForAJob} className={s.checkboxElement}/>
+                        <input id={'lookingForAJob'}
+                               type={"checkbox"}
+                               checked={formik.values.lookingForAJob}
+                               onChange={formik.handleChange}
+                               className={s.checkboxElement}/>
                     </div>
                     <div className={s.element}>
                         <b>My skills: </b>
-                        <input value={lookingForAJobDescription}
-                               onChange={e => onChangeLookingForJobDescription(e.currentTarget.value)}
+                        <input id={'lookingForAJobDescription'}
+                               {...formik.getFieldProps('lookingForAJobDescription')}
                                className={s.inputElement}/>
                     </div>
                     <div className={s.element}>
                         <b>About me: </b>
-                        <input value={aboutMe}
-                               onChange={e => onChangeAboutMe(e.currentTarget.value)}
+                        <input id={'aboutMe'}
+                               {...formik.getFieldProps('aboutMe')}
                                className={s.inputElement}/>
                     </div>
                 </div>
@@ -137,20 +73,61 @@ export const EditProfileForms = memo(({profile, changeProfileEditMode}: PropsTyp
                 <div className={s.containerRight}>
                     <div className={s.editProfileTitle}>Contacts:</div>
 
-                    <SocMediaItem value={github} callback={onChangeGitHub} title={'Github'}/>
-                    <SocMediaItem value={vk} callback={onChangeVk} title={'VK'}/>
-                    <SocMediaItem value={facebook} callback={onChangeFacebook} title={'Facebook'}/>
-                    <SocMediaItem value={instagram} callback={onChangeInstagram} title={'Instagram'}/>
-                    <SocMediaItem value={twitter} callback={onChangeTwitter} title={'Twitter'}/>
-                    <SocMediaItem value={website} callback={onChangeWebsite} title={'Website'}/>
-                    <SocMediaItem value={youtube} callback={onChangeYoutube} title={'YouTube'}/>
-                    <SocMediaItem value={mainLink} callback={onChangeMainLink} title={'Main link'}/>
+                    <div className={s.element}>
+                        <b>Github: </b>
+                        <input id={'contacts.github'}
+                               {...formik.getFieldProps('contacts.github')}
+                               className={s.inputElement}/>
+                    </div>
+
+                    <div className={s.element}>
+                        <b>VK: </b>
+                        <input id={'contacts.vk'}
+                               {...formik.getFieldProps('contacts.vk')}
+                               className={s.inputElement}/>
+                    </div>
+
+                    <div className={s.element}>
+                        <b>Facebook: </b>
+                        <input id={'contacts.facebook'}
+                               {...formik.getFieldProps('contacts.facebook')}
+                               className={s.inputElement}/>
+                    </div>
+
+                    <div className={s.element}>
+                        <b>Instagram: </b>
+                        <input id={'contacts.instagram'}
+                               {...formik.getFieldProps('contacts.instagram')}
+                               className={s.inputElement}/>
+                    </div>
+                    <div className={s.element}>
+                        <b>Twitter: </b>
+                        <input id={'contacts.twitter'}
+                               {...formik.getFieldProps('contacts.twitter')}
+                               className={s.inputElement}/>
+                    </div>
+                    <div className={s.element}>
+                        <b>Website: </b>
+                        <input id={'contacts.website'}
+                               {...formik.getFieldProps('contacts.website')}
+                               className={s.inputElement}/>
+                    </div>
+                    <div className={s.element}>
+                        <b>YouTube: </b>
+                        <input id={'contacts.youtube'}
+                               {...formik.getFieldProps('contacts.youtube')}
+                               className={s.inputElement}/>
+                    </div>
+                    <div className={s.element}>
+                        <b>Main link: </b>
+                        <input id={'contacts.mainLink'}
+                               {...formik.getFieldProps('contacts.mainLink')}
+                               className={s.inputElement}/>
+                    </div>
 
                 </div>
             </div>
-
-            <button onClick={onSubmit} className={s.buttonSaveProfile}>save</button>
-
-        </div>
+            <button className={s.buttonSaveProfile}>save</button>
+        </form>
     )
 })
