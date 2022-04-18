@@ -101,6 +101,9 @@ This repository for my social network `Moon!msg`!
 👌 `v0.7.1` - `refactoring`: async\await thunks, use try\catch\finally, fix tests  
 🚀 `v0.7.2` - `set status`  
 📷 `v0.7.3` - `change` photo profile!  
+✉️ `v0.7.4` - `change` profile data  
+🛑 `v0.7.5` - add `captcha`  
+
 
 ### 🙃 Good luck for me!
 
