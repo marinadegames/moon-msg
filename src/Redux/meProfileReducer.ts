@@ -89,6 +89,7 @@ export const savePhotoTC = (file: PhotosType) => async (dispatch: Dispatch) => {
 export const saveProfileTC = (profile: any) => async (dispatch: Dispatch) => {
     try {
         const res = await profileAPI.saveProfile(profile)
+        console.log(res)
         if (res.data.resultCode === 0) {
             console.log(res)
         }
