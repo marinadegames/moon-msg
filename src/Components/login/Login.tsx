@@ -11,10 +11,12 @@ export const Login = () => {
 
     const regexEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
     const isLogged = useSelector<rootReducerType, boolean>(state => state.auth.isAuth)
+    const captcha = useSelector<rootReducerType, string | null>(state => state.auth.captcha)
     const [emailValue, setEmailValue] = useState<string>('')
     const [passwordValue, setPasswordValue] = useState<string>('')
     const [rememberMeValue, setRememberMeValue] = useState<boolean>(false)
     const [errorEmail, setErrorEmail] = useState<boolean>(false)
+    const [captchaInput, setCaptchaInput] = useState<string>('')
     const dispatch = useDispatch()
 
     const onChangeEmail = useCallback((e: string) => {
@@ -32,6 +34,10 @@ export const Login = () => {
         setRememberMeValue(e)
     }, [])
 
+    const onChangeCaptcha = useCallback((e: string) => {
+        setCaptchaInput(e)
+    }, [])
+
     const enterSend = (e: string) => {
         if (e === 'Enter') {
             sendLogin()
@@ -40,7 +46,7 @@ export const Login = () => {
 
     const sendLogin = () => {
         if (regexEmail.test(emailValue)) {
-            dispatch(loginTC(emailValue, passwordValue, rememberMeValue))
+            dispatch(loginTC(emailValue, passwordValue, rememberMeValue, captchaInput))
         }
         if (!regexEmail.test(emailValue)) {
             setErrorEmail(true)
@@ -77,6 +83,12 @@ export const Login = () => {
                     <span>Remember me</span>
                 </div>
                 {errorEmail && <h1 style={{color: 'red'}}> Incorrect email! </h1>}
+                {captcha && <div className={s.loginForm}>
+                    <img style={{width: '400px'}} alt={'captcha'} src={captcha}/>
+                    <input value={captchaInput}
+                           onChange={e => onChangeCaptcha(e.currentTarget.value)}
+                           className={s.inputLoginForm}/>
+                </div>}
             </div>
             <div>
                 <button onClick={sendLogin}
