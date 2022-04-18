@@ -62,11 +62,6 @@ export const MeInfo = memo(({profile, changeProfileEditMode}: PropsType) => {
                     </div>
                     <div className={s.profileInfoTextBox}>
                         <div className={s.userName}>{profile.fullName}</div>
-                        <div className={s.userLocation}>{profile.contacts.github}</div>
-                        <div className={s.userLocation}>{profile.contacts.youtube}</div>
-                        <div className={s.userWebsite}>
-                            <a href={`mailto:${profile.contacts.website}`}>{profile.contacts.website}</a>
-                        </div>
                         <div className={s.containerText}>
                             <b>Looking for job:</b> {profile.lookingForAJob ? 'yes' : 'no'}
                         </div>
@@ -82,7 +77,9 @@ export const MeInfo = memo(({profile, changeProfileEditMode}: PropsType) => {
                             {Object.entries(profile.contacts).map(c => {
                                 if (c[1]) {
                                     return (
-                                        <div><b>{c[0]}</b>: {c[1]}</div>
+                                        <div key={c[0].toLocaleLowerCase()}>
+                                            <b>{c[0]}</b>: <a href={`http://${c[1]}`}>{c[1]}</a>
+                                        </div>
                                     )
                                 }
                             })}

@@ -31,7 +31,6 @@ export const EditProfileForms = memo(({profile, changeProfileEditMode}: PropsTyp
             }
         },
         onSubmit: values => {
-            console.log(values)
             dispatch(saveProfileTC(values))
             changeProfileEditMode()
         },
@@ -127,7 +126,7 @@ export const EditProfileForms = memo(({profile, changeProfileEditMode}: PropsTyp
 
                 </div>
             </div>
-            <button className={s.buttonSaveProfile}>save</button>
+            <button type={'submit'} className={s.buttonSaveProfile}>save</button>
         </form>
     )
 })

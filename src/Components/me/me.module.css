@@ -29,6 +29,15 @@
     font-weight: normal;
     font-size: 23px;
 }
+.containerText a {
+    text-decoration: none;
+    color: white;
+    transition: 0.1s;
+}
+.containerText a:hover {
+    text-decoration: none;
+    color: var(--generalColor);
+}
 
 .profileInfoLeft {
     display: flex;

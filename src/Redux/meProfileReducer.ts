@@ -86,12 +86,11 @@ export const savePhotoTC = (file: PhotosType) => async (dispatch: Dispatch) => {
     }
 }
 
-export const saveProfileTC = (profile: any) => async (dispatch: Dispatch) => {
+export const saveProfileTC = (profile: any) => async (dispatch: Dispatch<any>) => {
     try {
         const res = await profileAPI.saveProfile(profile)
-        console.log(res)
         if (res.data.resultCode === 0) {
-            console.log(res)
+            dispatch(setMeProfileTC(profile.userId))
         }
     } catch {
         console.warn('ERROR saveProfileTC')

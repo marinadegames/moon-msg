@@ -14,11 +14,10 @@ const rootReducer = combineReducers({
     allMessages: dialogsReducer,
     allUsers: usersReducer,
     auth: authReducer,
-    // form: formReducer,
 })
 
 export type rootReducerType = ReturnType<typeof rootReducer>
-// export type AppDispatch = typeof store.dispatch
+export type AppDispatch = typeof store.dispatch
 
 // @ts-ignore
 const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
