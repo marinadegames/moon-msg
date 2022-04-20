@@ -20,7 +20,9 @@ export const Me = () => {
         setEditModeProfile(!editModeProfile)
     }, [editModeProfile])
 
-    if (!isAuth && myProfile) return <Navigate to={RouteNames.LOGIN}/>
+    if (!isAuth) {
+        return <Navigate to={RouteNames.LOGIN}/>
+    }
     return (
         <div>
             {!myProfile

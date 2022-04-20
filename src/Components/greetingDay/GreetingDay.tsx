@@ -25,25 +25,11 @@ export const GreetingDay = ({isAuth, login}: PropsType) => {
                     {dateHours >= 0 && dateHours < 6 && <><img className={s.iconStyle} src={nightIcon} alt={'nightIcon'}/> Good night, {login}!</>}
                 </div>
             :
-                <div>
+                <div className={s.container}>
                     <Sun/>
-                    Good morning!
+                    Hi, friend!
                 </div>
             }
         </React.Fragment>
     )
 }
-
-
-
-// <div>
-//     {dateHours >= 17 && dateHours < 0 && <> <img src={sunsetIcon} alt={'sunsetIcon'}/> Good evening, {login}!</>}
-//     {dateHours >= 0 && <><img src={nightIcon} alt={'nightIcon'}/> Good night, {login}!</>}
-//     {dateHours >= 6 && <><Sun/> Good morning, {login}!</>}
-// </div>
-//
-//
-// <div>
-//     <Sun/>
-//     Good morning!
-// </div>
