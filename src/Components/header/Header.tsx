@@ -45,7 +45,7 @@ export const Header = memo(() => {
                     <div className={s.boxHeaderAvatarAndExit}>
                         <button className={s.buttonExit} onClick={() => onClickLogout()}>exit</button>
                         {avatar !== null
-                            ? <img className={s.logoUser} src={avatar} alt={'avatar'}/>
+                            ? <NavLink to={'/me'}><img className={s.logoUser} src={avatar} alt={'avatar'}/></NavLink>
                             : <div className={s.logoUser}>{Anonymous()}</div>}
                     </div>
                     :
