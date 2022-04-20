@@ -16,7 +16,7 @@
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../../assets/walp.jpg");
     background-size: cover;
     padding: 2rem;
-    height: 400px;
+    min-height: 400px;
 }
 
 .profileInform:after {
@@ -94,7 +94,15 @@
     font-weight: normal;
     font-size: 23px;
 }
-
+.containerText a {
+    text-decoration: none;
+    color: white;
+    transition: 0.1s;
+}
+.containerText a:hover {
+    text-decoration: none;
+    color: var(--generalColor);
+}
 .userWebsite {
     color: white;
     font-style: normal;
