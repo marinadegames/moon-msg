@@ -26,7 +26,6 @@ export const App = memo(() => {
                     <LeftSideBar/>
                     <Main/>
                 </div>
-                {/*<Footer />*/}
             </div>
         );
     }

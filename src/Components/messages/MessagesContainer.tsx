@@ -4,7 +4,6 @@ import {MessagesAPIContainer} from "./MessagesAPIContainer";
 import {AllMessagesType, SendMessageAC} from "../../Redux/dialogsReducer";
 import {rootReducerType} from "../../Redux/store";
 
-
 // types
 type MapStateToPropsType = {
     isAuth: boolean | null
@@ -14,7 +13,6 @@ type MapDispatchToPropsType = {
     sendMessageAC: (text: string) => void
 }
 export type MessagesAPIComponentType = MapDispatchToPropsType & MapStateToPropsType
-
 
 //  connect
 const mapStateToProps = (state: rootReducerType) => ({

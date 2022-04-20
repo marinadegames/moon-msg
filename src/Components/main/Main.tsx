@@ -14,7 +14,6 @@ import {Me} from "../me/me";
 import {Login} from "../login/Login";
 
 export const Main = () => {
-
     return (
         <div className={s.Main}>
             <Routes>

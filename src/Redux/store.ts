@@ -6,8 +6,6 @@ import {profileReducer} from "./profileReducer";
 import { authReducer } from "./authReducer";
 import thunk from "redux-thunk";
 
-
-
 const rootReducer = combineReducers({
     profilePage: profileReducer,
     meProfilePage: meProfileReducer,

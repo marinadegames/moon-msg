@@ -7,7 +7,7 @@ import {CardUser} from "./cardUser/CardUser";
 import {Navigate} from "react-router-dom";
 import {RouteNames} from "../../routes";
 import {Spinner} from "../otherComponents/Spinner";
-import { rootReducerType } from "../../Redux/store";
+import {rootReducerType} from "../../Redux/store";
 import {getUsersTC, UserType} from "../../Redux/usersReducer";
 
 // component
@@ -20,7 +20,6 @@ export const Friends = () => {
     const users = useSelector<rootReducerType, UserType[]>(state => state.allUsers.users)
     const followingInProgress = useSelector<rootReducerType, number[]>(state => state.allUsers.followingInProgress)
     const isAuth = useSelector<rootReducerType, boolean>(state => state.auth.isAuth)
-
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -45,11 +44,6 @@ export const Friends = () => {
                         currentPage={currentPage}
                         setCurrentPageHandler={setCurrentPageHandler}
             />
-
-            {/*todo: =>*/}
-            {/*<div className={s.flexBoxHeaderRight}>*/}
-            {/*    <input placeholder={'Search'} type={'search'}/>*/}
-            {/*</div>*/}
 
             {isFetching
                 ? <Spinner isLoading={isAuth} size={'300'} style={{width: '100%', display: 'flex', justifyContent: 'center'}}/>
