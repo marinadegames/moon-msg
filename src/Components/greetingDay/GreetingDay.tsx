@@ -7,7 +7,7 @@ import s from './GreetingDay.module.css'
 import sunIcon from '../../assets/sun.svg'
 
 type PropsType = {
-    isAuth?: boolean
+    isAuth: boolean
     login: string | null
 }
 export const GreetingDay = ({isAuth, login}: PropsType) => {
@@ -15,7 +15,7 @@ export const GreetingDay = ({isAuth, login}: PropsType) => {
     const dateHours = new Date().getHours()
 
     return (
-        <React.Fragment>
+        <>
             {isAuth
             ?
                 <div className={s.container}>
@@ -30,6 +30,6 @@ export const GreetingDay = ({isAuth, login}: PropsType) => {
                     Hi, friend!
                 </div>
             }
-        </React.Fragment>
+        </>
     )
 }

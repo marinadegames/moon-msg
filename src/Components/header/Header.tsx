@@ -4,10 +4,10 @@ import s from './Header.module.css'
 import moon from '../../assets/moon.png'
 import {NavLink} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {GreetingDay} from "../greetingDay/GreetingDay";
 import {rootReducerType} from "../../Redux/store";
 import {logoutTC} from "../../Redux/authReducer";
 import {Anonymous} from "../../Utils/BigHeadsFile";
+import {GreetingDay} from "../greetingDay/GreetingDay";
 
 
 // components
@@ -21,6 +21,8 @@ export const Header = memo(() => {
     const onClickLogout = () => {
         dispatch(logoutTC())
     }
+
+    console.log(isAuth, login)
 
     // return
     return (

@@ -10,12 +10,17 @@
 }
 
 .homeMain {
+    color: var(--generalColor);
     display: flex;
-    align-items: center;
-    flex-direction: row;
-    border: 1px solid red;
+    align-items: start;
+    flex-direction: column;
     border-radius: var(--borderRadiusCustom);
-    height: 220px;
     background-size: cover;
-    padding: 1rem;
+    padding: 1rem 0 0 0;
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 20px 0 0 0;
 }
