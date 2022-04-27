@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/moon-msg/static/css/main.dc957617.css",
-    "main.js": "/moon-msg/static/js/main.e16cb7de.js",
+    "main.js": "/moon-msg/static/js/main.88c902b4.js",
     "static/media/walp.jpg": "/moon-msg/static/media/walp.287261c4ba872b189cf7.jpg",
     "static/media/sun.svg": "/moon-msg/static/media/sun.23b34846f456aa14333130d35160070e.svg",
     "index.html": "/moon-msg/index.html",
     "main.dc957617.css.map": "/moon-msg/static/css/main.dc957617.css.map",
-    "main.e16cb7de.js.map": "/moon-msg/static/js/main.e16cb7de.js.map"
+    "main.88c902b4.js.map": "/moon-msg/static/js/main.88c902b4.js.map"
   },
   "entrypoints": [
     "static/css/main.dc957617.css",
-    "static/js/main.e16cb7de.js"
+    "static/js/main.88c902b4.js"
   ]
 }
