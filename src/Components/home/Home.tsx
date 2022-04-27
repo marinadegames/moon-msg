@@ -16,7 +16,6 @@ export const Home = () => {
     const myProfile = useSelector<rootReducerType, ProfileType | null>(state => state.meProfilePage.profile)
     const totalUsersCount = useSelector<rootReducerType, number>(state => state.allUsers.totalUsersCount)
 
-    const isFetching = useSelector<rootReducerType, boolean>(state => state.allUsers.isFetching)
     const users = useSelector<rootReducerType, UserType[]>(state => state.allUsers.users)
     const followingInProgress = useSelector<rootReducerType, number[]>(state => state.allUsers.followingInProgress)
     const isAuth = useSelector<rootReducerType, boolean>(state => state.auth.isAuth)
@@ -26,7 +25,7 @@ export const Home = () => {
         if (id) {
             dispatch(getUsersTC(1, 10))
         }
-    }, [id, isFetching, dispatch])
+    }, [id, dispatch])
 
     if (!isAuth) {
         return <Navigate to={RouteNames.LOGIN}/>
