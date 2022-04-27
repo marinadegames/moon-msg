@@ -36,11 +36,11 @@ export const ProfileInfo = memo(({profile, status}: PropsType) => {
                         <br/>
                         <div className={s.containerText}>
                             <b>Contacts:</b> <br/>
-                            {Object.entries(profile.contacts).map(c => {
+                            {Object.entries(profile.contacts).map( (c) => {
                                 if (c[1]) {
                                     return (
                                         <div key={c[0]}>
-                                            <b><a href={`http://${c[1]}`}>{c[0]}</a></b>: {c[1]}
+                                            <b><span >{c[0]}</span></b>: <a href={`http://${c[1]}`}>{c[1]}</a>
                                         </div>
                                     )
                                 }

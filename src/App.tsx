@@ -1,5 +1,5 @@
 import {memo, useEffect} from "react"
-import {useDispatch, useSelector } from "react-redux"
+import {useDispatch, useSelector} from "react-redux"
 import {rootReducerType} from "./Redux/store";
 import {getMyStatusTC, setMeProfileTC} from "./Redux/meProfileReducer";
 import {Header} from "./Components/header/Header";
@@ -11,6 +11,7 @@ import s from './App.module.css'
 export const App = memo(() => {
         const myId = useSelector<rootReducerType, number | null>(state => state.auth.id)
         const dispatch = useDispatch()
+
         useEffect(() => {
             dispatch(getAuthUserDataTC())
             if (myId) {
